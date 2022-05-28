@@ -30,10 +30,26 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // image compear
+        wp_register_style(
+            'twentytwenty-style',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/twentytwenty.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
-
+    // script register 
     public static function frontend_scripts_register()
     {
+        // Sharer JS
+        wp_register_script(
+            'imagesloaded',
+            MAGICAL_ADDON_ASSETS . 'js/images-loaded.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
         // Sharer JS
         wp_register_script(
             'sharer-js',
@@ -61,6 +77,21 @@ class mgAssetsManagement
             'listtopie-active',
             MAGICAL_ADDON_ASSETS . 'widget-assets/pie-chart/listtopie-active.js',
             ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            false
+        );
+
+        wp_register_script(
+            'event-move',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.event.move.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            false
+        );
+        wp_register_script(
+            'twentytwenty',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.twentytwenty.js',
+            ['jquery', 'event-move'],
             MAGICAL_ADDON_VERSION,
             false
         );
