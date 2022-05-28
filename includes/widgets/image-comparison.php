@@ -84,10 +84,9 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	public function get_script_depends()
 	{
 		return [
-			'jquery-event-move',
+			'event-move',
 			'twentytwenty',
 			'imagesloaded',
-			'powerpack-frontend',
 		];
 	}
 
@@ -103,7 +102,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	public function get_style_depends()
 	{
 		return [
-			'pp-twentytwenty',
+			'twentytwenty-style',
 		];
 	}
 
@@ -121,7 +120,6 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->register_content_before_image_controls();
 		$this->register_content_after_image_controls();
 		$this->register_content_settings_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_overlay_controls();
@@ -287,6 +285,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			'overlay',
 			[
 				'label'             => __('Overlay', 'powerpack'),
+				'description'             => __('overlay show in hover', 'powerpack'),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'yes',
 				'label_on'          => __('Show', 'powerpack'),
@@ -298,43 +297,6 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->end_controls_section();
 	}
 
-	protected function register_content_help_docs_controls()
-	{
-
-		$help_docs = PP_Config::get_widget_help_links('Image_Comparison');
-
-		if (!empty($help_docs)) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 1.4.8
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => __('Help Docs', 'powerpack'),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ($help_docs as $hd_title => $hd_link) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf('%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>'),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	STYLE TAB
@@ -596,6 +558,9 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			[
 				'label'             => __('Label', 'powerpack'),
 				'tab'               => Controls_Manager::TAB_STYLE,
+				'condition'             => [
+					'overlay'  => 'yes',
+				],
 			]
 		);
 
@@ -624,6 +589,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 				'condition'             => [
 					'orientation'  => 'horizontal',
 				],
+
 			]
 		);
 
@@ -849,8 +815,8 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		];
 
 		$this->add_render_attribute('image-comparison', [
-			'class'         => 'pp-image-comparison',
-			'id'            => 'pp-image-comparison-' . esc_attr($this->get_id()),
+			'class'         => 'mg-image-comparison',
+			'id'            => 'mg-image-comparison-' . esc_attr($this->get_id()),
 			'data-settings' => wp_json_encode($widget_options),
 		]);
 ?>
@@ -879,7 +845,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			endif;
 			?>
 		</div>
-	<?php
+<?php
 	}
 
 	/**
@@ -890,7 +856,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	 * @since 2.3.2
 	 * @access protected
 	 */
-	protected function content_template()
+	/*	protected function content_template()
 	{
 	?>
 		<# var visible_ratio=( settings.visible_ratio.size !='' ) ? settings.visible_ratio.size : '0.5' ; var slider_on_hover=( settings.move_slider=='mouse_move' ) ? true : false; var slider_with_handle=( settings.move_slider=='drag' ) ? true : false; var slider_with_click=( settings.move_slider=='mouse_click' ) ? true : false; var no_overlay=( settings.overlay=='yes' ) ? false : true; #>
@@ -906,5 +872,5 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 									<# } #>
 			</div>
 	<?php
-	}
+	}*/
 }

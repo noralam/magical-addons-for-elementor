@@ -113,6 +113,10 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/piechart-widget.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_AddonPieChart());
 		}
+		//if (mg_get_addons_option('mg_piechart', 'on') == 'on') {
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-comparison.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgComparison());
+		//}
 
 
 
