@@ -1,0 +1,141 @@
+.card-header.mg-accordion-title {
+    padding: 0;
+    position: relative;
+    background: transparent;
+}
+
+.mg-curve-shape .card {
+    border: none;
+    box-shadow: inherit;
+}
+.mg-curve-shape .mgac-content {
+    width: 90%;
+    margin: 0 auto 8px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); 
+}
+.mg-curve-shape .mgrc-title {
+    border-radius: 20px 20px 0 0;
+}
+.eacolor .card-header.mg-accordion-title .mgrc-title {
+    background: linear-gradient(190deg, #130D6F 0%, #952598 80%);
+    color: #fff;
+}
+.mg-accordion-title h2{
+    font-size: 16px;
+    font-weight: 500;
+    margin:0;
+    color:#fff;
+}
+
+.mg-accordion-title .mgrc-title {
+    width: 100%;
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+}
+.mgc-icons {
+    display: block;
+    position: absolute;
+    top: 0;
+    min-width: 40px;
+    height: 100%;
+}
+.mgc-icons.mgc-right-icon {
+    right: 20px;
+    left: auto;
+}
+
+.mgc-icons.mgc-left-icon {
+    left: 20px;
+    right: auto;
+}
+.mgc-icon {
+    position: absolute;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    min-width: 30px;
+    min-height: 20px;
+}
+.mgc-left-icon .mgc-icon {
+    position: absolute;
+    left: 0;
+    right: auto;
+}
+.mg-box-icon .mgc-icons {
+    box-shadow: 0 1px 6px 0 rgba(255,255,255,0.68)
+}
+
+.mgc-icon i {
+    position: relative;
+    top: 45%;
+    transform: translateY(-55%);
+}
+
+ .mgrc-title.collapsed .mgc-close {
+    opacity: 1;
+}
+.mgrc-title .mgc-close {
+    opacity: 0;
+    transition: 0.2s
+}
+.mgrc-title.collapsed .mgc-open {
+    opacity: 0;
+}
+.mgrc-title .mgc-open {
+    opacity: 1;
+    transition: 0.2s
+} 
+.mgrc-item-right-right .mgrc-title {
+    padding-right: 50px;
+} 
+.mgrc-item-left-left .mgrc-title {
+    padding-left: 50px;
+}
+
+/*mg-curve-shape*/
+
+.mg-side-curve .mgrc-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.mg-side-curve .mgrc-title:before {
+    position: absolute;
+    top: -18px;
+    left: 55px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    content: "";
+    transform: rotate(45deg);
+}
+
+.card-body.mgac-content.mgac-effect1 {
+    transform: rotateY(90deg);
+    transition: 0.5s;
+}
+
+.show .card-body.mgac-content.mgac-effect1 {
+    transform: rotateY(0);
+}
+.card-body.mgac-content.mgac-effect2 {
+    transform: rotateX(90deg);
+    transition: 0.5s;
+}
+
+.show .card-body.mgac-content.mgac-effect2 {
+    transform: rotateX(0);
+}
+.card-body.mgac-content.mgac-effect3 {
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.show .card-body.mgac-content.mgac-effect3 {
+    transform: scale(1);
+}

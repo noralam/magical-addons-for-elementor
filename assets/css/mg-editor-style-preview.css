@@ -1,0 +1,64 @@
+
+/* Animation property */
+.elementor-add-section-area-button.mg-tmbtn {
+    animation: wiggle 2s linear infinite, gradient 15s ease infinite;
+    background: linear-gradient(-45deg, #000000, #c40e54, #068dbe, #018365);
+    background-size: 400% 400%;
+    color: #fff;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+
+    0%,
+    7% {
+        transform: rotateZ(0);
+    }
+
+    15% {
+        transform: rotateZ(-15deg);
+    }
+
+    20% {
+        transform: rotateZ(10deg);
+    }
+
+    25% {
+        transform: rotateZ(-10deg);
+    }
+
+    30% {
+        transform: rotateZ(6deg);
+    }
+
+    35% {
+        transform: rotateZ(-4deg);
+    }
+
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.elementor-add-section-area-button.mg-tmbtn:hover i {
+    transform: scale(1.1);
+}
+
+
+.elementor-add-section-area-button.mg-tmbtn i {
+    transition: 0.5s;
+}
