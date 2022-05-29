@@ -46,7 +46,7 @@ class MgProgressbar extends \Elementor\Widget_Base
 	 */
 	public function get_icon()
 	{
-		return 'fas fa-spinner';
+		return 'eicon-form-vertical';
 	}
 
 	public function get_keywords()
