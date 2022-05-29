@@ -16,7 +16,7 @@ class mgAssetsManagement
     {
         add_action('elementor/frontend/after_enqueue_styles', [__CLASS__, 'frontend_style_register']);
 
-        //  add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_scripts_register']);
+        //add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_scripts_register']);
         add_action("elementor/frontend/after_enqueue_scripts", [__CLASS__, 'frontend_scripts_register']);
     }
 
@@ -34,6 +34,14 @@ class mgAssetsManagement
         wp_register_style(
             'twentytwenty-style',
             MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/twentytwenty.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // image compear
+        wp_register_style(
+            'mg-imgaccordion',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/accordion/img-accordion.css',
             [],
             MAGICAL_ADDON_VERSION,
             'all'
@@ -86,14 +94,21 @@ class mgAssetsManagement
             MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.event.move.js',
             ['jquery'],
             MAGICAL_ADDON_VERSION,
-            false
+            true
         );
         wp_register_script(
             'twentytwenty',
             MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.twentytwenty.js',
             ['jquery', 'event-move'],
             MAGICAL_ADDON_VERSION,
-            false
+            true
+        );
+        wp_register_script(
+            'mg-image-accordion',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/accordion/mg-image-accordion.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
         );
     }
 

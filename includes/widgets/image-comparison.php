@@ -73,6 +73,20 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * Retrieve the list of categories the Blank widget belongs to.
+	 *
+	 * @return array Widget categories.
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 */
+	public function get_categories()
+	{
+		return ['magical'];
+	}
+	/**
 	 * Retrieve the list of scripts the image comparison widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -86,6 +100,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		return [
 			'event-move',
 			'twentytwenty',
+			'twenty-active',
 			'imagesloaded',
 		];
 	}
@@ -544,6 +559,24 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 				],
 			]
 		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'              => 'divider_border',
+				'label'             => __('Border', 'powerpack'),
+				'placeholder'       => '1px',
+				'default'           => '1px',
+				'selector'          => '{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after',
+				'separator'         => 'before',
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'                  => 'divider_box_shadow',
+				'selector'              => '{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after',
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -820,11 +853,19 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			'data-settings' => wp_json_encode($widget_options),
 		]);
 ?>
+
 		<div <?php echo wp_kses_post($this->get_render_attribute_string('image-comparison')); ?>>
 			<?php
-			if (!empty($settings['before_image']['url'])) :
 
-				$this->add_render_attribute('before-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['before_image']['id'], 'before_image', $settings));
+
+			if (!empty($settings['before_image']['url'])) :
+				if ($settings['before_image']['id']) {
+					$this->add_render_attribute('before-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['before_image']['id'], 'before_image', $settings));
+				} else {
+					$this->add_render_attribute('before-image', 'src', $settings['before_image']['url']);
+				}
+
+
 				$this->add_render_attribute('before-image', 'alt', Control_Media::get_image_alt($settings['before_image']));
 				$this->add_render_attribute('before-image', 'title', Control_Media::get_image_title($settings['before_image']));
 				$this->add_render_attribute('before-image', 'class', 'pp-before-img');
@@ -834,8 +875,12 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			endif;
 
 			if (!empty($settings['after_image']['url'])) :
+				if ($settings['after_image']['id']) {
+					$this->add_render_attribute('after-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['after_image']['id'], 'after_image', $settings));
+				} else {
+					$this->add_render_attribute('after-image', 'src', $settings['after_image']['url']);
+				}
 
-				$this->add_render_attribute('after-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['after_image']['id'], 'after_image', $settings));
 				$this->add_render_attribute('after-image', 'alt', Control_Media::get_image_alt($settings['after_image']));
 				$this->add_render_attribute('after-image', 'title', Control_Media::get_image_title($settings['after_image']));
 				$this->add_render_attribute('after-image', 'class', 'pp-after-img');
