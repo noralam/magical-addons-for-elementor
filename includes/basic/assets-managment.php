@@ -54,6 +54,14 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // image scroll
+        wp_register_style(
+            'mg-info-list',
+            MAGICAL_ADDON_ASSETS . 'css/info-list.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
     // script register 
     public static function frontend_scripts_register()
