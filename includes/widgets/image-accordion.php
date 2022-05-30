@@ -133,7 +133,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_items',
 			[
-				'label'                 => esc_html__('Items', 'powerpack'),
+				'label'                 => esc_html__('Items', 'magical-addons-for-elementor'),
 			]
 		);
 
@@ -141,15 +141,15 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 
 		$repeater->start_controls_tabs('image_accordion_tabs');
 
-		$repeater->start_controls_tab('tab_content', ['label' => __('Content', 'powerpack')]);
+		$repeater->start_controls_tab('tab_content', ['label' => __('Content', 'magical-addons-for-elementor')]);
 
 		$repeater->add_control(
 			'title',
 			[
-				'label'                 => esc_html__('Title', 'powerpack'),
+				'label'                 => esc_html__('Title', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
-				'default'               => esc_html__('Accordion Title', 'powerpack'),
+				'default'               => esc_html__('Accordion Title', 'magical-addons-for-elementor'),
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -159,10 +159,10 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$repeater->add_control(
 			'description',
 			[
-				'label'                 => esc_html__('Description', 'powerpack'),
+				'label'                 => esc_html__('Description', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::WYSIWYG,
 				'label_block'           => true,
-				'default'               => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack'),
+				'default'               => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'magical-addons-for-elementor'),
 				'dynamic'               => [
 					'active'   => true,
 				],
@@ -171,12 +171,12 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab('tab_image', ['label' => __('Image', 'powerpack')]);
+		$repeater->start_controls_tab('tab_image', ['label' => __('Image', 'magical-addons-for-elementor')]);
 
 		$repeater->add_control(
 			'image',
 			[
-				'label'                 => esc_html__('Choose Image', 'powerpack'),
+				'label'                 => esc_html__('Choose Image', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::MEDIA,
 				'label_block'           => true,
 				'dynamic'               => [
@@ -190,16 +190,16 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab('tab_link', ['label' => __('Link', 'powerpack')]);
+		$repeater->start_controls_tab('tab_link', ['label' => __('Link', 'magical-addons-for-elementor')]);
 
 		$repeater->add_control(
 			'show_button',
 			[
-				'label'                 => __('Show Button', 'powerpack'),
+				'label'                 => __('Show Button', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SWITCHER,
 				'default'               => '',
-				'label_on'              => __('Yes', 'powerpack'),
-				'label_off'             => __('No', 'powerpack'),
+				'label_on'              => __('Yes', 'magical-addons-for-elementor'),
+				'label_off'             => __('No', 'magical-addons-for-elementor'),
 				'return_value'          => 'yes',
 			]
 		);
@@ -207,7 +207,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$repeater->add_control(
 			'link',
 			[
-				'label'                 => esc_html__('Link', 'powerpack'),
+				'label'                 => esc_html__('Link', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::URL,
 				'label_block'           => true,
 				'default'               => [
@@ -224,12 +224,12 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$repeater->add_control(
 			'button_text',
 			[
-				'label'                 => __('Button Text', 'powerpack'),
+				'label'                 => __('Button Text', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::TEXT,
 				'dynamic'               => [
 					'active'   => true,
 				],
-				'default'               => __('Get Started', 'powerpack'),
+				'default'               => __('Get Started', 'magical-addons-for-elementor'),
 				'condition'             => [
 					'show_button'   => 'yes',
 				],
@@ -239,7 +239,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$repeater->add_control(
 			'select_button_icon',
 			[
-				'label'                 => __('Button Icon', 'powerpack'),
+				'label'                 => __('Button Icon', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::ICONS,
 				'fa4compatibility'      => 'button_icon',
 				'condition'             => [
@@ -251,12 +251,12 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$repeater->add_control(
 			'button_icon_position',
 			[
-				'label'                 => __('Icon Position', 'powerpack'),
+				'label'                 => __('Icon Position', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'after',
 				'options'               => [
-					'before'    => __('Before', 'powerpack'),
-					'after'     => __('After', 'powerpack'),
+					'before'    => __('Before', 'magical-addons-for-elementor'),
+					'after'     => __('After', 'magical-addons-for-elementor'),
 				],
 				'condition'             => [
 					'show_button'   => 'yes',
@@ -276,29 +276,29 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 				'seperator'             => 'before',
 				'default'               => [
 					[
-						'title'         => esc_html__('Accordion #1', 'powerpack'),
-						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack'),
+						'title'         => esc_html__('Accordion #1', 'magical-addons-for-elementor'),
+						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'magical-addons-for-elementor'),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__('Accordion #2', 'powerpack'),
-						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack'),
+						'title'         => esc_html__('Accordion #2', 'magical-addons-for-elementor'),
+						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'magical-addons-for-elementor'),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__('Accordion #3', 'powerpack'),
-						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack'),
+						'title'         => esc_html__('Accordion #3', 'magical-addons-for-elementor'),
+						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'magical-addons-for-elementor'),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
 					],
 					[
-						'title'         => esc_html__('Accordion #4', 'powerpack'),
-						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'powerpack'),
+						'title'         => esc_html__('Accordion #4', 'magical-addons-for-elementor'),
+						'description'   => esc_html__('Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'magical-addons-for-elementor'),
 						'image'         => [
 							'url' => Utils::get_placeholder_image_src(),
 						],
@@ -312,8 +312,8 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'active_tab',
 			[
-				'label'                 => __('Default Active Item', 'powerpack'),
-				'description'                 => __('Add item number to make that item active by default. For example: Add 1 to make first item active by default.', 'powerpack'),
+				'label'                 => __('Default Active Item', 'magical-addons-for-elementor'),
+				'description'                 => __('Add item number to make that item active by default. For example: Add 1 to make first item active by default.', 'magical-addons-for-elementor'),
 				'type'                  => \Elementor\Controls_Manager::NUMBER,
 				'min'                   => 1,
 				'max'                   => 100,
@@ -328,14 +328,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_image_accordion_settings',
 			[
-				'label'                 => esc_html__('Settings', 'powerpack'),
+				'label'                 => esc_html__('Settings', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_responsive_control(
 			'accordion_height',
 			[
-				'label'                 => esc_html__('Height', 'powerpack'),
+				'label'                 => esc_html__('Height', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [
@@ -358,20 +358,20 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'title_html_tag',
 			[
-				'label'                => __('Title HTML Tag', 'powerpack'),
+				'label'                => __('Title HTML Tag', 'magical-addons-for-elementor'),
 				'type'                 => Controls_Manager::SELECT,
 				'default'              => 'h2',
 				'separator'             => 'before',
 				'options'              => [
-					'h1'     => __('H1', 'powerpack'),
-					'h2'     => __('H2', 'powerpack'),
-					'h3'     => __('H3', 'powerpack'),
-					'h4'     => __('H4', 'powerpack'),
-					'h5'     => __('H5', 'powerpack'),
-					'h6'     => __('H6', 'powerpack'),
-					'div'    => __('div', 'powerpack'),
-					'span'   => __('span', 'powerpack'),
-					'p'      => __('p', 'powerpack'),
+					'h1'     => __('H1', 'magical-addons-for-elementor'),
+					'h2'     => __('H2', 'magical-addons-for-elementor'),
+					'h3'     => __('H3', 'magical-addons-for-elementor'),
+					'h4'     => __('H4', 'magical-addons-for-elementor'),
+					'h5'     => __('H5', 'magical-addons-for-elementor'),
+					'h6'     => __('H6', 'magical-addons-for-elementor'),
+					'div'    => __('div', 'magical-addons-for-elementor'),
+					'span'   => __('span', 'magical-addons-for-elementor'),
+					'p'      => __('p', 'magical-addons-for-elementor'),
 				],
 			]
 		);
@@ -380,7 +380,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'                  => 'image',
-				'label'                 => __('Image Size', 'powerpack'),
+				'label'                 => __('Image Size', 'magical-addons-for-elementor'),
 				'default'               => 'full',
 			]
 		);
@@ -388,13 +388,13 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'accordion_action',
 			[
-				'label'                 => esc_html__('Accordion Action', 'powerpack'),
+				'label'                 => esc_html__('Accordion Action', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'on-hover',
 				'label_block'           => false,
 				'options'               => [
-					'on-hover'  => esc_html__('On Hover', 'powerpack'),
-					'on-click'  => esc_html__('On Click', 'powerpack'),
+					'on-hover'  => esc_html__('On Hover', 'magical-addons-for-elementor'),
+					'on-click'  => esc_html__('On Click', 'magical-addons-for-elementor'),
 				],
 				'frontend_available'    => true,
 			]
@@ -403,13 +403,13 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'orientation',
 			[
-				'label'                 => esc_html__('Orientation', 'powerpack'),
+				'label'                 => esc_html__('Orientation', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'vertical',
 				'label_block'           => false,
 				'options'               => [
-					'vertical'      => esc_html__('Vertical', 'powerpack'),
-					'horizontal'    => esc_html__('Horizontal', 'powerpack'),
+					'vertical'      => esc_html__('Vertical', 'magical-addons-for-elementor'),
+					'horizontal'    => esc_html__('Horizontal', 'magical-addons-for-elementor'),
 				],
 				'frontend_available'    => true,
 				'prefix_class'          => 'mg-image-accordion-orientation-',
@@ -419,14 +419,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'stack_on',
 			[
-				'label'                 => esc_html__('Stack On', 'powerpack'),
+				'label'                 => esc_html__('Stack On', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'tablet',
 				'label_block'           => false,
 				'options'               => [
-					'tablet'    => esc_html__('Tablet', 'powerpack'),
-					'mobile'    => esc_html__('Mobile', 'powerpack'),
-					'none'      => esc_html__('None', 'powerpack'),
+					'tablet'    => esc_html__('Tablet', 'magical-addons-for-elementor'),
+					'mobile'    => esc_html__('Mobile', 'magical-addons-for-elementor'),
+					'none'      => esc_html__('None', 'magical-addons-for-elementor'),
 				],
 				'frontend_available'    => true,
 				'prefix_class'          => 'mg-image-accordion-stack-on-',
@@ -449,7 +449,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_items_style',
 			[
-				'label'                 => esc_html__('Items', 'powerpack'),
+				'label'                 => esc_html__('Items', 'magical-addons-for-elementor'),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -457,7 +457,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'items_spacing',
 			[
-				'label'                 => esc_html__('Items Spacing', 'powerpack'),
+				'label'                 => esc_html__('Items Spacing', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [
@@ -485,14 +485,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_items_normal',
 			[
-				'label'                 => __('Normal', 'powerpack'),
+				'label'                 => __('Normal', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'accordion_img_overlay_color',
 			[
-				'label'                 => esc_html__('Overlay Color', 'powerpack'),
+				'label'                 => esc_html__('Overlay Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => 'rgba(0,0,0,0.3)',
 				'selectors'             => [
@@ -505,7 +505,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'items_border',
-				'label'                 => esc_html__('Border', 'powerpack'),
+				'label'                 => esc_html__('Border', 'magical-addons-for-elementor'),
 				'selector'              => '{{WRAPPER}} .mg-image-accordion-item',
 			]
 		);
@@ -513,7 +513,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'items_border_radius',
 			[
-				'label'                 => __('Border Radius', 'powerpack'),
+				'label'                 => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
@@ -535,14 +535,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_items_hover',
 			[
-				'label'                 => __('Hover', 'powerpack'),
+				'label'                 => __('Hover', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'accordion_img_hover_color',
 			[
-				'label'                 => esc_html__('Overlay Color', 'powerpack'),
+				'label'                 => esc_html__('Overlay Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => 'rgba(0,0,0,0.5)',
 				'selectors'             => [
@@ -555,7 +555,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'items_border_color_hover',
 			[
-				'label'                 => esc_html__('Border Color', 'powerpack'),
+				'label'                 => esc_html__('Border Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -583,7 +583,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_content_style',
 			[
-				'label'                 => esc_html__('Content', 'powerpack'),
+				'label'                 => esc_html__('Content', 'magical-addons-for-elementor'),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -591,7 +591,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'content_bg_color',
 			[
-				'label'                 => esc_html__('Background Color', 'powerpack'),
+				'label'                 => esc_html__('Background Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -604,7 +604,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'content_border',
-				'label'                 => esc_html__('Border', 'powerpack'),
+				'label'                 => esc_html__('Border', 'magical-addons-for-elementor'),
 				'selector'              => '{{WRAPPER}} .mg-image-accordion .mg-image-accordion-content',
 				'separator'             => 'before',
 			]
@@ -613,7 +613,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'content_border_radius',
 			[
-				'label'                 => __('Border Radius', 'powerpack'),
+				'label'                 => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
@@ -625,20 +625,20 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'content_vertical_align',
 			[
-				'label'                 => __('Vertical Align', 'powerpack'),
+				'label'                 => __('Vertical Align', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => 'middle',
 				'options'               => [
 					'top'       => [
-						'title' => __('Top', 'powerpack'),
+						'title' => __('Top', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-v-align-top',
 					],
 					'middle'    => [
-						'title' => __('Middle', 'powerpack'),
+						'title' => __('Middle', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-v-align-middle',
 					],
 					'bottom'    => [
-						'title' => __('Bottom', 'powerpack'),
+						'title' => __('Bottom', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-v-align-bottom',
 					],
 				],
@@ -657,20 +657,20 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'content_horizontal_align',
 			[
-				'label'                 => __('Horizontal Align', 'powerpack'),
+				'label'                 => __('Horizontal Align', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => true,
 				'options'               => [
 					'left'      => [
-						'title' => __('Left', 'powerpack'),
+						'title' => __('Left', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => __('Center', 'powerpack'),
+						'title' => __('Center', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => __('Right', 'powerpack'),
+						'title' => __('Right', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
@@ -690,20 +690,20 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'text_align',
 			[
-				'label'                 => __('Text Align', 'powerpack'),
+				'label'                 => __('Text Align', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::CHOOSE,
 				'default'               => ' center',
 				'options'               => [
 					'left'      => [
-						'title' => __('Left', 'powerpack'),
+						'title' => __('Left', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
-						'title' => __('Center', 'powerpack'),
+						'title' => __('Center', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-text-align-center',
 					],
 					'right'     => [
-						'title' => __('Right', 'powerpack'),
+						'title' => __('Right', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-text-align-right',
 					],
 				],
@@ -716,7 +716,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'content_width',
 			[
-				'label'                 => esc_html__('Width', 'powerpack'),
+				'label'                 => esc_html__('Width', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [
@@ -740,7 +740,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'content_padding',
 			[
-				'label'                 => __('Padding', 'powerpack'),
+				'label'                 => __('Padding', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
@@ -752,7 +752,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'title_style_heading',
 			[
-				'label'                 => __('Title', 'powerpack'),
+				'label'                 => __('Title', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -761,7 +761,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'title_color',
 			[
-				'label'                 => esc_html__('Color', 'powerpack'),
+				'label'                 => esc_html__('Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#fff',
 				'selectors'             => [
@@ -781,7 +781,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'                 => esc_html__('Spacing', 'powerpack'),
+				'label'                 => esc_html__('Spacing', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [
@@ -804,7 +804,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'description_style_heading',
 			[
-				'label'                 => __('Description', 'powerpack'),
+				'label'                 => __('Description', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -813,7 +813,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'description_color',
 			[
-				'label'                 => esc_html__('Color', 'powerpack'),
+				'label'                 => esc_html__('Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '#fff',
 				'selectors'             => [
@@ -839,7 +839,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label'                 => __('Button', 'powerpack'),
+				'label'                 => __('Button', 'magical-addons-for-elementor'),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -847,15 +847,15 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_size',
 			[
-				'label'                 => __('Size', 'powerpack'),
+				'label'                 => __('Size', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'md',
 				'options'               => [
-					'xs' => __('Extra Small', 'powerpack'),
-					'sm' => __('Small', 'powerpack'),
-					'md' => __('Medium', 'powerpack'),
-					'lg' => __('Large', 'powerpack'),
-					'xl' => __('Extra Large', 'powerpack'),
+					'xs' => __('Extra Small', 'magical-addons-for-elementor'),
+					'sm' => __('Small', 'magical-addons-for-elementor'),
+					'md' => __('Medium', 'magical-addons-for-elementor'),
+					'lg' => __('Large', 'magical-addons-for-elementor'),
+					'xl' => __('Extra Large', 'magical-addons-for-elementor'),
 				],
 			]
 		);
@@ -863,7 +863,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'button_spacing',
 			[
-				'label'                 => esc_html__('Button Spacing', 'powerpack'),
+				'label'                 => esc_html__('Button Spacing', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [
@@ -888,14 +888,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label'                 => __('Normal', 'powerpack'),
+				'label'                 => __('Normal', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_normal',
 			[
-				'label'                 => __('Background Color', 'powerpack'),
+				'label'                 => __('Background Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -907,7 +907,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_text_color_normal',
 			[
-				'label'                 => __('Text Color', 'powerpack'),
+				'label'                 => __('Text Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -921,7 +921,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'button_border_normal',
-				'label'                 => __('Border', 'powerpack'),
+				'label'                 => __('Border', 'magical-addons-for-elementor'),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .mg-image-accordion-button',
@@ -931,7 +931,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __('Border Radius', 'powerpack'),
+				'label'                 => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', '%'],
 				'selectors'             => [
@@ -944,7 +944,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'                  => 'button_typography',
-				'label'                 => __('Typography', 'powerpack'),
+				'label'                 => __('Typography', 'magical-addons-for-elementor'),
 				'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'              => '{{WRAPPER}} .mg-image-accordion-button',
 			]
@@ -953,7 +953,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label'                 => __('Padding', 'powerpack'),
+				'label'                 => __('Padding', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => ['px', 'em', '%'],
 				'selectors'             => [
@@ -975,14 +975,14 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label'                 => __('Hover', 'powerpack'),
+				'label'                 => __('Hover', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'button_bg_color_hover',
 			[
-				'label'                 => __('Background Color', 'powerpack'),
+				'label'                 => __('Background Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -994,7 +994,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_text_color_hover',
 			[
-				'label'                 => __('Text Color', 'powerpack'),
+				'label'                 => __('Text Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1007,7 +1007,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_border_color_hover',
 			[
-				'label'                 => __('Border Color', 'powerpack'),
+				'label'                 => __('Border Color', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::COLOR,
 				'default'               => '',
 				'selectors'             => [
@@ -1019,7 +1019,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label'                 => __('Animation', 'powerpack'),
+				'label'                 => __('Animation', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1038,7 +1038,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_icon_heading',
 			[
-				'label'                 => __('Icon', 'powerpack'),
+				'label'                 => __('Icon', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::HEADING,
 				'separator'             => 'before',
 			]
@@ -1047,7 +1047,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'button_icon_spacing',
 			[
-				'label'                 => esc_html__('Icon Spacing', 'powerpack'),
+				'label'                 => esc_html__('Icon Spacing', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px'        => [

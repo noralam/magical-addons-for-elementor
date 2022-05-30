@@ -234,6 +234,7 @@ final class Magical_Addons_Elementor
 		require_once(MAGICAL_ADDON_PATH . '/includes/basic/assets-managment.php');
 		require_once(MAGICAL_ADDON_PATH . '/includes/functions.php');
 		require_once(MAGICAL_ADDON_PATH . '/libs/class.settings-api.php');
+
 		require_once(MAGICAL_ADDON_PATH . '/includes/admin/admin-page.php');
 		require_once(MAGICAL_ADDON_PATH . '/includes/btn-icons-class.php');
 		/*
