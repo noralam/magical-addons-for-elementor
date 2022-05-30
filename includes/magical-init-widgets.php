@@ -113,37 +113,44 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/piechart-widget.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_AddonPieChart());
 		}
-		//if (mg_get_addons_option('mg_piechart', 'on') == 'on') {
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-comparison.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgComparison());
-		//}
-		//if (mg_get_addons_option('mg_piechart', 'on') == 'on') {
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-accordion.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgAccordion());
-		//}
-		//if (mg_get_addons_option('mg_piechart', 'on') == 'on') {
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/content-reveal.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_contentReveal());
-		//}
+		if (mg_get_addons_option('mg_img_comparison', 'on') == 'on') {
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-comparison.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgComparison());
+		}
+		if (mg_get_addons_option('mg_imgaccordion', 'on') == 'on') {
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-accordion.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgAccordion());
+		}
+		if (mg_get_addons_option('mg_content_reveal', 'on') == 'on') {
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/content-reveal.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_contentReveal());
+		}
 
 		// Flip Box Widget
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/flipbox-widget.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Flip_Box());
-
+		if (mg_get_addons_option('mg_flipbox', 'on') == 'on') {
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/flipbox-widget.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Flip_Box());
+		}
 		// Call To Action Widget
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/call-to-action.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Call_To_Action());
-
-		// Call To Action Widget
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/dual-button.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Dual_Button());
-
-		// Feature List Widget
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/icon-list.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Icon_List());
-		// Feature List Widget
-		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-smooth-scroll.php');
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgSmoothScroll());
+		if (mg_get_addons_option('mg_flipbox', 'on') == 'on') {
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/call-to-action.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Call_To_Action());
+		}
+		if (mg_get_addons_option('mg_dualbtn', 'on') == 'on') {
+			// Call To Action Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/dual-button.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Dual_Button());
+		}
+		if (mg_get_addons_option('mg_iconlist', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/icon-list.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Icon_List());
+		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-smooth-scroll.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgSmoothScroll());
+		}
 
 
 

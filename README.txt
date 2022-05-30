@@ -4,7 +4,7 @@ Donate link: https://wpthemespace.com/donation/
 Tags: elementor, elementor page builder, elementor addons, addons, elementor widget, page builder,post, post grid, slider, pricing table, countdown, Info Box,card, tabs, timeline,piechart
 Requires at least: 4.5
 Tested up to: 6.0
-Stable tag: 1.1.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,14 @@ Now you can add or update your site elements very easily by Magical Addons For E
 	<li><strong>Social Share Widget.</strong></li>
 	<li><strong>Contact Form 7 Widget.</strong></li>
 	<li><strong>WP Forms Widget.</strong></li>
+	<li><strong>Image comparison.</strong></li>
+	<li><strong>Image Accordion.</strong></li>
+	<li><strong>Content Reveal.</strong></li>
+	<li><strong>Flip Box.</strong></li>
+	<li><strong>Call To Action.</strong></li>
+	<li><strong>Dual Button.</strong></li>
+	<li><strong>Icon List.</strong></li>
+	<li><strong>Image Smooth Scroll.</strong></li>
 	<li><strong>Text Effects.</strong></li>
 
 </ul>
@@ -98,6 +106,16 @@ e.g.
 
 
 == Changelog ==
+
+= 1.1.2 =
+	* Image comparison added
+	* Image Accordion added
+	* Content Reveal added
+	* Flip Box added
+	* Call To Action added
+	* Dual Button added
+	* Icon List added
+	* Image Smooth Scroll added
 
 = 1.1.1 =
 *  PieChart Widget added

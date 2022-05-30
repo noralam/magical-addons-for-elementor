@@ -123,14 +123,14 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'image_settings',
 			array(
-				'label' => __('Image', 'powerpack'),
+				'label' => __('Image', 'magical-addons-for-elementor'),
 			)
 		);
 
 		$this->add_control(
 			'image',
 			array(
-				'label'       => __('Image', 'powerpack'),
+				'label'       => __('Image', 'magical-addons-for-elementor'),
 				'type'        => Controls_Manager::MEDIA,
 				'dynamic'     => array('active' => true),
 				'default'     => array(
@@ -144,7 +144,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Image_Size::get_type(),
 			array(
 				'name'    => 'image',
-				'label'   => __('Image Size', 'powerpack'),
+				'label'   => __('Image Size', 'magical-addons-for-elementor'),
 				'default' => 'full',
 			)
 		);
@@ -152,7 +152,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'image_height',
 			array(
-				'label'      => __('Image Height', 'powerpack'),
+				'label'      => __('Image Height', 'magical-addons-for-elementor'),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array('px', 'em', 'vh'),
 				'default'    => array(
@@ -178,7 +178,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'link',
 			array(
-				'label'       => __('URL', 'powerpack'),
+				'label'       => __('URL', 'magical-addons-for-elementor'),
 				'type'        => Controls_Manager::URL,
 				'dynamic'     => array(
 					'active' => true,
@@ -192,13 +192,13 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'icon_settings',
 			array(
-				'label' => __('Icon', 'powerpack'),
+				'label' => __('Icon', 'magical-addons-for-elementor'),
 			)
 		);
 		$this->add_control(
 			'selected_icon',
 			array(
-				'label'            => __('Cover icon', 'powerpack'),
+				'label'            => __('Cover icon', 'magical-addons-for-elementor'),
 				'type'             => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 			)
@@ -207,7 +207,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'icon_size',
 			array(
-				'label'      => __('Icon Size', 'powerpack'),
+				'label'      => __('Icon Size', 'magical-addons-for-elementor'),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array('px', 'em'),
 				'default'    => array(
@@ -236,18 +236,18 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'settings',
 			array(
-				'label' => __('Settings', 'powerpack'),
+				'label' => __('Settings', 'magical-addons-for-elementor'),
 			)
 		);
 
 		$this->add_control(
 			'trigger_type',
 			array(
-				'label'              => __('Trigger', 'powerpack'),
+				'label'              => __('Trigger', 'magical-addons-for-elementor'),
 				'type'               => Controls_Manager::SELECT,
 				'options'            => array(
-					'hover'  => __('Hover', 'powerpack'),
-					'scroll' => __('Mouse Scroll', 'powerpack'),
+					'hover'  => __('Hover', 'magical-addons-for-elementor'),
+					'scroll' => __('Mouse Scroll', 'magical-addons-for-elementor'),
 				),
 				'default'            => 'hover',
 				'frontend_available' => true,
@@ -257,8 +257,8 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'duration_speed',
 			array(
-				'label'     => __('Scroll Speed', 'powerpack'),
-				'title'     => __('In seconds', 'powerpack'),
+				'label'     => __('Scroll Speed', 'magical-addons-for-elementor'),
+				'title'     => __('In seconds', 'magical-addons-for-elementor'),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 3,
 				'selectors' => array(
@@ -273,11 +273,11 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'direction_type',
 			array(
-				'label'              => __('Scroll Direction', 'powerpack'),
+				'label'              => __('Scroll Direction', 'magical-addons-for-elementor'),
 				'type'               => Controls_Manager::SELECT,
 				'options'            => array(
-					'horizontal' => __('Horizontal', 'powerpack'),
-					'vertical'   => __('Vertical', 'powerpack'),
+					'horizontal' => __('Horizontal', 'magical-addons-for-elementor'),
+					'vertical'   => __('Vertical', 'magical-addons-for-elementor'),
 				),
 				'default'            => 'vertical',
 				'frontend_available' => true,
@@ -287,7 +287,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'reverse',
 			array(
-				'label'              => __('Reverse Direction', 'powerpack'),
+				'label'              => __('Reverse Direction', 'magical-addons-for-elementor'),
 				'type'               => Controls_Manager::SWITCHER,
 				'frontend_available' => true,
 				'condition'          => array(
@@ -311,7 +311,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'image_style',
 			array(
-				'label' => __('Image', 'powerpack'),
+				'label' => __('Image', 'magical-addons-for-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -319,7 +319,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'icon_color',
 			array(
-				'label'     => __('Icon Color', 'powerpack'),
+				'label'     => __('Icon Color', 'magical-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .pp-image-scroll-icon' => 'color: {{VALUE}};',
@@ -336,7 +336,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'image_style_tab_normal',
 			array(
-				'label' => __('Normal', 'powerpack'),
+				'label' => __('Normal', 'magical-addons-for-elementor'),
 			)
 		);
 
@@ -351,7 +351,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'image_border_radius',
 			array(
-				'label'      => __('Border Radius', 'powerpack'),
+				'label'      => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%', 'em'),
 				'selectors'  => array(
@@ -381,7 +381,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'image_style_tab_hover',
 			array(
-				'label' => __('Hover', 'powerpack'),
+				'label' => __('Hover', 'magical-addons-for-elementor'),
 			)
 		);
 
@@ -413,7 +413,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'overlay_style',
 			array(
-				'label' => __('Overlay', 'powerpack'),
+				'label' => __('Overlay', 'magical-addons-for-elementor'),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
@@ -421,10 +421,10 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$this->add_control(
 			'overlay',
 			array(
-				'label'     => __('Overlay', 'powerpack'),
+				'label'     => __('Overlay', 'magical-addons-for-elementor'),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => __('Show', 'powerpack'),
-				'label_off' => __('Hide', 'powerpack'),
+				'label_on'  => __('Show', 'magical-addons-for-elementor'),
+				'label_off' => __('Hide', 'magical-addons-for-elementor'),
 
 			)
 		);
