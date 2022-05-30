@@ -151,6 +151,11 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-smooth-scroll.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgSmoothScroll());
 		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/info-list.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_infoList());
+		}
 
 
 
