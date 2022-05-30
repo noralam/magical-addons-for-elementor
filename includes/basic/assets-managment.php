@@ -110,6 +110,13 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             true
         );
+        wp_register_script(
+            'mg-content-reveal',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/content-reveal/content-reveal.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
     }
 
     public static function frontend_scripts_active()

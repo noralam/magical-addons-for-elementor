@@ -1720,5 +1720,73 @@ transition: .4s;
   width: 100%;transition: .4s;
 }
 .mg-lc-title {font-size: 21px;font-weight: 700;color: #222222;font-family: "Archivo", sans-serif;margin-bottom: 10px; line-height: 1; transition: .4s;}
-
 .mg-lc-subtitle {color: #777777;font-family: "Archivo", sans-serif;transition: .4s;}
+
+/*Conte reveal style*/
+.mg-content-reveal-container .mg-content-reveal-content-wrapper {
+  overflow: hidden;
+  position: relative
+}
+
+.mg-content-reveal-container .mg-content-reveal-content-wrapper .mg-content-reveal-content p {
+  margin-bottom: 0
+}
+
+.mg-content-reveal-container .mg-content-reveal-content-wrapper .mg-content-reveal-saparator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  height: 50px
+}
+
+.mg-content-reveal-container .mg-content-reveal-buttons-wrapper {
+  display: flex
+}
+
+.mg-content-reveal-container .mg-content-reveal-button-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 24px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all .4s ease-in-out
+}
+
+.mg-content-reveal-container .mg-content-reveal-button {
+  min-width: 100%
+}
+
+.mg-content-reveal-container .mg-content-reveal-button.mg-content-reveal-button-open {
+  display: none
+}
+
+.mg-content-reveal-container .mg-content-reveal-button p {
+  margin-bottom: 0
+}
+
+.mg-content-reveal-container .mg-content-reveal-button .mg-button-icon {
+  transition: all .4s ease-in-out
+}
+
+.mg-content-reveal-container .mg-content-reveal-button-content {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center
+}
+
+.mg-content-reveal-container .mg-button-icon-after .mg-content-reveal-button-content {
+  flex-direction: row-reverse
+}

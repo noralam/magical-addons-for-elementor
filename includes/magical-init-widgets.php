@@ -121,6 +121,10 @@ class magicalWidgetInit
 		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-accordion.php');
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgAccordion());
 		//}
+		//if (mg_get_addons_option('mg_piechart', 'on') == 'on') {
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/content-reveal.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_contentReveal());
+		//}
 
 	// Flip Box Widget
 	require_once( MAGICAL_ADDON_PATH. '/includes/widgets/flipbox-widget.php' );
