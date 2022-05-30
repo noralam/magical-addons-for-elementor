@@ -170,7 +170,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-image-scroll-container' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mg-image-scroll-container' => 'height: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -220,7 +220,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-image-scroll-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mg-image-scroll-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				),
 				'condition'  => array(
 					'selected_icon[value]!' => '',
@@ -262,7 +262,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 3,
 				'selectors' => array(
-					'{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img'   => 'transition: all {{Value}}s; -webkit-transition: all {{Value}}s;',
+					'{{WRAPPER}} .mg-image-scroll-container .mg-image-scroll-image img'   => 'transition: all {{Value}}s; -webkit-transition: all {{Value}}s;',
 				),
 				'condition' => array(
 					'trigger_type' => 'hover',
@@ -322,8 +322,8 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 				'label'     => __('Icon Color', 'magical-addons-for-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}} .pp-image-scroll-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .pp-image-scroll-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .mg-image-scroll-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mg-image-scroll-icon svg' => 'fill: {{VALUE}};',
 				),
 				'condition' => array(
 					'selected_icon[value]!' => '',
@@ -344,7 +344,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			array(
 				'name'     => 'container_border',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap',
+				'selector' => '{{WRAPPER}} .mg-image-scroll-wrap',
 			)
 		);
 
@@ -355,7 +355,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => array('px', '%', 'em'),
 				'selectors'  => array(
-					'{{WRAPPER}} .pp-image-scroll-wrap, {{WRAPPER}} .pp-container-scroll' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mg-image-scroll-wrap, {{WRAPPER}} .mg-container-scroll' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			)
 		);
@@ -364,7 +364,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'     => 'container_box_shadow',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap',
+				'selector' => '{{WRAPPER}} .mg-image-scroll-wrap',
 			)
 		);
 
@@ -372,7 +372,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'     => 'css_filters',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img',
+				'selector' => '{{WRAPPER}} .mg-image-scroll-container .mg-image-scroll-image img',
 			)
 		);
 
@@ -389,7 +389,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'     => 'container_box_shadow_hover',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-wrap:hover',
+				'selector' => '{{WRAPPER}} .mg-image-scroll-wrap:hover',
 			)
 		);
 
@@ -397,7 +397,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			Group_Control_Css_Filter::get_type(),
 			array(
 				'name'     => 'css_filters_hover',
-				'selector' => '{{WRAPPER}} .pp-image-scroll-container .pp-image-scroll-image img:hover',
+				'selector' => '{{WRAPPER}} .mg-image-scroll-container .mg-image-scroll-image img:hover',
 			)
 		);
 
@@ -434,7 +434,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 			array(
 				'name'      => 'overlay_background',
 				'types'     => array('classic', 'gradient'),
-				'selector'  => '{{WRAPPER}} .pp-image-scroll-overlay',
+				'selector'  => '{{WRAPPER}} .mg-image-scroll-overlay',
 				'exclude'   => array(
 					'image',
 				),
@@ -459,15 +459,15 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 		$link_url = $settings['link']['url'];
 
 		if ('' !== $settings['link']['url']) {
-			$this->add_render_attribute('link', 'class', 'pp-image-scroll-link pp-media-content');
+			$this->add_render_attribute('link', 'class', 'mg-image-scroll-link mg-media-content');
 
 			$this->add_link_attributes('link', $settings['link']);
 		}
 
 		$this->add_render_attribute('icon', 'class', [
-			'pp-image-scroll-icon',
-			'pp-icon',
-			'pp-mouse-scroll-' . $settings['direction_type'],
+			'mg-image-scroll-icon',
+			'mg-icon',
+			'mg-mouse-scroll-' . $settings['direction_type'],
 		]);
 
 		if (!isset($settings['icon']) && !Icons_Manager::is_migration_allowed()) {
@@ -492,17 +492,17 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 
 		$this->add_render_attribute([
 			'container' => [
-				'class' => 'pp-image-scroll-container',
+				'class' => 'mg-image-scroll-container',
 			],
 			'direction_type' => [
-				'class' => ['pp-image-scroll-image', 'pp-image-scroll-' . $settings['direction_type']],
+				'class' => ['mg-image-scroll-image', 'mg-image-scroll-' . $settings['direction_type']],
 			],
 		]);
 ?>
-		<div class="pp-image-scroll-wrap">
+		<div class="mg-image-scroll-wrap">
 			<div <?php echo wp_kses_post($this->get_render_attribute_string('container')); ?>>
 				<?php if (!empty($settings['icon']) || (!empty($settings['selected_icon']['value']) && $is_new)) { ?>
-					<div class="pp-image-scroll-content">
+					<div class="mg-image-scroll-content">
 						<span <?php echo wp_kses_post($this->get_render_attribute_string('icon')); ?>>
 							<?php
 							if ($is_new || $migrated) {
@@ -516,7 +516,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 				<?php } ?>
 				<div <?php echo wp_kses_post($this->get_render_attribute_string('direction_type')); ?>>
 					<?php if ('yes' === $settings['overlay']) { ?>
-						<div class="pp-image-scroll-overlay pp-media-overlay">
+						<div class="mg-image-scroll-overlay mg-media-overlay">
 						<?php } ?>
 						<?php if (!empty($link_url)) { ?>
 							<a <?php echo wp_kses_post($this->get_render_attribute_string('link')); ?>></a>

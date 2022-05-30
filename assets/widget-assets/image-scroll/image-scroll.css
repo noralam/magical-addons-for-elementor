@@ -1,5 +1,5 @@
-.pp-image-scroll-container,
-.pp-image-scroll-wrap {
+.mg-image-scroll-container,
+.mg-image-scroll-wrap {
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -7,47 +7,47 @@
     -o-transition: all .3s ease-in-out
 }
 
-.pp-image-scroll-wrap {
+.mg-image-scroll-wrap {
     overflow: hidden;
     width: 100%;
     position: relative
 }
 
-.pp-image-scroll-container {
+.mg-image-scroll-container {
     width: 100%
 }
 
-.pp-container-scroll {
+.mg-container-scroll {
     overflow: auto
 }
 
-.pp-image-scroll-container .pp-image-scroll-horizontal {
+.mg-image-scroll-container .mg-image-scroll-horizontal {
     position: relative;
     width: 100%;
     height: 100%
 }
 
-.pp-image-scroll-container .pp-image-scroll-horizontal.pp-image-scroll-image img {
+.mg-image-scroll-container .mg-image-scroll-horizontal.mg-image-scroll-image img {
     max-width: none;
     height: 100%
 }
 
-.pp-image-scroll-container .pp-image-scroll-vertical.pp-image-scroll-image img {
+.mg-image-scroll-container .mg-image-scroll-vertical.mg-image-scroll-image img {
     width: 100%;
     max-width: 100%;
     height: auto
 }
 
-.pp-image-scroll-ver {
+.mg-image-scroll-ver {
     position: relative
 }
 
-.pp-image-scroll-container .pp-image-scroll-overlay {
+.mg-image-scroll-container .mg-image-scroll-overlay {
     background: rgba(2, 2, 2, .3)
 }
 
-.pp-image-scroll-container .pp-image-scroll-link,
-.pp-image-scroll-container .pp-image-scroll-overlay {
+.mg-image-scroll-container .mg-image-scroll-link,
+.mg-image-scroll-container .mg-image-scroll-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -56,7 +56,7 @@
     z-index: 4
 }
 
-.pp-image-scroll-content {
+.mg-image-scroll-content {
     display: inline-block;
     position: absolute;
     height: auto;
@@ -67,26 +67,26 @@
     transform: translate(-50%, -50%)
 }
 
-.pp-container-scroll-instant .pp-image-scroll-image img {
+.mg-container-scroll-instant .mg-image-scroll-image img {
     transition: all 0s ease-in-out !important
 }
 
-.pp-image-scroll-container .pp-image-scroll-content,
-.pp-image-scroll-container .pp-image-scroll-overlay {
+.mg-image-scroll-container .mg-image-scroll-content,
+.mg-image-scroll-container .mg-image-scroll-overlay {
     transition: all .3s ease-in-out;
     opacity: 1
 }
 
-.pp-image-scroll-container:hover .pp-image-scroll-content,
-.pp-image-scroll-container:hover .pp-image-scroll-overlay {
+.mg-image-scroll-container:hover .mg-image-scroll-content,
+.mg-image-scroll-container:hover .mg-image-scroll-overlay {
     opacity: 0
 }
 
-.pp-image-scroll-container:hover .pp-image-scroll-content {
+.mg-image-scroll-container:hover .mg-image-scroll-content {
     visibility: hidden
 }
 
-.pp-image-scroll-content .pp-image-scroll-icon {
+.mg-image-scroll-content .mg-image-scroll-icon {
     display: inline-block;
     speak: none;
     font-style: normal;
@@ -106,17 +106,17 @@
     animation-timing-function: ease-in-out
 }
 
-.pp-mouse-scroll-horizontal {
-    -webkit-animation-name: pp-scroll-horizontal;
-    animation-name: pp-scroll-horizontal
+.mg-mouse-scroll-horizontal {
+    -webkit-animation-name: mg-scroll-horizontal;
+    animation-name: mg-scroll-horizontal
 }
 
-.pp-mouse-scroll-vertical {
-    -webkit-animation-name: pp-scroll-vertical;
-    animation-name: pp-scroll-vertical
+.mg-mouse-scroll-vertical {
+    -webkit-animation-name: mg-scroll-vertical;
+    animation-name: mg-scroll-vertical
 }
 
-@-webkit-keyframes pp-scroll-vertical {
+@-webkit-keyframes mg-scroll-vertical {
     0% {
         transform: translateY(0)
     }
@@ -126,7 +126,7 @@
     }
 }
 
-@keyframes pp-scroll-vertical {
+@keyframes mg-scroll-vertical {
     0% {
         transform: translateY(0)
     }
@@ -136,7 +136,7 @@
     }
 }
 
-@-webkit-keyframes pp-scroll-horizontal {
+@-webkit-keyframes mg-scroll-horizontal {
     0% {
         transform: translateX(0)
     }
@@ -146,7 +146,7 @@
     }
 }
 
-@keyframes pp-scroll-horizontal {
+@keyframes mg-scroll-horizontal {
     0% {
         transform: translateX(0)
     }

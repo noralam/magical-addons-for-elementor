@@ -22,11 +22,11 @@
 	};
 
  var ImageScrollHandler = function($scope, $) {
-        var scrollElement    = $scope.find(".pp-image-scroll-container"),
-            scrollOverlay    = scrollElement.find(".pp-image-scroll-overlay"),
-            scrollVertical   = scrollElement.find(".pp-image-scroll-vertical"),
+        var scrollElement    = $scope.find(".mg-image-scroll-container"),
+            scrollOverlay    = scrollElement.find(".mg-image-scroll-overlay"),
+            scrollVertical   = scrollElement.find(".mg-image-scroll-vertical"),
 			elementSettings  = getElementSettings( $scope ),
-            imageScroll      = scrollElement.find('.pp-image-scroll-image img'),
+            imageScroll      = scrollElement.find('.mg-image-scroll-image img'),
             direction        = elementSettings.direction_type,
             reverse			 = elementSettings.reverse,
             trigger			 = elementSettings.trigger_type,
@@ -49,9 +49,9 @@
         }
         
         if( trigger == "scroll" ) {
-            scrollElement.addClass("pp-container-scroll");
+            scrollElement.addClass("mg-container-scroll");
             if ( direction == "vertical" ) {
-                scrollVertical.addClass("pp-image-scroll-ver");
+                scrollVertical.addClass("mg-image-scroll-ver");
             } else {
                 scrollElement.imagesLoaded(function() {
                   scrollOverlay.css( { "width": imageScroll.width(), "height": imageScroll.height() } );
@@ -60,16 +60,16 @@
         } else {
             if ( reverse === 'yes' ) {
                 scrollElement.imagesLoaded(function() {
-                    scrollElement.addClass("pp-container-scroll-instant");
+                    scrollElement.addClass("mg-container-scroll-instant");
                     setTransform();
                     startTransform();
                 });
             }
             if ( direction == "vertical" ) {
-                scrollVertical.removeClass("pp-image-scroll-ver");
+                scrollVertical.removeClass("mg-image-scroll-ver");
             }
             scrollElement.mouseenter(function() {
-                scrollElement.removeClass("pp-container-scroll-instant");
+                scrollElement.removeClass("mg-container-scroll-instant");
                 setTransform();
                 reverse === 'yes' ? endTransform() : startTransform();
             });
