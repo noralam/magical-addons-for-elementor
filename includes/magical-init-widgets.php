@@ -126,21 +126,24 @@ class magicalWidgetInit
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_contentReveal());
 		//}
 
-	// Flip Box Widget
-	require_once( MAGICAL_ADDON_PATH. '/includes/widgets/flipbox-widget.php' );
-	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Flip_Box() );
+		// Flip Box Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/flipbox-widget.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Flip_Box());
 
-// Call To Action Widget
-	require_once( MAGICAL_ADDON_PATH. '/includes/widgets/call-to-action.php' );
-	\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Call_To_Action() );
+		// Call To Action Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/call-to-action.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Call_To_Action());
 
-// Call To Action Widget
-require_once( MAGICAL_ADDON_PATH. '/includes/widgets/dual-button.php' );
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Dual_Button() );
+		// Call To Action Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/dual-button.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Dual_Button());
 
-// Feature List Widget
-require_once( MAGICAL_ADDON_PATH. '/includes/widgets/icon-list.php' );
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Icon_List() );
+		// Feature List Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/icon-list.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Icon_List());
+		// Feature List Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-smooth-scroll.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgSmoothScroll());
 
 
 
