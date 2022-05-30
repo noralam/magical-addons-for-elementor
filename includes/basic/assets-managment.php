@@ -46,6 +46,14 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // image scroll
+        wp_register_style(
+            'mg-image-scroll',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/image-scroll/image-scroll.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
     // script register 
     public static function frontend_scripts_register()
@@ -113,6 +121,13 @@ class mgAssetsManagement
         wp_register_script(
             'mg-content-reveal',
             MAGICAL_ADDON_ASSETS . 'widget-assets/content-reveal/content-reveal.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-img-scroll',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/image-scroll/image-scroll.js',
             ['jquery'],
             MAGICAL_ADDON_VERSION,
             true

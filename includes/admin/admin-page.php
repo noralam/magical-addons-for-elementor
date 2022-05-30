@@ -33,7 +33,7 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
         function admin_menu()
         {
             //add_options_page( 'Settings API', 'Settings API', 'delete_posts', 'settings_api_test', array($this, 'plugin_page') );
-            add_menu_page(esc_html__('Magical Addons', 'magical-addons-for-elementor'), esc_html__('Magical Addons', 'magical-addons-for-elementor'), 'delete_posts', 'magical-addons', array($this, 'plugin_page'), esc_url(MAGICAL_ADDON_URL . 'assets/img/mg-icons.png'), 10);
+            add_menu_page(esc_html__('Magical Addons', 'magical-addons-for-elementor'), esc_html__('Magical Addons', 'magical-addons-for-elementor'), 'delete_posts', 'magical-addons', array($this, 'plugin_page'), esc_url(MAGICAL_ADDON_URL . 'assets/img/mg-icons.png'), 60);
         }
 
         function get_settings_sections()
@@ -226,6 +226,55 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                     array(
                         'name'  => 'mg_piechart',
                         'label'  => __('MG Pie Chart', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_img_comparison',
+                        'label'  => __('MG Image Comparison', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_imgaccordion',
+                        'label'  => __('MG Image Accordion', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_content_reveal',
+                        'label'  => __('MG Content Reveal', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_flipbox',
+                        'label'  => __('MG Flipbox', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_dualbtn',
+                        'label'  => __('MG Dual Button', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_iconlist',
+                        'label'  => __('MG Icon List', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_imgsmooth_scroll',
+                        'label'  => __('MG Image Smooth Scroll', 'magical-addons-for-elementor'),
                         'type'  => 'checkbox',
                         'default' => 'on',
                         'class' => 'mgaddons_checkbox',
