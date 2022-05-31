@@ -16,7 +16,7 @@ class mgAssetsManagement
     {
         add_action('elementor/frontend/after_enqueue_styles', [__CLASS__, 'frontend_style_register']);
 
-        //  add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_scripts_register']);
+        //add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_scripts_register']);
         add_action("elementor/frontend/after_enqueue_scripts", [__CLASS__, 'frontend_scripts_register']);
     }
 
@@ -30,10 +30,50 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // image compear
+        wp_register_style(
+            'twentytwenty-style',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/twentytwenty.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // image compear
+        wp_register_style(
+            'mg-imgaccordion',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/accordion/img-accordion.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // image scroll
+        wp_register_style(
+            'mg-image-scroll',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/image-scroll/image-scroll.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // image scroll
+        wp_register_style(
+            'mg-info-list',
+            MAGICAL_ADDON_ASSETS . 'css/info-list.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
-
+    // script register 
     public static function frontend_scripts_register()
     {
+        // Sharer JS
+        wp_register_script(
+            'imagesloaded',
+            MAGICAL_ADDON_ASSETS . 'js/images-loaded.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
         // Sharer JS
         wp_register_script(
             'sharer-js',
@@ -63,6 +103,42 @@ class mgAssetsManagement
             ['jquery'],
             MAGICAL_ADDON_VERSION,
             false
+        );
+
+        wp_register_script(
+            'event-move',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.event.move.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'twentytwenty',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/twentytwenty/jquery.twentytwenty.js',
+            ['jquery', 'event-move'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-image-accordion',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/accordion/mg-image-accordion.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-content-reveal',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/content-reveal/content-reveal.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-img-scroll',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/image-scroll/image-scroll.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
         );
     }
 

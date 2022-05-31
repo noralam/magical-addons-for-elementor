@@ -357,3 +357,24 @@ function mg_do_shortcode($tag, array $atts = [], $content = null)
     }
     return call_user_func($shortcode_tags[$tag], $atts, $content, $tag);
 }
+
+/**
+ * Get Post List
+ * return array
+ */
+if (!function_exists('mg_display_posts_name')) {
+    function mg_display_posts_name($post_type = 'post')
+    {
+        $options = array();
+        $options['0'] = __('Select', 'bstoolkit-for-elementor');
+        // $perpage = mp_display_get_option( 'loadproductlimit', 'mp_display_others_tabs', '20' );
+        $all_post = array('posts_per_page' => -1, 'post_type' => $post_type);
+        $post_terms = get_posts($all_post);
+        if (!empty($post_terms) && !is_wp_error($post_terms)) {
+            foreach ($post_terms as $term) {
+                $options[$term->ID] = $term->post_title;
+            }
+            return $options;
+        }
+    }
+}

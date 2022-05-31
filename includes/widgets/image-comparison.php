@@ -73,6 +73,20 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	}
 
 	/**
+	 * Get widget categories.
+	 *
+	 * Retrieve the list of categories the Blank widget belongs to.
+	 *
+	 * @return array Widget categories.
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 */
+	public function get_categories()
+	{
+		return ['magical'];
+	}
+	/**
 	 * Retrieve the list of scripts the image comparison widget depended on.
 	 *
 	 * Used to set scripts dependencies required to run the widget.
@@ -84,10 +98,10 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	public function get_script_depends()
 	{
 		return [
-			'jquery-event-move',
+			'event-move',
 			'twentytwenty',
+			'twenty-active',
 			'imagesloaded',
-			'powerpack-frontend',
 		];
 	}
 
@@ -103,7 +117,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	public function get_style_depends()
 	{
 		return [
-			'pp-twentytwenty',
+			'twentytwenty-style',
 		];
 	}
 
@@ -121,7 +135,6 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->register_content_before_image_controls();
 		$this->register_content_after_image_controls();
 		$this->register_content_settings_controls();
-		$this->register_content_help_docs_controls();
 
 		/* Style Tab */
 		$this->register_style_overlay_controls();
@@ -142,23 +155,23 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_before_image',
 			[
-				'label'             => __('Before Image', 'powerpack'),
+				'label'             => __('Before Image', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'before_label',
 			[
-				'label'             => __('Label', 'powerpack'),
+				'label'             => __('Label', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => __('Before', 'powerpack'),
+				'default'           => __('Before', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'before_image',
 			[
-				'label'             => __('Image', 'powerpack'),
+				'label'             => __('Image', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -189,23 +202,23 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_after_image',
 			[
-				'label'             => __('After Image', 'powerpack'),
+				'label'             => __('After Image', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'after_label',
 			[
-				'label'             => __('Label', 'powerpack'),
+				'label'             => __('Label', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::TEXT,
-				'default'           => __('After', 'powerpack'),
+				'default'           => __('After', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'after_image',
 			[
-				'label'             => __('Image', 'powerpack'),
+				'label'             => __('Image', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::MEDIA,
 				'dynamic'           => [
 					'active'   => true,
@@ -236,14 +249,14 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_settings',
 			[
-				'label'             => __('Settings', 'powerpack'),
+				'label'             => __('Settings', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'visible_ratio',
 			[
-				'label'                 => __('Visible Ratio', 'powerpack'),
+				'label'                 => __('Visible Ratio', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SLIDER,
 				'range'                 => [
 					'px' => [
@@ -259,12 +272,12 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'orientation',
 			[
-				'label'                 => __('Orientation', 'powerpack'),
+				'label'                 => __('Orientation', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'horizontal',
 				'options'               => [
-					'vertical'      => __('Vertical', 'powerpack'),
-					'horizontal'    => __('Horizontal', 'powerpack'),
+					'vertical'      => __('Vertical', 'magical-addons-for-elementor'),
+					'horizontal'    => __('Horizontal', 'magical-addons-for-elementor'),
 				],
 			]
 		);
@@ -272,13 +285,13 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'move_slider',
 			[
-				'label'                 => __('Move Slider', 'powerpack'),
+				'label'                 => __('Move Slider', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::SELECT,
 				'default'               => 'drag',
 				'options'               => [
-					'drag'          => __('Drag', 'powerpack'),
-					'mouse_move'    => __('Mouse Move', 'powerpack'),
-					'mouse_click'   => __('Mouse Click', 'powerpack'),
+					'drag'          => __('Drag', 'magical-addons-for-elementor'),
+					'mouse_move'    => __('Mouse Move', 'magical-addons-for-elementor'),
+					'mouse_click'   => __('Mouse Click', 'magical-addons-for-elementor'),
 				],
 			]
 		);
@@ -286,11 +299,12 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'overlay',
 			[
-				'label'             => __('Overlay', 'powerpack'),
+				'label'             => __('Overlay', 'magical-addons-for-elementor'),
+				'description'             => __('overlay show in hover', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::SWITCHER,
 				'default'           => 'yes',
-				'label_on'          => __('Show', 'powerpack'),
-				'label_off'         => __('Hide', 'powerpack'),
+				'label_on'          => __('Show', 'magical-addons-for-elementor'),
+				'label_off'         => __('Hide', 'magical-addons-for-elementor'),
 				'return_value'      => 'yes',
 			]
 		);
@@ -298,43 +312,6 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->end_controls_section();
 	}
 
-	protected function register_content_help_docs_controls()
-	{
-
-		$help_docs = PP_Config::get_widget_help_links('Image_Comparison');
-
-		if (!empty($help_docs)) {
-
-			/**
-			 * Content Tab: Help Docs
-			 *
-			 * @since 1.4.8
-			 * @access protected
-			 */
-			$this->start_controls_section(
-				'section_help_docs',
-				[
-					'label' => __('Help Docs', 'powerpack'),
-				]
-			);
-
-			$hd_counter = 1;
-			foreach ($help_docs as $hd_title => $hd_link) {
-				$this->add_control(
-					'help_doc_' . $hd_counter,
-					[
-						'type'            => Controls_Manager::RAW_HTML,
-						'raw'             => sprintf('%1$s ' . $hd_title . ' %2$s', '<a href="' . $hd_link . '" target="_blank" rel="noopener">', '</a>'),
-						'content_classes' => 'pp-editor-doc-links',
-					]
-				);
-
-				$hd_counter++;
-			}
-
-			$this->end_controls_section();
-		}
-	}
 
 	/*-----------------------------------------------------------------------------------*/
 	/*	STYLE TAB
@@ -348,7 +325,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_overlay_style',
 			[
-				'label'             => __('Overlay', 'powerpack'),
+				'label'             => __('Overlay', 'magical-addons-for-elementor'),
 				'tab'               => Controls_Manager::TAB_STYLE,
 				'condition'         => [
 					'overlay'  => 'yes',
@@ -361,7 +338,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_overlay_normal',
 			[
-				'label'             => __('Normal', 'powerpack'),
+				'label'             => __('Normal', 'magical-addons-for-elementor'),
 			]
 		);
 
@@ -382,7 +359,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_overlay_hover',
 			[
-				'label'             => __('Hover', 'powerpack'),
+				'label'             => __('Hover', 'magical-addons-for-elementor'),
 			]
 		);
 
@@ -413,7 +390,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_handle_style',
 			[
-				'label'             => __('Handle', 'powerpack'),
+				'label'             => __('Handle', 'magical-addons-for-elementor'),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -423,14 +400,14 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_handle_normal',
 			[
-				'label'             => __('Normal', 'powerpack'),
+				'label'             => __('Normal', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color',
 			[
-				'label'             => __('Icon Color', 'powerpack'),
+				'label'             => __('Icon Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -453,7 +430,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'handle_border',
-				'label'             => __('Border', 'powerpack'),
+				'label'             => __('Border', 'magical-addons-for-elementor'),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .twentytwenty-handle',
@@ -464,7 +441,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'handle_border_radius',
 			[
-				'label'             => __('Border Radius', 'powerpack'),
+				'label'             => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => ['px', '%'],
 				'selectors'         => [
@@ -486,14 +463,14 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_handle_hover',
 			[
-				'label'             => __('Hover', 'powerpack'),
+				'label'             => __('Hover', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'handle_icon_color_hover',
 			[
-				'label'             => __('Icon Color', 'powerpack'),
+				'label'             => __('Icon Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -515,7 +492,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'handle_border_color_hover',
 			[
-				'label'             => __('Border Color', 'powerpack'),
+				'label'             => __('Border Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -539,7 +516,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_divider_style',
 			[
-				'label'             => __('Divider', 'powerpack'),
+				'label'             => __('Divider', 'magical-addons-for-elementor'),
 				'tab'               => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -547,7 +524,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'divider_color',
 			[
-				'label'             => __('Color', 'powerpack'),
+				'label'             => __('Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -559,7 +536,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'divider_width',
 			[
-				'label'             => __('Width', 'powerpack'),
+				'label'             => __('Width', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::SLIDER,
 				'default'           => [
 					'size' => 3,
@@ -582,6 +559,24 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 				],
 			]
 		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'              => 'divider_border',
+				'label'             => __('Border', 'magical-addons-for-elementor'),
+				'placeholder'       => '1px',
+				'default'           => '1px',
+				'selector'          => '{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after',
+				'separator'         => 'before',
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'                  => 'divider_box_shadow',
+				'selector'              => '{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:before, {{WRAPPER}} .twentytwenty-horizontal .twentytwenty-handle:after',
+			]
+		);
 
 		$this->end_controls_section();
 	}
@@ -594,61 +589,65 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'             => __('Label', 'powerpack'),
+				'label'             => __('Label', 'magical-addons-for-elementor'),
 				'tab'               => Controls_Manager::TAB_STYLE,
+				'condition'             => [
+					'overlay'  => 'yes',
+				],
 			]
 		);
 
 		$this->add_control(
 			'label_horizontal_position',
 			[
-				'label'                 => __('Position', 'powerpack'),
+				'label'                 => __('Position', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'default'               => 'top',
 				'options'               => [
 					'top'          => [
-						'title'    => __('Top', 'powerpack'),
+						'title'    => __('Top', 'magical-addons-for-elementor'),
 						'icon'     => 'eicon-v-align-top',
 					],
 					'middle'       => [
-						'title'    => __('Middle', 'powerpack'),
+						'title'    => __('Middle', 'magical-addons-for-elementor'),
 						'icon'     => 'eicon-v-align-middle',
 					],
 					'bottom'       => [
-						'title'    => __('Bottom', 'powerpack'),
+						'title'    => __('Bottom', 'magical-addons-for-elementor'),
 						'icon'     => 'eicon-v-align-bottom',
 					],
 				],
-				'prefix_class'          => 'pp-ic-label-horizontal-',
+				'prefix_class'          => 'mg-ic-label-horizontal-',
 				'condition'             => [
 					'orientation'  => 'horizontal',
 				],
+
 			]
 		);
 
 		$this->add_control(
 			'label_vertical_position',
 			[
-				'label'                 => __('Position', 'powerpack'),
+				'label'                 => __('Position', 'magical-addons-for-elementor'),
 				'type'                  => Controls_Manager::CHOOSE,
 				'label_block'           => false,
 				'options'               => [
 					'left'      => [
-						'title' => __('Left', 'powerpack'),
+						'title' => __('Left', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-left',
 					],
 					'center'           => [
-						'title' => __('Center', 'powerpack'),
+						'title' => __('Center', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-center',
 					],
 					'right'            => [
-						'title' => __('Right', 'powerpack'),
+						'title' => __('Right', 'magical-addons-for-elementor'),
 						'icon'  => 'eicon-h-align-right',
 					],
 				],
 				'default'               => 'center',
-				'prefix_class'  => 'pp-ic-label-vertical-',
+				'prefix_class'  => 'mg-ic-label-vertical-',
 				'condition'             => [
 					'orientation'  => 'vertical',
 				],
@@ -658,7 +657,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'label_align',
 			[
-				'label'             => __('Align', 'powerpack'),
+				'label'             => __('Align', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::SLIDER,
 				'size_units'        => ['px', '%'],
 				'range'             => [
@@ -667,18 +666,18 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 					],
 				],
 				'selectors'         => [
-					'{{WRAPPER}}.pp-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-after-label:before' => 'top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.mg-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-before-label:before,
+                    {{WRAPPER}}.mg-ic-label-horizontal-top .twentytwenty-horizontal .twentytwenty-after-label:before' => 'top: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-before-label:before' => 'left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .twentytwenty-horizontal .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.mg-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-before-label:before,
+                    {{WRAPPER}}.mg-ic-label-horizontal-bottom .twentytwenty-horizontal .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-before-label:before' => 'top: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .twentytwenty-vertical .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-after-label:before' => 'left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.pp-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-before-label:before,
-                    {{WRAPPER}}.pp-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.mg-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-before-label:before,
+                    {{WRAPPER}}.mg-ic-label-vertical-left .twentytwenty-vertical .twentytwenty-after-label:before' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.mg-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-before-label:before,
+                    {{WRAPPER}}.mg-ic-label-vertical-right .twentytwenty-vertical .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -688,14 +687,14 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_label_before',
 			[
-				'label'             => __('Before', 'powerpack'),
+				'label'             => __('Before', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_before',
 			[
-				'label'             => __('Text Color', 'powerpack'),
+				'label'             => __('Text Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -707,7 +706,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_bg_color_before',
 			[
-				'label'             => __('Background Color', 'powerpack'),
+				'label'             => __('Background Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -720,7 +719,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border',
-				'label'             => __('Border', 'powerpack'),
+				'label'             => __('Border', 'magical-addons-for-elementor'),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .twentytwenty-before-label:before',
@@ -730,7 +729,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_border_radius',
 			[
-				'label'             => __('Border Radius', 'powerpack'),
+				'label'             => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => ['px', '%'],
 				'selectors'         => [
@@ -744,14 +743,14 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_label_after',
 			[
-				'label'             => __('After', 'powerpack'),
+				'label'             => __('After', 'magical-addons-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'label_text_color_after',
 			[
-				'label'             => __('Text Color', 'powerpack'),
+				'label'             => __('Text Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -763,7 +762,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_bg_color_after',
 			[
-				'label'             => __('Background Color', 'powerpack'),
+				'label'             => __('Background Color', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::COLOR,
 				'default'           => '',
 				'selectors'         => [
@@ -776,7 +775,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			Group_Control_Border::get_type(),
 			[
 				'name'              => 'label_border_after',
-				'label'             => __('Border', 'powerpack'),
+				'label'             => __('Border', 'magical-addons-for-elementor'),
 				'placeholder'       => '1px',
 				'default'           => '1px',
 				'selector'          => '{{WRAPPER}} .twentytwenty-after-label:before',
@@ -786,7 +785,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_border_radius_after',
 			[
-				'label'             => __('Border Radius', 'powerpack'),
+				'label'             => __('Border Radius', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => ['px', '%'],
 				'selectors'         => [
@@ -803,7 +802,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 			Group_Control_Typography::get_type(),
 			[
 				'name'              => 'label_typography',
-				'label'             => __('Typography', 'powerpack'),
+				'label'             => __('Typography', 'magical-addons-for-elementor'),
 				'scheme'            => Scheme_Typography::TYPOGRAPHY_4,
 				'selector'          => '{{WRAPPER}} .twentytwenty-before-label:before, {{WRAPPER}} .twentytwenty-after-label:before',
 				'separator'         => 'before',
@@ -813,7 +812,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'label_padding',
 			[
-				'label'             => __('Padding', 'powerpack'),
+				'label'             => __('Padding', 'magical-addons-for-elementor'),
 				'type'              => Controls_Manager::DIMENSIONS,
 				'size_units'        => ['px', 'em', '%'],
 				'selectors'         => [
@@ -849,37 +848,49 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		];
 
 		$this->add_render_attribute('image-comparison', [
-			'class'         => 'pp-image-comparison',
-			'id'            => 'pp-image-comparison-' . esc_attr($this->get_id()),
+			'class'         => 'mg-image-comparison',
+			'id'            => 'mg-image-comparison-' . esc_attr($this->get_id()),
 			'data-settings' => wp_json_encode($widget_options),
 		]);
 ?>
+
 		<div <?php echo wp_kses_post($this->get_render_attribute_string('image-comparison')); ?>>
 			<?php
-			if (!empty($settings['before_image']['url'])) :
 
-				$this->add_render_attribute('before-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['before_image']['id'], 'before_image', $settings));
+
+			if (!empty($settings['before_image']['url'])) :
+				if ($settings['before_image']['id']) {
+					$this->add_render_attribute('before-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['before_image']['id'], 'before_image', $settings));
+				} else {
+					$this->add_render_attribute('before-image', 'src', $settings['before_image']['url']);
+				}
+
+
 				$this->add_render_attribute('before-image', 'alt', Control_Media::get_image_alt($settings['before_image']));
 				$this->add_render_attribute('before-image', 'title', Control_Media::get_image_title($settings['before_image']));
-				$this->add_render_attribute('before-image', 'class', 'pp-before-img');
+				$this->add_render_attribute('before-image', 'class', 'mg-before-img');
 
 				printf('<img %s />', $this->get_render_attribute_string('before-image'));
 
 			endif;
 
 			if (!empty($settings['after_image']['url'])) :
+				if ($settings['after_image']['id']) {
+					$this->add_render_attribute('after-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['after_image']['id'], 'after_image', $settings));
+				} else {
+					$this->add_render_attribute('after-image', 'src', $settings['after_image']['url']);
+				}
 
-				$this->add_render_attribute('after-image', 'src', Group_Control_Image_Size::get_attachment_image_src($settings['after_image']['id'], 'after_image', $settings));
 				$this->add_render_attribute('after-image', 'alt', Control_Media::get_image_alt($settings['after_image']));
 				$this->add_render_attribute('after-image', 'title', Control_Media::get_image_title($settings['after_image']));
-				$this->add_render_attribute('after-image', 'class', 'pp-after-img');
+				$this->add_render_attribute('after-image', 'class', 'mg-after-img');
 
 				printf('<img %s />', $this->get_render_attribute_string('after-image'));
 
 			endif;
 			?>
 		</div>
-	<?php
+<?php
 	}
 
 	/**
@@ -890,21 +901,21 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 	 * @since 2.3.2
 	 * @access protected
 	 */
-	protected function content_template()
+	/*	protected function content_template()
 	{
 	?>
 		<# var visible_ratio=( settings.visible_ratio.size !='' ) ? settings.visible_ratio.size : '0.5' ; var slider_on_hover=( settings.move_slider=='mouse_move' ) ? true : false; var slider_with_handle=( settings.move_slider=='drag' ) ? true : false; var slider_with_click=( settings.move_slider=='mouse_click' ) ? true : false; var no_overlay=( settings.overlay=='yes' ) ? false : true; #>
-			<div class="pp-image-comparison" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }},"no_overlay":{{ no_overlay }} }'>
+			<div class="mg-image-comparison" data-settings='{ "visible_ratio":{{ visible_ratio }},"orientation":"{{ settings.orientation }}","before_label":"{{ settings.before_label }}","after_label":"{{ settings.after_label }}","slider_on_hover":{{ slider_on_hover }},"slider_with_handle":{{ slider_with_handle }},"slider_with_click":{{ slider_with_click }},"no_overlay":{{ no_overlay }} }'>
 				<# if ( settings.before_image.url !='' ) { #>
 					<# var before_image={ id: settings.before_image.id, url: settings.before_image.url, size: settings.before_image_size, dimension: settings.before_image_custom_dimension, model: view.getEditModel() }; var before_image_url=elementor.imagesManager.getImageUrl( before_image ); #>
-						<img src="{{{ before_image_url }}}" class="pp-before-img">
+						<img src="{{{ before_image_url }}}" class="mg-before-img">
 						<# } #>
 
 							<# if ( settings.after_image.url !='' ) { #>
 								<# var after_image={ id: settings.after_image.id, url: settings.after_image.url, size: settings.after_image_size, dimension: settings.after_image_custom_dimension, model: view.getEditModel() }; var after_image_url=elementor.imagesManager.getImageUrl( after_image ); #>
-									<img src="{{{ after_image_url }}}" class="pp-after-img">
+									<img src="{{{ after_image_url }}}" class="mg-after-img">
 									<# } #>
 			</div>
 	<?php
-	}
+	}*/
 }
