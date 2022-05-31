@@ -131,6 +131,11 @@ require_once( MAGICAL_ADDON_PATH. '/includes/widgets/icon-list.php' );
 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Icon_List() );
 
 
+// banner Widget
+require_once( MAGICAL_ADDON_PATH. '/includes/widgets/banner.php' );
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Banner() );
+
+
 
 
 		// Register widget
