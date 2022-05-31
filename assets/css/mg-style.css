@@ -1803,3 +1803,7 @@ transition: .4s;
 .mg-content-reveal-container .mg-button-icon-after .mg-content-reveal-button-content {
   flex-direction: row-reverse
   }
+ .mg-etemplate-not {
+  background: #b4e1ff;
+  padding: 20px;
+}

@@ -156,6 +156,17 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/info-list.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_infoList());
 		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/elementor-template.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mg_ElementorTemplate());
+		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/scroll-top.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mg_ScrollTop());
+		}
+
 
 
 // banner Widget
