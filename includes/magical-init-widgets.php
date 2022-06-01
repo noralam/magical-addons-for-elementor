@@ -166,12 +166,27 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/scroll-top.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mg_ScrollTop());
 		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/site-logo.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_siteLogo());
+		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/cattag-list.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgCatTag_List());
+		}
+		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/search-bar.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_SearchBar());
+		}
 
 
 
-// banner Widget
-require_once( MAGICAL_ADDON_PATH. '/includes/widgets/banner.php' );
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \MgAddon_Banner() );
+		// banner Widget
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/banner.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Banner());
 
 
 
