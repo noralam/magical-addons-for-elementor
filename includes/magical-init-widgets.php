@@ -151,32 +151,32 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/image-smooth-scroll.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_imgSmoothScroll());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_infolist', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/info-list.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_infoList());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_etemplate', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/elementor-template.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mg_ElementorTemplate());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_scroll_top', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/scroll-top.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mg_ScrollTop());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_site_logo', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/site-logo.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_siteLogo());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_cattag_list', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/cattag-list.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgCatTag_List());
 		}
-		if (mg_get_addons_option('mg_imgsmooth_scroll', 'on') == 'on') {
+		if (mg_get_addons_option('mg_searchbar', 'on') == 'on') {
 			// Feature List Widget
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/search-bar.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_SearchBar());
