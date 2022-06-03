@@ -1730,11 +1730,13 @@ transition: .4s;
 .mg-cta.mg-banner .mg-cta-title,
 .mg-cta.mg-banner .mg-cta-subtitle {
   margin-bottom: 15px;
+  width: fit-content;
 }
 
 .mg-banner-sub {
   display: flex;
-=======
+
+}
 /*Conte reveal style*/
 .mg-content-reveal-container .mg-content-reveal-content-wrapper {
   overflow: hidden;
