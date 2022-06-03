@@ -1,0 +1,45 @@
+/*Admin notice*/
+
+
+.eye-notice strong {
+    color: #085c08;
+    font-weight: 700;
+}
+
+.eye-notice.notice img {
+    overflow: hidden;
+    margin-right: 20px;
+    padding: 10px;
+    background: linear-gradient(-45deg, #ffbba6, #ffa6c9, #c6f0ff, #9dffe8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
+    width: 80px;
+    float: left;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+button.button.button-info.mgad-dismiss {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+i.notice-icon.dashicons-before.dashicons-smiley {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
