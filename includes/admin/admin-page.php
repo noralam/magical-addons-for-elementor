@@ -279,6 +279,48 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                         'default' => 'on',
                         'class' => 'mgaddons_checkbox',
                     ),
+                    array(
+                        'name'  => 'mg_infolist',
+                        'label'  => __('MG Info List', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_etemplate',
+                        'label'  => __('MG Elementor Template', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_scroll_top',
+                        'label'  => __('MG Scroll To Top', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_site_logo',
+                        'label'  => __('MG Website Logo', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_cattag_list',
+                        'label'  => __('MG Categories Or Tags List', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_searchbar',
+                        'label'  => __('MG Search Bar', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
                 ),
 
             );

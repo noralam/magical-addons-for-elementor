@@ -1735,7 +1735,6 @@ transition: .4s;
 
 .mg-banner-sub {
   display: flex;
-
 }
 /*Conte reveal style*/
 .mg-content-reveal-container .mg-content-reveal-content-wrapper {
@@ -1805,3 +1804,191 @@ transition: .4s;
 .mg-content-reveal-container .mg-button-icon-after .mg-content-reveal-button-content {
   flex-direction: row-reverse
   }
+ .mg-etemplate-not {
+  background: #b4e1ff;
+  padding: 20px;
+}
+
+
+/* Site Logo Style*/
+.mg-logo {
+  position: relative;
+  display: inline-table;
+  overflow: hidden
+}
+
+.mg-logo-image img {
+  display: block
+}
+
+.mg-logo-description {
+  margin: 0
+}
+
+.mg-logo-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 7
+}
+
+.mg-logo-url {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5
+}
+
+.mg-logo-position-left .mg-logo-image,
+.mg-logo-position-left .mg-logo-text {
+  float: left
+}
+
+.mg-logo-position-right .mg-logo-image,
+.mg-logo-position-right .mg-logo-text {
+  float: right
+}
+
+.mg-logo-position-center .mg-logo-image {
+  margin: 0 auto
+}
+
+.mg-logo-position-center .mg-logo-text {
+  text-align: center
+}
+
+.mg-logo-position-left .mg-logo-text,
+.mg-logo-position-right .mg-logo-text {
+  text-align: left
+}
+
+.mg-logo .mg-logo-title {
+  font-size: 16px;
+  line-height: 1.5
+}
+
+.mg-logo .mg-logo-description {
+  font-size: 13px
+}
+
+/*Texonomy list style*/
+.mg-taxonomy-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0
+}
+
+.mg-taxonomy-list li {
+  text-align: left
+}
+
+.mg-taxonomy-list li a {
+  display: inline-block;
+  text-decoration: none
+}
+
+.mg-taxonomy-list i {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+.mg-taxonomy-list span,
+.mg-taxonomy-list-vertical .mg-taxonomy-list i {
+  line-height: 1.5;
+  vertical-align: middle
+}
+
+.mg-taxonomy-list .mg-tax-wrap,
+.mg-taxonomy-list-horizontal .mg-taxonomy-list li a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.mg-term-count {
+  display: block
+}
+
+.mg-taxonomy-list-horizontal .mg-taxonomy-list {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+
+.mg-taxonomy-list-vertical .mg-taxonomy-list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column
+}
+
+.mg-taxonomy-list-vertical .mg-taxonomy-list li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.mg-taxonomy-list-vertical .mg-sub-taxonomy {
+  padding-left: 20px
+}
+
+/*Search style*/
+
+.mg-search-form-input-wrap {
+  width: 100%;
+  overflow: hidden
+}
+
+.mg-search-form .mg-search-form-input {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  background-color: transparent;
+  border-style: solid
+}
+
+.mg-search-form-style-inner .mg-search-form-input-wrap,
+.mg-search-form-style-outer .mg-search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+
+.mg-search-form-style-inner.mg-search-form-position-left .mg-search-form-input-wrap,
+.mg-search-form-style-outer.mg-search-form-position-left .mg-search-form {
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse
+}
+
+.mg-search-form-submit {
+  padding: 0 !important;
+  cursor: pointer;
+  border-style: solid;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s
+}
+
+.mg-search-form-disable-submit-btn-yes .mg-search-form-submit {
+  pointer-events: none;
+  cursor: default
+}

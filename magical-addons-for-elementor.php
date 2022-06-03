@@ -170,6 +170,7 @@ final class Magical_Addons_Elementor
 	 */
 	public function init()
 	{
+
 		$mgadmin_notices = new mgAdminNotice();
 		$enque_file = new mgAddonsEnqueueFile();
 		// Add Plugin actions
