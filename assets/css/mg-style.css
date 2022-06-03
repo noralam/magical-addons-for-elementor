@@ -1730,6 +1730,7 @@ transition: .4s;
 .mg-cta.mg-banner .mg-cta-title,
 .mg-cta.mg-banner .mg-cta-subtitle {
   margin-bottom: 15px;
+  width: fit-content;
 }
 
 .mg-banner-sub {
