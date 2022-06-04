@@ -829,16 +829,25 @@ class MgAddon_Flip_Box extends \Elementor\Widget_Base {
                 ],
             ]
         );
-        $this->add_control(
-            'mg_flip_normal_content_bg_color',
-            [
-                'label' => __( 'Content Background color', 'magical-addons-for-elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
+
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'mg_flip_normal_content_bg_color',
+				'label' => esc_html__( 'Background', 'magical-addons-for-elementor' ),
+				'types' => [ 'classic', 'gradient', 'video' ],
                 'selectors' => [
 					'{{WRAPPER}} .front,{{WRAPPER}} .mg-flip-boxs' => 'background-color: {{VALUE}};',
                 ],
-            ]
-        ); 
+                'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+
+
         $this->add_control(
             'mg_flip_normal_content_border_radius',
             [
@@ -906,16 +915,26 @@ class MgAddon_Flip_Box extends \Elementor\Widget_Base {
                 ],
             ]
         );
-        $this->add_control(
-            'mg_flip_hover_content_bg_color',
-            [
-                'label' => __( 'Content Background color', 'magical-addons-for-elementor' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
+
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'mg_flip_hover_content_bg_color',
+				'label' => esc_html__( 'Background', 'magical-addons-for-elementor' ),
+				'types' => [ 'classic', 'gradient', 'video' ],
                 'selectors' => [
 					'{{WRAPPER}} .back,{{WRAPPER}} .mg-flip-backend' => 'background-color: {{VALUE}};',
                 ],
-            ]
-        ); 
+                'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+
+
+
+
         $this->add_control(
             'mg_flip_hover_content_border_radius',
             [
