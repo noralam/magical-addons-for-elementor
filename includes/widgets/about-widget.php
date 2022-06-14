@@ -592,7 +592,20 @@ class MgAddon_About_Widget extends \Elementor\Widget_Base
 				'selector' => '{{WRAPPER}} .mg-team-content',
 			]
 		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'mg_box_shadow',
+				'label' => esc_html__( 'Box Shadow', 'magical-addons-for-elementor' ),
+				'selector' => '{{WRAPPER}} .mg-team-member',
+			]
+		);
+
+
 		$this->end_controls_section();
+
+
 		$this->start_controls_section(
 			'mgab_img_style',
 			[
@@ -784,6 +797,14 @@ class MgAddon_About_Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mg-team-img' => 'background-color: {{VALUE}};',
 				],
+			]
+		);
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'mg_round_img_box_shadow',
+				'label' => esc_html__( 'Round Img Box Shadow', 'magical-addons-for-elementor' ),
+				'selector' => '{{WRAPPER}} .mg-round-img img',
 			]
 		);
 		$this->add_group_control(

@@ -4,6 +4,11 @@
 *
 *
 */
+
+a {
+  cursor: pointer;
+}
+
 .mg-has-absolute{
   position: relative;
 }
@@ -1522,7 +1527,7 @@ display: flex;flex-direction: column;justify-content: center;
 .mg-cta {position: relative;overflow: hidden;display: flex;flex-direction: row;flex-wrap: nowrap; width: 100%;height: 100%;justify-content: space-between;align-items: center;padding: 70px 40px 70px 60px;}
 
 .mg-cta:before,
-.mg-db-btn:before
+.mg-db-btn.style-one:before
  {position: absolute;top: 0;left: 0;width: 100%;height: 100%;content: '';opacity: .5;}
 
 
