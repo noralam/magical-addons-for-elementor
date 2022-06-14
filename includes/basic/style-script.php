@@ -26,16 +26,16 @@ class mgAddonsEnqueueFile
 */
 		wp_register_style('flipclock',  MAGICAL_ADDON_URL . 'assets/css/flipclock.css', array(), '1.0', 'all');
 		//accordion style
-		wp_register_style('mg-accordion',  MAGICAL_ADDON_URL . 'assets/css/accordion/mg-accordion.css', array(), '1.0', 'all');
+		wp_register_style('mg-accordion',  MAGICAL_ADDON_URL . 'assets/css/accordion/mg-accordion.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//image hover card
 		wp_register_style('mg-hover-card',  MAGICAL_ADDON_URL . 'assets/widget-assets/img-hvr-card/imagehover.min.css', array(), '1.0', 'all');
 		//Timeline style
 		wp_register_style('mg-timeline',  MAGICAL_ADDON_URL . 'assets/widget-assets/timeline/timeline.min.css', array(), '1.0', 'all');
 		//Timeline style
-		wp_register_style('mg-tabs',  MAGICAL_ADDON_URL . 'assets/widget-assets/mg-tabs/mg-tabs.css', array(), '1.0', 'all');
+		wp_register_style('mg-tabs',  MAGICAL_ADDON_URL . 'assets/widget-assets/mg-tabs/mg-tabs.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//Slider style
 		wp_register_style('swiper',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/swiper.min.css', array(), '5.3.1', 'all');
-		wp_register_style('swiper-style',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/mgs-style.css', array(), '1.0.3', 'all');
+		wp_register_style('swiper-style',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/mgs-style.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//lightbox style
 		wp_enqueue_style('venobox',  MAGICAL_ADDON_URL . 'assets/css/venobox.min.css', array(), '1.8.9', 'all');
 
@@ -88,8 +88,7 @@ class mgAddonsEnqueueFile
 			//wp_enqueue_style('mgaddons-admin-style',  MAGICAL_ADDON_URL.'assets/css/switcher.css', array(), '1.0.5', 'all' );
 			wp_enqueue_style('mgaddons-admin-style',  MAGICAL_ADDON_URL . 'assets/css/mg-admin.css', array(), '1.0.5', 'all');
 
-			/*wp_enqueue_script( 'switcher',  MAGICAL_ADDON_URL.'assets/js/jquery.switcher.min.js', array( 'jquery' ), '2.5.1', false);
-			wp_enqueue_script( 'mgaddons-admin-script',  MAGICAL_ADDON_URL.'assets/js/mg-admin.js', array( 'jquery' ), '2.5.1', true);*/
+			/*wp_enqueue_script( 'switcher',  MAGICAL_ADDON_URL.'assets/js/jquery.switcher.min.js', array( 'jquery' ), '2.5.1', false);*/
 		}
 	}
 
