@@ -110,7 +110,6 @@ class MgBlockquote extends \Elementor\Widget_Base
 					'style1' =>  __('Style One', 'magical-addons-for-elementor'),
 					'style2' =>  __('Style Two', 'magical-addons-for-elementor'),
 					'style3' =>  __('Style Three', 'magical-addons-for-elementor'),
-					'style4' =>  __('Style Four', 'magical-addons-for-elementor'),
 
 				],
 				'default' => 'style1',

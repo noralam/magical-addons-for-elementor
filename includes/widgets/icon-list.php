@@ -78,7 +78,7 @@ class MgAddon_Icon_List extends \Elementor\Widget_Base {
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return [ 'mg feature list', 'feature', 'list','mg list','mg' ];
+		return [ 'mg icon list', 'icon', 'list','mg list','mg' ];
 	}
 
 
@@ -711,6 +711,26 @@ class MgAddon_Icon_List extends \Elementor\Widget_Base {
 				'separator' => 'before',
 			]
 		);
+		
+		$this->add_control(
+			'mglc_icon_size',
+			[
+				'label' => __( 'Icon Size', 'magical-addons-for-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 1000,
+						'step' => 1,
+					]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mg-ic-list i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
         $this->add_responsive_control(
             'mglc_icon_padding',
             [
@@ -718,7 +738,7 @@ class MgAddon_Icon_List extends \Elementor\Widget_Base {
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors' => [
-                    '{{WRAPPER}} .mg-ic-list' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .mg-ic-list i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],	
             ]
         );
