@@ -126,7 +126,9 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'mg-shining',
 				'options' => [
-					'mg-loader' => __('Loader Effects', 'magical-addons-for-elementor'),
+					'flipX' => __('FlipX Effects', 'magical-addons-for-elementor'),
+					'flipY' => __('FlipY Effects', 'magical-addons-for-elementor'),
+					'lineUp' => __('lineUp Effects', 'magical-addons-for-elementor'),
 					'mg-shining' => __('Shining', 'magical-addons-for-elementor'),
 					'mg-shining2' => __('Shining Two', 'magical-addons-for-elementor'),
 
@@ -274,6 +276,59 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 				],
 			]
 		);
+		$this->add_control(
+			'mfta_title_color',
+			[
+				'label' => esc_html__( 'Title Color', 'magical-addons-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mg-text-effects' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'mgta_text_shadow',
+				'label' => esc_html__( 'Text Shadow', 'magical-addons-for-elementor' ),
+				'selector' => '{{WRAPPER}} .mg-text-effects',
+			]
+		);
+
+
+		$this->add_control(
+			'mgta_animation_time',
+			[
+				'label' => esc_html__( 'Animation Time', 'magical-addons-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 's' ],
+				'range' => [
+					's' => [
+						'min' => 2,
+						'max' => 60,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'size' => 2,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .flipX' => 'animation-duration: {{SIZE}}s;',
+					'{{WRAPPER}} .flipY' => 'animation-duration: {{SIZE}}s;',
+					'{{WRAPPER}} .lineUp' => 'animation-duration: {{SIZE}}s;',
+				],
+			]
+		);
+
+
+
+
+
+
+
+
+
 
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
