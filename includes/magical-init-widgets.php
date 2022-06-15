@@ -181,6 +181,16 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/search-bar.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_SearchBar());
 		}
+		if (mg_get_addons_option('mg_searchbar', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/nav-menu/nav-menu.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MG_Addon_navMenu());
+		}
+		if (mg_get_addons_option('mg_searchbar', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/data-table.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgDataTable());
+		}
 
 
 
