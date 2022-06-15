@@ -602,22 +602,63 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
                 ],
             ]
         );
-
-        $this->add_control(
-            'mg_flip_btn2_link',
-            [
-                'label' => __('Button Link', 'magical-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'placeholder' => __('https://your-link.com', 'magical-addons-for-elementor'),
-                'default' => [
-                    'url' => '#',
-                ],
+	
+		$this->add_responsive_control(
+			'mg_flipbtn2_link_type',
+			[
+				'label' => __( 'Button Link Type', 'magical-addons-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'link' => [
+						'title' => __( 'Link', 'magical-addons-for-elementor' ),
+						'icon' => 'eicon-link',
+					],
+					'video' => [
+						'title' => __( 'Video', 'magical-addons-for-elementor' ),
+						'icon' => ' eicon-video-camera',
+					],
+					
+				],
+				'default' => 'link',				
                 'condition' => [
                     'mg_flip_btn2_use' => 'yes',
                 ],
-                'separator' => 'before',
-            ]
-        );
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'mg_flip_btn2_link',
+			[
+				'label' => __( 'Button Link', 'magical-addons-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => __( 'https://your-link.com', 'magical-addons-for-elementor' ),
+				'default' => [
+					'url' => '#',
+				],
+				'condition' => [
+					'mg_flip_btn2_use' => 'yes',
+					'mg_flipbtn2_link_type' => 'link',
+				],
+			]
+		);
+        
+        $this->add_control(
+			'mg_flip_btn2_video_link',
+			[
+				'label' => __( 'YouTube Video Link', 'magical-addons-for-elementor' ),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => __( 'https://your-link.com', 'magical-addons-for-elementor' ),
+				'default' => [
+					'url' => '#',
+				],
+				'condition' => [
+					'mg_flip_btn2_use' => 'yes',
+					'mg_flipbtn2_link_type' => 'video',
+				],
+			]
+		);
+
         $this->add_control(
             'mg_flip_usebtn2_icon',
             [
@@ -1836,6 +1877,16 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
             $mg_flip_usebtn_icon = '';
             $mg_flip_btn_title = $settings['mg_flip_btn2_title'];
             $mg_flip_btn_link = $settings['mg_flip_btn2_link'];
+
+            $mg_flipbtn2_link_type = $settings['mg_flipbtn2_link_type'];
+            if($mg_flipbtn2_link_type == 'video'){
+                $mg_flip_btn_link = $settings['mg_flip_btn2_video_link'];
+
+            }else {
+                $mg_flip_btn_link = $settings['mg_flip_btn2_link'];
+
+            }
+
             $mg_flip_btn_selected_icon = $settings['mg_flip_btn2_selected_icon'];
 
             $this->add_inline_editing_attributes('mg_flip_btn2_title', 'none');
@@ -1847,7 +1898,14 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
             }
             if (!empty($mg_flip_btn_link['nofollow'])) {
                 $this->set_render_attribute('mg_flip_btn2_title', 'rel', 'nofollow');
-            }
+            } 
+            
+            if($mg_flipbtn2_link_type == 'video'){
+            $this->add_render_attribute( 'mg_flip_btn2_title', 'class', 'mgcla-btn2-veno' );
+            $this->add_render_attribute( 'mg_flip_btn2_title', 'data-autoplay', 'true' );
+            $this->add_render_attribute( 'mg_flip_btn2_title', 'data-vbtype', 'video' );  
+            } 
+
             $btn_attr =  $this->get_render_attribute_string('mg_flip_btn2_title');
         }
 

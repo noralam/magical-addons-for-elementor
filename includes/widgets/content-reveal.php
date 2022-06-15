@@ -519,6 +519,20 @@ class MgAddon_contentReveal extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'content_margin',
+			[
+				'label'                 => __('margin', 'magical-addons-for-elementor'),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'default'               => [
+					'size'      => 10,
+				],
+				'size_units'            => ['px'],
+				'selectors'             => [
+					'{{WRAPPER}} .mg-content-reveal-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
 			'content_padding',
 			[
 				'label'                 => __('Padding', 'magical-addons-for-elementor'),
@@ -611,6 +625,26 @@ class MgAddon_contentReveal extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'button_top_spacing',
+			[
+				'label'                 => __('Button Top Spacing', 'magical-addons-for-elementor'),
+				'type'                  => Controls_Manager::SLIDER,
+				'dynamic'               => ['active' => true],
+				'default'               => [
+					'size' => 20,
+				],
+				'range'                 => [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'selectors'             => [
+					'{{WRAPPER}} .mg-content-reveal-buttons-wrapper' => 'margin-top: {{SIZE}}px',
+				],
+			]
+		);
+
+		$this->add_control(
 			'button_spacing',
 			[
 				'label'                 => __('Button Spacing', 'magical-addons-for-elementor'),
@@ -625,7 +659,7 @@ class MgAddon_contentReveal extends \Elementor\Widget_Base
 					],
 				],
 				'selectors'             => [
-					'{{WRAPPER}} .mg-content-reveal-buttons-wrapper' => 'margin-top: {{SIZE}}px',
+					'{{WRAPPER}} .mg-content-reveal-buttons-wrapper' => 'margin-bottom: {{SIZE}}px',
 				],
 			]
 		);

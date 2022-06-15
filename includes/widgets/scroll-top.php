@@ -419,7 +419,7 @@ class mg_ScrollTop extends Widget_Base
             [
                 'label' => esc_html__(' Color', 'magical-addons-for-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
+                'default' => '#000',
                 'selectors' => [
                     '{{WRAPPER}} .mg-sct-content' => 'color: {{VALUE}}',
                     '{{WRAPPER}} .mg-sct-icon' => 'color: {{VALUE}}',
@@ -428,17 +428,19 @@ class mg_ScrollTop extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'button_bg_color',
-            [
-                'label' => esc_html__('Background', 'magical-addons-for-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#004e9a',
-                'selectors' => [
-                    '{{WRAPPER}} .mg-sct-btn' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
+        $this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'button_bg_color',
+				'label' => esc_html__( 'Background', 'magical-addons-for-elementor' ),
+				'types' => [ 'classic', 'gradient', 'video' ],
+                'default' => '#000',
+				'selector' => '{{WRAPPER}} .mg-sct-btn',
+			]
+		);
+
+
+
 
         $this->add_control(
             'button_border_color',
