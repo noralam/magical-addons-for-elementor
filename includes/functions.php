@@ -378,3 +378,22 @@ if (!function_exists('mg_display_posts_name')) {
         }
     }
 }
+
+
+/**
+ * All avilable menu query 
+ * Magical addons
+ * @return [array]
+ */
+if (!function_exists('mg_addons_get_available_menus')) {
+    function mg_addons_get_available_menus()
+    {
+        $menus = [];
+
+        $get_menus = wp_get_nav_menus();
+        if (!empty($get_menus)) {
+            $menus = wp_list_pluck($get_menus, 'name', 'slug');
+        }
+        return $menus;
+    }
+}

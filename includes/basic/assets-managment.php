@@ -14,9 +14,9 @@ class mgAssetsManagement
 
     public static function init()
     {
-        add_action('elementor/frontend/after_enqueue_styles', [__CLASS__, 'frontend_style_register']);
+        //  add_action('elementor/frontend/after_enqueue_styles', [__CLASS__, 'frontend_style_register']);
 
-        //add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_scripts_register']);
+        add_action('wp_enqueue_scripts', [__CLASS__, 'frontend_style_register']);
         add_action("elementor/frontend/after_enqueue_scripts", [__CLASS__, 'frontend_scripts_register']);
     }
 
@@ -62,10 +62,26 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
-        // Login form
+        // Scroll top
         wp_register_style(
             'mg-scrolltop',
             MAGICAL_ADDON_ASSETS . 'widget-assets/scroll-top/scroll-top.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // Scroll top
+        wp_register_style(
+            'mg-nav-menu',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/nav-menu/nav-menu.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
+        // data table
+        wp_register_style(
+            'mg-data-table',
+            MAGICAL_ADDON_ASSETS . 'css/data-table.css',
             [],
             MAGICAL_ADDON_VERSION,
             'all'
@@ -151,6 +167,20 @@ class mgAssetsManagement
         wp_register_script(
             'mg-scroll-top',
             MAGICAL_ADDON_ASSETS . 'widget-assets/scroll-top/scroll-top.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-nav-menu',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/nav-menu/nav-menu.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-tabs',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/mg-tabs/mg-tabs.js',
             ['jquery'],
             MAGICAL_ADDON_VERSION,
             true
