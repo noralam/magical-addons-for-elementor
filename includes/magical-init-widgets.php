@@ -191,23 +191,11 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/data-table.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgDataTable());
 		}
-<<<<<<< HEAD
 
-
-=======
->>>>>>> main
 
 		// banner Widget
 
 		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/banner.php');
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Banner());
-
-
-
-
-
-
-
-
 	}
 }
