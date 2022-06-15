@@ -4,6 +4,89 @@
 *
 *
 */
+ul.nav.nav-tabs {
+    clear: both;
+}
+
+ul.nav.nav-tabs li {
+    list-style: none;
+    float: left;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+.nav:after,
+.nav:before,
+.navbar-collapse:after,
+.navbar-collapse:before,
+.navbar-header:after,
+.navbar-header:before,
+.navbar:after,
+.navbar:before,
+.pager:after,
+.pager:before,
+.panel-body:after,
+.panel-body:before,
+.row:after,
+.row:before {
+    display: table;
+    content: " ";
+}
+
+.nav:after,
+.navbar-collapse:after,
+.navbar-header:after,
+.navbar:after,
+.pager:after,
+.panel-body:after,
+.row:after {
+    clear: both;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-pane:not(.active) {
+    display: none;
+}
 .mgtab-nav-wrap ul.nav {
     margin: 0;
     padding: 0;
@@ -23,6 +106,25 @@ ul.nav.nav-tabs {
     overflow: inherit;
     background: #fff;
 }
+.mgv-tabs {
+    display: flex;
+}
+.mgv-tmenu {
+    flex: 0 0 20%;
+    min-width: 150px;
+    max-width: 220px;
+    width: auto;
+}
+
+.mgv-tmenu ul.nav.nav-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.mgv-tcontent {
+    display: inline-flex;
+}
+
 .mgt-style1 .nav-tabs li{
     margin: 0;
 }
@@ -178,6 +280,9 @@ ul.nav.nav-tabs {
     position: relative;
     transition: all 0.3s ease 0s;
 }
+.mgt-style3 .tab-content p{
+    color:#fff;
+}
 .mgt-style3  .nav-tabs li a:hover{
     background: #6676ff;
 }
@@ -209,15 +314,7 @@ ul.nav.nav-tabs {
     font-size: 20px;
     color: #6676ff;
 }
-@media only screen and (max-width: 480px){
-    .mgt-style3  .nav-tabs li{
-        width: 100%;
-        margin-bottom: 2px;
-    }
-    .mgt-style3  .nav-tabs li a.active:after{
-        border: none;
-    }
-}
+
 
 /*Style four*/
 
@@ -361,4 +458,37 @@ ul.nav.nav-tabs {
     left: inherit;
     bottom: inherit;
     top: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .mgv-tabs {
+        flex-flow: row wrap;
+    }
+
+    .mgv-tmenu {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: inherit;
+    }
+
+    .mg-tab-vertical .nav-tabs li.nav-item {
+        width: auto;
+        display: inline-block;
+    }
+
+    .mgv-tmenu ul.nav.nav-tabs {
+        flex-direction: row;
+        flex-flow: row wrap;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .mgt-style3 .nav-tabs li {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .mgt-style3 .nav-tabs li a.active:after {
+        border: none;
+    }
 }

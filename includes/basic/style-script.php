@@ -21,7 +21,7 @@ class mgAddonsEnqueueFile
 	*/
 	function frontend_widget_styles()
 	{
-		wp_enqueue_style('bootstrap', MAGICAL_ADDON_URL . 'assets/css/bootstrap.min.css', array(), '5.1.3', 'all');
+		//	wp_enqueue_style('bootstrap', MAGICAL_ADDON_URL . 'assets/css/bootstrap.min.css', array(), '5.1.3', 'all');
 		/*		wp_enqueue_style( 'magical-default-style',  MAGICAL_ADDON_URL.'assets/css/mg-default-style.css', array(), '1.0', 'all');
 */
 		wp_register_style('flipclock',  MAGICAL_ADDON_URL . 'assets/css/flipclock.css', array(), '1.0', 'all');
