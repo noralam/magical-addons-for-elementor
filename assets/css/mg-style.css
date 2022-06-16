@@ -1440,7 +1440,7 @@ a.mg-flip-btn {
   text-transform: inherit;
   width: fit-content;
 }
-a.mg-flip-btn i {
+a.mg-flip-btn i, a.mgcla-btn2 i {
   transition: .2s;
 }
 a.mg-flip-btn:hover {background: #000;color: #fff;}
@@ -1539,7 +1539,7 @@ display: flex;flex-direction: column;justify-content: center;
   flex: 0 0 100%;
   width: 100%;
 }
-.mg-cta-title {margin-bottom: 30px;color: #222222; display: inline-block; font-size: 50px;}
+.mg-cta-title {margin-bottom: 30px;color: #222222; display: inline-block; font-size: 40px;}
 .mg-cta-title span {
   color: rgb(247, 2, 174);
 }

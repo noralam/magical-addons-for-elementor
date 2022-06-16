@@ -748,8 +748,8 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
                     'mg_flip_btn2_use' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .mg-flip-btn2 .left i' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .mg-flip-btn2 .right i' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .mgcla-btn2 .left i' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .mgcla-btn2 .right i' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -789,11 +789,12 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
                     'mg_flip_btn2_use' => 'yes',
                 ],
                 'selectors' => [
-                    '{{WRAPPER}}  a.mg-flip-btn2:hover .left i' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} a.mg-flip-btn2:hover .right i' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}}  a.mgcla-btn2:hover .left i' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} a.mgcla-btn2:hover .right i' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
+
 
         $this->end_controls_tab();
         $this->end_controls_tabs();
