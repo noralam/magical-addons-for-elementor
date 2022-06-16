@@ -321,15 +321,6 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 			]
 		);
 
-
-
-
-
-
-
-
-
-
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
