@@ -167,7 +167,9 @@
     /* align-items: center; */
     /* justify-content: center; */
 }
-
+.mgnav-menu ul li.menu-item.menu-item-has-children button {
+    display: none;
+}
 .mgnav-menu ul li.menu-item.menu-item-has-children>a:after {
     position: absolute;
     top: 0;
