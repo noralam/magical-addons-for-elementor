@@ -316,9 +316,38 @@ class MgAddon_Banner extends \Elementor\Widget_Base
         );
 
         $this->add_responsive_control(
+            'mgcta_title_align',
+            [
+                'label' => __('Title Alignment', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'flex-start' => [
+                        'title' => __('Left', 'magical-addons-for-elementor'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __('Center', 'magical-addons-for-elementor'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'flex-end' => [
+                        'title' => __('Right', 'magical-addons-for-elementor'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+
+                ],
+                'default' => 'flex-start',
+                'toggle' => false,
+                'selectors' => [
+                    '{{WRAPPER}} .mg-banner-sub' => 'align-items: {{VALUE}};',
+                ],
+            ]
+        );
+
+
+        $this->add_responsive_control(
             'mgcta_text_align',
             [
-                'label' => __('Alignment', 'magical-addons-for-elementor'),
+                'label' => __('Description Alignment', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::CHOOSE,
                 'options' => [
                     'left' => [
