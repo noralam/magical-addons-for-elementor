@@ -1,62 +1,160 @@
 === Magical Addons For Elementor ===
 Contributors: nalam
+Tags: elementor, addons, page builder, elementor page builder, elementor addon, elementor addons, elementor widget, elementor templates, post, post grid,  timeline, piechart, ready template, one click import
 Donate link: https://wpthemespace.com/donation/
-Tags: elementor, elementor page builder, elementor addons, addons, elementor widget, page builder,post, post grid, slider, pricing table, countdown, Info Box,card, tabs, timeline,piechart
-Requires at least: 4.5
+Requires at least: 5.0
 Tested up to: 6.0
-Stable tag: 1.1.3
+Requires PHP: 5.6
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+Boost your Elementor page builder with the Magical Addons. The Elementor addons give you unlimited possibilities and easy to use experience. Highly customizable widgets with huge premade templates, sections and much more.
 
 == Description ==
-<h4>Create or add elements in your website with the magical way!!</h4> 
-Now you can add or update your site elements very easily by Magical Addons For Elementor. Supercharge your Elementor Page Builder with highly customizable Magical Addons For Elementor 
+The best part of Magical Addons is that you can design anything without having to touch a single line of code. Magical Addons has a huge collection of premium and highly functional extensions that can be used in an Elementor page builder. This is really a premium plugin that you can get for free.
 
-<p>Magical Addons For Elementor is one of the most user friendly Addons For Elementor. You can display your site content magicaly by Magical Addons For Elementor. You can set unlimited options for every widget. You can achieve nearly any design with your imagination. Each widget and addon has been tested on different screen sizes, mobile devices. </p>
+[**Check Elementor Magical Addons Demo Pages**](https://magic.wpcolors.net/)
 
-<p>Magical Addons For Elementor has a huge collection of premium, easy to use yet highly functional extensions that can be used in a Elementor page builder. This is really a premium plugin that you can get for free.</p>
-<h4>Popular widget: </h4>
-<ul>
- 	<li><strong>Slider. <a href="http://magic.wpcolors.net/magical-slider/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Video card.</strong></li>
- 	<li><strong>Blockquote Widget.</strong></li>
- 	<li><strong>Advanced PieChart Widget.</strong></li>
- 	<li><strong>Posts grid. <a href="http://magic.wpcolors.net/magical-posts-grid/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Posts List.</strong></li>
- 	<li><strong>Pricing table. <a href="http://magic.wpcolors.net/pricing-table/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Animation Tabs. <a href="http://magic.wpcolors.net/magical-tabs/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Countdown Timer. <a href="http://magic.wpcolors.net/countdown-timer/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Card Widget. <a href="http://magic.wpcolors.net/magical-card/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>About me Widget.</strong></li>
- 	<li><strong>Info Box. <a href="http://magic.wpcolors.net/magical-info-box/" target="_blank">Live preview</a></strong></li>
- 	<li><strong>Team Members.</strong></li>
- 	<li><strong>Dual heading.</strong></li>
-	<li><strong>Progressbar. <a href="http://magic.wpcolors.net/progress-bar/" target="_blank">Live preview</a></strong></li>
-	<li><strong>Image hover card <a href="http://magic.wpcolors.net/magical-hover-card/" target="_blank">Live preview</a></strong></li>
-	<li><strong>Timeline.</strong></li>
-	<li><strong>Accordion. <a href="http://magic.wpcolors.net/magical-accordion/" target="_blank">Live preview</a></strong></li>
-	<li><strong>Section title.</strong></li>
-	<li><strong>Social Share Widget.</strong></li>
-	<li><strong>Contact Form 7 Widget.</strong></li>
-	<li><strong>WP Forms Widget.</strong></li>
-	<li><strong>Image comparison.</strong></li>
-	<li><strong>Image Accordion.</strong></li>
-	<li><strong>Content Reveal.</strong></li>
-	<li><strong>Flip Box.</strong></li>
-	<li><strong>Call To Action.</strong></li>
-	<li><strong>Dual Button.</strong></li>
-	<li><strong>Icon List.</strong></li>
-	<li><strong>Image Smooth Scroll.</strong></li>
-	<li><strong>Text Effects.</strong></li>
-	<li><strong>Search bar widget</strong></li>
-	<li><strong>Categories/Tags list widget</strong></li>
-	<li><strong>Scroll to top widget</strong></li>
-	<li><strong>Site logo widget</strong></li>
-	<li><strong>Elementor Template insert widget</strong></li>
-	<li><strong>Info List widget</strong></li>
+Comes with 40+ Widgets, 100+ premade sections and blocks, 20+ template kits that help you build your websites in less time with no coding. our blocks and template library growing every week. 
 
-</ul>
+## Magical Addons Widgets List: 
+
+- **Creative Widgets:**
+
+1. [**Banner Widget**](https://magic.wpcolors.net/mg-banner/)
+Create your website banner with the banner widget advance options. The banner widget has two different styles with huge options.
+
+2. [**Animation Slider**](https://magic.wpcolors.net/magical-slider/)
+You can create an awesome animation slider with images and text with our Animation Slider widget. The widget gives you a huge number of customizable options with animation so you can create elegant-looking sliders in a minute!!
+
+3. [**Info Box**](https://magic.wpcolors.net/magical-info-box/) 
+ Show any kind of information with a beautiful design. A magical info box creates your website more attractive.
+ 
+4. [**Call to action**](https://magic.wpcolors.net/mg-call-to-action/)
+Content, image and button in one place with many styles and options in call to action widget.
+
+5. [**Tabs**](https://magic.wpcolors.net/magical-tabs/) 
+Create both Vertical and Horizontal tabs with huge options & features. Hope you will enjoy our tabs widget.
+
+6. [**Countdown**](https://magic.wpcolors.net/countdown-timer/)
+The countdown widget allows you to display a timer that counts down to a specific time or date. It’s perfect for under-construction pages, sale items, events etc.
+
+7. [**Dual Heading**](https://magic.wpcolors.net/mg-dual-heading/)
+
+You can create a headline with 2 different styles with this widget. Dual Heading Widget has every possible option.
+
+8. [**Team Members**](https://magic.wpcolors.net/mg-team-members/)
+The best way to build a team grid is to introduce your team members, co-workers, etc. you can easily customize the team member widget as per your need.
+
+9. Timeline
+Create your timeline using the Magical timeline widget and showcase your timeline horizontal and vertical with awesome style.
+
+10. [**Accordion**](https://magic.wpcolors.net/magical-accordion/)
+Display your website content in a foldable and succinct way using the Accordion widget. You can easily create your website faq section with the widget. 
+
+11. [**About me**](https://magic.wpcolors.net/mg-about-widget/)
+Display about your details on your webpage by the magical about me widget.
+
+12. [**Progress Bar**](https://magic.wpcolors.net/progress-bar/)
+Progress Bar Widget helps you to display user skills, task progress, download percentage, and other progressions in an awesome way.
+
+13. [**Social Share**](https://magic.wpcolors.net/mg-social-share/)
+Visitors can share your content on their social media accounts with one button click. it\'s a wonderful feature for improving your site Impressions
+
+14. [**Info List**](https://magic.wpcolors.net/mg-info-list/)
+You can easily list your information by the Magical Elementor info list widget.
+
+15. [**Dual Button**](https://magic.wpcolors.net/mg-dual-button/)
+Display two buttons side by side with two different styles by dual button widget. Dual Button perfect for banner, call to action and any other section. It will improve your website visibility.
+
+16. Template Insert
+ You can insert your Elementor save the template by the template insert widget. 
+
+17. [**Back to top**](https://magic.wpcolors.net/mg-back-to-top/)
+Elementor Back to top widget helps your visitor one click go page top easily. You can use the Back to top both in section and page. 
+
+
+- **Content Widgets:**
+
+18. [**Section Title**](https://magic.wpcolors.net/section-title/)
+Every website has a different style section title. Now you can easily create many different style section titles with the Elementor magical section title widget.
+
+19. [**Card**](https://magic.wpcolors.net/magical-card/)
+Display your content like services, products, offers and other items by our Elementor magical Card Widget on your WordPress website.
+
+20. [**Dual Heading**](https://magic.wpcolors.net/mg-dual-heading/)
+Display two different style heading by Elementor magical dual heading widget.
+
+21. Text Effects
+You can add many different text effects to your webpage text. You can create an animation header or highlighted text animation by Elementor magical text effects widget.
+
+22. [**Blockquote**](https://magic.wpcolors.net/mg-block-quote/)
+Elementor blockquote widget is free. Now you can create awesome blockquote in your website content easily by Elementor magical Blockquote widget.
+
+23. [**Video Card**](https://magic.wpcolors.net/video-edit-page/)
+Show your website content with video by the Elementor Magical video card widget.
+
+24. [**Content Reveal/Unfold**](https://magic.wpcolors.net/mg-content-reveal/)
+You can fit long text in a small area by the Content Reveal /Unfold widget. Elementor magical Content Reveal /Unfold widget is an awesome trick as it will make your layout design look better.
+
+25. [**Icon List**](https://magic.wpcolors.net/mg-icon-list/)
+You cat crate list with icon by Elementor magical icon list widget. You can set any icon from the icon library with huge options.
+
+26. [**Pricing Table**](https://magic.wpcolors.net/pricing-table/)
+You can display detailed single prices or comparison pricing plans with the Elementor magical pricing table. Pricing table is a great way to boost your sales and engage more potential buyers.
+
+27. Data Table
+Elementor magical data table widget will let you create data tables with advanced styling options and features. Now show your data with a customizable table.
+
+- **Image widgets:**
+
+28. [**Flip Box**](https://magic.wpcolors.net/magical-flip-box/)
+Elementor magical Flip Box Widget comes with cool 3D interactive effects. The Flip Box highlights your content in a great way. 
+
+
+29. [**Hover Card**](https://magic.wpcolors.net/magical-hover-card/)
+Lots of hover effects are added in the Elementor magical hover card widget.
+
+30. [**Image Comparison**](https://magic.wpcolors.net/mg-image-comparison/)
+Elementor magical image comparison can compare two pictures with draggable or mouse hover options in horizontal and vertical layouts.  
+
+31. [**Image Accordion**](https://magic.wpcolors.net/magical-accordion/)
+Create eye-catching image accordions in both vertical and horizontal orientations inside with Elementor magical image accordion.
+
+32. [**Image Smooth Scroll**](https://magic.wpcolors.net/mg-image-scroll/)
+Elementor magical image smooth scroll allows you to display an image attractive scrolling way
+
+- **Dynamic Widgets:**
+
+33. [**Posts Grid**](https://magic.wpcolors.net/magical-posts-grid/)
+Display your website posts in many different grid styles with advanced posts query 
+
+
+34. **Posts List**
+You can easily display your website posts in many different list styles with Elementor magical posts list widget.
+
+35. **Site Logo**
+Display your website Logo with huge customization options for Elementor page builder.
+
+
+36. **Nav Menu**
+Now, you build outstanding navigation menus in Elementor using the nav menu Widget with dozens of options.
+
+37. **Category/tag list**
+Now, You can easily display posts category or tag lists on pages or sections.
+
+38. **Search Bar**
+Now, you can customize your WordPress search bar in a unique way with Multiple styles.
+
+- **Contact Form Widget:**
+
+39. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
+Contact Form 7 Elementor Widget will help you to display contact forms on your website.
+
+
+40. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
+Display easily WPForms plugin forms ease way using the Elementor magical WPForms widget.
 
 <strong>Note:</strong> This plugin is an addon of Elementor Page Builder. So the plugin only work with Elementor Page Builder plugin.
 (https://wordpress.org/plugins/elementor/)
@@ -71,14 +169,14 @@ Now you can add or update your site elements very easily by Magical Addons For E
 
 e.g.
 
-<h4>First things first, thank you for choosing our Gallery Box lite plugin!</h4>
+<h4>First things first, thank you for choosing our Magical Addons plugin!</h4>
 <h4>You can install the plugin one of two ways:</h4>
 <h5 class="short-info">Install using FTP</h5>
 <ul>
- 	<li>Unzip the <strong>Home-animation-slider.zip</strong> file locally to your machine</li>
+ 	<li>Unzip the <strong>magical-addons-for-elementor.zip</strong> file locally to your machine</li>
  	<li>Connect to your FTP area using your preferred FTP package</li>
- 	<li>Upload the <strong>Home-animation-slider.zip</strong> folder that you extracted from the zip file to the plugin folder of your WordPress installation (<strong>wp-content -&gt; plugin</strong>)</li>
- 	<li>Go to <strong>plugin </strong> and activate Magical Posts Display.</li>
+ 	<li>Upload the <strong>magical-addons-for-elementor.zip</strong> folder that you extracted from the zip file to the plugin folder of your WordPress installation (<strong>wp-content -&gt; plugin</strong>)</li>
+ 	<li>Go to <strong>plugin </strong> and activate Magical Addons For Elementor.</li>
 </ul>
 <h5 class="short-info">Install by WordPress (recommended)</h5>
 <ul>
@@ -113,6 +211,20 @@ e.g.
 
 == Changelog ==
 
+= 1.1.4 =
+	* Data Table widget added
+	* Nav Menu widget added
+	* update banner widget
+	* update call to action widget
+	* update content reveal widget
+	* update dual button widget
+	* update flipbox widget
+	* update icon list widget
+	* update image accordion widget
+	* update qoute widget
+	* update qoute widget
+	* update tabs widget
+	* update text effects widget
 = 1.1.3 =
 	* Search bar widget adde
 	* Categories/Tags list widget added
@@ -180,5 +292,3 @@ Added - Card widget
 Edited - Pricing table widget
 = 1.0.0 =
 Released version
-
-
