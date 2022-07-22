@@ -22,6 +22,14 @@ class mgAssetsManagement
 
     public static function frontend_style_register()
     {
+        // swiper style
+        wp_register_style(
+            'mg-swiper',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/swiper/swiper.min.css',
+            [],
+            '8.2.5',
+            'all'
+        );
         // Paichart JS
         wp_register_style(
             'mgpiechart-css',
@@ -90,6 +98,22 @@ class mgAssetsManagement
     // script register 
     public static function frontend_scripts_register()
     {
+        // swiper JS
+        wp_register_script(
+            'mg-swiper',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/swiper/swiper.min.js',
+            ['jquery'],
+            '8.2.5',
+            true
+        );
+        // Sharer JS
+        wp_register_script(
+            'tooltipster',
+            MAGICAL_ADDON_ASSETS . 'js/tooltipstar.min.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
         // Sharer JS
         wp_register_script(
             'imagesloaded',

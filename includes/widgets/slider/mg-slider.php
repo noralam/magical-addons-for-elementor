@@ -86,6 +86,19 @@ class MgAddon_slider_lite extends \Elementor\Widget_Base
         return ['magical'];
     }
 
+    public function get_script_depends()
+    {
+        return [
+            'mg-swiper',
+        ];
+    }
+    public function get_style_depends()
+    {
+        return [
+            'mg-swiper',
+        ];
+    }
+
     /**
      * Register Blank widget controls.
      *

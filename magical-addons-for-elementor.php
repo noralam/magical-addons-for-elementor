@@ -9,7 +9,7 @@
  * Plugin Name:       Magical Addons For Elementor
  * Plugin URI:        
  * Description:       Premium addons for Elementor page builder
- * Version:           1.1.3
+ * Version:           1.1.6
  * Author:            Noor alam
  * Author URI:        https://profiles.wordpress.org/nalam-1
  * Elementor tested up to: 3.8
@@ -40,7 +40,7 @@ final class Magical_Addons_Elementor
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.1.3';
+	const VERSION = '1.1.6';
 
 	/**
 	 * Minimum Elementor Version
@@ -103,6 +103,7 @@ final class Magical_Addons_Elementor
 	public function __construct()
 	{
 		$this->define_main();
+
 		$this->call_main_file();
 		//	add_action('activated_plugin', [$this, 'go_welcome_page']);
 		add_action('init', [$this, 'i18n']);
@@ -122,6 +123,8 @@ final class Magical_Addons_Elementor
 		define('MAGICAL_ADDON_PATH', plugin_dir_path(__FILE__));
 		define('MAGICAL_ADDON_ROOT', __FILE__);
 	}
+
+
 
 	/**
 	 * regirect welcome page
@@ -180,9 +183,10 @@ final class Magical_Addons_Elementor
 		add_action('elementor/preview/enqueue_styles', [$this, 'editor_preview_widget_styles']);
 
 		// version update
-		if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
-			update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
+		/*	if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
+			//	update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
 		}
+		*/
 	}
 
 	public function register_new_category($manager)
@@ -239,10 +243,9 @@ final class Magical_Addons_Elementor
 		require_once(MAGICAL_ADDON_PATH . '/includes/admin/admin-page.php');
 		require_once(MAGICAL_ADDON_PATH . '/includes/btn-icons-class.php');
 		include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
-		/*
+
 		include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/activation.php';
 		require_once(MAGICAL_ADDON_PATH . '/libs/lib/index.php');
-		*/
 	}
 }
 

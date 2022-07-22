@@ -693,11 +693,11 @@ class MG_Addon_siteLogo extends Widget_Base
 			<?php if (!empty($image_src)) : ?>
 				<picture <?php echo $this->get_render_attribute_string('image_attr'); ?>>
 					<?php if (!empty($mobile_image_src)) : ?>
-						<source media="(max-width: 767px)" srcset="<?php echo esc_attr($mobile_image_src); ?>">
+						<source media="(max-width: 767px)" srcset="<?php echo esc_url($mobile_image_src); ?>">
 					<?php endif; ?>
 
 					<?php if (!empty($settings['retina_image']['url'])) : ?>
-						<source srcset="<?php echo esc_attr($image_src); ?> 1x, <?php echo esc_attr($settings['retina_image']['url']); ?> 2x">
+						<source srcset="<?php echo esc_attr($image_src); ?> 1x, <?php echo esc_url($settings['retina_image']['url']); ?> 2x">
 					<?php endif; ?>
 
 					<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr($title); ?>">
