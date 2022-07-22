@@ -15,7 +15,7 @@ img {
     max-width: 100%;
 }
 
-#adminmenu .toplevel_page_magical-addons a {
+#adminmenu .toplevel_page_magical-addons> a {
     background: linear-gradient(-60deg, #ee7752, #23d5ab, #e73c7e, #23a6d5) !important;
     background-size: 400% 400% !important;
     animation: gradient 40s ease infinite;

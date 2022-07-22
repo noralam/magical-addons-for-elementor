@@ -1,11 +1,11 @@
 === Magical Addons For Elementor ===
 Contributors: nalam
-Tags: elementor, addons, page builder, elementor page builder, elementor addon, elementor addons, elementor widget, elementor templates, post, post grid,  timeline, piechart, ready template, one click import
+Tags: elementor, page builder, addons, elementor page builder, elementor addon, elementor addons, elementor widget, elementor template library, template library, slider, post grid,  timeline, piechart, ready template, one click import
 Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.4
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -211,6 +211,9 @@ e.g.
 
 == Changelog ==
 
+= 1.1.5 =
+	* Added template library
+	* Fixed some widget issues
 = 1.1.4 =
 	* Data Table widget added
 	* Nav Menu widget added

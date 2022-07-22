@@ -21,7 +21,7 @@ class mgAddonsEnqueueFile
 	*/
 	function frontend_widget_styles()
 	{
-		//	wp_enqueue_style('bootstrap', MAGICAL_ADDON_URL . 'assets/css/bootstrap.min.css', array(), '5.1.3', 'all');
+		wp_enqueue_style('bootstrap', MAGICAL_ADDON_URL . 'assets/css/bootstrap.min.css', array(), '5.1.3', 'all');
 		/*		wp_enqueue_style( 'magical-default-style',  MAGICAL_ADDON_URL.'assets/css/mg-default-style.css', array(), '1.0', 'all');
 */
 		wp_register_style('flipclock',  MAGICAL_ADDON_URL . 'assets/css/flipclock.css', array(), '1.0', 'all');
@@ -34,7 +34,7 @@ class mgAddonsEnqueueFile
 		//Timeline style
 		wp_register_style('mg-tabs',  MAGICAL_ADDON_URL . 'assets/widget-assets/mg-tabs/mg-tabs.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//Slider style
-		wp_register_style('swiper',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/swiper.min.css', array(), '5.3.1', 'all');
+		//	wp_register_style('swiper',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/swiper.min.css', array(), '5.3.1', 'all');
 		wp_register_style('swiper-style',  MAGICAL_ADDON_URL . 'assets/widget-assets/slider/mgs-style.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//lightbox style
 		wp_enqueue_style('venobox',  MAGICAL_ADDON_URL . 'assets/css/venobox.min.css', array(), '1.8.9', 'all');
@@ -62,7 +62,7 @@ class mgAddonsEnqueueFile
 		wp_enqueue_script("venobox-active", MAGICAL_ADDON_URL . 'assets/js/venobox-active.js', array(), MAGICAL_ADDON_VERSION, true);
 
 		//Slider script
-		wp_enqueue_script("swiper", MAGICAL_ADDON_URL . 'assets/widget-assets/slider/swiper.min.js', array(), '5.3.1', true);
+		//	wp_enqueue_script("swiper", MAGICAL_ADDON_URL . 'assets/widget-assets/slider/swiper.min.js', array(), '5.3.1', true);
 		wp_enqueue_script("swiper-active", MAGICAL_ADDON_URL . 'assets/widget-assets/slider/mgs-main.js', array(), MAGICAL_ADDON_VERSION, true);
 
 
