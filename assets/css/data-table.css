@@ -1,7 +1,10 @@
 .mg-data-table .elementor-widget-container {
     overflow: hidden
 }
-
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 .mg-data-table.mg-table {
     margin-bottom: 0;
 }

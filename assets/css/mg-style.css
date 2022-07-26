@@ -98,7 +98,14 @@ span.mgheading_two {
 .mg-text-mg-shadows {
   overflow: hidden;
 }
-
+.no-load{
+  opacity: 0;
+  max-height: 300px;
+}
+.item-visiable{
+  opacity: 0;
+  visibility: hidden;
+}
 
 /*Loader mg-shadows*/
 

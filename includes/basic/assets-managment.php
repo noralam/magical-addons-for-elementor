@@ -94,10 +94,20 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // 
+        wp_register_style(
+            'mg-mailchimp',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/mailchimp/mailchimp.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
     // script register 
     public static function frontend_scripts_register()
     {
+        $ajax_url = admin_url('admin-ajax.php');
+        $mg_nonce = wp_create_nonce('mgchamp');
         // swiper JS
         wp_register_script(
             'mg-swiper',
@@ -208,6 +218,21 @@ class mgAssetsManagement
             ['jquery'],
             MAGICAL_ADDON_VERSION,
             true
+        );
+        wp_register_script(
+            'mg-mailchimp',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/mailchimp/mailchimp.min.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_localize_script(
+            'mg-mailchimp',
+            'localize',
+            array(
+                'ajax_url' => $ajax_url,
+                'nonce'    => $mg_nonce,
+            )
         );
     }
 
