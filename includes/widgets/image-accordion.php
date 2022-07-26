@@ -896,9 +896,9 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$this->add_control(
 			'mga_button_trans',
 			[
-				'label' => esc_html__( 'Transtion Time', 'magical-addons-for-elementor' ),
+				'label' => esc_html__('Transtion Time', 'magical-addons-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 's' ],
+				'size_units' => ['s'],
 				'range' => [
 					's' => [
 						'min' => 0,
@@ -1129,7 +1129,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute('image-accordion', [
-			'class' => ['mg-image-accordion', 'mg-image-accordion-' . $settings['accordion_action']],
+			'class' => ['mg-image-accordion', 'item-visiable', 'mg-image-accordion-' . $settings['accordion_action']],
 			'id'    => 'mg-image-accordion-' . $this->get_id(),
 		]);
 

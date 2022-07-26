@@ -183,10 +183,9 @@ final class Magical_Addons_Elementor
 		add_action('elementor/preview/enqueue_styles', [$this, 'editor_preview_widget_styles']);
 
 		// version update
-		/*	if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
-			//	update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
+		if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
+			update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
 		}
-		*/
 	}
 
 	public function register_new_category($manager)

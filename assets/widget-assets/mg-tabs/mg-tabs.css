@@ -4,6 +4,10 @@
 *
 *
 */
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 ul.nav.nav-tabs {
     clear: both;
 }

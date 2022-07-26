@@ -2,7 +2,10 @@
 .mgnav-menu {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 .mgnav-menu ul {
     display: flex;
     margin: 0;
@@ -27,6 +30,55 @@
 
 .mgnav-menu ul li a {
     padding: 15px 25px;
+}
+
+.mgsecnav.fix-nav {
+    left: 0;
+    display: block;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    -webkit-animation: slide-down 0.7s;
+    animation: slide-down 0.7s;
+    width: 100%;
+    z-index: 99999;
+    -webkit-box-shadow: 0 1px 4px rgb(2 3 3 / 15%);
+    box-shadow: 0 1px 4px rgb(2 3 3 / 15%);
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+/*Sticky menu*/
+@-webkit-keyframes slide-down {
+    0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0.9;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0.9;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
 }
 
 /*
@@ -332,4 +384,44 @@
         display: none;
     }
 
+}
+
+.mgnav-menu ul li a span {
+    position: relative;
+}
+
+
+.mgnav--topline ul li a span:before,
+.mgnav--topline-hvr ul li a span:before,
+.mgnav--bottomline ul li a span:after,
+.mgnav--bottomline-hvr ul li a span:after {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgb(188 188 188);
+    z-index: 99999;
+    position: absolute;
+    margin: auto;
+    right: 0;
+}
+.mgnav--bottomline ul li a span:after,
+.mgnav--bottomline-hvr ul li a span:after {
+    bottom: -2px;
+}
+.mgnav--topline ul li a span:before ,
+.mgnav--topline-hvr ul li a span:before {
+   top: -2px;
+}
+.mgnav--topline-hvr ul li a span:before,
+.mgnav--bottomline-hvr ul li a span:after {
+    transform: scale(0);
+    transition: 0.5s;
+}
+.mgnav--topline-hvr ul li a:hover span:before,
+.mgnav--topline-hvr ul li a.active span:before,
+.mgnav--bottomline-hvr ul li a:hover span:after,
+.mgnav--bottomline-hvr ul li a.active span:after {
+    transform: scale(1);
+    transition: 0.5s;
 }

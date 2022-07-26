@@ -1244,7 +1244,7 @@ class mgDataTable extends \Elementor\Widget_Base
 		}
 ?>
 
-		<table class="mg-data-table mg-table">
+		<table class="mg-data-table mg-table item-visiable">
 			<thead class="mg-table--head">
 				<tr class="mg-table--head-column">
 					<?php foreach ($settings['columns_data'] as $index => $column_cell) :

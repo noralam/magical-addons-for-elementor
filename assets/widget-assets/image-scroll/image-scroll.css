@@ -6,7 +6,10 @@
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out
 }
-
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 .mg-image-scroll-wrap {
     overflow: hidden;
     width: 100%;

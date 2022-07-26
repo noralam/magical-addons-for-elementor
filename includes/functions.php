@@ -397,3 +397,108 @@ if (!function_exists('mg_addons_get_available_menus')) {
         return $menus;
     }
 }
+/**
+ * Get MailChimp list
+ *
+ * @since 1.0.0
+ */
+if (!function_exists('mg_mailchimp_lists')) {
+
+    function mg_mailchimp_lists()
+    {
+        $lists = [];
+        // $api_key = get_option('mg_mailchimp_api_key');
+        $api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
+
+        if (empty($api_key)) {
+            return $lists;
+        }
+
+        $response = wp_remote_get('https://' . substr(
+            $api_key,
+            strpos($api_key, '-') + 1
+        ) . '.api.mailchimp.com/3.0/lists/?fields=lists.id,lists.name&count=1000', [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Basic ' . base64_encode('user:' . $api_key),
+            ],
+        ]);
+
+        if (!is_wp_error($response)) {
+            $response = json_decode(wp_remote_retrieve_body($response));
+
+            if (!empty($response) && !empty($response->lists)) {
+                $lists[''] = __('Select One', 'mg-elementor');
+
+                for ($i = 0; $i < count($response->lists); $i++) {
+                    $lists[$response->lists[$i]->id] = $response->lists[$i]->name;
+                }
+            }
+        }
+
+        return $lists;
+    }
+}
+/**
+ * MailChimp Form
+ *
+ * @since   1.0.0
+ */
+if (!function_exists('mg_mc_form')) {
+
+    function mg_mc_form()
+    {
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'mgchamp')) {
+            wp_die();
+        }
+
+        //  $api_key = sanitize_text_field($_POST['apiKey']);
+        // $api_key = get_option('mg_mailchimp_api_key');
+        $api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
+        $fname = sanitize_file_name($_POST['firstname']);
+        $lname = sanitize_file_name($_POST['lastname']);
+
+        $merge_fields = array(
+            'FNAME' => !empty($fname) ? $fname : '',
+            'LNAME' => !empty($lname) ? $lname : '',
+        );
+
+        $response = wp_remote_post(
+            'https://' . substr($api_key, strpos(
+                $api_key,
+                '-'
+            ) + 1) . '.api.mailchimp.com/3.0/lists/' . sanitize_text_field($_POST['listId']) . '/members/' . md5(strtolower(sanitize_email($_POST['email']))),
+            [
+                'method' => 'PUT',
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Basic ' . base64_encode('user:' . $api_key),
+                ],
+                'body' => json_encode([
+                    'email_address' => sanitize_email($_POST['email']),
+                    'status' => 'subscribed',
+                    'merge_fields' => $merge_fields,
+                ]),
+            ]
+        );
+
+        if (!is_wp_error($response)) {
+            $response = json_decode(wp_remote_retrieve_body($response));
+
+            if (!empty($response)) {
+                if ($response->status == 'subscribed') {
+                    wp_send_json([
+                        'status' => 'subscribed',
+                    ]);
+                } else {
+                    wp_send_json([
+                        'status' => $response->title,
+                    ]);
+                }
+            }
+        }
+    }
+
+    add_action('wp_ajax_mg_mc_form', 'mg_mc_form');
+    add_action('wp_ajax_nopriv_mg_mc_form', 'mg_mc_form');
+}

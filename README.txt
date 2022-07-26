@@ -144,16 +144,19 @@ Now, you build outstanding navigation menus in Elementor using the nav menu Widg
 37. **Category/tag list**
 Now, You can easily display posts category or tag lists on pages or sections.
 
-38. **Search Bar**
+38. **Mailchimp Widget**
+ Now you can personalize your Mailchimp sign-up form with attractive and multiple styles With our Mailchimp Elementor addons. 
+
+39. **Search Bar**
 Now, you can customize your WordPress search bar in a unique way with Multiple styles.
 
 - **Contact Form Widget:**
 
-39. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
+40. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
 Contact Form 7 Elementor Widget will help you to display contact forms on your website.
 
 
-40. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
+41. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
 Display easily WPForms plugin forms ease way using the Elementor magical WPForms widget.
 
 <strong>Note:</strong> This plugin is an addon of Elementor Page Builder. So the plugin only work with Elementor Page Builder plugin.
@@ -211,6 +214,11 @@ e.g.
 
 == Changelog ==
 
+= 1.1.6 =
+	* Added Mailchimp widget
+	* Added new options in nav menu widget
+	* Fixed all css3 issued
+	* Fixed API error
 = 1.1.5 =
 	* Added template library
 	* Fixed some widget issues

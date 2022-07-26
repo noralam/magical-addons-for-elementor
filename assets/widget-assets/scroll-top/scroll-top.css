@@ -3,7 +3,10 @@
     display: -ms-flexbox;
     display: flex;
 }
-
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 .mg-sct-btn {
     border: none;
     cursor: pointer;

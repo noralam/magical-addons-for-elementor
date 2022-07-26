@@ -21,8 +21,8 @@ class Magcial_Addon_Activation_Class
 		$endpoint = \Magcial_Addon_Cloud_Library::$plugin_data["widget"];
 		$remote_page = \Magcial_Addon_Cloud_Library::$plugin_data["remote_page_site"];
 
+		//	$library_data = json_decode(wp_remote_retrieve_body(wp_remote_get($remote . '/wp-json/mg/v1/' . $endpoint . '/')), true);
 
-		$library_data = json_decode(wp_remote_retrieve_body(wp_remote_get($remote . '/wp-json/mg/v1/' . $endpoint . '/')), true);
 		/*	
 		$page_data = json_decode(wp_remote_retrieve_body(wp_remote_get($remote_page . '/wp-json/wp/v2/mgaddon_pages')), true);
 		$library_data['pages'] = $page_data;
@@ -31,9 +31,14 @@ class Magcial_Addon_Activation_Class
 		$library_data['pages'] = $page_data;
 		*/
 		// version update
-		if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
-			update_option('mgaddon_ready_items', $library_data);
-			update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
+		if (!get_option('mgaddon_ready_items') || (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION)) {
+			$library_data = json_decode(wp_remote_retrieve_body(wp_remote_get($remote . '/wp-json/mg/v1/' . $endpoint . '/', ['timeout' => 120])), true);
+			if ($library_data) {
+				update_option('mgaddon_ready_items', $library_data);
+			}
+			if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
+				update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
+			}
 		}
 	}
 }

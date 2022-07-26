@@ -848,7 +848,7 @@ class MgAddon_imgComparison extends \Elementor\Widget_Base
 		];
 
 		$this->add_render_attribute('image-comparison', [
-			'class'         => 'mg-image-comparison',
+			'class'         => 'mg-image-comparison item-visiable',
 			'id'            => 'mg-image-comparison-' . esc_attr($this->get_id()),
 			'data-settings' => wp_json_encode($widget_options),
 		]);

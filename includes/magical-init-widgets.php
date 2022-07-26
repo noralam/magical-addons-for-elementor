@@ -191,6 +191,11 @@ class magicalWidgetInit
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/data-table.php');
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgDataTable());
 		}
+		if (mg_get_addons_option('mg_searchbar', 'on') == 'on') {
+			// Feature List Widget
+			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/mailchimp-widget.php');
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgproMailchimp());
+		}
 
 		// banner Widget
 
