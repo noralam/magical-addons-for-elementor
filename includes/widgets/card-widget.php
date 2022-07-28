@@ -102,6 +102,16 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+        $this->add_control(
+            'mg_card_img_show',
+            [
+                'label' => __('Show Image?', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'magical-addons-for-elementor'),
+                'label_off' => __('No', 'magical-addons-for-elementor'),
+                'default' => 'yes',
+            ]
+        );
 
         $this->add_control(
             'mg_card_img',
@@ -111,6 +121,8 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
+                'condition' => ['mg_card_img_show' => 'yes'],
+
             ]
         );
         $this->add_group_control(
@@ -127,6 +139,8 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                     'shop_single',
                     'shop_thumbnail'
                 ],
+                'condition' => ['mg_card_img_show' => 'yes'],
+
 
             ]
         );
@@ -154,6 +168,8 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                 'toggle' => false,
                 'prefix_class' => 'mg-card-img-',
                 'style_transfer' => true,
+                'condition' => ['mg_card_img_show' => 'yes'],
+
             ]
 
         );
@@ -494,12 +510,21 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                 'selector' => '{{WRAPPER}} .mg-card',
             ]
         );
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'mg_card_content_shadow',
+                'selector' => '{{WRAPPER}}.elementor-widget-mgcard_widget .elementor-widget-container'
+            ]
+        );
         $this->end_controls_section();
         $this->start_controls_section(
             'mg_card_img_style',
             [
                 'label' => __('Image style', 'magical-addons-for-elementor'),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+                'condition' => ['mg_card_img_show' => 'yes'],
+
             ]
         );
         $this->add_responsive_control(
@@ -1056,7 +1081,7 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
 
 ?>
         <div class="mg-card">
-            <?php if ($mg_card_img['url'] || $mg_card_img['id']) : ?>
+            <?php if ($settings['mg_card_img_show'] && ($mg_card_img['url'] || $mg_card_img['id'])) : ?>
                 <div class="mg-card-img">
                     <figure>
                         <?php echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'mg_card_img'); ?>
@@ -1098,7 +1123,7 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
         <# var iconHTML=elementor.helpers.renderIcon( view, settings.mg_card_btn_selected_icon, { 'aria-hidden' : true }, 'i' , 'object' ), migrated=elementor.helpers.isIconMigrated( settings, 'mg_card_btn_selected_icon' ); view.addInlineEditingAttributes( 'mg_card_title' ); view.addRenderAttribute( 'mg_card_title' , 'class' , 'mg-card-title' ); view.addInlineEditingAttributes( 'mg_card_desc' ); view.addInlineEditingAttributes( 'mg_card_btn_title' , 'none' ); view.addRenderAttribute( 'mg_card_btn_title' , 'class' , 'mg-btn mg-card-btn' ); view.addRenderAttribute( 'mg_card_btn_title' , 'href' , settings.mg_card_btn_link.url ); if ( settings.mg_card_img.url || settings.mg_card_img.id ) { var image={ id: settings.mg_card_img.id, url: settings.mg_card_img.url, size: settings.thumbnail_size, dimension: settings.thumbnail_custom_dimension, model: view.getEditModel() }; var image_url=elementor.imagesManager.getImageUrl( image ); } #>
 
             <div class="mg-card">
-                <# if ( settings.mg_card_img.url || settings.mg_card_img.id ) { #>
+                <# if ( settings.mg_card_img_show &&( settings.mg_card_img.url || settings.mg_card_img.id) ) { #>
                     <div class="mg-card-img">
                         <figure>
                             <img alt="Card Image" src="{{ image_url }}">
