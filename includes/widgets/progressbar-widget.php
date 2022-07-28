@@ -1,5 +1,14 @@
 <?php
 
+use Elementor\Group_Control_Text_Shadow;
+use Elementor\Repeater;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Typography;
+use Elementor\Core\Schemes\Typography;
+
+defined('ABSPATH') || die();
+
 
 class MgProgressbar extends \Elementor\Widget_Base
 {
@@ -67,6 +76,23 @@ class MgProgressbar extends \Elementor\Widget_Base
 	public function get_categories()
 	{
 		return ['magical'];
+	}
+	/**
+	 * Retrieve the list of scripts the image comparison widget depended on.
+	 *
+	 * Used to set scripts dependencies required to run the widget.
+	 *
+	 * @access public
+	 *
+	 * @return array Widget scripts dependencies.
+	 */
+	public function get_script_depends()
+	{
+		return [
+			'elementor-waypoints',
+			'mg-progressbar',
+			'mg-progressbar-active',
+		];
 	}
 
 	/**

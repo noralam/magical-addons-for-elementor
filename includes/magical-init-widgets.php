@@ -201,5 +201,9 @@ class magicalWidgetInit
 
 		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/banner.php');
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MgAddon_Banner());
+
+		// Advanced Skillbars
+		require_once(MAGICAL_ADDON_PATH . '/includes/widgets/advance-skill-bars.php');
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \mgSkillBars());
 	}
 }

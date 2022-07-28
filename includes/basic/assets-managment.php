@@ -108,6 +108,23 @@ class mgAssetsManagement
     {
         $ajax_url = admin_url('admin-ajax.php');
         $mg_nonce = wp_create_nonce('mgchamp');
+        // Progressbar JS
+        wp_register_script(
+            'mg-progressbar',
+            MAGICAL_ADDON_ASSETS . 'js/progressbar/progressbar.min.js',
+            ['jquery', 'elementor-waypoints'],
+            '2.0.0',
+            true
+        );
+        // Progressbar JS
+        wp_register_script(
+            'mg-progressbar-active',
+            MAGICAL_ADDON_ASSETS . 'js/progressbar/progressbar-active.js',
+            ['jquery', 'elementor-waypoints'],
+            '2.0.0',
+            true
+        );
+
         // swiper JS
         wp_register_script(
             'mg-swiper',
@@ -215,6 +232,13 @@ class mgAssetsManagement
         wp_register_script(
             'mg-tabs',
             MAGICAL_ADDON_ASSETS . 'widget-assets/mg-tabs/mg-tabs.js',
+            ['jquery'],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
+        wp_register_script(
+            'mg-skillbars',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/skillbars/skillbars.js',
             ['jquery'],
             MAGICAL_ADDON_VERSION,
             true

@@ -10,7 +10,6 @@ class mgAddonsEnqueueFile
 	{
 		add_action('elementor/frontend/after_enqueue_styles', [$this, 'frontend_widget_styles']);
 		add_action("elementor/frontend/after_enqueue_scripts", [$this, 'frontend_assets_scripts']);
-		add_action("elementor/frontend/after_enqueue_scripts", [$this, 'frontend_progressbar_scripts']);
 		add_action('admin_enqueue_scripts', [$this, 'mgaddons_admin_scripts']);
 		// Edit and preview enqueue
 		add_action('elementor/preview/enqueue_styles', [$this, 'enqueue_preview_styles']);
@@ -68,15 +67,6 @@ class mgAddonsEnqueueFile
 
 		wp_enqueue_script("mga-script-js", MAGICAL_ADDON_URL . 'assets/js/main-scripts.js', array('jquery'), time(), true);
 		wp_enqueue_script("waypoints", '//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js', array('jquery'), time(), false);
-	}
-	/*
-	progressbar scripts
-	*/
-	function frontend_progressbar_scripts()
-	{
-		wp_enqueue_script('elementor-waypoints');
-		wp_enqueue_script("progressbar", MAGICAL_ADDON_URL . 'assets/js/progressbar/progressbar.min.js', array('jquery'), '1.0', true);
-		wp_enqueue_script("progressbar-active", MAGICAL_ADDON_URL . 'assets/js/progressbar/progressbar-active.js', array('jquery'), MAGICAL_ADDON_VERSION, true);
 	}
 
 	public function mgaddons_admin_scripts()

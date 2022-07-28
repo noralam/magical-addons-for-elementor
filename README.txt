@@ -1,6 +1,6 @@
 === Magical Addons For Elementor ===
 Contributors: nalam
-Tags: elementor, page builder, addons, elementor page builder, elementor addon, elementor addons, elementor widget, elementor template library, template library, slider, post grid,  timeline, piechart, ready template, one click import
+Tags: elementor, page builder, addons, elementor page builder, elementor addon, elementor addons, elementor widget, elementor template library, template library, slider, post grid,  timeline, piechart, ready template, mailchimp
 Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
@@ -20,7 +20,7 @@ Comes with 40+ Widgets, 100+ premade sections and blocks, 20+ template kits that
 
 ## Magical Addons Widgets List: 
 
-- **Creative Widgets:**
+- **All Free Widgets List:**
 
 1. [**Banner Widget**](https://magic.wpcolors.net/mg-banner/)
 Create your website banner with the banner widget advance options. The banner widget has two different styles with huge options.
@@ -41,7 +41,6 @@ Create both Vertical and Horizontal tabs with huge options & features. Hope you 
 The countdown widget allows you to display a timer that counts down to a specific time or date. It’s perfect for under-construction pages, sale items, events etc.
 
 7. [**Dual Heading**](https://magic.wpcolors.net/mg-dual-heading/)
-
 You can create a headline with 2 different styles with this widget. Dual Heading Widget has every possible option.
 
 8. [**Team Members**](https://magic.wpcolors.net/mg-team-members/)
@@ -74,9 +73,6 @@ Display two buttons side by side with two different styles by dual button widget
 17. [**Back to top**](https://magic.wpcolors.net/mg-back-to-top/)
 Elementor Back to top widget helps your visitor one click go page top easily. You can use the Back to top both in section and page. 
 
-
-- **Content Widgets:**
-
 18. [**Section Title**](https://magic.wpcolors.net/section-title/)
 Every website has a different style section title. Now you can easily create many different style section titles with the Elementor magical section title widget.
 
@@ -107,11 +103,8 @@ You can display detailed single prices or comparison pricing plans with the Elem
 27. Data Table
 Elementor magical data table widget will let you create data tables with advanced styling options and features. Now show your data with a customizable table.
 
-- **Image widgets:**
-
 28. [**Flip Box**](https://magic.wpcolors.net/magical-flip-box/)
 Elementor magical Flip Box Widget comes with cool 3D interactive effects. The Flip Box highlights your content in a great way. 
-
 
 29. [**Hover Card**](https://magic.wpcolors.net/magical-hover-card/)
 Lots of hover effects are added in the Elementor magical hover card widget.
@@ -125,18 +118,14 @@ Create eye-catching image accordions in both vertical and horizontal orientation
 32. [**Image Smooth Scroll**](https://magic.wpcolors.net/mg-image-scroll/)
 Elementor magical image smooth scroll allows you to display an image attractive scrolling way
 
-- **Dynamic Widgets:**
-
 33. [**Posts Grid**](https://magic.wpcolors.net/magical-posts-grid/)
 Display your website posts in many different grid styles with advanced posts query 
-
 
 34. **Posts List**
 You can easily display your website posts in many different list styles with Elementor magical posts list widget.
 
 35. **Site Logo**
 Display your website Logo with huge customization options for Elementor page builder.
-
 
 36. **Nav Menu**
 Now, you build outstanding navigation menus in Elementor using the nav menu Widget with dozens of options.
@@ -150,7 +139,6 @@ Now, You can easily display posts category or tag lists on pages or sections.
 39. **Search Bar**
 Now, you can customize your WordPress search bar in a unique way with Multiple styles.
 
-- **Contact Form Widget:**
 
 40. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
 Contact Form 7 Elementor Widget will help you to display contact forms on your website.
@@ -213,6 +201,11 @@ e.g.
 
 
 == Changelog ==
+
+= 1.1.7 =
+	* Added advanced skillbar widget 
+	* Fixed progressbar widget js issue
+	* New options added in card widget
 
 = 1.1.6 =
 	* Added Mailchimp widget

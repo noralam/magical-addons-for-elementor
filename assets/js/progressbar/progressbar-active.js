@@ -60,10 +60,10 @@
 	}// with and without text check
 
 		//	bar.animate(dividePercent);  // Number from 0.0 to 1.0
-		scope.find(".mg-progress").closest('.elementor-container').waypoint(function(){
+		$(this).closest('.elementor-container').waypoint(function(){
 		       bar.animate(dividePercent);  // Number from 0.0 to 1.0
 		    
-		}, {offset: "50%"})
+		}, {offset: "100%"})
 
 		} // check element
 		}); //scop loop end
