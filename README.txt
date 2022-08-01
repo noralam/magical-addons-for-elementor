@@ -5,7 +5,7 @@ Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.6
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,15 +136,18 @@ Now, You can easily display posts category or tag lists on pages or sections.
 38. **Mailchimp Widget**
  Now you can personalize your Mailchimp sign-up form with attractive and multiple styles With our Mailchimp Elementor addons. 
 
-39. **Search Bar**
+39. **advanced Skillbar**
+Now, you can display your skills awesome way by this animated skillbar Elementor widgets.
+
+40. **Search Bar**
 Now, you can customize your WordPress search bar in a unique way with Multiple styles.
 
 
-40. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
+41. [**Contact Form 7**](https://magic.wpcolors.net/mg-contact-form/)
 Contact Form 7 Elementor Widget will help you to display contact forms on your website.
 
 
-41. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
+42. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
 Display easily WPForms plugin forms ease way using the Elementor magical WPForms widget.
 
 <strong>Note:</strong> This plugin is an addon of Elementor Page Builder. So the plugin only work with Elementor Page Builder plugin.
@@ -201,6 +204,11 @@ e.g.
 
 
 == Changelog ==
+
+= 1.1.8 =
+	* New options added for Mailchimp widget
+	* Site logo widget issue fixed
+	* One js issue fixed
 
 = 1.1.7 =
 	* Added advanced skillbar widget 

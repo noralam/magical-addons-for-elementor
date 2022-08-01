@@ -46,6 +46,10 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                 array(
                     'id'    => 'magical_addons',
                     'title' => __('Addons', 'magical-addons-for-elementor')
+                ),
+                array(
+                    'id'    => 'magical_extra',
+                    'title' => __('Extra', 'magical-addons-for-elementor')
                 )
             );
             return $sections;
@@ -59,7 +63,7 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
         function get_settings_fields()
         {
             $settings_fields = array(
-                'magical_tabs_welcome' => array(),
+                //    'magical_tabs_welcome' => array(),
 
                 'magical_addons' => array(
                     array(
@@ -320,6 +324,14 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                         'type'  => 'checkbox',
                         'default' => 'on',
                         'class' => 'mgaddons_checkbox',
+                    ),
+                ),
+                'magical_extra' => array(
+                    array(
+                        'name'  => 'mg_mailchamp_api',
+                        'label'  => __('MailChamp API key', 'magical-addons-for-elementor'),
+                        'desc'  => sprintf(__('Insert your MailChamp API key. See artical <a href="%s" target="_blank">How to get my MailChamp API key</a>', 'magical-addons-for-elementor'), 'https://support.checkfront.com/hc/en-us/articles/115004180154-Introduction-to-Mailchimp-and-API-Keys'),
+                        'type'  => 'text',
                     ),
                 ),
 
