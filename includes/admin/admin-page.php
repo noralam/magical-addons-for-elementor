@@ -325,6 +325,34 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                         'default' => 'on',
                         'class' => 'mgaddons_checkbox',
                     ),
+                    array(
+                        'name'  => 'mg_navmenu',
+                        'label'  => __('MG Nav Menu', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_data_table',
+                        'label'  => __('MG Data Table', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_mailchimp',
+                        'label'  => __('MG MailChimp', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mg_skillbar',
+                        'label'  => __('MG Skillbar', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
                 ),
                 'magical_extra' => array(
                     array(
