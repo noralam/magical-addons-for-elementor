@@ -340,7 +340,7 @@ class mgSkillBars extends Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mg-skill--outside' => 'margin-top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mg-skill--outside:not(:first-child)' => 'margin-top: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .mg-skill--inside:not(:first-child)' => 'margin-top: {{SIZE}}{{UNIT}};',
 				],
 			]

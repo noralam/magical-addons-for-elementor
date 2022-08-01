@@ -6,6 +6,7 @@
 	$(document).ready(function() {
 
 		$('.mgvlight').venobox(); 
+		$('*').removeClass('no-load'); 
 
 		
 

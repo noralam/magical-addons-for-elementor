@@ -76,7 +76,7 @@ class mgproMailchimp extends Widget_Base
 				'label'         => __('Mailchimp List', 'mg-elementor'),
 				'type'          => Controls_Manager::SELECT,
 				'label_block'   => false,
-				'description'   => sprintf(__('You need to set your Api Key on the %1$ssettings page%2$s', 'mg-elementor'), '<a href="' . add_query_arg(array('page' => 'mg-settings'), esc_url(admin_url('admin.php'))) . '" target="_blank">', '</a>'),
+				'description'   => sprintf(__('You need to set your Api Key on the %1$ssettings page (Extra tab)%2$s', 'mg-elementor'), '<a href="' . add_query_arg(array('page' => 'magical-addons'), esc_url(admin_url('admin.php'))) . '" target="_blank">', '</a>'),
 				'options'       => mg_mailchimp_lists(),
 			]
 		);
@@ -1066,8 +1066,7 @@ class mgproMailchimp extends Widget_Base
 		$dfname = get_bloginfo('name');
 		$firstarr = explode(' ', trim($dfname));
 		$settings   = $this->get_settings_for_display();
-		//	$api_key    = get_option('mg_mailchimp_api_key');
-		$api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
+		$api_key    = mg_get_extra_option('mg_mailchamp_api');
 
 		$mc_layout  = $settings['mailchimp_layout'];
 		$labels     = $settings['display_labels'];
@@ -1115,7 +1114,6 @@ class mgproMailchimp extends Widget_Base
 				'mg-form-fields',
 			],
 		]);
-
 		if (!empty($api_key)) { ?>
 
 			<div <?php $this->print_render_attribute_string('wrapper'); ?>>

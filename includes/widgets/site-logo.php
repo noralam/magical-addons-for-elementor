@@ -686,36 +686,54 @@ class MG_Addon_siteLogo extends Widget_Base
 			$this->add_render_attribute('url_attr', 'href',  $settings['custom_url']['url']);
 		}
 
+
 ?>
 
 		<div class="mg-logo elementor-clearfix">
 
-			<?php if (!empty($image_src)) : ?>
-				<picture <?php echo $this->get_render_attribute_string('image_attr'); ?>>
-					<?php if (!empty($mobile_image_src)) : ?>
-						<source media="(max-width: 767px)" srcset="<?php echo esc_url($mobile_image_src); ?>">
-					<?php endif; ?>
+			<?php
+			if (!empty($image_src)) :
+				$hashttps = '';
+				$url = $image_src;
+				$url_protocal = parse_url($url, PHP_URL_SCHEME) . '://';
+				$site_protocal = mg_site_protocol();
 
-					<?php if (!empty($settings['retina_image']['url'])) : ?>
-						<source srcset="<?php echo esc_attr($image_src); ?> 1x, <?php echo esc_url($settings['retina_image']['url']); ?> 2x">
-					<?php endif; ?>
+				if ($url_protocal == 'https://' && $site_protocal == 'https://') {
+					$hashttps = true;
+				}
 
-					<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr($title); ?>">
+			?>
+				<?php if (!empty($hashttps)) : ?>
+					<picture <?php echo $this->get_render_attribute_string('image_attr'); ?>>
+						<?php if (!empty($mobile_image_src)) : ?>
+							<source media="(max-width: 767px)" srcset="<?php echo esc_url($mobile_image_src); ?>">
+						<?php endif; ?>
 
-					<?php if ($this->logo_is_linked()) : ?>
-						<a <?php echo $this->get_render_attribute_string('url_attr'); ?>></a>
-					<?php endif; ?>
-				</picture>
+						<?php if (!empty($settings['retina_image']['url'])) : ?>
+							<source srcset="<?php echo esc_attr($image_src); ?> 1x, <?php echo esc_url($settings['retina_image']['url']); ?> 2x">
+						<?php endif; ?>
+
+						<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr($title); ?>">
+
+						<?php if ($this->logo_is_linked()) : ?>
+							<a <?php echo $this->get_render_attribute_string('url_attr'); ?>></a>
+						<?php endif; ?>
+					</picture>
+				<?php else : ?>
+					<div <?php echo $this->get_render_attribute_string('image_attr'); ?>>
+						<img src="<?php echo esc_url($image_src); ?>" alt="<?php echo esc_attr($title); ?>">
+
+						<?php if ($this->logo_is_linked()) : ?>
+							<a <?php echo $this->get_render_attribute_string('url_attr'); ?>></a>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
 			<?php endif; ?>
 
 			<?php if (!empty($title) || !empty($description)) : ?>
 				<div class="mg-logo-text">
 					<?php if (!empty($title)) : ?>
-						<?php if (is_home() || is_front_page()) : ?>
-							<h1 class="mg-logo-title"><?php echo esc_html__($title); ?></h1>
-						<?php else : ?>
-							<p class="mg-logo-title"><?php echo esc_html__($title); ?></p>
-						<?php endif; ?>
+						<h1 class="mg-logo-title"><?php echo esc_html__($title); ?></h1>
 					<?php endif; ?>
 
 					<?php
@@ -723,11 +741,12 @@ class MG_Addon_siteLogo extends Widget_Base
 						<p class="mg-logo-description"><?php echo esc_html__($description); ?></p>
 					<?php endif; ?>
 				</div>
+				<?php if ($this->logo_is_linked()) : ?>
+					<a <?php echo $this->get_render_attribute_string('url_attr'); ?>></a>
+				<?php endif; ?>
 			<?php endif; ?>
 
-			<?php if ($this->logo_is_linked()) : ?>
-				<a <?php echo $this->get_render_attribute_string('url_attr'); ?>></a>
-			<?php endif; ?>
+
 
 		</div>
 

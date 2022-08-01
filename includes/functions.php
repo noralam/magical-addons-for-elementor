@@ -99,6 +99,18 @@ function mg_get_addons_option($option, $default = '')
     }
     return $default;
 }
+/*
+ * Plugisn Options value
+ * return on/off
+ */
+function mg_get_extra_option($option, $default = '')
+{
+    $options = get_option('magical_extra');
+    if (isset($options[$option])) {
+        return $options[$option];
+    }
+    return $default;
+}
 
 /**
  *  Taxonomy List
@@ -407,9 +419,8 @@ if (!function_exists('mg_mailchimp_lists')) {
     function mg_mailchimp_lists()
     {
         $lists = [];
-        // $api_key = get_option('mg_mailchimp_api_key');
-        $api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
-
+        // $api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
+        $api_key = mg_get_extra_option('mg_mailchamp_api');
         if (empty($api_key)) {
             return $lists;
         }
@@ -453,8 +464,7 @@ if (!function_exists('mg_mc_form')) {
         }
 
         //  $api_key = sanitize_text_field($_POST['apiKey']);
-        // $api_key = get_option('mg_mailchimp_api_key');
-        $api_key = '7ce60d52a16a614cf2a58923e0ba895b-us5';
+        $api_key = mg_get_extra_option('mg_mailchamp_api');
         $fname = sanitize_file_name($_POST['firstname']);
         $lname = sanitize_file_name($_POST['lastname']);
 
@@ -501,4 +511,13 @@ if (!function_exists('mg_mc_form')) {
 
     add_action('wp_ajax_mg_mc_form', 'mg_mc_form');
     add_action('wp_ajax_nopriv_mg_mc_form', 'mg_mc_form');
+}
+
+if (!function_exists('mg_site_protocol')) {
+    function mg_site_protocol()
+    {
+        $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ||
+            $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        return $protocol;
+    }
 }
