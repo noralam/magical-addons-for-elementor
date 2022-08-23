@@ -45,7 +45,11 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
             ),*/
                 array(
                     'id'    => 'magical_addons',
-                    'title' => __('Addons', 'magical-addons-for-elementor')
+                    'title' => __('Free Widgets', 'magical-addons-for-elementor')
+                ),
+                array(
+                    'id'    => 'magical_addons_pro',
+                    'title' => __('Pro Widgets', 'magical-addons-for-elementor')
                 ),
                 array(
                     'id'    => 'magical_extra',
@@ -68,7 +72,7 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                 'magical_addons' => array(
                     array(
                         'name'  => 'mg_content_head',
-                        'label'  => __('Magical Widgets', 'magical-addons-for-elementor'),
+                        'label'  => __('Magical Free Widgets', 'magical-addons-for-elementor'),
                         'desc'  => __('Here is the list of our all widgets. You can enable or disable widgets from here. After enabling or disabling any widget make sure to click the Save Changes button.', 'magical-addons-for-elementor'),
                         'type'  => 'text',
                         'class' => 'mgaddons_checkhead',
@@ -354,6 +358,149 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
                         'class' => 'mgaddons_checkbox',
                     ),
                 ),
+                'magical_addons_pro' => array(
+                    array(
+                        'name'  => 'mg_pro_head',
+                        'label'  => __('Magical Pro Widgets', 'magical-addons-for-elementor'),
+                        'desc'  => __('Here is the list of our all widgets. You can enable or disable widgets from here. After enabling or disabling any widget make sure to click the Save Changes button.', 'magical-addons-for-elementor'),
+                        'type'  => 'text',
+                        'class' => 'mgaddons_checkhead',
+                    ),
+                    array(
+                        'name'  => 'mgp_lottie',
+                        'label'  => __('MG Lottie Animation', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_hotspot',
+                        'label'  => __('MG Image Hotspots', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_filter',
+                        'label'  => __('MG Filter/Portfolio Gallery', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_tcarosuel',
+                        'label'  => __('MG Testimonial Carousel', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_counter',
+                        'label'  => __('MG Counter', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_infocarousel',
+                        'label'  => __('MG InfoBox Carousel', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_adticker',
+                        'label'  => __('MG Advanced Ticker', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_adticker',
+                        'label'  => __('MG Content Switcher', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_photobunch',
+                        'label'  => __('MG Photo Bunch', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_barchart',
+                        'label'  => __('MG Bar Chart', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_pdfview',
+                        'label'  => __('MG PDF View', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_price_comp',
+                        'label'  => __('MG Price Comparison', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_nav_onepage',
+                        'label'  => __('MG One Page Nav', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_off_canvas',
+                        'label'  => __('MG Off Canvas', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_promobox',
+                        'label'  => __('MG Promo Box', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_pricemenu',
+                        'label'  => __('MG Price Menu', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_animatedh',
+                        'label'  => __('MG Animated Heading', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_popup',
+                        'label'  => __('MG Modal/Popup', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+                    array(
+                        'name'  => 'mgp_ajsearch',
+                        'label'  => __('MG ajax Search', 'magical-addons-for-elementor'),
+                        'type'  => 'checkbox',
+                        'default' => 'on',
+                        'class' => 'mgaddons_checkbox',
+                    ),
+
+                ),
                 'magical_extra' => array(
                     array(
                         'name'  => 'mg_mailchamp_api',
@@ -377,7 +524,11 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
 
         function plugin_page()
         {
-            echo '<div class="wrap magical-addons-page">';
+            if (class_exists('magicalAddonsProMain')) {
+                echo '<div class="wrap magical-addons-page mghas-pro">';
+            } else {
+                echo '<div class="wrap magical-addons-page mghas-onlyfree">';
+            }
 
             $this->magical_welcome_tabs();
             $this->settings_api->show_navigation();

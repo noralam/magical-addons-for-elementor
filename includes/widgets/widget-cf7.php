@@ -235,6 +235,40 @@ class MG_Addon_CF7 extends \Elementor\Widget_Base
 				],
 			]
 		);
+		$this->add_responsive_control(
+			'input_height',
+			[
+				'label' => __('Input Height', 'magical-addons-for-elementor'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} input.wpcf7-form-control:not(.wpcf7-submit)' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_responsive_control(
+			'textarea_height',
+			[
+				'label' => __('Textarea Height', 'magical-addons-for-elementor'),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} textarea.wpcf7-form-control' => 'height: {{SIZE}}{{UNIT}};max-height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->add_responsive_control(
 			'field_padding',
@@ -331,7 +365,7 @@ class MG_Addon_CF7 extends \Elementor\Widget_Base
 				'label' => __('Background Color', 'magical-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control:not(.wpcf7-submit)' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wpcf7-form-control:not(.wpcf7-submit)' => 'background: {{VALUE}} !important',
 				],
 			]
 		);
@@ -370,7 +404,7 @@ class MG_Addon_CF7 extends \Elementor\Widget_Base
 				'label' => __('Background Color', 'magical-addons-for-elementor'),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .wpcf7-form-control:not(.wpcf7-submit):focus' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .wpcf7-form-control:not(.wpcf7-submit):focus' => 'background: {{VALUE}} !important',
 				],
 			]
 		);

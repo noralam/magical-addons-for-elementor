@@ -9,7 +9,7 @@
  * Plugin Name:       Magical Addons For Elementor
  * Plugin URI:        
  * Description:       Premium addons for Elementor page builder
- * Version:           1.1.8
+ * Version:           1.1.9
  * Author:            Noor alam
  * Author URI:        https://profiles.wordpress.org/nalam-1
  * Elementor tested up to: 3.8
@@ -40,7 +40,7 @@ final class Magical_Addons_Elementor
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.1.8';
+	const VERSION = '1.1.9';
 
 	/**
 	 * Minimum Elementor Version
@@ -108,6 +108,7 @@ final class Magical_Addons_Elementor
 		add_action('init', [$this, 'i18n']);
 		add_action('plugins_loaded', [$this, 'init']);
 		$this->call_main_file();
+		add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'admin_adminpro_link']);
 	}
 	/**
 	 * Constract define
@@ -123,6 +124,8 @@ final class Magical_Addons_Elementor
 		define('MAGICAL_ADDON_PATH', plugin_dir_path(__FILE__));
 		define('MAGICAL_ADDON_ROOT', __FILE__);
 	}
+
+
 
 
 
@@ -173,6 +176,9 @@ final class Magical_Addons_Elementor
 	 */
 	public function init()
 	{
+		if (!class_exists('magicalAddonsProMain')) {
+			include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
+		}
 
 		$mgadmin_notices = new mgAdminNotice();
 		$enque_file = new mgAddonsEnqueueFile();
@@ -182,9 +188,14 @@ final class Magical_Addons_Elementor
 		add_action('elementor/editor/after_enqueue_styles', [$this, 'editor_widget_styles']);
 		add_action('elementor/preview/enqueue_styles', [$this, 'editor_preview_widget_styles']);
 
-		// version update
-		if (get_option('mgaddon_version') != MAGICAL_ADDON_VERSION) {
-			update_option('mgaddon_version', MAGICAL_ADDON_VERSION);
+
+		$is_plugin_activated = get_option('mg_plugin_activated');
+		if ('yes' !== $is_plugin_activated) {
+			update_option('mg_plugin_activated', 'yes');
+		}
+		$mg_install_date = get_option('mg_install_date');
+		if (empty($mg_install_date)) {
+			update_option('mg_install_date', current_time('mysql'));
 		}
 	}
 
@@ -241,10 +252,20 @@ final class Magical_Addons_Elementor
 
 		require_once(MAGICAL_ADDON_PATH . '/includes/admin/admin-page.php');
 		require_once(MAGICAL_ADDON_PATH . '/includes/btn-icons-class.php');
-		include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
+		//	if (self::porcheck() == 'no') {
+		//	}
 
 		include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/activation.php';
 		require_once(MAGICAL_ADDON_PATH . '/libs/lib/index.php');
+	}
+	//Admin pro link
+	public function admin_adminpro_link($links)
+	{
+		$newlink = sprintf("<a target='_blank' href='%s'><span style='color:red;font-weight:bold'>%s</span></a>", esc_url('https://magic.wpcolors.net/pricing-plan/#mgpricing'), __('Go Pro', 'magical-addons-for-elementor'));
+		if (!class_exists('magicalAddonsProMain')) {
+			$links[] = $newlink;
+		}
+		return $links;
 	}
 }
 

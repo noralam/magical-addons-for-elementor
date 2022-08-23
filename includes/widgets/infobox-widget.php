@@ -289,6 +289,68 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
         );
         $this->end_controls_section();
         $this->start_controls_section(
+            'mg_info_badge',
+            [
+                'label' => __('Badge', 'magical-addons-for-elementor'),
+                'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+        $this->add_control(
+            'info_badge_use',
+            [
+                'label' => __('Use Card Badge?', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'magical-addons-for-elementor'),
+                'label_off' => __('No', 'magical-addons-for-elementor'),
+                'default' => '',
+            ]
+        );
+        $this->add_control(
+            'badge_text',
+            [
+                'label'       => __('Badge Text', 'magical-addons-for-elementor'),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'input_type'  => 'text',
+                'placeholder' => __('Badge Text', 'magical-addons-for-elementor'),
+                'default'     => __('Badge', 'magical-addons-for-elementor'),
+                'condition' => [
+                    'info_badge_use' => 'yes',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'badge_position',
+            [
+                'label' => __('Badge Position', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'left-top' => [
+                        'title' => __('Left Top', 'magical-addons-for-elementor'),
+                        'icon' => 'fas fa-arrow-up',
+                    ],
+                    'left-bottom' => [
+                        'title' => __('Left Bottom', 'magical-addons-for-elementor'),
+                        'icon' => 'fas fa-arrow-down',
+                    ],
+                    'right-top' => [
+                        'title' => __('Right Top', 'magical-addons-for-elementor'),
+                        'icon' => 'fas fa-arrow-up',
+                    ],
+                    'right-bottom' => [
+                        'title' => __('Right Bottom', 'magical-addons-for-elementor'),
+                        'icon' => 'fas fa-arrow-right',
+                    ],
+
+                ],
+                'default' => 'right-bottom',
+                'condition' => [
+                    'info_badge_use' => 'yes',
+                ],
+
+            ]
+        );
+        $this->end_controls_section();
+        $this->start_controls_section(
             'mginfo_button_section',
             [
                 'label' => __('Button & wrapper linking', 'magical-addons-for-elementor'),
@@ -810,6 +872,95 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+        $this->start_controls_section(
+            'mgbtn_badge_style',
+            [
+                'label' => __('Badge', 'magical-addons-for-elementor'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'info_badge_use' => 'yes',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'mginfo_badge_margin',
+            [
+                'label' => __('Margin', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} span.mgc-badge' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'mginfo_badge_padding',
+            [
+                'label' => __('Padding', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} span.mgc-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'mginfo_badge_color',
+            [
+                'label' => __('Text Color', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} span.mgc-badge' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_control(
+            'mginfo_badge_bgcolor',
+            [
+                'label' => __('Background Color', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} span.mgc-badge' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'mginfo_badge_typography',
+                'selector' => '{{WRAPPER}} span.mgc-badge',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'mginfo_badge_border',
+                'selector' => '{{WRAPPER}} span.mgc-badge',
+            ]
+        );
+
+        $this->add_control(
+            'mginfo_badge_bradius',
+            [
+                'label' => __('Border Radius', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} span.mgc-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'mginfo_badge_bshadow',
+                'selector' => '{{WRAPPER}} span.mgc-badge',
+            ]
+        );
+        $this->end_controls_section();
 
         $this->start_controls_section(
             'mginfo_btn_style_section',
@@ -1094,6 +1245,9 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
                 <?php endif; ?>
                 <?php if ($mginfo_wraplinking) : ?>
                 </a>
+            <?php endif; ?>
+            <?php if ($settings['info_badge_use']) : ?>
+                <span class="mgc-badge mgcb-<?php echo esc_attr($settings['badge_position']); ?>"><?php echo mg_kses_tags($settings['badge_text']); ?></span>
             <?php endif; ?>
         </div>
 

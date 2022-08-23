@@ -1,11 +1,18 @@
 /*Admin notice*/
 
 
+
 .eye-notice strong {
     color: #085c08;
     font-weight: 700;
+    font-size: 14px;
 }
-
+strong.gdnews {
+    display: block;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #da0000;
+}
 .eye-notice.notice img {
     overflow: hidden;
     margin-right: 20px;
@@ -17,7 +24,16 @@
     width: 80px;
     float: left;
 }
+.eye-notice strong.upgbtn {
+    color: #b00b0b;
+}
 
+a.button.button-primary.quickbtn {
+    background: #bd0808;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-color: red;
+}
 @keyframes gradient {
     0% {
         background-position: 0% 50%;

@@ -5,18 +5,21 @@ Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Boost your Elementor page builder with the Magical Addons. The Elementor addons give you unlimited possibilities and easy to use experience. Highly customizable widgets with huge premade templates, sections and much more.
+
+Comes with 60+ Widgets, 100+ premade sections and blocks, 20+ template kits that help you build your websites in less time with no coding. our blocks and template library growing every week.
 
 == Description ==
 The best part of Magical Addons is that you can design anything without having to touch a single line of code. Magical Addons has a huge collection of premium and highly functional extensions that can be used in an Elementor page builder. This is really a premium plugin that you can get for free.
 
 [**Check Elementor Magical Addons Demo Pages**](https://magic.wpcolors.net/)
 
-Comes with 40+ Widgets, 100+ premade sections and blocks, 20+ template kits that help you build your websites in less time with no coding. our blocks and template library growing every week. 
+Comes with 60+ Widgets, 100+ premade sections and blocks, 20+ template kits that help you build your websites in less time with no coding. our blocks and template library growing every week. 
+### See Short video
+[youtube https://www.youtube.com/watch?v=bKLwBrxVjno]
 
 ## Magical Addons Widgets List: 
 

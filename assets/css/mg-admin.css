@@ -114,14 +114,22 @@ p.mgad-text1 {
 a.btn-stars5 {
     background: green;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 40px;
     text-decoration: inherit;
     font-size: 16px;
     border-radius: 5px;
     margin: 10px 0 0 0;
     display: inline-block;
+    box-shadow: rgb(50 50 50 / 65%) 0px 7px 29px 0px;
+}
+a.btn-stars5.btn-upgrade {
+    background: brown;
+    margin-left: 10px;
 }
 
+a.btn-stars5:hover {
+    opacity: 0.7;
+}
 .wrap.magical-addons-page {
     margin-top: 30px
 }
@@ -166,6 +174,7 @@ a.btn-stars5 {
 }
 
 /**/
+#magical_addons_pro tbody,
 #magical_addons tbody {
     float: left;
 }
@@ -242,6 +251,7 @@ a.btn-stars5 {
         inset 1px 1px 2px #5b9f1a;
 }
 
+#magical_addons_pro table tr.mgaddons_checkbox,
 #magical_addons table tr.mgaddons_checkbox {
     border: 1px solid #ddd;
     float: left;
@@ -282,12 +292,44 @@ tr.mgaddons_checkhead td {
 tr.mgaddons_checkhead p.description {
     font-size: 17px;
 }
+#magical_addons_pro input#submit.button,
 #magical_addons input#submit.button {
     padding: 10px 50px;
     font-size: 16px;
     font-weight: 700;
 }
+.mghas-onlyfree div#magical_addons_pro {
+    position: relative;
+}
+.mghas-onlyfree div#magical_addons_pro:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 999;
+    background: #fff;
+    opacity: 0.7;
+}
+.mghas-onlyfree div#magical_addons_pro:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "Only Available Pro Version";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    color: #9c0000;
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.5;
+}
 @media (max-width: 1420px) {
+    #magical_addons_pro table tr.mgaddons_checkbox,
     #magical_addons table tr.mgaddons_checkbox {
         width: 28%;
         height: 60px;
@@ -296,6 +338,7 @@ tr.mgaddons_checkhead p.description {
 }
 
 @media (max-width: 1090px) {
+    #magical_addons_pro table tr.mgaddons_checkbox ,
     #magical_addons table tr.mgaddons_checkbox {
         width: 40%;
         height: 60px;
@@ -313,11 +356,14 @@ tr.mgaddons_checkhead p.description {
 }
 
 @media (max-width: 790px) {
+    #magical_addons_pro table tr.mgaddons_checkbox ,
     #magical_addons table tr.mgaddons_checkbox {
         width: 80%;
         height: 60px;
     }
 
+    #magical_addons_pro table tr.mgaddons_checkbox th,
+    #magical_addons_pro table tr.mgaddons_checkbox td ,
     #magical_addons table tr.mgaddons_checkbox th,
     #magical_addons table tr.mgaddons_checkbox td {
         width: 42%;
@@ -325,6 +371,7 @@ tr.mgaddons_checkhead p.description {
         margin-top: 10px;
     }
 
+    #magical_addons_pro table tr.mgaddons_checkbox td,
     #magical_addons table tr.mgaddons_checkbox td {
         margin-top: 15px;
         text-align: right;

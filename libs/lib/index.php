@@ -23,7 +23,7 @@ if (!class_exists('Magcial_Addon_Cloud_Library')) {
 
 			self::$plugin_data = array(
 				'root_file' =>  __FILE__,
-				'pro-link' => 'https://magic.wpcolors.net/',
+				'pro-link' => 'https://magic.wpcolors.net/pricing-plan/#mgpricing',
 				'remote_site' => 'https://magic.wpcolors.net/',
 				'remote_page_site' => 'https://magic.wpcolors.net/',
 				'widget' => 'mg-items',
@@ -142,7 +142,7 @@ if (!class_exists('Magcial_Addon_Cloud_Library')) {
 					foreach ($paged_products as $product) {
 						$pro = $product['pro'] ? '<span class="pro">pro</span>' : '';
 						$parent_site = substr($product['thumb'], 0, strpos($product['thumb'], 'wp-content'));
-						if ($product['pro'] && !class_exists('Magcial_Addon_Pro')) {
+						if ($product['pro'] && !class_exists('magicalAddonsProMain')) {
 
 							$btn = '<a target="_blank" href="' . self::$plugin_data['pro-link'] . '" class="buy-tmpl"><i class="eicon-external-link-square"></i> Buy pro</a>';
 						} else {

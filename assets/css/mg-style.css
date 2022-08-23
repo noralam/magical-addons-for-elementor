@@ -60,6 +60,7 @@ span.mgheading_two {
 
 .shape-one {
   position: relative;
+  overflow: hidden;
 }
 
 .shape-one:after {
@@ -331,6 +332,7 @@ a.mg-btn-text.mg-btn i {
 .mg-infobox {
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .mgicon-area {
@@ -1702,9 +1704,14 @@ z-index: 3;}
 
 .mg-features-list ul {margin: 0;padding: 0;list-style: none;display: inline-flex;}
 
-a.mg-lc-single {display: inline-flex;margin-right: 20px;padding: 20px;box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;border-radius: 5px;
-margin-bottom: 20px;
-transition: .4s;
+a.mg-lc-single {
+    display: inline-flex;
+    margin-right: 20px;
+    padding: 20px;box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: .4s;
+    width: 100%;
 }
 
 .mg-lc-img img {width: 35px;height: 35px;object-fit: cover;border-radius: 50%;min-width: 35px;transition: .4s;}
