@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 class mg_ScrollTop extends Widget_Base
 {
-
+    use mgProHelpLink;
     public function get_name()
     {
         return 'mgscrolltop';
@@ -390,9 +390,8 @@ class mg_ScrollTop extends Widget_Base
                 'min' => 0,
             ]
         );
-
-
         $this->end_controls_section();
+        $this->link_pro_added();
 
         // Section Button ------------
         $this->start_controls_section(
@@ -429,15 +428,15 @@ class mg_ScrollTop extends Widget_Base
         );
 
         $this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'button_bg_color',
-				'label' => esc_html__( 'Background', 'magical-addons-for-elementor' ),
-				'types' => [ 'classic', 'gradient', 'video' ],
+            \Elementor\Group_Control_Background::get_type(),
+            [
+                'name' => 'button_bg_color',
+                'label' => esc_html__('Background', 'magical-addons-for-elementor'),
+                'types' => ['classic', 'gradient', 'video'],
                 'default' => '#000',
-				'selector' => '{{WRAPPER}} .mg-sct-btn',
-			]
-		);
+                'selector' => '{{WRAPPER}} .mg-sct-btn',
+            ]
+        );
 
 
 

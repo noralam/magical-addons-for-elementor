@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 
 class MG_Addon_siteLogo extends Widget_Base
 {
-
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -262,6 +262,7 @@ class MG_Addon_siteLogo extends Widget_Base
 		);
 
 		$this->end_controls_section(); // End Controls Section
+		$this->link_pro_added();
 
 		// Styles
 		// Section: General ----------

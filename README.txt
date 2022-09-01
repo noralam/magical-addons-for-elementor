@@ -5,7 +5,7 @@ Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.9
+Stable tag: 1.1.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,50 @@ Contact Form 7 Elementor Widget will help you to display contact forms on your w
 42. [**WpForms**](https://magic.wpcolors.net/mg-contact-form/)
 Display easily WPForms plugin forms ease way using the Elementor magical WPForms widget.
 
+- **All Pro Widgets List:**
+
+[**Portfolio/Filter Gallery**](https://magic.wpcolors.net/filter-gallery/)
+Portfolio gallery is an a awesome for display portfolio items or filter image gallery.
+
+[**Lottie Animations**](https://magic.wpcolors.net/lottie/)
+
+[**Info Box Carousel**](https://magic.wpcolors.net/info-carousel/)
+
+[**Bar Chart**](https://magic.wpcolors.net/bar-chart-pro/)
+
+[**Testimonial Carousel**](https://magic.wpcolors.net/testmonial-pro/)
+
+[**Promo Box**](https://magic.wpcolors.net/promo-box-pro/)
+
+[**Price Menu**](https://magic.wpcolors.net/price-menu-pro/)
+
+[**Photo Bunch**](https://magic.wpcolors.net/photo-bunch/)
+
+[**PDF View**](https://magic.wpcolors.net/pdf-view/)
+
+[**One Page Nav**]
+
+[**Off Canvas**](https://magic.wpcolors.net/off-canvas/)
+
+[**Modal/Popup**](https://magic.wpcolors.net/modal-popup/)
+
+[**Image Hotspots**](https://magic.wpcolors.net/hotspot-pro/)
+
+[**Mg Counter**](https://magic.wpcolors.net/counter-pro/)
+
+[**Content Switcher**](https://magic.wpcolors.net/content-switcher/)
+
+[**Price comparison**]
+
+[**Animated Heading**](https://magic.wpcolors.net/animated-heading/)
+
+[**Ajax Search**]
+
+[**Advanced Ticker**](https://magic.wpcolors.net/advance-ticker/)
+
+
+
+
 <strong>Note:</strong> This plugin is an addon of Elementor Page Builder. So the plugin only work with Elementor Page Builder plugin.
 (https://wordpress.org/plugins/elementor/)
 
@@ -208,6 +252,18 @@ e.g.
 
 == Changelog ==
 
+= 1.1.11 =
+	* Added new section & pages
+	* Fixed menu style
+= 1.1.10 =
+	* Added new options and info
+	* Fixed some PHP error
+
+= 1.1.9 =
+	* Published premium version
+	* Added new premade sections, blocks, pages
+	* New options added some widges
+	
 = 1.1.8 =
 	* New options added for Mailchimp widget
 	* Site logo widget issue fixed

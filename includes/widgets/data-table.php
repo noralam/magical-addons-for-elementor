@@ -21,6 +21,7 @@ use Elementor\Control_Media;
 
 class mgDataTable extends \Elementor\Widget_Base
 {
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -773,6 +774,7 @@ class mgDataTable extends \Elementor\Widget_Base
 		);
 */
 		$this->end_controls_section();
+		$this->link_pro_added();
 	}
 
 

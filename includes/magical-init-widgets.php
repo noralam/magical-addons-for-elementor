@@ -6,6 +6,7 @@
 class magicalWidgetInit
 {
 
+
 	public static function mg_addons_widget_init()
 	{
 

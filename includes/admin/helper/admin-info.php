@@ -22,25 +22,24 @@ class madAdminInfo
 
     public static function mp_display_admin_info()
     {
-        /*
+
         $hide_date = get_option('mg_hide_date');
-        if (!empty($hide_date)) {
-            $clickhide = round((time() - strtotime($hide_date)) / 24 / 60 / 60);
-            if ($clickhide < 7) {
-                return;
-            }
-            echo '$hide_date';
-        }
 
         $install_date = get_option('mg_install_date');
+        if (!empty($hide_date)) {
+            $clickhide = round((time() - strtotime($hide_date)) / 24 / 60 / 60);
+            if ($clickhide < 10) {
+                return;
+            }
+        }
+
         if (!empty($install_date)) {
             $install_day = round((time() - strtotime($install_date)) / 24 / 60 / 60);
             if ($install_day < 2) {
                 return;
             }
-            echo '$install_day';
         }
-        */
+
         /*
         if (get_option('mgadinfo6')) {
             return;
@@ -48,7 +47,7 @@ class madAdminInfo
     */
         $imgsrc = MAGICAL_ADDON_URL . 'assets/img/magical-logo.png';
         $class = 'eye-notice notice notice-success is-dismissible';
-        $message = __('<strong class="gdnews">Big News For You!!! Now Available Magical Addons Pro Version!!!</strong><strong> We are updated Magical Addons with huge premium ready pages, templates, blocks and Premium widgets. Huge features and design are now one click behind.</strong><br> <strong class="upgbtn">  Upgrade Pro, Starting Price only $21!!! limit time offer!!!</strong>', 'magical-addons-for-elementor');
+        $message = __('<strong class="gdnews">Thank you for using Magical Addons Free Version.</strong><strong> Now Available Magical Addons Pro Version!! To get more amazing features and the outstanding pro ready-made layout, please get the premium Version.</strong><br> <strong class="upgbtn"> Starting Price only $21!!! limit time offer!!!</strong>', 'magical-addons-for-elementor');
         $url1 = esc_url('https://wpthemespace.com/product/magical-addons-pro/?add-to-cart=7193');
         $url2 = esc_url('https://magic.wpcolors.net/pricing-plan/#mgpricing');
 
@@ -59,8 +58,10 @@ class madAdminInfo
     {
         if (isset($_GET['mgpdismissed']) && $_GET['mgpdismissed'] == 1) {
             update_option('mg_hide_date', current_time('mysql'));
+            /* 
             delete_option('mgadinfo4');
-            update_option('mgadinfo9', 1);
+            update_option('mgadinfo9', 1); 
+            */
         }
     }
     public static function mgaddons_admin_scripts()

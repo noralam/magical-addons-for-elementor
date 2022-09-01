@@ -22,6 +22,7 @@ if (!defined('ABSPATH')) {
  */
 class MgAddon_imgAccordion extends \Elementor\Widget_Base
 {
+	use mgProHelpLink;
 
 	/**
 	 * Get widget name.
@@ -437,7 +438,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 		);
 
 		$this->end_controls_section();
-
+		$this->link_pro_added();
 
 		/*-----------------------------------------------------------------------------------*/
 		/*	Style Tab

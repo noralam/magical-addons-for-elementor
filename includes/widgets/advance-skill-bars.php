@@ -19,7 +19,7 @@ defined('ABSPATH') || die();
 
 class mgSkillBars extends Widget_Base
 {
-
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -286,6 +286,7 @@ class mgSkillBars extends Widget_Base
 		);
 
 		$this->end_controls_section();
+		$this->link_pro_added();
 	}
 
 	/**

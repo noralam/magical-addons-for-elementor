@@ -9,7 +9,7 @@
  * Plugin Name:       Magical Addons For Elementor
  * Plugin URI:        
  * Description:       Premium addons for Elementor page builder
- * Version:           1.1.9
+ * Version:           1.1.11
  * Author:            Noor alam
  * Author URI:        https://profiles.wordpress.org/nalam-1
  * Elementor tested up to: 3.8
@@ -40,7 +40,7 @@ final class Magical_Addons_Elementor
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.1.9';
+	const VERSION = '1.1.11';
 
 	/**
 	 * Minimum Elementor Version
@@ -178,6 +178,7 @@ final class Magical_Addons_Elementor
 	{
 		if (!class_exists('magicalAddonsProMain')) {
 			include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
+			require_once(MAGICAL_ADDON_PATH . '/includes/pro-widgets.php');
 		}
 
 		$mgadmin_notices = new mgAdminNotice();
@@ -203,6 +204,10 @@ final class Magical_Addons_Elementor
 	{
 		$manager->add_category('magical', [
 			'title' => esc_html__('Magical Elements', 'magical-addons-for-elementor'),
+			'icon' => 'fa fa-magic',
+		]);
+		$manager->add_category('magical-pro', [
+			'title' => esc_html__('Magical Pro Addons', 'magical-addons-for-elementor'),
 			'icon' => 'fa fa-magic',
 		]);
 	}

@@ -19,6 +19,7 @@ defined('ABSPATH') || die();
 
 class MG_Addon_Sharebtn extends \Elementor\Widget_Base
 {
+    use mgProHelpLink;
     /**
      * Get widget name.
      *

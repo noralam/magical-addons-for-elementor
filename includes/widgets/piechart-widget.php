@@ -12,7 +12,7 @@ use Elementor\Utils;
 
 class MG_AddonPieChart extends \Elementor\Widget_Base
 {
-
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -403,6 +403,7 @@ class MG_AddonPieChart extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+        $this->link_pro_added();
     }
 
     /**

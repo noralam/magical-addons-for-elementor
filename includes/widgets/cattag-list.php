@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
 class mgCatTag_List extends Widget_Base
 {
-
+	use mgProHelpLink;
 	public function get_name()
 	{
 		return 'mg-taxonomy-list';
@@ -162,7 +162,7 @@ class mgCatTag_List extends Widget_Base
 		);
 
 		$this->end_controls_section();
-
+		$this->link_pro_added();
 
 		// Styles ====================
 		// Section: Taxonomy Style ---

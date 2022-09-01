@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 
 class mg_ElementorTemplate extends Widget_Base
 {
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -118,6 +119,7 @@ class mg_ElementorTemplate extends Widget_Base
         wp_reset_postdata();
 
         $this->end_controls_section(); // End Controls Section
+        $this->link_pro_added();
     }
 
 

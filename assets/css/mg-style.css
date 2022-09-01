@@ -12,7 +12,11 @@ a {
 .mg-has-absolute{
   position: relative;
 }
-
+.no-load {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
 .mg-absolute {
     position: absolute;
 }

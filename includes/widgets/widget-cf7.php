@@ -8,7 +8,7 @@ use Elementor\Core\Schemes\Typography;
 
 class MG_Addon_CF7 extends \Elementor\Widget_Base
 {
-
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -157,6 +157,7 @@ class MG_Addon_CF7 extends \Elementor\Widget_Base
 		}
 
 		$this->end_controls_section();
+		$this->link_pro_added();
 	}
 
 	/**

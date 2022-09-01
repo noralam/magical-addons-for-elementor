@@ -15,6 +15,7 @@ use Elementor\Core\Schemes\Typography;
 defined('ABSPATH') || die();
 class MG_Addon_WPForm extends \Elementor\Widget_Base
 {
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -140,6 +141,7 @@ class MG_Addon_WPForm extends \Elementor\Widget_Base
         }
 
         $this->end_controls_section();
+        $this->link_pro_added();
     }
 
     /**

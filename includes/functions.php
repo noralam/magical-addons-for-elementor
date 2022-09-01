@@ -10,6 +10,8 @@
 require_once(MAGICAL_ADDON_PATH . '/includes/basic/style-script.php');
 
 require_once(MAGICAL_ADDON_PATH . '/includes/basic/mg-admin-notice.php');
+require_once(MAGICAL_ADDON_PATH . '/includes/helplink.php');
+
 
 function mg_get_allowed_html_tags()
 {
@@ -521,3 +523,93 @@ if (!function_exists('mg_site_protocol')) {
         return $protocol;
     }
 }
+
+
+// all avilable widgets list
+function magical_addons_all_widgets()
+{
+    $mgwidgets = array(
+        'mgaccordion_widget'     => esc_html__('MG Accordion', 'magical-addons-for-elementor'),
+        'mgnav_menu_widget'           => esc_html__('MG Nav Menu', 'magical-addons-for-elementor'),
+        'mgposts_grid'                => esc_html__('MG Posts Grid', 'magical-addons-for-elementor'),
+        'mgposts_list'                => esc_html__('Mg Posts List', 'magical-addons-for-elementor'),
+        'mgslider_lite_widget'        => esc_html__('MG Slider', 'magical-addons-for-elementor'),
+        'mgtimeline_widget'               => esc_html__('Magical Timeline', 'magical-addons-for-elementor'),
+        'mgabout_widget'      => esc_html__('MG About Me', 'magical-addons-for-elementor'),
+        'mgskillbars'              => esc_html__('Advance Skill Bars', 'magical-addons-for-elementor'),
+        'mg_banner_widget'             => esc_html__('MG Banner', 'magical-addons-for-elementor'),
+        'mgcall_to_action_widget'          => esc_html__('MG Call to action', 'magical-addons-for-elementor'),
+        'mgcard_widget'             => esc_html__('MG Card', 'magical-addons-for-elementor'),
+        'mg-taxonomy-list'         => esc_html__('Mg Category/Tag List', 'magical-addons-for-elementor'),
+        'mg_contentReveal'            => esc_html__('MG Content Reveal', 'magical-addons-for-elementor'),
+        'mgcountdown_widget'   => esc_html__('MG Countdown', 'magical-addons-for-elementor'),
+        'mgdata_table_widget'                => esc_html__('Mg Data Table', 'magical-addons-for-elementor'),
+        'mg_dual_button_widget'               => esc_html__('MG Dual Button', 'magical-addons-for-elementor'),
+        'mghad_widget'              => esc_html__('MG Dual Heading', 'magical-addons-for-elementor'),
+        'mg_elementor_template'           => esc_html__('MG Template Insert', 'magical-addons-for-elementor'),
+        'mgflipbox_widget'              => esc_html__('MG Flip Box', 'magical-addons-for-elementor'),
+        'mg-icon-list-widget'          => esc_html__('MG Iocn List', 'magical-addons-for-elementor'),
+        'mg_imgaccordion'              => esc_html__('MG Image Accordion', 'magical-addons-for-elementor'),
+        'mg_imgcompar_widget'       => esc_html__('MG Image Comparison', 'magical-addons-for-elementor'),
+        'mg_imgsmooth_scroll'              => esc_html__('MG Image Smooth Scroll', 'magical-addons-for-elementor'),
+        'mgimghover_card_widget'         => esc_html__('MG Hover Card', 'magical-addons-for-elementor'),
+        'mg_infolist'           => esc_html__('MG Info List', 'magical-addons-for-elementor'),
+        'mginfobox_widget'                => esc_html__('MG Info Box', 'magical-addons-for-elementor'),
+        'mg-mailchimp'        => esc_html__('Mg MailChimp', 'magical-addons-for-elementor'),
+        'mgpiechart_widget'           => esc_html__('Mg PieChart', 'magical-addons-for-elementor'),
+        'mgpricing_widget'       => esc_html__('MG Pricing Table', 'magical-addons-for-elementor'),
+        'mgprogressbar_widget'          => esc_html__('MG Progressbar', 'magical-addons-for-elementor'),
+        'mgblockquote'          => esc_html__('MG Blockquote', 'magical-addons-for-elementor'),
+        'mgscrolltop'                  => esc_html__('Mg Back To Top', 'magical-addons-for-elementor'),
+        'mgsite_search'         => __('Mg Search Bar', 'magical-addons-for-elementor'),
+        'mgsectiontitle'           => esc_html__('MG Section Title', 'magical-addons-for-elementor'),
+        'mgsharebtn_widget'           => esc_html__('Mg Social Share', 'magical-addons-for-elementor'),
+        'mgsite_logo'           => esc_html__('Mg Site Logo', 'magical-addons-for-elementor'),
+        'mg_tabs'           => esc_html__('MG Tabs', 'magical-addons-for-elementor'),
+        'mgteamber_widget'           => esc_html__('MG Team Members', 'magical-addons-for-elementor'),
+        'mgtext_effects'           => esc_html__('MG Text Effects', 'magical-addons-for-elementor'),
+        'mgvideo_card'           => esc_html__('MG Video Card', 'magical-addons-for-elementor'),
+        'mgcg7_widget'           => esc_html__('Mg Contact Form 7', 'magical-addons-for-elementor'),
+        'mgwpform_widget'           => esc_html__('Mg WPForms', 'magical-addons-for-elementor'),
+    );
+
+    // Contact Form 7
+    if (function_exists('wpcf7')) {
+        $mgwidgets['pp-contact-form-7'] = esc_html__('Contact Form 7', 'magical-addons-for-elementor');
+    }
+
+    // WPForms
+    if (function_exists()) {
+        $mgwidgets['pp-wpforms'] = esc_html__('WPForms', 'magical-addons-for-elementor');
+    }
+
+
+
+    ksort($mgwidgets);
+
+    return $mgwidgets;
+}
+
+// widget help pro link 
+if (!function_exists('mg_goprolink')) :
+    function mg_goprolink($texts)
+    {
+        ob_start();
+
+?>
+        <div class="elementor-nerd-box">
+            <img class="elementor-nerd-box-icon" src="<?php echo esc_url(ELEMENTOR_ASSETS_URL . 'images/go-pro.svg'); ?>" />
+            <div class="elementor-nerd-box-title"><?php echo esc_html($texts['title']); ?></div>
+            <div class="elementor-nerd-box-message"><?php echo esc_html($texts['massage']); ?></div>
+            <?php
+            // Show a `Go Pro` button only if the user doesn't have Pro.
+            if ($texts['link']) { ?>
+                <a class="elementor-nerd-box-link elementor-button elementor-button-default elementor-button-go-pro" href="<?php echo esc_url($texts['link']); ?>" target="_blank">
+                    <?php echo esc_html__('UPGRADE NOW', 'magical-addons-for-elementor'); ?>
+                </a>
+            <?php } ?>
+        </div>
+<?php
+        return ob_get_clean();
+    }
+endif;

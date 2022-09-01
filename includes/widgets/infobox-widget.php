@@ -6,7 +6,7 @@ use Elementor\Group_Control_Image_Size;
 class MgAddon_Info_Box extends \Elementor\Widget_Base
 {
 
-
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -96,6 +96,7 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
      */
     function register_content_controls()
     {
+
         $this->start_controls_section(
             'mginfo_icon_section',
             [

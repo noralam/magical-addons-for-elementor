@@ -12,7 +12,7 @@ defined('ABSPATH') || die();
 
 class MgProgressbar extends \Elementor\Widget_Base
 {
-
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -198,6 +198,7 @@ class MgProgressbar extends \Elementor\Widget_Base
 		);
 
 		$this->end_controls_section();
+		$this->link_pro_added();
 	}
 
 	/**

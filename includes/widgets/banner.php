@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 class MgAddon_Banner extends \Elementor\Widget_Base
 {
     use mgGlobalButton;
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -694,109 +695,109 @@ class MgAddon_Banner extends \Elementor\Widget_Base
 
         $this->start_controls_section(
 
-			'mg_flip_button2',
-			[
-				'label' => __( '2nd Button', 'magical-addons-for-elementor' ),
-				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-			]
-		);
-		$this->add_control(
-			'mg_flip_btn2_use',
-			[
-				'label' => __( 'Use Button?', 'magical-addons-for-elementor' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'magical-addons-for-elementor' ),
-				'label_off' => __( 'No', 'magical-addons-for-elementor' ),
-				'default' => 'yes',
-			]
-		);
-		$this->add_control(
-			'mg_flip_btn2_title',
-			[
-				'label'       => __( 'Button Title', 'magical-addons-for-elementor' ),
-				'type'        => \Elementor\Controls_Manager::TEXT,
-				'input_type'  => 'text',
-				'placeholder' => __( 'Button Text', 'magical-addons-for-elementor' ),
-				'default'     => __( 'SEE IT', 'magical-addons-for-elementor' ),
-				'condition' => [
-					'mg_flip_btn2_use' => 'yes',
-				],
-			]
-		);
-
-
-        	
-		$this->add_responsive_control(
-			'mg_flipbtn2_link_type',
-			[
-				'label' => __( 'Button Link Type', 'magical-addons-for-elementor' ),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'link' => [
-						'title' => __( 'Link', 'magical-addons-for-elementor' ),
-						'icon' => 'eicon-link',
-					],
-					'video' => [
-						'title' => __( 'Video', 'magical-addons-for-elementor' ),
-						'icon' => ' eicon-video-camera',
-					],
-					
-				],
-				'default' => 'link',				
-                'condition' => [
-                    'mg_flip_btn2_use' => 'yes',
-                ],
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'mg_flip_btn2_link',
-			[
-				'label' => __( 'Button Link', 'magical-addons-for-elementor' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'magical-addons-for-elementor' ),
-				'default' => [
-					'url' => '#',
-				],
-				'condition' => [
-					'mg_flip_btn2_use' => 'yes',
-					'mg_flipbtn2_link_type' => 'link',
-				],
-			]
-		);
-        
-        $this->add_control(
-			'mg_flip_btn2_video_link',
-			[
-				'label' => __( 'YouTube Video Link', 'magical-addons-for-elementor' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'magical-addons-for-elementor' ),
-				'default' => [
-					'url' => '#',
-				],
-				'condition' => [
-					'mg_flip_btn2_use' => 'yes',
-					'mg_flipbtn2_link_type' => 'video',
-				],
-			]
-		);
-		$this->add_control(
-			'mg_flip_usebtn2_icon',
-			[
-				'label' => __( 'Use icon', 'magical-addons-for-elementor' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Yes', 'magical-addons-for-elementor' ),
-				'label_off' => __( 'No', 'magical-addons-for-elementor' ),
-				'default' => 'yes',
             'mg_flip_button2',
             [
                 'label' => __('2nd Button', 'magical-addons-for-elementor'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
+        );
+        $this->add_control(
+            'mg_flip_btn2_use',
+            [
+                'label' => __('Use Button?', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'magical-addons-for-elementor'),
+                'label_off' => __('No', 'magical-addons-for-elementor'),
+                'default' => 'yes',
             ]
         );
-        
+        $this->add_control(
+            'mg_flip_btn2_title',
+            [
+                'label'       => __('Button Title', 'magical-addons-for-elementor'),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'input_type'  => 'text',
+                'placeholder' => __('Button Text', 'magical-addons-for-elementor'),
+                'default'     => __('SEE IT', 'magical-addons-for-elementor'),
+                'condition' => [
+                    'mg_flip_btn2_use' => 'yes',
+                ],
+            ]
+        );
+
+
+
+        $this->add_responsive_control(
+            'mg_flipbtn2_link_type',
+            [
+                'label' => __('Button Link Type', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::CHOOSE,
+                'options' => [
+                    'link' => [
+                        'title' => __('Link', 'magical-addons-for-elementor'),
+                        'icon' => 'eicon-link',
+                    ],
+                    'video' => [
+                        'title' => __('Video', 'magical-addons-for-elementor'),
+                        'icon' => ' eicon-video-camera',
+                    ],
+
+                ],
+                'default' => 'link',
+                'condition' => [
+                    'mg_flip_btn2_use' => 'yes',
+                ],
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'mg_flip_btn2_link',
+            [
+                'label' => __('Button Link', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'placeholder' => __('https://your-link.com', 'magical-addons-for-elementor'),
+                'default' => [
+                    'url' => '#',
+                ],
+                'condition' => [
+                    'mg_flip_btn2_use' => 'yes',
+                    'mg_flipbtn2_link_type' => 'link',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'mg_flip_btn2_video_link',
+            [
+                'label' => __('YouTube Video Link', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'placeholder' => __('https://your-link.com', 'magical-addons-for-elementor'),
+                'default' => [
+                    'url' => '#',
+                ],
+                'condition' => [
+                    'mg_flip_btn2_use' => 'yes',
+                    'mg_flipbtn2_link_type' => 'video',
+                ],
+            ]
+        );
+        $this->add_control(
+            'mg_flip_usebtn2_icon',
+            [
+                'label' => __('Use icon', 'magical-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'magical-addons-for-elementor'),
+                'label_off' => __('No', 'magical-addons-for-elementor'),
+                'default' => 'yes',
+                'mg_flip_button2',
+                [
+                    'label' => __('2nd Button', 'magical-addons-for-elementor'),
+                    'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+                ]
+            ]
+        );
+
         $this->add_control(
             'mg_flip_btn2_selected_icon',
             [
@@ -925,6 +926,7 @@ class MgAddon_Banner extends \Elementor\Widget_Base
 
 
         $this->end_controls_section();
+        $this->link_pro_added();
     }
 
     /**
@@ -2076,12 +2078,10 @@ class MgAddon_Banner extends \Elementor\Widget_Base
             $mg_flip_btn_link = $settings['mg_flip_btn2_link'];
 
             $mg_flipbtn2_link_type = $settings['mg_flipbtn2_link_type'];
-            if($mg_flipbtn2_link_type == 'video'){
+            if ($mg_flipbtn2_link_type == 'video') {
                 $mg_flip_btn_link = $settings['mg_flip_btn2_video_link'];
-
-            }else {
+            } else {
                 $mg_flip_btn_link = $settings['mg_flip_btn2_link'];
-
             }
 
             $mg_flip_btn_selected_icon = $settings['mg_flip_btn2_selected_icon'];
@@ -2095,13 +2095,13 @@ class MgAddon_Banner extends \Elementor\Widget_Base
             }
             if (!empty($mg_flip_btn_link['nofollow'])) {
                 $this->set_render_attribute('mg_flip_btn2_title', 'rel', 'nofollow');
-            } 
-            
-            if($mg_flipbtn2_link_type == 'video'){
-            $this->add_render_attribute( 'mg_flip_btn2_title', 'class', 'mgcla-btn2-veno' );
-            $this->add_render_attribute( 'mg_flip_btn2_title', 'data-autoplay', 'true' );
-            $this->add_render_attribute( 'mg_flip_btn2_title', 'data-vbtype', 'video' );  
-            } 
+            }
+
+            if ($mg_flipbtn2_link_type == 'video') {
+                $this->add_render_attribute('mg_flip_btn2_title', 'class', 'mgcla-btn2-veno');
+                $this->add_render_attribute('mg_flip_btn2_title', 'data-autoplay', 'true');
+                $this->add_render_attribute('mg_flip_btn2_title', 'data-vbtype', 'video');
+            }
 
             $btn_attr =  $this->get_render_attribute_string('mg_flip_btn2_title');
         }

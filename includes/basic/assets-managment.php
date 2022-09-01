@@ -258,6 +258,35 @@ class mgAssetsManagement
                 'nonce'    => $mg_nonce,
             )
         );
+
+        /*
+
+        $localize_data = [
+            'placeholder_widgets' => [],
+            'hasPro'                  => true,
+            'editor_nonce'            => wp_create_nonce('ha_editor_nonce'),
+            'dark_stylesheet_url'     => '',
+            'i18n' => [
+                'promotionDialogHeader'     => esc_html__('%s Widget', 'happy-elementor-addons'),
+                'promotionDialogMessage'    => esc_html__('Use %s widget with other exclusive pro widgets and 100% unique features to extend your toolbox and build sites faster and better.', 'happy-elementor-addons'),
+                'templatesEmptyTitle'       => esc_html__('No Templates Found', 'happy-elementor-addons'),
+                'templatesEmptyMessage'     => esc_html__('Try different category or sync for new templates.', 'happy-elementor-addons'),
+                'templatesNoResultsTitle'   => esc_html__('No Results Found', 'happy-elementor-addons'),
+                'templatesNoResultsMessage' => esc_html__('Please make sure your search is spelled correctly or try a different words.', 'happy-elementor-addons'),
+            ],
+        ];
+
+        //  if (!ha_has_pro() && ha_is_elementor_version('>=', '2.9.0')) {
+        $localize_data['placeholder_widgets'] = mgProWidgets::get_pro_widgets();
+        //    }
+
+
+        wp_localize_script(
+            'happy-elementor-addons-editor',
+            'HappyAddonsEditor',
+            $localize_data
+        );
+        */
     }
 
     public static function frontend_scripts_active()

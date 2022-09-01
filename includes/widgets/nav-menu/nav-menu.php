@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class MG_Addon_navMenu extends \Elementor\Widget_Base
 {
+    use mgProHelpLink;
     /**
      * Get widget name.
      *
@@ -423,6 +424,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
         );
 */
         $this->end_controls_section();
+        $this->link_pro_added();
 
         // Style tab section
         $this->start_controls_section(

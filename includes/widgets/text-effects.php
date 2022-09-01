@@ -4,7 +4,7 @@ use Elementor\Core\Schemes;
 
 class MgAddon_text_effects extends \Elementor\Widget_Base
 {
-
+	use mgProHelpLink;
 	/**
 	 * Get widget name.
 	 *
@@ -188,6 +188,7 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 
 
 		$this->end_controls_section();
+		$this->link_pro_added();
 
 		$this->start_controls_section(
 			'section_title_style',
@@ -279,7 +280,7 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 		$this->add_control(
 			'mfta_title_color',
 			[
-				'label' => esc_html__( 'Title Color', 'magical-addons-for-elementor' ),
+				'label' => esc_html__('Title Color', 'magical-addons-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mg-text-effects' => 'color: {{VALUE}}',
@@ -291,7 +292,7 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'mgta_text_shadow',
-				'label' => esc_html__( 'Text Shadow', 'magical-addons-for-elementor' ),
+				'label' => esc_html__('Text Shadow', 'magical-addons-for-elementor'),
 				'selector' => '{{WRAPPER}} .mg-text-effects',
 			]
 		);
@@ -300,9 +301,9 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 		$this->add_control(
 			'mgta_animation_time',
 			[
-				'label' => esc_html__( 'Animation Time', 'magical-addons-for-elementor' ),
+				'label' => esc_html__('Animation Time', 'magical-addons-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 's' ],
+				'size_units' => ['s'],
 				'range' => [
 					's' => [
 						'min' => 2,
