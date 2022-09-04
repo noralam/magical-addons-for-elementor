@@ -9,14 +9,18 @@
       const sectionHeight = current.offsetHeight;
       const sectionTop = (current.getBoundingClientRect().top + window.pageYOffset) - 50;
       var sectionId = current.getAttribute("id");
+      var menuSelect = document.querySelector(".mgnav-menu ul li a[href*=" + sectionId + "]");
     
-      if (
-        scrollY > sectionTop &&
-        scrollY <= sectionTop + sectionHeight
-      ){
-        document.querySelector(".mgnav-menu ul li a[href*=" + sectionId + "]").classList.add("active");
-      } else {
-        document.querySelector(".mgnav-menu ul li a[href*=" + sectionId + "]").classList.remove("active");
+      if (menuSelect !== null){ 
+          if(
+            scrollY > sectionTop &&
+            scrollY <= sectionTop + sectionHeight 
+            
+          ){
+            document.querySelector(".mgnav-menu ul li a[href*=" + sectionId + "]").classList.add("active");
+          } else {
+            document.querySelector(".mgnav-menu ul li a[href*=" + sectionId + "]").classList.remove("active");
+          }
       }
     });
   }

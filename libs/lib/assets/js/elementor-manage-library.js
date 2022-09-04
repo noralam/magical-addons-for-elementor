@@ -1,6 +1,5 @@
 (function ($) {
-
-   'use strict';
+	"use strict";
 
     var MGADDON_LIB;
 
@@ -237,4 +236,6 @@
 
     $(window).on('elementor:init', MGADDON_LIB.init);
 
-})(jQuery);
+}(jQuery));	
+
+//})(jQuery);

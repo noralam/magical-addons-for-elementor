@@ -5,7 +5,7 @@ Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.11
+Stable tag: 1.1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -252,6 +252,9 @@ e.g.
 
 == Changelog ==
 
+= 1.1.12 =
+	* Nav menu js undefined issue fixed
+	* Template library js issue fixed
 = 1.1.11 =
 	* Added new section & pages
 	* Fixed menu style

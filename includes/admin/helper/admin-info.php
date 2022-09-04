@@ -13,6 +13,7 @@ class madAdminInfo
     public static function init()
     {
 
+        add_action('admin_notices', [__CLASS__, 'mp_display_admin_themeinfo']);
         add_action('admin_notices', [__CLASS__, 'mp_display_admin_info']);
         add_action('init', [__CLASS__, 'mp_display_admin_info_init']);
         add_action('admin_enqueue_scripts', [__CLASS__, 'mgaddons_admin_scripts']);
@@ -20,6 +21,28 @@ class madAdminInfo
 
 
 
+    public static function mp_display_admin_themeinfo()
+    {
+        $mg_theme = wp_get_theme();
+        $mg_theme_slug = $mg_theme->get('TextDomain');
+        $mg_hide_tinfo = get_option('mg_hide_tinfo');
+        if ($mg_hide_tinfo || $mg_theme_slug == 'magic-elementor') {
+            return;
+        }
+        $message = __('Best WordPress theme <strong class="themeinfo" style="color:#b71583">Magic Elementor theme</strong> released for Elementor users. Now you can use Elementor more easy way by the <strong class="themeinfo" style="color:#b71583">Magic Elementor theme</strong>. Try Now!! It\'s 100% Free ', 'magical-addons-for-elementor');
+        $link1 = esc_url(get_admin_url() . 'theme-install.php?search=magic-elementor');
+        $link2 = esc_url('https://www.youtube.com/watch?v=jTEckmVe9dE');
+
+        printf(
+            '<div class="notice notice-success is-dismissible" style="padding:20px 15px;font-weight:700"><p>%1$s</p>
+        <a class="button button-primary" href="%2$s">' . __('Free Install', 'magical-addons-for-elementor') . '</a>
+        <a class="button button-primary" target="_blank" href="%3$s">' . __('Show Video', 'magical-addons-for-elementor') . '</a>
+        <button class="button tinfo-hide">' . __('Hide Me', 'magical-addons-for-elementor') . '</button></div>',
+            $message,
+            $link1,
+            $link2
+        );
+    }
     public static function mp_display_admin_info()
     {
 
@@ -62,6 +85,9 @@ class madAdminInfo
             delete_option('mgadinfo4');
             update_option('mgadinfo9', 1); 
             */
+        }
+        if (isset($_GET['tinfohide']) && $_GET['tinfohide'] == 1) {
+            update_option('mg_hide_tinfo', current_time('mysql'));
         }
     }
     public static function mgaddons_admin_scripts()

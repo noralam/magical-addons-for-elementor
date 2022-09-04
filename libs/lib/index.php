@@ -56,7 +56,7 @@ if (!class_exists('Magcial_Addon_Cloud_Library')) {
 		public function editor_script()
 		{
 
-			wp_enqueue_script('mg-elibrary',  plugins_url('/assets/js/elementor-manage-library.js', __FILE__));
+			wp_enqueue_script('mg-elibrary',  plugins_url('/assets/js/elementor-manage-library.js', __FILE__), ['jquery']);
 			wp_localize_script('mg-elibrary', 'mg_lib_params', [
 				'site' => site_url(),
 			]);
