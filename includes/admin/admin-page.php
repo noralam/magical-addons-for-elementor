@@ -5,8 +5,8 @@
  *
  * @author Tareq Hasan
  */
-if (!class_exists('WeDevs_Settings_API_Test')) :
-    class WeDevs_Settings_API_Test
+if (!class_exists('mgAdmin_Info_Items')) :
+    class mgAdmin_Info_Items
     {
 
         private $settings_api;
@@ -557,4 +557,4 @@ if (!class_exists('WeDevs_Settings_API_Test')) :
     }
 endif;
 
-new WeDevs_Settings_API_Test();
+new mgAdmin_Info_Items();

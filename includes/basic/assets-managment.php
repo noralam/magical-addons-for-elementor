@@ -102,12 +102,34 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        wp_register_style(
+            'mg-flipclock',
+            MAGICAL_ADDON_ASSETS . 'widget-assets/countdown/flipclock.css',
+            [],
+            MAGICAL_ADDON_VERSION,
+            'all'
+        );
     }
     // script register 
     public static function frontend_scripts_register()
     {
         $ajax_url = admin_url('admin-ajax.php');
         $mg_nonce = wp_create_nonce('mgchamp');
+        // Count down JS
+        wp_register_script(
+            "mg-flipclock",
+            MAGICAL_ADDON_URL . 'assets/widget-assets/countdown/flipclock.min.js',
+            array('jquery'),
+            '1.0',
+            true
+        );
+        wp_register_script(
+            "mg-flipclock-active",
+            MAGICAL_ADDON_URL . 'assets/widget-assets/countdown/countdown-active.js',
+            array('jquery'),
+            '1.0',
+            true
+        );
         // Progressbar JS
         wp_register_script(
             'mg-progressbar',

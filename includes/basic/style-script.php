@@ -23,7 +23,7 @@ class mgAddonsEnqueueFile
 		wp_enqueue_style('bootstrap', MAGICAL_ADDON_URL . 'assets/css/bootstrap.min.css', array(), '5.1.3', 'all');
 		/*		wp_enqueue_style( 'magical-default-style',  MAGICAL_ADDON_URL.'assets/css/mg-default-style.css', array(), '1.0', 'all');
 */
-		wp_register_style('flipclock',  MAGICAL_ADDON_URL . 'assets/css/flipclock.css', array(), '1.0', 'all');
+
 		//accordion style
 		wp_register_style('mg-accordion',  MAGICAL_ADDON_URL . 'assets/css/accordion/mg-accordion.css', array(), MAGICAL_ADDON_VERSION, 'all');
 		//image hover card
@@ -48,7 +48,6 @@ class mgAddonsEnqueueFile
 	function frontend_assets_scripts()
 	{
 		wp_enqueue_script("bootstrap", MAGICAL_ADDON_URL . 'assets/js/bootstrap.min.js', array('jquery'), '5.1.3', true);
-		wp_enqueue_script("flipclock", MAGICAL_ADDON_URL . 'assets/js/flipclock.min.js', array('jquery'), '1.0', true);
 
 		//accordion style
 		wp_enqueue_script("jquery.beefup", MAGICAL_ADDON_URL . 'assets/widget-assets/accordion/jquery.beefup.min.js', array('jquery'), '1.0', true);
@@ -65,7 +64,6 @@ class mgAddonsEnqueueFile
 		wp_enqueue_script("swiper-active", MAGICAL_ADDON_URL . 'assets/widget-assets/slider/mgs-main.js', array(), MAGICAL_ADDON_VERSION, true);
 
 
-		wp_enqueue_script("mga-script-js", MAGICAL_ADDON_URL . 'assets/js/main-scripts.js', array('jquery'), time(), true);
 		wp_enqueue_script("waypoints", '//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js', array('jquery'), time(), false);
 	}
 

@@ -1,11 +1,11 @@
 === Magical Addons For Elementor ===
 Contributors: nalam
-Tags: elementor, page builder, addons, elementor page builder, elementor addon, elementor addons, elementor widget, elementor template library, template library, slider, post grid,  timeline, piechart, ready template, mailchimp
+Tags: elementor, page builder, Free Elementor addons, elementor widget, template library, template library, slider, post grid,  timeline, piechart, ready template
 Donate link: https://wpthemespace.com/donation/
 Requires at least: 5.0
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.1.12
+Stable tag: 1.1.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

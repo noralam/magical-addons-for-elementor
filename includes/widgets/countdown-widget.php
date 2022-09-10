@@ -68,7 +68,19 @@ class MgCountdown extends \Elementor\Widget_Base
 	{
 		return ['magical'];
 	}
-
+	public function get_script_depends()
+	{
+		return [
+			'mg-flipclock',
+			'mg-flipclock-active',
+		];
+	}
+	public function get_style_depends()
+	{
+		return [
+			'mg-flipclock',
+		];
+	}
 	/**
 	 * Register Blank widget controls.
 	 *
@@ -134,7 +146,7 @@ class MgCountdown extends \Elementor\Widget_Base
 			[
 				'label' => __('Set time', 'magical-addons-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DATE_TIME,
-				'default' => '2022-11-01 23:57',
+				'default' => '2024-11-01 23:57',
 				'condition' => [
 					'display_type' => 'timec',
 				],
@@ -210,6 +222,66 @@ class MgCountdown extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->end_controls_section();
+		$this->start_controls_section(
+			'mg_countdown_label',
+			[
+				'label' => __('Countdown Label', 'magical-addons-for-elementor'),
+				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+				'condition' => [
+					'display_type' => 'timec',
+					'mg_countdown_label_show' => 'block',
+				],
+			]
+		);
+		$this->add_control(
+			'mg_days_label',
+			[
+				'label'       => __('Days Label', 'magical-addons-for-elementor'),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'input_type'  => 'text',
+				'placeholder' => __('Days', 'magical-addons-for-elementor'),
+				'default'     => __('Days', 'magical-addons-for-elementor'),
+				'label_block'     => true,
+
+			]
+		);
+		$this->add_control(
+			'mg_hours_label',
+			[
+				'label'       => __('Hours Label', 'magical-addons-for-elementor'),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'input_type'  => 'text',
+				'placeholder' => __('Hours', 'magical-addons-for-elementor'),
+				'default'     => __('Hours', 'magical-addons-for-elementor'),
+				'label_block'     => true,
+
+			]
+		);
+		$this->add_control(
+			'mg_minutes_label',
+			[
+				'label'       => __('Minutes Label', 'magical-addons-for-elementor'),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'input_type'  => 'text',
+				'placeholder' => __('Minutes', 'magical-addons-for-elementor'),
+				'default'     => __('Minutes', 'magical-addons-for-elementor'),
+				'label_block'     => true,
+
+			]
+		);
+		$this->add_control(
+			'mg_seconds_label',
+			[
+				'label'       => __('Seconds Label', 'magical-addons-for-elementor'),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'input_type'  => 'text',
+				'placeholder' => __('Seconds', 'magical-addons-for-elementor'),
+				'default'     => __('Seconds', 'magical-addons-for-elementor'),
+				'label_block'     => true,
+
+			]
+		);
 		$this->end_controls_section();
 		$this->link_pro_added();
 	}
@@ -314,6 +386,13 @@ class MgCountdown extends \Elementor\Widget_Base
 			]
 		);
 		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'mg_num__shadow',
+				'selector' => '{{WRAPPER}} .flip-clock-wrapper ul.flip'
+			]
+		);
+		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name'     => 'number_typography',
@@ -406,7 +485,7 @@ class MgCountdown extends \Elementor\Widget_Base
 		$genericc_countdown   = $this->get_settings('genericc_countdown');
 		$countdown_timing   = $this->get_settings('countdown_timing');
 ?>
-		<div class="mga-clock" data-display-type="<?php echo $display_type; ?>" data-clock-format="<?php echo $clock_format; ?>" data-target-time="<?php echo $target_clock_time; ?>" data-countdown="<?php echo $genericc_countdown; ?>" data-timing="<?php echo $countdown_timing ?>"></div>
+		<div class="mga-clock" data-display-type="<?php echo $display_type; ?>" data-clock-format="<?php echo $clock_format; ?>" data-target-time="<?php echo $target_clock_time; ?>" data-countdown="<?php echo $genericc_countdown; ?>" data-timing="<?php echo $countdown_timing ?>" data-days-label="<?php echo esc_attr($settings['mg_days_label']); ?>" data-hours-label="<?php echo esc_attr($settings['mg_hours_label']); ?>" data-minutes-label="<?php echo esc_attr($settings['mg_minutes_label']); ?>" data-seconds-label="<?php echo esc_attr($settings['mg_seconds_label']); ?>"></div>
 <?php
 
 

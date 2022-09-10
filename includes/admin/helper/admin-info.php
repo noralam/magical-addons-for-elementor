@@ -47,15 +47,14 @@ class madAdminInfo
     {
 
         $hide_date = get_option('mg_hide_date');
-
-        $install_date = get_option('mg_install_date');
         if (!empty($hide_date)) {
             $clickhide = round((time() - strtotime($hide_date)) / 24 / 60 / 60);
-            if ($clickhide < 10) {
+            if ($clickhide < 25) {
                 return;
             }
         }
 
+        $install_date = get_option('mg_install_date');
         if (!empty($install_date)) {
             $install_day = round((time() - strtotime($install_date)) / 24 / 60 / 60);
             if ($install_day < 2) {
