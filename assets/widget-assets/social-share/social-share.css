@@ -1,0 +1,274 @@
+/* Social Share widget css  */
+
+.mg-share-button a.mg-share-network i {
+  color: #fff;
+}
+
+.mg-share-button {
+  margin-bottom: 20px;
+}
+
+.mg-share-button a,
+.mg-share-button a:hover {
+  padding: 8px 15px;
+  color: #fff;
+}
+.mg-share-button a:hover{
+  box-shadow: 0px 3px 40px rgba(0, 0, 0, 0.20);
+}
+.mg-share-button svg {
+  width: 15px;
+  height: 15px;
+  fill: #fff;
+}
+.mg-share-network svg,
+.mg-share-network i{
+  margin-right: 5px;
+}
+.mg-share-network svg,
+.mg-share-network i {
+  margin-right: 5px;
+}
+
+.mg-share-network {
+  display: inline-flex;
+  align-items: center;
+}
+.mg-share-button .elementor-social-icon-android {
+  background-color: #a4c639
+}
+
+.mg-share-button .elementor-social-icon-apple {
+  background-color: #999
+}
+
+.mg-share-button .elementor-social-icon-behance {
+  background-color: #1769ff
+}
+
+.mg-share-button .elementor-social-icon-bitbucket {
+  background-color: #205081
+}
+
+.mg-share-button .elementor-social-icon-codepen {
+  background-color: #000
+}
+
+.mg-share-button .elementor-social-icon-delicious {
+  background-color: #39f
+}
+
+.mg-share-button .elementor-social-icon-deviantart {
+  background-color: #05cc47
+}
+
+.mg-share-button .elementor-social-icon-digg {
+  background-color: #005be2
+}
+
+.mg-share-button .elementor-social-icon-dribbble {
+  background-color: #ea4c89
+}
+
+.mg-share-button .elementor-social-icon-elementor,
+.mg-share-button .elementor-social-icon-get-pocket {
+  background-color: #d30c5c
+}
+
+.mg-share-button .elementor-social-icon-envelope,
+.mg-share-button .elementor-social-icon-email {
+  background-color: #ea4335
+}
+
+.mg-share-button .elementor-social-icon-facebook,
+.mg-share-button .elementor-social-icon-facebook-f {
+  background-color: #3b5998;
+}
+
+.mg-share-button .elementor-social-icon-flickr {
+  background-color: #0063dc
+}
+
+.mg-share-button .elementor-social-icon-foursquare,
+.mg-share-button .elementor-social-icon-renren {
+  background-color: #2d5be3
+}
+
+.mg-share-button .elementor-social-icon-free-code-camp,
+.mg-share-button .elementor-social-icon-freecodecamp {
+  background-color: #006400
+}
+
+.mg-share-button .elementor-social-icon-github {
+  background-color: #333
+}
+
+.mg-share-button .elementor-social-icon-gitlab {
+  background-color: #e24329
+}
+
+.mg-share-button .elementor-social-icon-globe {
+  background-color: #69727d
+}
+
+.mg-share-button .elementor-social-icon-google-plus,
+.mg-share-button .elementor-social-icon-google-plus-g {
+  background-color: #dd4b39
+}
+
+.mg-share-button .elementor-social-icon-houzz {
+  background-color: #7ac142
+}
+
+.mg-share-button .elementor-social-icon-instagram {
+  background-color: #262626
+}
+
+.mg-share-button .elementor-social-icon-jsfiddle {
+  background-color: #487aa2
+}
+
+.mg-share-button .elementor-social-icon-link {
+  background-color: #818a91
+}
+
+.mg-share-button .elementor-social-icon-linkedin,
+.mg-share-button .elementor-social-icon-linkedin-in {
+  background-color: #0077b5
+}
+
+.mg-share-button .elementor-social-icon-medium {
+  background-color: #00ab6b
+}
+
+.mg-share-button .elementor-social-icon-meetup {
+  background-color: #ec1c40
+}
+
+.mg-share-button .elementor-social-icon-mixcloud {
+  background-color: #273a4b
+}
+
+.mg-share-button .elementor-social-icon-odnoklassniki {
+  background-color: #f4731c
+}
+
+.mg-share-button .elementor-social-icon-pinterest {
+  background-color: #bd081c
+}
+
+.mg-share-button .elementor-social-icon-product-hunt {
+  background-color: #da552f
+}
+
+.mg-share-button .elementor-social-icon-reddit {
+  background-color: #ff4500
+}
+
+.mg-share-button .elementor-social-icon-rss {
+  background-color: #f26522
+}
+
+.mg-share-button .elementor-social-icon-shopping-cart {
+  background-color: #4caf50
+}
+
+.mg-share-button .elementor-social-icon-skype {
+  background-color: #00aff0
+}
+
+.mg-share-button .elementor-social-icon-slideshare {
+  background-color: #0077b5
+}
+
+.mg-share-button .elementor-social-icon-snapchat {
+  background-color: #fffc00
+}
+
+.mg-share-button .elementor-social-icon-soundcloud {
+  background-color: #f80
+}
+
+.mg-share-button .elementor-social-icon-spotify {
+  background-color: #2ebd59
+}
+
+.mg-share-button .elementor-social-icon-stack-overflow {
+  background-color: #fe7a15
+}
+
+.mg-share-button .elementor-social-icon-steam {
+  background-color: #00adee
+}
+
+.mg-share-button .elementor-social-icon-stumbleupon {
+  background-color: #eb4924
+}
+
+.mg-share-button .elementor-social-icon-telegram {
+  background-color: #2ca5e0
+}
+
+.mg-share-button .elementor-social-icon-thumb-tack {
+  background-color: #1aa1d8
+}
+
+.mg-share-button .elementor-social-icon-tripadvisor {
+  background-color: #589442
+}
+
+.mg-share-button .elementor-social-icon-tumblr {
+  background-color: #35465c
+}
+
+.mg-share-button .elementor-social-icon-twitch {
+  background-color: #6441a5
+}
+
+.mg-share-button .elementor-social-icon-twitter {
+  background-color: #1da1f2
+}
+
+.mg-share-button .elementor-social-icon-viber {
+  background-color: #665cac
+}
+
+.mg-share-button .elementor-social-icon-vimeo {
+  background-color: #1ab7ea
+}
+
+.mg-share-button .elementor-social-icon-vk {
+  background-color: #45668e
+}
+
+.mg-share-button .elementor-social-icon-weibo {
+  background-color: #dd2430
+}
+
+.mg-share-button .elementor-social-icon-weixin {
+  background-color: #31a918
+}
+
+.mg-share-button .elementor-social-icon-whatsapp {
+  background-color: #25d366
+}
+
+.mg-share-button .elementor-social-icon-wordpress {
+  background-color: #21759b
+}
+
+.mg-share-button .elementor-social-icon-xing {
+  background-color: #026466
+}
+
+.mg-share-button .elementor-social-icon-yelp {
+  background-color: #af0606
+}
+
+.mg-share-button .elementor-social-icon-youtube {
+  background-color: #cd201f
+}
+
+.mg-share-button .elementor-social-icon-500px {
+  background-color: #0099e5
+}

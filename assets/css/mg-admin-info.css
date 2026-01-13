@@ -1,0 +1,242 @@
+/*Admin notice*/
+
+
+
+.eye-notice strong {
+    color: #085c08;
+    font-weight: 700;
+    font-size: 14px;
+}
+strong.gdnews {
+    display: block;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #da0000;
+}
+.eye-notice.notice img {
+    overflow: hidden;
+    margin-right: 20px;
+    padding: 10px;
+    background: linear-gradient(-45deg, #ffbba6, #ffa6c9, #c6f0ff, #9dffe8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
+    width: 80px;
+    float: left;
+}
+.eye-notice strong.upgbtn {
+    color: #b00b0b;
+}
+
+a.button.button-primary.quickbtn {
+    background: #bd0808;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-color: red;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+button.button.button-info.mgad-dismiss {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+i.notice-icon.dashicons-before.dashicons-smiley {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+
+.mgadin-hero {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-hello {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.mge-info-title {
+    font-size: 22px;
+    display: block;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.mge-info-desc div {
+    margin-bottom: 10px;
+}
+
+.mge-info-desc {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 10px 0 20px;
+}
+
+.mge-info-actions {
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-actions a.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.mge-info-actions .button i {
+    margin-left: 15px;
+}
+
+.mge-info-image {
+    flex: 0 0 400px;
+    overflow: hidden;
+}
+
+.mge-info-image img {
+    max-width: 100%;
+    min-width: 200px;
+}
+
+.mge-info-rev strong {
+    margin: 10px 0 1px;
+    display: block;
+    font-size: 15px;
+}
+
+.mge-info-actions.mgerev-action {
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-desc div.mge-offer {
+    color: #a30000;
+    font-weight: 700;
+}
+
+.mge-info-rev .button {
+    padding: 5px 20px !important;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+    font-size: 15px !important;
+}
+
+
+/* Review Notice Styles */
+.magical-review-notice {
+    padding: 15px;
+    border-left-color: #2271b1;
+}
+
+.magical-review-notice-inner {
+    display: flex;
+    align-items: center;
+}
+
+.magical-review-notice-icon {
+    padding-right: 20px;
+}
+
+.magical-review-notice-icon img {
+    max-width: 80px;
+    height: auto;
+}
+
+.magical-review-notice-content {
+    flex-grow: 1;
+}
+
+.magical-review-notice-content h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.magical-review-notice-content p {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 14px;
+}
+
+.magical-review-notice-actions {
+    margin-top: 10px;
+}
+
+.magical-review-notice-actions .button-primary {
+    padding: 8px 20px;
+    font-size: 15px;
+    height: auto;
+    line-height: 1.5;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #2271b1;
+}
+
+.magical-review-notice-actions .button-primary:hover {
+    transform: scale(1.05);
+    background: #135e96;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+.magical-review-notice-actions .button-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.magical-review-notice-actions .button-primary:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.magical-review-notice-actions .button {
+    margin-right: 15px;
+    min-width: 130px;
+    text-align: center;
+}
+
+.magical-review-notice .notice-dismiss {
+    text-decoration: none;
+    color: #787c82;
+}

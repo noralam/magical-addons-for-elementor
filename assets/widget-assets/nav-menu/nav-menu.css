@@ -1,0 +1,436 @@
+.mgnav-menu-section {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.mgnav-menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mgnav-menu>ul.mgnav-menu-list {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.mgnav-menu ul.mgnav-menu-list ul {
+    flex-direction: column;
+    display: flex;
+}
+
+.mgnav-menu ul li.menu-item-has-children {
+    position: relative;
+}
+
+.mgnav-menu ul li a {
+    padding: 15px 25px;
+}
+
+.mgsecnav.fix-nav {
+    left: 0;
+    display: block;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    -webkit-animation: slide-down 0.7s;
+    animation: slide-down 0.7s;
+    width: 100%;
+    z-index: 99999;
+    -webkit-box-shadow: 0 1px 4px rgb(2 3 3 / 15%);
+    box-shadow: 0 1px 4px rgb(2 3 3 / 15%);
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+/*Sticky menu*/
+@-webkit-keyframes slide-down {
+    0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0.9;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0.9;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+/*
+
+.mgnav-menu ul ul.sub-menu {
+    position: absolute;
+    left: 0;
+    top: 55px;
+    min-width: 200px;
+    z-index: 999;
+    background: #eaeaea;
+    width: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.mgnav-menu ul li.menu-item-has-children:hover ul.sub-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+*/
+/*dropdown menu*/
+
+.mgnav-menu ul li ul {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 9;
+    background: #30373a;
+    width: 250px;
+    -webkit-transition: 0.9s;
+    -o-transition: 0.9s;
+    transition: 0.9s;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    visibility: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.mgnav-menu.mgnav-menu-one ul li ul{
+    background: #fff;
+}
+.mgnav-menu ul li ul li a {
+    display: block;
+}
+
+.mgnav-menu ul li li a,
+.mgnav-menu ul li li:first-child a,
+.mgnav-menu ul li li:last-child a,
+.mgnav-menu ul li:first-child li a {
+    padding: 15px;
+    text-transform: none;
+}
+
+.mgnav-menu ul li li:after {
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    top: auto;
+    margin-top: 0;
+    opacity: 0.1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+}
+
+.mgnav-menu ul li li:hover>a {
+    background-color: #555;
+    color: #fff;
+}
+
+.mgnav-menu ul li:hover>a,
+.mgnav-menu ul li:focus>a {
+    color: 0.9;
+}
+
+.mgnav-menu ul li:hover ul,
+.mgnav-menu ul li.hover ul {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    visibility: visible;
+}
+
+.mgnav-menu ul li.hover {
+    opacity: 0.6;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+
+.mgnav-menu ul li ul ul {
+    left: 250px;
+}
+
+.mgnav-menu ul li:hover ul li ul {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    visibility: hidden;
+}
+
+.mgnav-menu ul li:hover ul li:hover>ul {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    visibility: visible;
+    top: 20px;
+}
+
+.mgnav-menu ul ul ul ul ul {
+    right: 250px;
+    left: auto;
+}
+
+.mgnav-menu ul ul ul ul ul ul ul {
+    right: auto;
+    left: 250px;
+}
+
+.mgnav-menu ul ul ul ul ul ul ul ul ul {
+    left: auto;
+    right: 250px;
+}
+
+.mgnav-menu ul ul ul ul ul ul ul ul ul ul ul {
+    right: auto;
+    left: 250px;
+}
+
+.mgnav-menu ul>li.menu-item.menu-item-has-children {
+    padding-right: 15px;
+}
+
+.mgnav-menu ul ul li.menu-item.menu-item-has-children {
+    padding-right: 0;
+}
+
+.mgnav-menu ul li.menu-item.menu-item-has-children>a {
+    position: relative;
+    z-index: 0;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.mgnav-menu ul li.menu-item.menu-item-has-children button {
+    display: none;
+}
+.mgnav-menu ul li.menu-item.menu-item-has-children>a:after {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    background: transparent;
+    z-index: 99999;
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 8px;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.mgnav-menu ul ul li.menu-item.menu-item-has-children>a:after {
+    right: 12px;
+}
+
+.mgnav-menu ul li.sub-menu-item.menu-item-has-children>a:after{
+    display: none;
+}
+.mgnav-menu.mgnav-menu-two ul li {
+    background: #000;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.mgnav-menu.mgnav-menu-two ul li ul li{
+    margin: 0;
+}
+.mgnav-menu.mgnav-menu-two li a {
+    color: #fff;
+}
+.mgnav-menu .mgnav-menu-head {
+    display: none;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.mgnav-menu .mgnav-menu-head .mgnav-menu-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+    padding: 18px 0 14px;
+    color: #333333;
+}
+
+.mgnav-menu .mgnav-menu-head .mgnav-menu-toggle {
+    line-height: 1;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #222;
+}
+
+.mgnav-menu .mgnav-menu-head .mgnav-menu-toggle:focus {
+    outline: none;
+}
+
+.mgnav-menu .mgnav-menu-head .mgnav-menu-toggle i {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.mgnav-menu .mgnav-menu-head .mgnav-menu-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: #222;
+    line-height: 1;
+}
+
+.mgmnav-close {
+    display: none;
+    position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .mgnav-menu-section,
+    .mgnav-menu {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mgnav-menu .mgnav-menu-head {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .mgnav-menu .mgnav-menu-head .mgnav-menu-title {
+        margin-right: 10px;
+    }
+    .mgnav-menu>.mgnav-menu-list {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .mgnav-menu>.mgnav-menu-list>li {
+        width: 100%;
+        margin: 0 !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mgnav-menu>.mgnav-menu-list>li>a {
+        padding: 15px 0;
+    }
+
+    .mgnav-menu>.mgnav-menu-list>li>a:before {
+        display: none;
+    }
+.mgnav-menu>ul.mgnav-menu-list{
+        display: none;
+    }
+    .mgnav-menu ul li.menu-item.menu-item-has-children>a{
+        display: flex;
+        align-items: center;
+    }
+    .mgnav-menu ul li.menu-item.menu-item-has-children>a:after{
+        right: 0;
+    }
+    .mgnav-menu>.mgnav-menu-list>li>a {
+        display: block;
+        overflow: hidden;
+        padding: 15px 10px;
+    }
+    .mgnav-menu ul.mgnav-menu-list ul {
+        opacity: 1;
+        visibility: visible;
+        position: inherit;
+        top: 0;
+        margin-left: 5px;
+        display: none;
+    }
+        .mgnav-menu.mgnav-menu-one {
+            position: relative;
+            min-width: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .mgnav-menu ul {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            min-width: 250px;
+            background: #fff;
+            z-index: 999;
+            padding: 20px 10px;
+        }
+    
+        .mgnav-menu ul li {
+            padding: 10px;
+        }
+        .mgnav-menu ul li:first-child {
+            border-top: inherit;
+        }
+
+}
+
+.mgnav-menu ul li a span {
+    position: relative;
+}
+
+
+.mgnav--topline ul li a span:before,
+.mgnav--topline-hvr ul li a span:before,
+.mgnav--bottomline ul li a span:after,
+.mgnav--bottomline-hvr ul li a span:after {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgb(188 188 188);
+    z-index: 99999;
+    position: absolute;
+    margin: auto;
+    right: 0;
+}
+.mgnav--bottomline ul li a span:after,
+.mgnav--bottomline-hvr ul li a span:after {
+    bottom: -2px;
+}
+.mgnav--topline ul li a span:before ,
+.mgnav--topline-hvr ul li a span:before {
+   top: -2px;
+}
+.mgnav--topline-hvr ul li a span:before,
+.mgnav--bottomline-hvr ul li a span:after {
+    transform: scale(0);
+    transition: 0.5s;
+}
+.mgnav--topline-hvr ul li a:hover span:before,
+.mgnav--topline-hvr ul li a.active span:before,
+.mgnav--bottomline-hvr ul li a:hover span:after,
+.mgnav--bottomline-hvr ul li a.active span:after {
+    transform: scale(1);
+    transition: 0.5s;
+}

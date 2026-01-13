@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+assets/admin-react/node_modules/
+
+# Build artifacts (keep only the built files)
+# assets/admin-react/build/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Package manager locks (optional - uncomment if you want to track)
+# package-lock.json
+
+# Local config
+.env
+.env.local
