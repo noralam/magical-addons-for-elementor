@@ -1,0 +1,4 @@
+node_modules/
+assets/admin-react/node_modules/
+*.log
+.DS_Store
