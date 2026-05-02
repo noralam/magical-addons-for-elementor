@@ -1,0 +1,343 @@
+/**
+ * Role Manager CSS with Tabs
+ */
+.magical-role-manager {
+    max-width: 100%;
+    margin: 20px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.magical-role-manager h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.magical-role-manager .description {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Tabs styling */
+.magical-tabs {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.magical-tabs-nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #f7f7f7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.magical-tabs-nav li {
+    margin: 0;
+}
+
+.magical-tabs-nav li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #23282d;
+    font-weight: 500;
+    border-right: 1px solid #ddd;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.magical-tabs-nav li a:hover {
+    background-color: #f0f0f0;
+}
+
+.magical-tabs-nav li a:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.magical-tabs-nav li.ui-tabs-active a {
+    background-color: #fff;
+    border-bottom-color: #93003c;
+    color: #93003c;
+}
+
+/* Tab content */
+.magical-tab-content {
+    padding: 20px;
+}
+
+.magical-tab-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+/* Form table styling */
+.form-table {
+    border-collapse: collapse;
+    margin-top: 0;
+    width: 100%;
+}
+
+.form-table th {
+    text-align: left;
+    font-weight: 600;
+    width: 230px;
+    padding: 15px 10px 15px 0;
+    vertical-align: top;
+}
+
+.form-table td {
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+.form-table tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.form-table tr:last-child {
+    border-bottom: none;
+}
+
+.form-table .description {
+    font-style: normal;
+    margin: 5px 0 0;
+    color: #666;
+}
+
+/* Toggle switch styling */
+.magical-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.magical-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.magic-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ddd;
+    transition: .3s;
+    border-radius: 22px;
+}
+
+.magic-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input:checked+.magic-slider {
+    background-color: #93003c;
+}
+
+input:focus+.magic-slider {
+    box-shadow: 0 0 1px #93003c;
+}
+
+input:checked+.magic-slider:before {
+    transform: translateX(18px);
+}
+
+/* Submit area */
+.magical-role-submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.magical-role-submit .button-primary {
+    background: #93003c;
+    border-color: #7c0033;
+    color: #fff;
+}
+
+.magical-role-submit .button-primary:hover,
+.magical-role-submit .button-primary:focus {
+    background: #7c0033;
+    border-color: #660029;
+}
+
+.magical-role-submit .spinner {
+    float: none;
+    margin-left: 10px;
+}
+
+/* Message styling */
+#magical-role-manager-message {
+    padding: 10px 15px;
+    margin: 30px 0 15px;
+    border-radius: 3px;
+    clear: both;
+}
+
+#magical-role-manager-message.success {
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+}
+
+#magical-role-manager-message.error {
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    color: #a94442;
+}
+
+/* Pro notice styling */
+.magical-pro-notice {
+    margin-top: 15px;
+}
+
+/* Highlight updated capabilities */
+.highlight-updated {
+    background-color: rgba(147, 0, 60, 0.1);
+    transition: background-color 0.5s ease;
+}
+
+/* Elementor capability info icon */
+.elementor-capability-info {
+    color: #93003c;
+    font-size: 16px;
+    vertical-align: middle;
+    cursor: help;
+    margin-left: 5px;
+}
+
+/* Table row hover effect */
+.form-table tr:hover {
+    background-color: #f9f9f9;
+}
+.magical-role-manager-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.magical-role-manager-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.magical-role-manager-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .magical-role-manager-wrapper {
+        flex-direction: column;
+    }
+
+    .magical-role-manager-sidebar {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .magical-tabs-nav {
+        flex-flow: row wrap;
+    }
+
+    .magical-tabs-nav li a {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .magical-tabs-nav li.ui-tabs-active a {
+        border-left: 3px solid #93003c;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .form-table th,
+    .form-table td {
+        display: block;
+        width: auto;
+        padding: 10px 0;
+    }
+
+    .form-table th {
+        padding-bottom: 0;
+    }
+}
+
+/* Pro notice styling */
+.magical-pro-notice {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-left: 4px solid #2271b1;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.magical-pro-notice ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.magical-upgrade-button {
+    display: inline-block;
+    background: #e91e63;
+    color: #fff;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.magical-upgrade-button:hover {
+    background: #900a37;
+    color: #fff;
+}
+
+.pro-badge {
+    background: #e27730;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+
+.pro-feature {
+    opacity: 0.7;
+}
+
+.pro-feature input[disabled] + .magic-slider {
+    cursor: not-allowed;
+    background-color: #ddd;
+}

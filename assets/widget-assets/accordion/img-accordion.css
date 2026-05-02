@@ -1,0 +1,135 @@
+.mg-image-accordion {
+    display: flex;
+    height: 50vh
+}
+.item-visiable {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.mg-image-accordion .mg-image-accordion-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    width: 100%
+}
+
+.mg-image-accordion .mg-image-accordion-button-wrap * {
+    transition: none
+}
+
+.mg-image-accordion .mg-image-accordion-button {
+    transition:  .25s
+}
+
+.mg-image-accordion-item {
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+    flex: 1;
+    text-decoration: none;
+    transition: flex .4s;
+    overflow: hidden
+}
+
+.mg-image-accordion-item:last-child {
+    margin-right: 0 !important
+}
+
+.mg-image-accordion-active {
+    cursor: default
+}
+
+.mg-image-accordion-overlay {
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: background-color .4s
+}
+
+.mg-image-accordion-overlay .mg-image-accordion-content-wrap {
+    z-index: 1
+}
+
+.mg-image-accordion-content-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden
+}
+
+.mg-image-accordion-content-wrap p:last-child {
+    margin-bottom: 0
+}
+
+.mg-image-accordion-content-wrap * {
+    visibility: hidden;
+    opacity: 0;
+    transform-style: preserve-3d
+}
+
+.mg-image-accordion-title {
+    color: #fff;
+    transform: translate3d(0, -60px, 0)
+}
+
+.mg-image-accordion-description {
+    color: #fff;
+    transform: translate3d(0, 60px, 0)
+}
+
+.mg-image-accordion-button-wrap {
+    transform: translate3d(0, 60px, 0)
+}
+
+.mg-image-accordion-content-active {
+    visibility: visible
+}
+
+.mg-image-accordion-content-active * {
+    opacity: 1;
+    visibility: visible;
+    transform: none !important;
+    transition: all .3s .3s
+}
+
+.mg-image-accordion-on-hover .mg-image-accordion-item:hover {
+    flex: 3
+}
+
+.mg-image-accordion-on-hover .mg-image-accordion-item:hover .mg-image-accordion-content-wrap * {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: all .3s .3s
+}
+
+.mg-image-accordion-orientation-horizontal .mg-image-accordion {
+    flex-direction: column
+}
+
+.mg-image-accordion-orientation-horizontal .mg-image-accordion a:hover .mg-image-accordion-overlay {
+    background-color: transparent
+}
+
+.mg-image-accordion-orientation-horizontal .mg-image-accordion-item {
+    margin-right: 0 !important
+}
+.mg-image-accordion-button .mg-button-icon svg {
+    width: 14px;
+    fill: #fff;
+}

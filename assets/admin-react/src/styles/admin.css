@@ -1,0 +1,1909 @@
+/**
+ * Magical Addons Admin Styles
+ * 
+ * Modern UI with CSS Grid, Flexbox, animations
+ * @package MagicalAddons
+ */
+
+/* ==========================================================================
+   CSS Custom Properties
+   ========================================================================== */
+
+:root {
+    /* Colors */
+    --mg-primary: #7c3aed;
+    --mg-primary-hover: #6d28d9;
+    --mg-primary-light: #ede9fe;
+    --mg-secondary: #64748b;
+    --mg-success: #10b981;
+    --mg-success-light: #d1fae5;
+    --mg-warning: #f59e0b;
+    --mg-warning-light: #fef3c7;
+    --mg-error: #ef4444;
+    --mg-error-light: #fee2e2;
+    
+    /* Neutrals */
+    --mg-white: #ffffff;
+    --mg-gray-50: #f8fafc;
+    --mg-gray-100: #f1f5f9;
+    --mg-gray-200: #e2e8f0;
+    --mg-gray-300: #cbd5e1;
+    --mg-gray-400: #94a3b8;
+    --mg-gray-500: #64748b;
+    --mg-gray-600: #475569;
+    --mg-gray-700: #334155;
+    --mg-gray-800: #1e293b;
+    --mg-gray-900: #0f172a;
+    
+    /* Layout */
+    --mg-sidebar-width: 260px;
+    --mg-header-height: 64px;
+    --mg-border-radius: 8px;
+    --mg-border-radius-lg: 12px;
+    
+    /* Shadows */
+    --mg-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --mg-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --mg-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --mg-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    /* Transitions */
+    --mg-transition: all 0.2s ease;
+    --mg-transition-slow: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+
+.magical-admin {
+    display: flex;
+    min-height: calc(100vh - 32px);
+    background: var(--mg-gray-50);
+    margin-left: -20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.magical-admin *,
+.magical-admin *::before,
+.magical-admin *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+
+.magical-admin-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 32px);
+    background: var(--mg-gray-50);
+    margin-left: -20px;
+}
+
+.magical-admin-loading__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: var(--mg-gray-600);
+}
+
+.magical-admin-loading__content .components-spinner {
+    width: 40px;
+    height: 40px;
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.magical-admin__sidebar {
+    position: fixed;
+    left: 160px;
+    top: 32px;
+    width: var(--mg-sidebar-width);
+    height: calc(100vh - 32px);
+    background: var(--mg-white);
+    border-right: 1px solid var(--mg-gray-200);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.magical-admin__sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.magical-admin__logo-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.magical-admin__logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.magical-admin__logo-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__logo-version {
+    font-size: 12px;
+    color: var(--mg-gray-500);
+}
+
+/* Navigation */
+.magical-admin__nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.magical-admin__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.magical-admin__menu-item {
+    margin-bottom: 4px;
+}
+
+.magical-admin__menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--mg-border-radius);
+    color: var(--mg-gray-700);
+    text-decoration: none;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__menu-link:hover {
+    background: var(--mg-gray-100);
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__menu-link.is-active {
+    background: var(--mg-primary-light);
+    color: var(--mg-primary);
+}
+
+.magical-admin__menu-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.magical-admin__menu-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.magical-admin__menu-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.magical-admin__menu-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--mg-primary), #ec4899);
+    color: var(--mg-white);
+    text-transform: uppercase;
+}
+
+/* Sidebar Footer */
+.magical-admin__sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__upgrade-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, var(--mg-primary), #ec4899);
+    color: var(--mg-white);
+    border-radius: var(--mg-border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__upgrade-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--mg-shadow-lg);
+    color: var(--mg-white);
+}
+
+.magical-admin__upgrade-icon {
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
+
+.magical-admin__content {
+    flex: 1;
+    margin-left: var(--mg-sidebar-width);
+    padding: 24px 32px;
+    min-height: calc(100vh - 32px);
+}
+
+/* ==========================================================================
+   Page Styles
+   ========================================================================== */
+
+.magical-admin__page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.magical-admin__page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__page-title-wrap {
+    flex: 1;
+}
+
+.magical-admin__page-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__page-subtitle {
+    color: var(--mg-gray-600);
+    font-size: 14px;
+    max-width: 600px;
+}
+
+.magical-admin__page-stats {
+    flex-shrink: 0;
+}
+
+.magical-admin__page-actions {
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.magical-admin__page-actions .components-button {
+    height: 40px;
+}
+
+.magical-admin__widget-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: var(--mg-success-light);
+    color: var(--mg-success);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.magical-admin__pro-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--mg-primary), #ec4899);
+    color: var(--mg-white);
+}
+
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+
+.magical-admin__toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.magical-admin__search {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+}
+
+.magical-admin__search .components-search-control__input {
+    height: 44px;
+    border-radius: var(--mg-border-radius);
+    border-color: var(--mg-gray-300);
+}
+
+.magical-admin__search .components-search-control__input:focus {
+    border-color: var(--mg-primary);
+    box-shadow: 0 0 0 1px var(--mg-primary);
+}
+
+.magical-admin__bulk-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.magical-admin__bulk-btn {
+    height: 44px !important;
+    padding: 0 20px !important;
+    border-radius: var(--mg-border-radius) !important;
+}
+
+/* ==========================================================================
+   Widget Grid
+   ========================================================================== */
+
+.magical-admin__widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.magical-admin__widgets-grid.is-locked {
+    opacity: 0.85;
+}
+
+/* Widget Card */
+.magical-admin__widget-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--mg-white);
+    border: 1px solid var(--mg-gray-200);
+    border-radius: var(--mg-border-radius-lg);
+    transition: var(--mg-transition);
+}
+
+.magical-admin__widget-card:hover {
+    border-color: var(--mg-gray-300);
+    box-shadow: var(--mg-shadow-md);
+    transform: translateY(-2px);
+}
+
+.magical-admin__widget-card.is-active {
+    border-color: var(--mg-success);
+    background: linear-gradient(135deg, var(--mg-white), var(--mg-success-light));
+}
+
+.magical-admin__widget-card.is-locked {
+    background: var(--mg-gray-50);
+    border-style: dashed;
+}
+
+.magical-admin__widget-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.magical-admin__widget-icon {
+    font-size: 24px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.magical-admin__widget-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.magical-admin__widget-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__widget-pro-tag {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, var(--mg-primary), #ec4899);
+    color: var(--mg-white);
+}
+
+.magical-admin__widget-desc {
+    font-size: 12px;
+    color: var(--mg-gray-500);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.magical-admin__widget-toggle {
+    flex-shrink: 0;
+}
+
+.magical-admin__widget-toggle .components-form-toggle {
+    margin-right: 0;
+}
+
+.magical-admin__lock-icon {
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+/* Empty State */
+.magical-admin__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--mg-gray-500);
+}
+
+.magical-admin__empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   Dashboard
+   ========================================================================== */
+
+.magical-admin__welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+    border-radius: var(--mg-border-radius-lg);
+    margin-bottom: 32px;
+    color: var(--mg-white);
+    background: linear-gradient(-45deg, #c4421b, #af134f, #0e6c8f, #06b68d);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.magical-admin__welcome-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color:#fff
+}
+
+.magical-admin__welcome-desc {
+    font-size: 15px;
+    opacity: 0.9;
+    max-width: 500px;
+    margin: 0;
+}
+
+.magical-admin__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: var(--mg-white);
+    color: var(--mg-primary);
+    border-radius: var(--mg-border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--mg-shadow-lg);
+}
+
+/* Stats Grid */
+.magical-admin__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.magical-admin__stat-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--mg-white);
+    border: 1px solid var(--mg-gray-200);
+    border-radius: var(--mg-border-radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mg-shadow-lg);
+    border-color: var(--mg-gray-300);
+}
+
+.magical-admin__stat-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.magical-admin__stat-content {
+    flex: 1;
+}
+
+.magical-admin__stat-value {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--mg-gray-900);
+    margin-bottom: 4px;
+}
+
+.magical-admin__stat-label {
+    font-size: 13px;
+    color: var(--mg-gray-500);
+}
+
+.magical-admin__stat-progress {
+    height: 4px;
+    background: var(--mg-gray-200);
+    border-radius: 2px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+
+.magical-admin__stat-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--mg-primary), var(--mg-success));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+/* Quick Links */
+.magical-admin__section {
+    margin-bottom: 40px;
+}
+
+.magical-admin__section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+    margin: 0 0 20px;
+}
+
+.magical-admin__quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.magical-admin__quick-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--mg-white);
+    border: 1px solid var(--mg-gray-200);
+    border-radius: var(--mg-border-radius-lg);
+    text-decoration: none;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__quick-link:hover {
+    border-color: var(--mg-primary);
+    box-shadow: var(--mg-shadow-md);
+}
+
+.magical-admin__quick-link-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.magical-admin__quick-link-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.magical-admin__quick-link-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+    margin-bottom: 4px;
+}
+
+.magical-admin__quick-link-desc {
+    font-size: 13px;
+    color: var(--mg-gray-500);
+}
+
+.magical-admin__quick-link-arrow {
+    font-size: 18px;
+    color: var(--mg-gray-400);
+    transition: var(--mg-transition);
+}
+
+.magical-admin__quick-link:hover .magical-admin__quick-link-arrow {
+    color: var(--mg-primary);
+    transform: translateX(4px);
+}
+
+/* Pro Banner */
+.magical-admin__pro-banner {
+    background: linear-gradient(135deg, #faf5ff, #fdf2f8) !important;
+    border: 1px solid var(--mg-primary-light) !important;
+    margin-bottom: 40px;
+}
+
+.magical-admin__pro-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.magical-admin__pro-banner-text h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__pro-banner-text p {
+    margin: 0 0 16px;
+    color: var(--mg-gray-600);
+}
+
+.magical-admin__pro-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.magical-admin__pro-features li {
+    font-size: 14px;
+    color: var(--mg-gray-700);
+}
+
+.magical-admin__pro-banner-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.magical-admin__pro-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--mg-primary), #ec4899);
+    color: var(--mg-white);
+    border-radius: var(--mg-border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__pro-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--mg-shadow-lg);
+    color: var(--mg-white);
+}
+
+.magical-admin__pro-guarantee {
+    font-size: 12px;
+    color: var(--mg-gray-500);
+}
+
+/* ==========================================================================
+   Cards Layout
+   ========================================================================== */
+
+.magical-admin__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.magical-admin__cards--single {
+    grid-template-columns: 1fr;
+}
+
+.magical-admin__card {
+    background: var(--mg-white) !important;
+    border: 1px solid var(--mg-gray-200) !important;
+    border-radius: var(--mg-border-radius-lg) !important;
+}
+
+.magical-admin__card--full {
+    grid-column: 1 / -1;
+}
+
+.magical-admin__card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.magical-admin__card-icon {
+    font-size: 24px;
+}
+
+.magical-admin__card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__card-desc {
+    color: var(--mg-gray-600);
+    font-size: 14px;
+    margin: 0 0 20px;
+}
+
+.magical-admin__card-note {
+    font-size: 13px;
+    color: var(--mg-gray-500);
+    font-style: italic;
+    margin-top: 12px;
+}
+
+/* ==========================================================================
+   Form Fields
+   ========================================================================== */
+
+.magical-admin__field {
+    margin-bottom: 20px;
+}
+
+.magical-admin__select .components-select-control__input {
+    height: 44px;
+    border-radius: var(--mg-border-radius);
+}
+
+.magical-admin__text-input .components-text-control__input {
+    height: 44px;
+    border-radius: var(--mg-border-radius);
+}
+
+.magical-admin__field-help {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__field-help h4 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mg-gray-700);
+}
+
+.magical-admin__field-help ol {
+    margin: 0 0 16px;
+    padding-left: 20px;
+    color: var(--mg-gray-600);
+    font-size: 14px;
+}
+
+.magical-admin__field-help ol li {
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Info Box
+   ========================================================================== */
+
+.magical-admin__info-box {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--mg-gray-100);
+    border-radius: var(--mg-border-radius-lg);
+    margin-top: 24px;
+}
+
+.magical-admin__info-box--tip {
+    background: var(--mg-warning-light);
+}
+
+.magical-admin__info-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.magical-admin__info-content h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mg-gray-800);
+}
+
+.magical-admin__info-content p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--mg-gray-600);
+}
+
+.magical-admin__info-content ol {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    font-size: 14px;
+    color: var(--mg-gray-600);
+}
+
+.magical-admin__info-content ol li {
+    margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   Pro Notice
+   ========================================================================== */
+
+.magical-admin__pro-notice {
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--mg-primary-light), #fce7f3);
+    border: 1px solid var(--mg-primary);
+    border-radius: var(--mg-border-radius-lg);
+}
+
+.magical-admin__pro-notice-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.magical-admin__pro-notice-icon {
+    font-size: 32px;
+}
+
+.magical-admin__pro-notice-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.magical-admin__pro-notice-text strong {
+    display: block;
+    font-size: 16px;
+    color: var(--mg-gray-900);
+    margin-bottom: 4px;
+}
+
+.magical-admin__pro-notice-text p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--mg-gray-600);
+}
+
+.magical-admin__pro-notice-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--mg-primary);
+    color: var(--mg-white);
+    border-radius: var(--mg-border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__pro-notice-btn:hover {
+    background: var(--mg-primary-hover);
+    color: var(--mg-white);
+}
+
+/* ==========================================================================
+   Role Manager
+   ========================================================================== */
+
+.magical-admin__role-manager {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.magical-admin__role-card {
+    background: var(--mg-white);
+    border: 1px solid var(--mg-gray-200);
+    border-radius: var(--mg-border-radius-lg);
+    overflow: hidden;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__role-card.is-admin {
+    border-color: var(--mg-primary);
+}
+
+.magical-admin__role-card.is-expanded {
+    box-shadow: var(--mg-shadow-md);
+}
+
+.magical-admin__role-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: var(--mg-transition);
+}
+
+.magical-admin__role-header:hover {
+    background: var(--mg-gray-50);
+}
+
+.magical-admin__role-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.magical-admin__role-icon {
+    font-size: 20px;
+}
+
+.magical-admin__role-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--mg-primary-light);
+    color: var(--mg-primary);
+}
+
+.magical-admin__role-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.magical-admin__role-count {
+    font-size: 13px;
+    color: var(--mg-gray-500);
+}
+
+.magical-admin__role-toggle {
+    font-size: 12px;
+    color: var(--mg-gray-400);
+    transition: transform 0.2s ease;
+}
+
+.magical-admin__role-toggle.is-open {
+    transform: rotate(180deg);
+}
+
+.magical-admin__role-features {
+    padding: 0 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    border-top: 1px solid var(--mg-gray-200);
+    padding-top: 20px;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.magical-admin__feature-item {
+    padding: 12px 16px;
+    background: var(--mg-gray-50);
+    border-radius: var(--mg-border-radius);
+}
+
+.magical-admin__feature-item .components-checkbox-control__label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.magical-admin__role-note {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: var(--mg-gray-500);
+    font-style: italic;
+    margin: 8px 0 0;
+    padding: 12px;
+    background: var(--mg-primary-light);
+    border-radius: var(--mg-border-radius);
+}
+
+/* ==========================================================================
+   Save Button Bar
+   ========================================================================== */
+
+.magical-admin__save-bar {
+    position: fixed;
+    bottom: 0;
+    left: calc(160px + var(--mg-sidebar-width));
+    right: 0;
+    padding: 16px 32px;
+    background: var(--mg-white);
+    border-top: 1px solid var(--mg-gray-200);
+    box-shadow: 0 -4px 12px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.magical-admin__save-bar.is-visible {
+    transform: translateY(0);
+}
+
+.magical-admin__save-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.magical-admin__save-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--mg-gray-700);
+    font-size: 14px;
+}
+
+.magical-admin__save-icon {
+    font-size: 18px;
+}
+
+.magical-admin__save-btn {
+    height: 44px !important;
+    padding: 0 28px !important;
+    background: var(--mg-primary) !important;
+    border-radius: var(--mg-border-radius) !important;
+    font-weight: 600 !important;
+}
+
+.magical-admin__save-btn:hover:not(:disabled) {
+    background: var(--mg-primary-hover) !important;
+}
+
+/* ==========================================================================
+   Notices
+   ========================================================================== */
+
+.magical-admin__notices {
+    position: fixed;
+    bottom: 80px;
+    right: 24px;
+    z-index: 1001;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.magical-admin__skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--mg-gray-200) 25%,
+        var(--mg-gray-100) 50%,
+        var(--mg-gray-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--mg-border-radius);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .magical-admin__sidebar {
+        left: 0;
+    }
+    
+    .magical-admin__content {
+        margin-left: var(--mg-sidebar-width);
+    }
+    
+    .magical-admin__save-bar {
+        left: var(--mg-sidebar-width);
+    }
+}
+
+@media (max-width: 960px) {
+    .magical-admin__sidebar {
+        width: 72px;
+    }
+    
+    .magical-admin__sidebar-header {
+        padding: 16px;
+    }
+    
+    .magical-admin__logo-text,
+    .magical-admin__menu-label,
+    .magical-admin__menu-badge,
+    .magical-admin__sidebar-footer {
+        display: none;
+    }
+    
+    .magical-admin__menu-link {
+        justify-content: center;
+        padding: 14px;
+    }
+    
+    .magical-admin__menu-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .magical-admin__content {
+        margin-left: 72px;
+        padding: 20px;
+    }
+    
+    .magical-admin__save-bar {
+        left: 72px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .magical-admin {
+        flex-direction: column;
+    }
+    
+    .magical-admin__sidebar {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--mg-gray-200);
+    }
+    
+    .magical-admin__sidebar-header {
+        display: none;
+    }
+    
+    .magical-admin__nav {
+        padding: 8px 12px;
+    }
+    
+    .magical-admin__menu {
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    
+    .magical-admin__menu::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .magical-admin__menu-item {
+        margin: 0;
+        flex-shrink: 0;
+    }
+    
+    .magical-admin__menu-link {
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px 14px;
+        font-size: 11px;
+    }
+    
+    .magical-admin__menu-label {
+        display: block;
+    }
+    
+    .magical-admin__menu-badge {
+        display: none;
+    }
+    
+    .magical-admin__content {
+        margin-left: 0;
+        padding: 16px;
+    }
+    
+    .magical-admin__save-bar {
+        left: 0;
+    }
+    
+    .magical-admin__page-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .magical-admin__toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .magical-admin__search {
+        max-width: none;
+    }
+    
+    .magical-admin__bulk-actions {
+        justify-content: stretch;
+    }
+    
+    .magical-admin__bulk-btn {
+        flex: 1;
+    }
+    
+    .magical-admin__widgets-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .magical-admin__welcome {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .magical-admin__stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .magical-admin__pro-banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .magical-admin__pro-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .magical-admin__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   WordPress Admin Override
+   ========================================================================== */
+
+#wpcontent {
+    padding-left: 0;
+}
+
+#wpbody-content {
+    padding-bottom: 0;
+}
+
+.magical-admin-wrap {
+    margin: 0;
+}
+
+/* ==========================================================================
+   New Dashboard Notice
+   ========================================================================== */
+
+.magical-admin__new-dashboard-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--mg-primary-light) 0%, #faf5ff 100%);
+    border: 1px solid var(--mg-primary);
+    border-radius: var(--mg-border-radius-lg);
+    margin-bottom: 24px;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.magical-admin__new-dashboard-notice .magical-admin__notice-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.magical-admin__new-dashboard-notice .magical-admin__notice-content h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__new-dashboard-notice .magical-admin__notice-content p {
+    margin: 0 0 12px;
+    color: var(--mg-gray-600);
+    line-height: 1.5;
+}
+
+.magical-admin__notice-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.magical-admin__notice-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    background: var(--mg-white);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--mg-gray-700);
+    box-shadow: var(--mg-shadow-sm);
+}
+
+.magical-admin__notice-dismiss {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px !important;
+    min-width: auto !important;
+    background: transparent !important;
+    color: var(--mg-gray-400) !important;
+}
+
+.magical-admin__notice-dismiss:hover {
+    color: var(--mg-gray-600) !important;
+}
+
+/* ==========================================================================
+   Badges
+   ========================================================================== */
+
+.magical-admin__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.magical-admin__badge--pro {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: var(--mg-white);
+}
+
+.magical-admin__badge--free {
+    background: var(--mg-success);
+    color: var(--mg-white);
+}
+
+.magical-admin__badge--new {
+    background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+    color: var(--mg-white);
+    animation: pulse 2s infinite;
+}
+
+.magical-admin__badge--small {
+    padding: 1px 6px;
+    font-size: 9px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ==========================================================================
+   Features Grid
+   ========================================================================== */
+
+.magical-admin__features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.magical-admin__feature-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--mg-white);
+    border: 1px solid var(--mg-gray-200);
+    border-radius: var(--mg-border-radius-lg);
+    transition: var(--mg-transition);
+    position: relative;
+}
+
+.magical-admin__feature-card:hover {
+    border-color: var(--mg-primary);
+    box-shadow: var(--mg-shadow-md);
+}
+
+.magical-admin__feature-card.is-locked {
+    opacity: 0.7;
+    background: var(--mg-gray-50);
+}
+
+.magical-admin__feature-card.is-locked:hover {
+    opacity: 1;
+}
+
+.magical-admin__feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.magical-admin__feature-icon {
+    font-size: 28px;
+}
+
+.magical-admin__feature-badges {
+    display: flex;
+    gap: 6px;
+}
+
+.magical-admin__feature-name {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__feature-desc {
+    margin: 0;
+    font-size: 13px;
+    color: var(--mg-gray-500);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.magical-admin__feature-lock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__lock-icon {
+    font-size: 16px;
+}
+
+.magical-admin__unlock-link {
+    color: var(--mg-primary);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.magical-admin__unlock-link:hover {
+    text-decoration: underline;
+    color: var(--mg-primary-hover);
+}
+
+.magical-admin__feature-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mg-gray-200);
+}
+
+.magical-admin__status-icon {
+    color: var(--mg-success);
+    font-weight: bold;
+}
+
+.magical-admin__status-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--mg-success);
+}
+
+/* ==========================================================================
+   Pro Notice Banner
+   ========================================================================== */
+
+.magical-admin__pro-notice {
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    border-radius: var(--mg-border-radius-lg);
+    overflow: hidden;
+}
+
+.magical-admin__pro-notice-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+}
+
+.magical-admin__pro-notice-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.magical-admin__pro-notice-text {
+    flex-grow: 1;
+}
+
+.magical-admin__pro-notice-text h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-900);
+}
+
+.magical-admin__pro-notice-text p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--mg-gray-700);
+}
+
+.magical-admin__pro-notice-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--mg-primary);
+    color: var(--mg-white) !important;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--mg-border-radius);
+    transition: var(--mg-transition);
+    flex-shrink: 0;
+}
+
+.magical-admin__pro-notice-btn:hover {
+    background: var(--mg-primary-hover);
+    color: var(--mg-white);
+}
+
+/* ==========================================================================
+   Capability Sections
+   ========================================================================== */
+
+.magical-admin__capability-section {
+    margin-bottom: 20px;
+}
+
+.magical-admin__capability-section--pro {
+    padding-top: 20px;
+    border-top: 1px dashed var(--mg-gray-300);
+}
+
+.magical-admin__capability-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mg-gray-700);
+}
+
+.magical-admin__feature-item.is-locked {
+    position: relative;
+    opacity: 0.6;
+}
+
+.magical-admin__feature-item.is-locked .components-checkbox-control__input {
+    pointer-events: none;
+}
+
+.magical-admin__lock-overlay {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--mg-warning-light);
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   Error Notice Styles
+   ========================================================================== */
+
+.magical-admin__notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--mg-border-radius);
+    margin-bottom: 16px;
+}
+
+.magical-admin__notice--error {
+    background: var(--mg-error-light);
+    border: 1px solid var(--mg-error);
+}
+
+.magical-admin__notice-icon {
+    font-size: 20px;
+}
+
+.magical-admin__notice-message {
+    color: var(--mg-error);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Responsive - Additional
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .magical-admin__new-dashboard-notice {
+        flex-direction: column;
+        padding: 16px;
+    }
+    
+    .magical-admin__notice-features {
+        justify-content: center;
+    }
+    
+    .magical-admin__features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .magical-admin__pro-notice-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Recommended Plugins
+   ========================================================================== */
+
+.magical-admin__recommended-plugins {
+    padding: 0;
+}
+
+.magical-admin__plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.magical-plugin-card {
+    background: var(--mg-white);
+    border-radius: var(--mg-border-radius-lg);
+    box-shadow: var(--mg-shadow);
+    transition: all 0.2s ease;
+    border: 1px solid var(--mg-gray-200);
+}
+
+.magical-plugin-card:hover {
+    box-shadow: var(--mg-shadow-md);
+    transform: translateY(-2px);
+}
+
+.magical-plugin-card .components-card__body {
+    padding: 24px;
+}
+
+.magical-plugin-card__header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.magical-plugin-card__icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--mg-border-radius);
+    overflow: hidden;
+    background: var(--mg-gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.magical-plugin-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.magical-plugin-card__icon-fallback {
+    font-size: 32px;
+}
+
+.magical-plugin-card__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.magical-plugin-card__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-800);
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.magical-plugin-card__description {
+    font-size: 13px;
+    color: var(--mg-gray-600);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.magical-plugin-card__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--mg-gray-200);
+}
+
+.magical-plugin-card__actions .components-button {
+    min-width: 100px;
+}
+
+.magical-plugin-card__actions .components-button.is-primary {
+    background: var(--mg-primary);
+    border-color: var(--mg-primary);
+}
+
+.magical-plugin-card__actions .components-button.is-primary:hover {
+    background: var(--mg-primary-hover);
+    border-color: var(--mg-primary-hover);
+}
+
+.magical-plugin-card__actions .magical-plugin-activated {
+    background: var(--mg-success-light) !important;
+    color: var(--mg-success) !important;
+    border-color: var(--mg-success) !important;
+    cursor: default !important;
+}
+
+.magical-plugin-card__link {
+    font-size: 13px;
+    color: var(--mg-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.magical-plugin-card__link:hover {
+    text-decoration: underline;
+}
+
+.magical-admin__loading-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 16px;
+}
+
+.magical-admin__loading-inline p {
+    color: var(--mg-gray-600);
+    margin: 0;
+}
+
+/* Responsive Plugins Grid */
+@media (max-width: 768px) {
+    .magical-admin__plugins-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .magical-plugin-card__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .magical-plugin-card__actions .components-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .magical-plugin-card__link {
+        justify-content: center;
+    }
+}

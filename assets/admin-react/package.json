@@ -1,0 +1,29 @@
+{
+  "name": "magical-addons-admin",
+  "version": "1.0.0",
+  "description": "React-based admin panel for Magical Addons for Elementor",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.0.0",
+    "@wordpress/components": "^30.0.0",
+    "@wordpress/data": "^10.0.0",
+    "@wordpress/dom-ready": "^4.0.0",
+    "@wordpress/element": "^6.0.0",
+    "@wordpress/hooks": "^4.0.0",
+    "@wordpress/i18n": "^5.0.0",
+    "@wordpress/notices": "^5.0.0",
+    "@wordpress/url": "^4.0.0",
+    "classnames": "^2.5.0",
+    "react-router-dom": "^6.20.0"
+  }
+}

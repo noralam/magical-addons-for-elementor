@@ -1,0 +1,154 @@
+/*--------------------------------------------------------------
+  MG Anything Carousel — Frontend Styles
+--------------------------------------------------------------*/
+
+/* Wrapper — hidden until Swiper is ready to avoid layout flash */
+.mg-ce-wrapper {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Reveal after Swiper is initialized */
+.mg-ce-wrapper.mg-ce-ready {
+    opacity: 1;
+}
+
+/* Fallback: reveal after 2s even if JS is slow */
+@keyframes mgCeReveal {
+    to { opacity: 1; }
+}
+.mg-ce-wrapper:not(.mg-ce-ready) {
+    animation: mgCeReveal 0s 2s forwards;
+}
+
+/* Always visible in editor */
+.elementor-editor-active .mg-ce-wrapper {
+    opacity: 1;
+    animation: none;
+}
+
+/* Swiper container */
+.mg-ce-swiper {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Each slide (nested container) */
+.mg-ce-slide,
+.mg-ce-swiper .swiper-slide {
+    box-sizing: border-box;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure nested Elementor containers fill the slide */
+.mg-ce-swiper .swiper-slide > .elementor-element {
+    width: 100%;
+    flex: 1;
+}
+
+/* ── Navigation Arrows ── */
+.mg-ce-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.mg-ce-arrow-prev {
+    left: 10px;
+}
+
+.mg-ce-arrow-next {
+    right: 10px;
+}
+
+.mg-ce-arrow svg {
+    transition: fill 0.3s ease;
+}
+
+/* Arrows on hover */
+.mg-ce-arrows-on-hover .mg-ce-arrow {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mg-ce-arrows-on-hover:hover .mg-ce-arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── Pagination ── */
+.mg-ce-pagination {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    z-index: 10;
+}
+
+/* Dots Position: Outside Bottom (default) */
+.mg-ce-dots-outside-bottom .mg-ce-pagination {
+    position: relative;
+    bottom: auto;
+    margin-top: 15px;
+}
+
+/* Dots Position: Inside Bottom */
+.mg-ce-dots-inside-bottom .mg-ce-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+}
+
+/* Dots Position: Inside Top */
+.mg-ce-dots-inside-top .mg-ce-pagination {
+    position: absolute;
+    top: 10px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+}
+
+.mg-ce-pagination .swiper-pagination-bullet {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+.mg-ce-scrollbar {
+    position: relative;
+    margin-top: 10px;
+}
+
+/* ── Marquee / Continuous Scroll ── */
+.mg-ce-marquee-active .mg-ce-swiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+/* ── Vertical Direction ── */
+.mg-ce-wrapper .mg-ce-swiper.swiper-vertical {
+    height: 400px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+    .mg-ce-arrow-prev {
+        left: 5px;
+    }
+    .mg-ce-arrow-next {
+        right: 5px;
+    }
+}

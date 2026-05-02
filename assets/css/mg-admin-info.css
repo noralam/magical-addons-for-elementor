@@ -1,0 +1,456 @@
+/*Admin notice*/
+
+
+
+.eye-notice strong {
+    color: #085c08;
+    font-weight: 700;
+    font-size: 14px;
+}
+strong.gdnews {
+    display: block;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #da0000;
+}
+.eye-notice.notice img {
+    overflow: hidden;
+    margin-right: 20px;
+    padding: 10px;
+    background: linear-gradient(-45deg, #ffbba6, #ffa6c9, #c6f0ff, #9dffe8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
+    width: 80px;
+    float: left;
+}
+.eye-notice strong.upgbtn {
+    color: #b00b0b;
+}
+
+a.button.button-primary.quickbtn {
+    background: #bd0808;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-color: red;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+button.button.button-info.mgad-dismiss {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+i.notice-icon.dashicons-before.dashicons-smiley {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+
+.mgadin-hero {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-hello {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.mge-info-title {
+    font-size: 22px;
+    display: block;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.mge-info-desc div {
+    margin-bottom: 10px;
+}
+
+.mge-info-desc {
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 10px 0 20px;
+}
+
+.mge-info-actions {
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-actions a.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 20px;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.mge-info-actions .button i {
+    margin-left: 15px;
+}
+
+.mge-info-image {
+    flex: 0 0 400px;
+    overflow: hidden;
+}
+
+.mge-info-image img {
+    max-width: 100%;
+    min-width: 200px;
+}
+
+.mge-info-rev strong {
+    margin: 10px 0 1px;
+    display: block;
+    font-size: 15px;
+}
+
+.mge-info-actions.mgerev-action {
+    display: flex;
+    align-items: center;
+}
+
+.mge-info-desc div.mge-offer {
+    color: #a30000;
+    font-weight: 700;
+}
+
+.mge-info-rev .button {
+    padding: 5px 20px !important;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+    font-size: 15px !important;
+}
+
+
+/* Review Notice Styles */
+.magical-review-notice {
+    padding: 15px;
+    border-left-color: #2271b1;
+}
+
+.magical-review-notice-inner {
+    display: flex;
+    align-items: center;
+}
+
+.magical-review-notice-icon {
+    padding-right: 20px;
+}
+
+.magical-review-notice-icon img {
+    max-width: 80px;
+    height: auto;
+}
+
+.magical-review-notice-content {
+    flex-grow: 1;
+}
+
+.magical-review-notice-content h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.magical-review-notice-content p {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 14px;
+}
+
+.magical-review-notice-actions {
+    margin-top: 10px;
+}
+
+.magical-review-notice-actions .button-primary {
+    padding: 8px 20px;
+    font-size: 15px;
+    height: auto;
+    line-height: 1.5;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: #2271b1;
+}
+
+.magical-review-notice-actions .button-primary:hover {
+    transform: scale(1.05);
+    background: #135e96;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+.magical-review-notice-actions .button-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.magical-review-notice-actions .button-primary:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+.magical-review-notice-actions .button {
+    margin-right: 15px;
+    min-width: 130px;
+    text-align: center;
+}
+
+.magical-review-notice .notice-dismiss {
+    text-decoration: none;
+    color: #787c82;
+}
+
+/* ============================
+   Sales Notice Styles
+   ============================ */
+.mg-sales-notice {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #6c5ce7;
+    border-radius: 8px;
+    margin: 15px 10px 10px 0;
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(108, 92, 231, 0.08);
+    animation: mgSalesSlideIn 0.5s ease-out;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes mgSalesSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mg-sales-inner {
+    display: flex;
+    align-items: flex-start;
+    padding: 24px 28px;
+    gap: 20px;
+    position: relative;
+}
+
+.mg-sales-badge {
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    text-transform: uppercase;
+    animation: mgSalesPulse 2s ease-in-out infinite;
+}
+
+@keyframes mgSalesPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(108, 92, 231, 0);
+    }
+}
+
+.mg-sales-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.mg-sales-title {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e1e1e;
+    line-height: 1.4;
+}
+
+.mg-sales-desc {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.mg-sales-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mg-sales-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8f7ff;
+    border: 1px solid #e8e5ff;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a3d8f;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.mg-sales-feature:hover {
+    background: #ede9ff;
+    border-color: #d0c8ff;
+    transform: translateY(-1px);
+}
+
+.mg-sales-feature-icon {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.mg-sales-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.mg-sales-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+    line-height: 1.4;
+}
+
+.mg-sales-btn-primary {
+    background: linear-gradient(135deg, #6c5ce7, #a855f7);
+    color: #fff !important;
+    box-shadow: 0 4px 14px rgba(108, 92, 231, 0.3);
+}
+
+.mg-sales-btn-primary:hover {
+    background: linear-gradient(135deg, #5b4bd5, #9645e6);
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    transform: translateY(-1px);
+    color: #fff !important;
+}
+
+.mg-sales-btn-primary:focus {
+    color: #fff !important;
+    outline: 2px solid #6c5ce7;
+    outline-offset: 2px;
+}
+
+.mg-sales-btn-arrow {
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.mg-sales-btn-primary:hover .mg-sales-btn-arrow {
+    transform: translateX(3px);
+}
+
+.mg-sales-btn-secondary {
+    background: #f0edff;
+    color: #6c5ce7 !important;
+    border: 1px solid #d8d2f7;
+}
+
+.mg-sales-btn-secondary:hover {
+    background: #e5e0ff;
+    color: #5b4bd5 !important;
+    border-color: #c4bbf0;
+}
+
+.mg-sales-btn-dismiss {
+    background: transparent;
+    color: #999 !important;
+    padding: 10px 14px;
+    font-weight: 400;
+}
+
+.mg-sales-btn-dismiss:hover {
+    color: #666 !important;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .mg-sales-inner {
+        flex-direction: column;
+        padding: 18px 16px;
+        gap: 12px;
+    }
+
+    .mg-sales-features {
+        gap: 8px;
+    }
+
+    .mg-sales-feature {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .mg-sales-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .mg-sales-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,116 @@
+/*--------------------------------------------------------------
+  MG Anything Carousel — Editor Styles
+
+  Two modes controlled by the .mg-ce-preview-mode class:
+    • Edit   (default) — slides stacked vertically, drag-and-drop
+    • Preview          — real Swiper carousel (same as frontend)
+
+  Edit-mode rules are scoped with :not(.mg-ce-preview-mode) so
+  they automatically stop applying when Swiper takes over.
+--------------------------------------------------------------*/
+
+/* ═══════════════════════════════════════════
+   EDIT MODE (default) — vertical stack
+   Only active when Preview Mode is OFF.
+   ═══════════════════════════════════════════ */
+
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-swiper {
+    overflow: visible !important;
+    position: relative !important;
+    height: auto !important;
+    transform: none !important;
+}
+
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-swiper-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    gap: 15px !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    counter-reset: mg-slide-counter;
+}
+
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-slide {
+    border: 1px dashed #d5dadf;
+    min-height: 80px;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    counter-increment: mg-slide-counter;
+}
+
+/* Slide number label — real element inside template */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-slide-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #9b59b6;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    z-index: 100;
+    pointer-events: none;
+    line-height: 1.4;
+}
+
+/* Hide labels in preview mode */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-slide-label {
+    display: none !important;
+}
+
+/* Hide nav/pagination/scrollbar in edit mode */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-arrow,
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-pagination,
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-scrollbar {
+    display: none !important;
+}
+
+/* Ensure child containers fill slides */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper:not(.mg-ce-preview-mode) .mg-ce-slide > .elementor-element {
+    width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   PREVIEW MODE — real Swiper carousel
+   Swiper handles layout; we only add minimal
+   overrides so the editor doesn't fight it.
+   ═══════════════════════════════════════════ */
+
+/* Let Swiper clip overflow normally */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-swiper {
+    overflow: hidden !important;
+}
+
+/* Show arrows (they are added dynamically by the editor JS) */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-arrow {
+    display: flex !important;
+}
+
+/* Show pagination */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-pagination {
+    display: block !important;
+}
+
+/* Hide "Slide" labels in preview */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-slide::before {
+    display: none !important;
+}
+
+/* Remove dashed border on slides in preview */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-slide {
+    border: none !important;
+}
+
+/* Marquee mode: smooth linear transition in editor preview */
+.elementor-editor-active .elementor-widget-mg-carousel-everything .mg-ce-wrapper.mg-ce-preview-mode .mg-ce-swiper .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
