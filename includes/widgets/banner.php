@@ -798,11 +798,6 @@ class MgAddon_Banner extends \Elementor\Widget_Base
                 'label_on' => __('Yes', 'magical-addons-for-elementor'),
                 'label_off' => __('No', 'magical-addons-for-elementor'),
                 'default' => 'yes',
-                'mg_flip_button2',
-                [
-                    'label' => __('2nd Button', 'magical-addons-for-elementor'),
-                    'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-                ]
             ]
         );
 
@@ -1902,7 +1897,7 @@ class MgAddon_Banner extends \Elementor\Widget_Base
                 'label' => __('Border Color', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'condition' => [
-                    'mgflip_btn_border_border!' => '',
+                    'mgflip_btn2_border_border!' => '',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .mgcla-btn2:hover, {{WRAPPER}} .mgcla-btn2:focus' => 'border-color: {{VALUE}};',

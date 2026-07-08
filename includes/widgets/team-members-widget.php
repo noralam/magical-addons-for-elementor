@@ -1,5 +1,7 @@
 <?php
-
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class MgAddon_Team_Member extends \Elementor\Widget_Base
 {

@@ -551,7 +551,7 @@ class MgAddon_slider_lite extends \Elementor\Widget_Base
                 'default' => 3000,
                 'description' => __('Autoplay speed in milliseconds', 'magical-addons-for-elementor'),
                 'condition' => [
-                    'autoplay' => 'yes'
+                    'mgs_autoplay' => 'yes'
                 ],
                 'frontend_available' => true,
             ]

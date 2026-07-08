@@ -1380,7 +1380,7 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
 
         <div class="mg-infobox <?php if ($settings['mginfo_fullhover']) : ?>active-fhover<?php endif; ?> mg-infobox-ps-<?php echo esc_attr($main_icon_position); ?> mg-infobox-ta-<?php echo esc_attr($title_align); ?>">
             <?php if ($mginfo_wraplinking) : ?>
-                <a <?php echo $this->get_render_attribute_string('mginfo_wraplink'); ?>>
+                <a <?php echo wp_kses_post($this->get_render_attribute_string('mginfo_wraplink')); ?>>
             <?php endif; ?>
 
 
@@ -1412,7 +1412,7 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
                         <?php endif; ?>
                         <?php if ($use_btn) : ?>
                             <?php if ($usebtn_icon == 'yes') : ?>
-                                <a <?php echo $this->get_render_attribute_string('mginfo_btntitle'); ?>>
+                                <a <?php echo wp_kses_post($this->get_render_attribute_string('mginfo_btntitle')); ?>>
                                     <?php if ($icon_position == 'left') : ?>
                                         <?php mg_icons_render($settings, 'mginfo_btn_icon', 'mginfo_btn_selected_icon', ['class' => 'left']); ?>
                                     <?php endif; ?>
@@ -1422,7 +1422,7 @@ class MgAddon_Info_Box extends \Elementor\Widget_Base
                                     <?php endif; ?>
                                 </a>
                             <?php else : ?>
-                                <a <?php echo $this->get_render_attribute_string('mginfo_btntitle'); ?>><?php echo  mg_kses_tags($btntitle); ?></a>
+                                <a <?php echo wp_kses_post($this->get_render_attribute_string('mginfo_btntitle')); ?>><?php echo  mg_kses_tags($btntitle); ?></a>
                             <?php endif; ?>
                         <?php endif; ?>
 

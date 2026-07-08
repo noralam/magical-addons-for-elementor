@@ -110,7 +110,7 @@ class MgAddon_Pricing_Table extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
                     's1' => __('Style One', 'magical-addons-for-elementor'),
-                    's2' => 'Style Two',
+                    's2' => __('Style Two', 'magical-addons-for-elementor'),
                 ],
                 'default' => 's1',
             ]
@@ -690,7 +690,7 @@ class MgAddon_Pricing_Table extends \Elementor\Widget_Base
             'mg_pr_iconspace',
             [
                 'label' => __('Icon Spacing', 'magical-addons-for-elementor'),
-                'type' => Elementor\Controls_Manager::SLIDER,
+                'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
                     'px' => [
@@ -1236,8 +1236,8 @@ class MgAddon_Pricing_Table extends \Elementor\Widget_Base
                 'label' => __('Icon Color', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .mg-price-list ul li i' => 'color: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .mg-price-list ul li svg' => 'fill: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .mg-price-list ul li i' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .mg-price-list ul li svg' => 'fill: {{VALUE}};',
                 ],
             ]
         );

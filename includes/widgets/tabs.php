@@ -1,5 +1,6 @@
 <?php
 
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class MgAddon_Tabs extends \Elementor\Widget_Base
 {
@@ -610,10 +611,9 @@ class MgAddon_Tabs extends \Elementor\Widget_Base
                 'selectors'     => [
                     '{{WRAPPER}} .mg-tabs ul li a span i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .mg-tabs ul li a span svg' => 'fill: {{VALUE}};',
-                    'condition' => [
-                        'mgtab_icon_show' => 'yes',
-                    ],
-
+                ],
+                'condition' => [
+                    'mgtab_icon_show' => 'yes',
                 ],
             ]
         );
@@ -685,10 +685,9 @@ class MgAddon_Tabs extends \Elementor\Widget_Base
                 'selectors'     => [
                     '{{WRAPPER}} .mg-tabs ul li a.active span i' => 'color: {{VALUE}};',
                     '{{WRAPPER}} .mg-tabs ul li a.active span svg' => 'fill: {{VALUE}};',
-                    'condition' => [
-                        'mgtab_icon_show' => 'yes',
-                    ],
-
+                ],
+                'condition' => [
+                    'mgtab_icon_show' => 'yes',
                 ],
             ]
         );
@@ -888,7 +887,7 @@ class MgAddon_Tabs extends \Elementor\Widget_Base
                                     }
                                 ?>
                                     <li class="nav-item">
-                                        <a class="<?php echo esc_attr($mglink_class); ?>" id="home-tab" data-toggle="tab" href="#mgtab<?php echo esc_attr($mgtab_rand . $index); ?>" role="tab" aria-controls="home" aria-selected="<?php if ($index == 0) : ?>true<?php else : ?>false<?php endif; ?>">
+                                        <a class="<?php echo esc_attr($mglink_class); ?>" id="mgtab-<?php echo esc_attr($mgtab_rand . $index); ?>-tab" data-toggle="tab" href="#mgtab<?php echo esc_attr($mgtab_rand . $index); ?>" role="tab" aria-controls="mgtab-<?php echo esc_attr($mgtab_rand . $index); ?>" aria-selected="<?php if ($index == 0) : ?>true<?php else : ?>false<?php endif; ?>">
                                             <?php if ($item['mgtab_icon_show'] == 'yes' && ($settings['mgtab_icon_position'] == 'left' || $settings['mgtab_icon_position'] == 'top')) : ?>
                                                 <span class="mgt-icon-<?php echo esc_attr($settings['mgtab_icon_position']); ?>">
                                                     <?php \Elementor\Icons_Manager::render_icon($item['mgtab_selected_icon']); ?>
@@ -922,7 +921,7 @@ class MgAddon_Tabs extends \Elementor\Widget_Base
                                     $this->add_render_attribute($key2, 'class', 'show active');
                                 }
                             ?>
-                                <div <?php echo $this->get_render_attribute_string($key2); ?> id="mgtab<?php echo esc_attr($mgtab_rand . $index); ?>" role="tabpanel" aria-labelledby="home-tab"><?php echo wp_kses_post($item['mgtab_content']) ?></div>
+                                <div <?php echo $this->get_render_attribute_string($key2); ?> id="mgtab<?php echo esc_attr($mgtab_rand . $index); ?>" role="tabpanel" aria-labelledby="mgtab-<?php echo esc_attr($mgtab_rand . $index); ?>-tab"><?php echo wp_kses_post($item['mgtab_content']) ?></div>
 
                             <?php endforeach; ?>
 

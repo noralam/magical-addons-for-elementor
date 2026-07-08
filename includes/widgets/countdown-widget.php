@@ -104,7 +104,7 @@ class MgCountdown extends \Elementor\Widget_Base
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	function register_content_controls()
+	protected function register_content_controls()
 	{
 		$this->start_controls_section(
 			'mg_countdown',

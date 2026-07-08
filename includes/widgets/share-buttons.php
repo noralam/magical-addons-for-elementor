@@ -837,13 +837,13 @@ class MG_Addon_Sharebtn extends \Elementor\Widget_Base
                 $custom_share_url = isset($icon['custom_link']['url']) ? esc_url($icon['custom_link']['url']) : '';
                 $share_url = $custom_share_url ? $custom_share_url : $url;
 
-                $key1 = $this->get_repeater_setting_key('list_classes', 'social_icons', $index);
+                $key1 = $this->get_repeater_setting_key('list_classes', 'icon_list', $index);
                 $this->add_render_attribute($key1, 'class', [
                     'mg-share-button',
                     'elementor-repeater-item-' . sanitize_html_class($icon['_id'] ?? '')
                 ]);
 
-                $key2 = $this->get_repeater_setting_key('link_classes', 'social_icons', $index);
+                $key2 = $this->get_repeater_setting_key('link_classes', 'icon_list', $index);
                 $this->add_render_attribute($key2, 'class', [
                     'sharer',
                     'mg-share-network',

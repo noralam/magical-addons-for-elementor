@@ -1236,7 +1236,7 @@ class mgDataTable extends \Elementor\Widget_Base
 
 			if ($row['row_column_type'] == 'column') {
 				$table_row_keys = array_keys($table_row);
-				$cell_key = end($table_row_keys);
+				$cell_key = !empty($table_row_keys) ? end($table_row_keys) : '';
 
 				$table_cell[] = [
 					'repeater_id'        => $row['_id'],

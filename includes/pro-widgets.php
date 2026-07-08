@@ -158,7 +158,7 @@ class mgProWidgets
                 'icon'       => 'eicon-post-navigation',
             ],
             [
-                'name'       => 'mgcontentswitcher',
+                'name'       => 'mgp_price_comp',
                 'title'      => __('Mg Price comparison', 'magical-addons-for-elementor'),
                 'categories' => '["magical-pro"]',
                 'keywords'   => ['mg', 'comparison table', 'table', 'compare'],

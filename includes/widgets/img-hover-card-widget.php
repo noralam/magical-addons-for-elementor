@@ -940,11 +940,11 @@ class MgimgHover_Card_Widget extends \Elementor\Widget_Base
                         endif;
                         ?>
                         <?php if ($mg_hvrcard_desc) : ?>
-                            <p <?php echo $this->get_render_attribute_string('mg_hvrcard_desc'); ?>><?php echo wp_kses_post($mg_hvrcard_desc); ?></p>
+                            <p <?php echo wp_kses_post($this->get_render_attribute_string('mg_hvrcard_desc')); ?>><?php echo wp_kses_post($mg_hvrcard_desc); ?></p>
                         <?php endif; ?>
                         <?php if ($mg_hvrcard_btn_use) : ?>
                             <?php if ($mg_hvrcard_usebtn_icon == 'yes') : ?>
-                                <a <?php echo $this->get_render_attribute_string('mg_hvrcard_btn_title'); ?>>
+                                <a <?php echo wp_kses_post($this->get_render_attribute_string('mg_hvrcard_btn_title')); ?>>
                                     <?php if ($mg_hvrcardbtn_icon_position == 'left') : ?>
                                         <span class="left"><?php \Elementor\Icons_Manager::render_icon($settings['mg_hvrcard_btn_selected_icon']); ?></span>
 
@@ -955,7 +955,7 @@ class MgimgHover_Card_Widget extends \Elementor\Widget_Base
                                     <?php endif; ?>
                                 </a>
                             <?php else : ?>
-                                <a <?php echo $this->get_render_attribute_string('mg_hvrcard_btn_title'); ?>><?php echo  mg_kses_tags($mg_hvrcard_btn_title); ?></a>
+                                <a <?php echo wp_kses_post($this->get_render_attribute_string('mg_hvrcard_btn_title')); ?>><?php echo  mg_kses_tags($mg_hvrcard_btn_title); ?></a>
                             <?php endif; ?>
                         <?php endif; ?>
                     </div>

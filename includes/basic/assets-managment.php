@@ -160,6 +160,14 @@ class mgAssetsManagement
             MAGICAL_ADDON_VERSION,
             'all'
         );
+        // Accordion widget JS - registered here (wp_enqueue_scripts) for get_script_depends() compatibility
+        wp_register_script(
+            'mg-accordion',
+            MAGICAL_ADDON_ASSETS . 'js/accordion/mg-accordion.js',
+            [],
+            MAGICAL_ADDON_VERSION,
+            true
+        );
     }
     // script register 
     public static function frontend_scripts_register()

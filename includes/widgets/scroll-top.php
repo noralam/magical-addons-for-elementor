@@ -712,7 +712,7 @@ class mg_ScrollTop extends Widget_Base
     protected function render()
     {
         // Get Settings
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
 
         // Widget JSON Settings
         $stt_settings = [

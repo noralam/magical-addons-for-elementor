@@ -733,7 +733,7 @@ class MG_Addon_SearchBar extends Widget_Base
 
 	protected function render_search_submit_btn()
 	{
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
 			'button',
@@ -764,7 +764,7 @@ class MG_Addon_SearchBar extends Widget_Base
 	protected function render()
 	{
 		// Get Settings
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute(
 			'input',

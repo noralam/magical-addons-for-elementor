@@ -1123,7 +1123,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 
 		// add old default
 		if (!isset($item['button_icon']) && !$migration_allowed) {
-			$item['hotspot_icon'] = '';
+			$item['button_icon'] = '';
 		}
 
 		$migrated = isset($item['__fa4_migrated']['select_button_icon']);
@@ -1170,7 +1170,7 @@ class MgAddon_imgAccordion extends \Elementor\Widget_Base
 						}
 
 						$this->add_render_attribute($item_key, [
-							'style' => 'background-image: url(' . $image_url . ');',
+							'style' => 'background-image: url(' . esc_url($image_url) . ');',
 						]);
 					}
 

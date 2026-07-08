@@ -451,9 +451,9 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'label' => __('Link type', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'link1' => 'Link style one',
-                    'link2' => 'Link style two',
-                    'btn' => 'Button',
+                    'link1' => __('Link style one', 'magical-addons-for-elementor'),
+                    'link2' => __('Link style two', 'magical-addons-for-elementor'),
+                    'btn' => __('Button', 'magical-addons-for-elementor'),
                 ],
                 'default' => 'link1',
             ]
@@ -475,8 +475,8 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'label' => __('Link Target', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    '_self' => 'self',
-                    '_blank' => 'Blank',
+                    '_self' => __('self', 'magical-addons-for-elementor'),
+                    '_blank' => __('Blank', 'magical-addons-for-elementor'),
                 ],
                 'default' => '_self',
             ]
@@ -1602,7 +1602,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 $args['post__in'] = $settings['mgpg_product_id'];
                 break;
             case 'show_byid_manually':
-                $args['post__in'] = explode(',', $settings['mgpg_product_ids_manually']);
+                $args['post__in'] = array_map('intval', array_filter(array_map('trim', explode(',', $settings['mgpg_product_ids_manually']))));
                 break;
             default:
                 $args['orderby'] = 'date';
@@ -1631,7 +1631,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
         if ($settings['mgpg_category_show']) :
             $category_type = $settings['mgpg_cat_type'];
             $categories = get_the_category();
-            $category_output = $category_type === 'all' ? get_the_category_list(esc_html__('/ ', 'magical-addons-for-elementor')) : '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>';
+            $category_output = $category_type === 'all' ? get_the_category_list(esc_html__('/ ', 'magical-addons-for-elementor')) : (!empty($categories) ? '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>' : '');
 
             if ($category_output) :
                 echo '<div class="mgp-cat cat-list grid-meta' . (!has_post_thumbnail() ? ' empty-img' : '') . '">';
@@ -1721,13 +1721,13 @@ class mgPostGridWidget extends \Elementor\Widget_Base
             $icon_position = !empty($settings['mgpg_btn_icon_position']) ? $settings['mgpg_btn_icon_position'] : 'right';
             $icon = $this->render_elementor_icon($settings['mgpg_btn_icon']); // Use the helper function to safely retrieve the icon
             $button_text = !empty($settings['mgpg_btn_title']) ? mg_kses_tags($settings['mgpg_btn_title']) :  __('Read More', 'magical-addons-for-elementor');
-            $button_class = $this->get_render_attribute_string('mgpg_btn_title');
-
             // Sanitize the button target attribute to prevent XSS
             $button_target = !empty($settings['mgpg_btn_target']) ? esc_attr($settings['mgpg_btn_target']) : '_self';
 
             // Render the button
-            echo '<a href="' . esc_url(get_the_permalink()) . '" target="' . esc_attr($button_target) . '" class="' . esc_attr($button_class) . '">';
+            echo '<a href="' . esc_url(get_the_permalink()) . '" target="' . esc_attr($button_target) . '" ';
+            $this->print_render_attribute_string('mgpg_btn_title');
+            echo '>';
 
 
             // Add icon to the left if applicable
@@ -1783,7 +1783,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
         if ($settings['mgpg_tag_show']) :
             $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'magical-addons-for-elementor'));
             if ($tags_list) :
-                echo '<span class="mpg-tags-links"><i class="fas fa-tag"></i>' . esc_html(sanitize_text_field($tags_list)) . '</span>';
+                echo '<span class="mpg-tags-links"><i class="fas fa-tag"></i>' . wp_kses_post($tags_list) . '</span>';
             endif;
         endif;
     }

@@ -71,6 +71,7 @@ class Magical_Addons_Settings_Defaults {
             'mg_navmenu'         => 'on',
             'mg_data_table'      => 'on',
             'mg_mailchimp'       => 'on',
+            'mg_banner'          => 'on',
             'mg_skillbar'        => 'on',
             'mg_project_details' => 'on',
             'mg_carousel_everything' => 'on',
@@ -178,13 +179,11 @@ class Magical_Addons_Settings_Defaults {
             $existing = array();
         }
 
+        // Filter out empty strings so defaults (like 'on') are preserved
+        $existing = array_filter( $existing, 'strlen' );
+
         // Only add new widgets that don't exist in user settings
         $merged = array_merge( $defaults, $existing );
-
-        // Ensure we don't lose any user settings
-        foreach ( $existing as $key => $value ) {
-            $merged[ $key ] = $value;
-        }
 
         update_option( 'magical_addons', $merged );
     }
@@ -201,11 +200,10 @@ class Magical_Addons_Settings_Defaults {
             $existing = array();
         }
 
-        $merged = array_merge( $defaults, $existing );
+        // Filter out empty strings so defaults (like 'on') are preserved
+        $existing = array_filter( $existing, 'strlen' );
 
-        foreach ( $existing as $key => $value ) {
-            $merged[ $key ] = $value;
-        }
+        $merged = array_merge( $defaults, $existing );
 
         update_option( 'magical_addons_pro', $merged );
     }

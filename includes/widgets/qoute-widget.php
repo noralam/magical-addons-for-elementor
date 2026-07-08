@@ -331,8 +331,8 @@ class MgBlockquote extends \Elementor\Widget_Base
 			[
 				'label' => __('Show Extra border?', 'magical-addons-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'border_show' => __('Yes', 'magical-addons-for-elementor'),
-				'border_off' => __('No', 'magical-addons-for-elementor'),
+				'label_on' => __('Yes', 'magical-addons-for-elementor'),
+				'label_off' => __('No', 'magical-addons-for-elementor'),
 				'default' => 'show',
 				'return_value' => 'show',
 			]

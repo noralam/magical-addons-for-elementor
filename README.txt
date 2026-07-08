@@ -277,6 +277,15 @@ e.g.
 
 == Changelog ==
 
+= 1.4.6 =
+	* Fixed: Security issues 
+	* Updated: some widgets added new featres
+
+= 1.4.5 =
+	* Fixed: Social Share widget 
+	* Fixed: nav menu widget 
+	* Fixed: bug fix
+
 = 1.4.4 =
 	* Fixed: Social Share widget 
 	* Fixed: nav menu widget 

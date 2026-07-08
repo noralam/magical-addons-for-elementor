@@ -116,7 +116,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
                     'label'   => esc_html__('Menu', 'magical-addons-for-elementor'),
                     'type'    => Controls_Manager::SELECT,
                     'options' => mg_addons_get_available_menus(),
-                    'default' => array_keys(mg_addons_get_available_menus())[0],
+                    'default' => !empty(mg_addons_get_available_menus()) ? array_keys(mg_addons_get_available_menus())[0] : '',
                     'save_default' => true,
                     'separator' => 'after',
                     'description' => sprintf(
@@ -228,7 +228,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
                         'icon'  => 'eicon-h-align-right',
                     ],
                 ],
-                'center' => 'one',
+                'default' => 'center',
                 'selectors' => [
                     '{{WRAPPER}} .mgnav-menu > .mgnav-menu-list'   => 'justify-content: {{VALUE}};',
                 ],
@@ -985,7 +985,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
         $this->add_render_attribute('area_attr', 'class', implode(" ", $exclass));
 
         // Mobile Menu Toggler
-        $mobile_text = (!empty($settings['mobile_menu']) ? '<h3 class="mgnav-menu-title">' . $settings['mobile_menu'] . '</h2>' : '');
+        $mobile_text = (!empty($settings['mobile_menu']) ? '<h3 class="mgnav-menu-title">' . $settings['mobile_menu'] . '</h3>' : '');
 
         // Custom Title and Badge
         $customdata = [];
@@ -1012,7 +1012,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
 
 
 ?>
-        <div <?php echo $this->get_render_attribute_string('area_attr'); ?>>
+        <div <?php echo wp_kses_post($this->get_render_attribute_string('area_attr')); ?>>
             <?php if ($settings['mobile_menu_show']) : ?>
                 <div class="mgnav-menu-head">
                     <?php
@@ -1066,7 +1066,7 @@ class MG_Addon_navMenu extends \Elementor\Widget_Base
                     }
                 ?>
                     <li id="nav-menu-item-117" class="main-menu-item ">
-                        <a <?php echo $this->get_render_attribute_string($key1); ?>><span class="mgnav-menu-text"><?php echo esc_html($item['menu_text']); ?></span></a>
+                        <a <?php echo wp_kses_post($this->get_render_attribute_string($key1)); ?>><span class="mgnav-menu-text"><?php echo esc_html($item['menu_text']); ?></span></a>
                     </li>
                 <?php endforeach; ?>
             <?php endif; ?>
