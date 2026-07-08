@@ -575,6 +575,9 @@ class mgCatTag_List extends Widget_Base
 
 		// Fetch terms based on the arguments
 		$terms = get_terms($args);
+		if (is_wp_error($terms)) {
+			$terms = [];
+		}
 
 		echo '<ul class="mg-taxonomy-list mg-taxonomy-icon-' . esc_attr($settings['icon_position']) . '">';
 

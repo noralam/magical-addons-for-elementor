@@ -1132,6 +1132,7 @@ class mgproMailchimp extends Widget_Base
 					</div>
 				<?php endif; ?>
 				<form id="mg-mc-form-<?php echo esc_attr($this->get_id()); ?>" class="mg-mc-form" method="POST">
+					<?php wp_nonce_field('mg_mailchimp_subscribe', 'mg_mc_nonce'); ?>
 					<div <?php $this->print_render_attribute_string('fields-wrapper'); ?>>
 
 						<?php

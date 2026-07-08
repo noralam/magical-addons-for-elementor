@@ -614,7 +614,7 @@ function magical_addons_all_widgets()
     }
 
     // WPForms
-    if (function_exists()) {
+    if (function_exists('wpforms')) {
         $mgwidgets['pp-wpforms'] = esc_html__('WPForms', 'magical-addons-for-elementor');
     }
 

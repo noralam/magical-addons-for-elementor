@@ -1131,7 +1131,7 @@ class MgAddon_Card_Widget extends \Elementor\Widget_Base
                 <?php if ($mg_card_desc) : ?>
                     <p <?php echo $this->get_render_attribute_string('mg_card_desc'); ?>><?php echo wp_kses_post($mg_card_desc); ?></p>
                 <?php endif; ?>
-                <?php $this->mgbutton_icon(); ?>
+                <?php if ($settings['mg_card_btn_use']) : $this->mgbutton_icon(); endif; ?>
 
             </div>
 

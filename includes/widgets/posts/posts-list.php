@@ -467,9 +467,9 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'label' => __('Link type', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    'link1' => 'Link style one',
-                    'link2' => 'Link style two',
-                    'btn' => 'Button',
+                    'link1' => __('Link style one', 'magical-addons-for-elementor'),
+                    'link2' => __('Link style two', 'magical-addons-for-elementor'),
+                    'btn' => __('Button', 'magical-addons-for-elementor'),
                 ],
                 'default' => 'link2',
             ]
@@ -491,8 +491,8 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'label' => __('Link Target', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => [
-                    '_self' => 'self',
-                    '_blank' => 'Blank',
+                    '_self' => __('self', 'magical-addons-for-elementor'),
+                    '_blank' => __('Blank', 'magical-addons-for-elementor'),
                 ],
                 'default' => '_self',
             ]
@@ -1611,7 +1611,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 break;
 
             case 'show_byid_manually':
-                $args['post__in'] = explode(',', $settings['mgpl_product_ids_manually']);
+                $args['post__in'] = array_map('intval', array_filter(array_map('trim', explode(',', $settings['mgpl_product_ids_manually']))));
                 break;
 
             default: /* Recent */
@@ -1700,8 +1700,8 @@ class mgPostListWidget extends \Elementor\Widget_Base
                             <?php if ($mpg_cat_list && $settings['mgpl_category_show'] && $settings['mgpl_cat_type'] == 'all') : ?>
                                 <div class="mgp-cat cat-list grid-meta <?php if (!has_post_thumbnail()) : ?>empty-img<?php endif; ?>">
                                     <?php
-                                    $mpg_cat_list_sanitized = sanitize_text_field($mpg_cat_list);
-                                    printf('<span class="mgp-post-cats">%s</span>', esc_html($mpg_cat_list_sanitized));
+                                    $mpg_cat_list_sanitized = wp_kses_post($mpg_cat_list);
+                                    printf('<span class="mgp-post-cats">%s</span>', $mpg_cat_list_sanitized);
 
                                     ?>
                                 </div>
@@ -1785,7 +1785,6 @@ class mgPostListWidget extends \Elementor\Widget_Base
                     </div>
                 <?php
                 endwhile;
-                wp_reset_query();
                 wp_reset_postdata();
                 ?>
             </div>

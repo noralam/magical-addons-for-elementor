@@ -135,7 +135,7 @@ class MG_Addon_WPForm extends \Elementor\Widget_Base
                     'label' => __('Select Your Form', 'magical-addons-for-elementor'),
                     'type' => Controls_Manager::SELECT,
                     'label_block' => true,
-                    'options' => ['' => __('Select a WPForm', 'magical-addons-for-elementor')] + \mg_get_wpforms(),
+                    'options' => ['' => __('Select a WPForm', 'magical-addons-for-elementor')] + (is_array($forms = \mg_get_wpforms()) ? $forms : []),
                 ]
             );
         }
@@ -536,7 +536,7 @@ class MG_Addon_WPForm extends \Elementor\Widget_Base
                 'toggle' => false,
                 'prefix_class' => 'mg-form-btn--%s',
                 'selectors' => [
-                    '{{WRAPPER}} .wpforms-submit-container' => 'text-align: {{Value}};',
+                    '{{WRAPPER}} .wpforms-submit-container' => 'text-align: {{VALUE}};',
                 ],
             ]
         );

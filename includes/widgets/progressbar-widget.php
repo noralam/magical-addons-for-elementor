@@ -494,8 +494,6 @@ class MgProgressbar extends \Elementor\Widget_Base
 		$bar_color   = $this->get_settings('bar_color');
 		$trail_color   = $this->get_settings('trail_color');
 		$bar_height   = $this->get_settings('bar_height');
-		$trail_height   = $this->get_settings('trail_height');
-		$stroke_width   = $this->get_settings('stroke_width');
 		$mgp_animation_time   = $this->get_settings('mgp_animation_time');
 		$this->add_inline_editing_attributes('mgp_title');
 		$this->add_render_attribute('mgp_title', 'class', 'mgp-title');

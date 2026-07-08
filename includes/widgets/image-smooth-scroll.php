@@ -260,7 +260,7 @@ class MgAddon_imgSmoothScroll extends \Elementor\Widget_Base
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 3,
 				'selectors' => array(
-					'{{WRAPPER}} .mg-image-scroll-container .mg-image-scroll-image img'   => 'transition: all {{Value}}s; -webkit-transition: all {{Value}}s;',
+					'{{WRAPPER}} .mg-image-scroll-container .mg-image-scroll-image img'   => 'transition: all {{VALUE}}s; -webkit-transition: all {{VALUE}}s;',
 				),
 				'condition' => array(
 					'trigger_type' => 'hover',

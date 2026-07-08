@@ -9,7 +9,7 @@
  * Plugin Name:       Magical Addons For Elementor
  * Plugin URI:        https://wpthemespace.com/product/magical-addons-pro/
  * Description:       Premium addons for Elementor page builder
- * Version:           1.4.5
+ * Version:           1.4.6
  * Author:            Noor alam
  * Author URI:        https://wpthemespace.com/
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ final class Magical_Addons_Elementor
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.4.5';
+	const VERSION = '1.4.6';
 
 	/**
 	 * Minimum Elementor Version

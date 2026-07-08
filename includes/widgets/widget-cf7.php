@@ -141,7 +141,7 @@ class MG_Addon_CF7 extends \Elementor\Widget_Base
 					'label' => __('Select Your Form', 'magical-addons-for-elementor'),
 					'type' => Controls_Manager::SELECT,
 					'label_block' => true,
-					'options' => ['' => __('Select a form ', 'magical-addons-for-elementor')] + \mg_get_cf7_forms(),
+					'options' => ['' => __('Select a form ', 'magical-addons-for-elementor')] + (is_array($forms = \mg_get_cf7_forms()) ? $forms : []),
 				]
 			);
 

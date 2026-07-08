@@ -1589,7 +1589,7 @@ class MgAddon_infoList extends \Elementor\Widget_Base
 
 		// add old default
 		if (!isset($item['list_icon']) && !$migration_allowed) {
-			$item['list_icon'] = isset($fallback_defaults[$index]) ? $fallback_defaults[$index] : 'fa fa-check';
+			$item['list_icon'] = isset($fallback_defaults[$i]) ? $fallback_defaults[$i] : 'fa fa-check';
 		}
 
 		$migrated = isset($item['__fa4_migrated']['icon']);

@@ -1218,7 +1218,7 @@ class MgAddon_Anything_Carousel extends \Elementor\Modules\NestedElements\Base\W
         ?>
         <div class="<?php echo esc_attr(implode(' ', $wrapper_classes)); ?>"
              id="mg-ce-<?php echo esc_attr($widget_id); ?>"
-             data-swiper-config='<?php echo wp_json_encode($swiper_data); ?>'>
+             data-swiper-config='<?php echo esc_attr(wp_json_encode($swiper_data)); ?>'>
 
             <div class="swiper mg-ce-swiper">
                 <div class="swiper-wrapper mg-ce-swiper-wrapper">

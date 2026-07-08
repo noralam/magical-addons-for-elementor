@@ -26,7 +26,7 @@
     font-size: 16px;
     font-weight: 500;
     margin:0;
-    color:#fff;
+    color:#4c4c4c;
 }
 
 .mg-accordion-title .mgrc-title {
@@ -35,6 +35,7 @@
     padding: 15px;
     cursor: pointer;
     border-bottom: 1px solid #ccc;
+    background: #f7f7f7;
 }
 .mgc-icons {
     display: block;
@@ -66,7 +67,11 @@
 }
 .mgc-icon svg {
     width: 14px;
-    fill: #fff;
+    fill: #f7f7f7;
+}
+.mgaccordion .mgrc-title .mgc-icon svg {
+    width: 14px;
+    fill: #4c4c4c;
 }
 .mgc-left-icon .mgc-icon {
     position: absolute;
@@ -145,4 +150,14 @@
 
 .show .card-body.mgac-content.mgac-effect3 {
     transform: scale(1);
+}
+
+/* Native accordion - replaces Bootstrap collapse */
+.mgaccont {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+}
+.mgaccont.show {
+    max-height: 10000px;
 }

@@ -208,7 +208,7 @@ class magicalWidgetInit
 		}
 
 		// banner Widget
-		if (mg_get_addons_option('mg_mailchimp', 'on') == 'on') {
+		if (mg_get_addons_option('mg_banner', 'on') == 'on') {
 			require_once(MAGICAL_ADDON_PATH . '/includes/widgets/banner.php');
 			$widgets_manager->register(new \MgAddon_Banner());
 		}

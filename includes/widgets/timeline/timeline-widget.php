@@ -1,5 +1,7 @@
 <?php
-
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class MgAddon_Timeline_Widget extends \Elementor\Widget_Base
 {

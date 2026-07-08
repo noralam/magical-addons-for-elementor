@@ -214,8 +214,8 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
             [
                 'label' => __('Show Extra border?', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'border_show' => __('Yes', 'magical-addons-for-elementor'),
-                'border_off' => __('No', 'magical-addons-for-elementor'),
+                'label_on' => __('Yes', 'magical-addons-for-elementor'),
+                'label_off' => __('No', 'magical-addons-for-elementor'),
                 'default' => 'show',
                 'return_value' => 'show',
                 'condition' => [
@@ -1765,7 +1765,7 @@ class MgAddon_Call_To_Action extends \Elementor\Widget_Base
                 'label' => __('Border Color', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'condition' => [
-                    'mgflip_btn_border_border!' => '',
+                    'mgflip_btn2_border_border!' => '',
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .mgcla-btn2:hover, {{WRAPPER}} .mgcla-btn2:focus' => 'border-color: {{VALUE}};',

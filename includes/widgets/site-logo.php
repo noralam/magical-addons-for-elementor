@@ -634,8 +634,8 @@ class MG_Addon_siteLogo extends Widget_Base
 
 		$settings = $this->get_settings();
 
-		$image_src = esc_url($settings['image']['url']);
-		$mobile_image_src = esc_url($settings['mobile_image']['url']);
+		$image_src = esc_url($settings['image']['url'] ?? '');
+		$mobile_image_src = esc_url($settings['mobile_image']['url'] ?? '');
 
 		// Title
 		$title = '';

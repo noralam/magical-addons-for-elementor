@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class MgAddon_text_effects extends \Elementor\Widget_Base
 {
@@ -363,11 +366,20 @@ class MgAddon_text_effects extends \Elementor\Widget_Base
 		$header_size = sanitize_text_field($settings['header_size']);
 		$title_attr = $this->get_render_attribute_string('title');
 
-		$title_html = sprintf('<%1$s><span %2$s>%3$s</span></%1$s>', mg_validate_html_tag($header_size), esc_attr($title_attr), esc_html($title));
+		$title_html = sprintf('<%1$s><span %2$s>%3$s</span></%1$s>', mg_validate_html_tag($header_size), $title_attr, esc_html($title));
 ?>
 
 		<div class="mg-text-effects <?php echo esc_attr($settings['mg_text_effect']); ?>">
-			<?php echo wp_kses_post($title_html); ?>
+			<?php echo wp_kses($title_html, array_merge(wp_kses_allowed_html('post'), [
+    'span' => [
+        'class' => true,
+        'data-elementor-setting-key' => true,
+        'data-elementor-inline-editing-toolbar' => true,
+        'contenteditable' => true,
+        'style' => true,
+        'id' => true,
+    ],
+])); ?>
 		</div>
 
 	<?php

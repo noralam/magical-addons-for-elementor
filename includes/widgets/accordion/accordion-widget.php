@@ -54,6 +54,12 @@ class MgAccordion extends \Elementor\Widget_Base
             'mg-accordion',
         ];
     }
+    public function get_script_depends()
+    {
+        return [
+            'mg-accordion',
+        ];
+    }
 
     /**
      * Get widget categories.
@@ -232,7 +238,7 @@ class MgAccordion extends \Elementor\Widget_Base
                     ],
 
                 ],
-                'default' => 'center',
+                'default' => 'left',
 
             ]
         );
@@ -481,7 +487,7 @@ class MgAccordion extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Hide default gradient? ', 'magical-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'default' => 'no',
+                'default' => 'yes',
                 'label_on' => esc_html__('Yes', 'magical-addons-for-elementor'),
                 'label_off' => esc_html__('No', 'magical-addons-for-elementor'),
             ]
@@ -972,7 +978,7 @@ class MgAccordion extends \Elementor\Widget_Base
 
                     <div class="card mgrc-item mgrc-item-<?php echo esc_attr($settings['mgac_text_align']); ?>-<?php echo esc_attr($settings['mgac_icon_position']); ?> text-<?php echo esc_attr($settings['mgac_text_align']); ?>">
                         <div class="card-header mg-accordion-title" id="heading<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>">
-                            <div class="mgrc-title <?php if ($item['mgac_is_open'] != 'yes') : ?>collapsed<?php endif; ?> <?php if ($settings['mgac_icon_position'] == 'left') : ?>mgrc-left<?php endif; ?>" data-bs-toggle="collapse" data-bs-target="#mgc-item<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>" aria-expanded="<?php echo ($item['mgac_is_open'] == 'yes') ? 'true' : 'false'; ?>" aria-controls="mgc-item<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>">
+                            <div class="mgrc-title <?php if (isset($item['mgac_is_open']) && $item['mgac_is_open'] != 'yes') : ?>collapsed<?php endif; ?> <?php if ($settings['mgac_icon_position'] == 'left') : ?>mgrc-left<?php endif; ?>" aria-expanded="<?php echo (isset($item['mgac_is_open']) && $item['mgac_is_open'] == 'yes') ? 'true' : 'false'; ?>" aria-controls="mgc-item<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>">
                                 <?php if ($settings['mgac_icon_position'] == 'left' && $settings['mgac_icon_show'] == 'yes') : ?>
                                     <div class="mgc-icons mgc-left-icon">
                                         <div class="mgc-icon">
@@ -997,7 +1003,7 @@ class MgAccordion extends \Elementor\Widget_Base
                             </div>
                         </div>
 
-                        <div id="mgc-item<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>" class="collapse mgaccont <?php echo ($item['mgac_is_open'] == 'yes') ? 'show' : ''; ?>" aria-labelledby="heading<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>" data-bs-parent="#mgAccordion<?php echo esc_attr($mgac_rand); ?>">
+                        <div id="mgc-item<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>" class="mgaccont <?php echo (isset($item['mgac_is_open']) && $item['mgac_is_open'] == 'yes') ? 'show' : ''; ?>" aria-labelledby="heading<?php echo esc_attr($index); ?><?php echo esc_attr($mgac_rand); ?>">
 
                             <div class="card-body mgac-content mgac-<?php echo esc_attr($settings['mgac_effect']); ?>">
                                 <p <?php echo $this->get_render_attribute_string($key2); ?>>
