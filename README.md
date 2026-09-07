@@ -65,10 +65,14 @@ Magical Addons for Elementor lets you build modern WordPress websites without co
 ## Changelog
 
 ### 1.5.0
-- Added: Comprehensive Theme Builder (Header, Footer, Single, Archive, Search, 404 templates with display conditions)
-- Updated: Admin dashboard and settings interface
-- Fixed: Minor bug fixes and performance improvements
-- Updated: Full compatibility checks for PHP 8.x and latest Elementor
+- **Added:** 100% Free Complete Theme Builder — design headers, footers, single post/page, archive, search results, and 404 templates
+- **Added:** Smart Display Conditions engine with Include/Exclude rules (Entire Site, Singular, Archives, specific pages/posts)
+- **Added:** Ready-to-import starter layout templates for headers, footers, single posts, archives, search, and 404 pages
+- **Added:** Dedicated Theme Builder management tab in modern React admin dashboard
+- **Updated:** Posts Grid and Posts List widgets with unified query controls trait and improved taxonomy handling
+- **Updated:** Upgrade banner notice with 25-day recurring cycle and smart Pro dual-active detection
+- **Fixed:** Cleaned up legacy header/footer builder code and resolved theme compatibility conflicts
+- **Performance:** Optimized script/style enqueuing and full compatibility verified for PHP 8.x and latest Elementor 3.x
 
 ### 1.4.6
 - Fixed: Accordion widget toggle — removed Bootstrap collapse API, native vanilla JS rewrite
