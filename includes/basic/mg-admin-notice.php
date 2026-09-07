@@ -24,14 +24,6 @@ class mgAdminNotice
 	 */
 	const MINIMUM_PHP_VERSION = '7.4';
 
-	/**
-	 * User meta key for GSAP notice dismissal
-	 * @var string
-	 */
-	const GSAP_NOTICE_META_KEY = 'mg_gsap_admin_notice_dismissed';
-
-
-
 	function __construct()
 	{
 		// Always add the admin notice directly
@@ -48,13 +40,6 @@ class mgAdminNotice
 		if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
 			add_action('admin_notices', [$this, 'admin_notice_minimum_php_version']);
 		}
-
-		// GSAP feature notice
-		add_action('admin_notices', [$this, 'admin_notice_gsap_feature']);
-		add_action('admin_enqueue_scripts', [$this, 'enqueue_gsap_notice_assets']);
-		add_action('wp_ajax_mg_dismiss_gsap_notice', [$this, 'ajax_dismiss_gsap_notice']);
-
-
 	}
 
 	/**
@@ -153,158 +138,4 @@ class mgAdminNotice
 
 		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post($message));
 	}
-
-	/**
-	 * Enqueue GSAP notice assets
-	 *
-	 * @since 1.3.15
-	 * @access public
-	 */
-	public function enqueue_gsap_notice_assets()
-	{
-		$screen = get_current_screen();
-		if (!$screen) {
-			return;
-		}
-
-		// Only load on dashboard and Elementor pages
-		if (strpos($screen->id, 'elementor') === false && $screen->id !== 'dashboard') {
-			return;
-		}
-
-		// Check if already dismissed
-		if (get_user_meta(get_current_user_id(), self::GSAP_NOTICE_META_KEY, true)) {
-			return;
-		}
-
-		// Enqueue admin CSS for notice styling
-		wp_enqueue_style(
-			'mg-admin-style',
-			MAGICAL_ADDON_URL . 'assets/css/mg-admin.css',
-			array(),
-			MAGICAL_ADDON_VERSION,
-			'all'
-		);
-
-		wp_enqueue_script(
-			'mg-gsap-notice',
-			MAGICAL_ADDON_URL . 'assets/js/mg-gsap-notice.js',
-			array('jquery'),
-			MAGICAL_ADDON_VERSION,
-			true
-		);
-
-		wp_localize_script('mg-gsap-notice', 'mgGsapNotice', array(
-			'ajaxurl' => admin_url('admin-ajax.php'),
-			'nonce'   => wp_create_nonce('mg_gsap_notice_nonce'),
-		));
-	}
-
-	/**
-	 * Display admin notice for GSAP feature
-	 *
-	 * @since 1.3.15
-	 * @access public
-	 */
-	public function admin_notice_gsap_feature()
-	{
-		$screen = get_current_screen();
-		if (!$screen) {
-			return;
-		}
-
-		// Only show on dashboard and Elementor pages
-		if (strpos($screen->id, 'elementor') === false && $screen->id !== 'dashboard') {
-			return;
-		}
-
-		// Check if already dismissed
-		if (get_user_meta(get_current_user_id(), self::GSAP_NOTICE_META_KEY, true)) {
-			return;
-		}
-		?>
-		<div class="notice is-dismissible mg-gsap-admin-notice">
-			<p class="mg-gsap-notice-title">
-				<span class="mg-gsap-badge"><?php echo esc_html__('✨ New', 'magical-addons-for-elementor'); ?></span>
-				<strong><?php echo esc_html__('Magical Addons - GSAP Scroll Animations!', 'magical-addons-for-elementor'); ?></strong>
-			</p>
-			<p class="mg-gsap-notice-desc">
-				<?php 
-				printf(
-					/* translators: %s: GSAP strong tag */
-					esc_html__('Make your website come alive with professional scroll-triggered animations! %s (GreenSock Animation Platform) is the industry-standard animation library used by top websites like Apple, Google, and Nike.', 'magical-addons-for-elementor'),
-					'<strong>GSAP</strong>'
-				);
-				?>
-			</p>
-			<div class="mg-gsap-features">
-				<span class="mg-gsap-feature">
-					<?php 
-					printf(
-						/* translators: %s: animation types in strong tag */
-						esc_html__('✨ %s on scroll', 'magical-addons-for-elementor'),
-						'<strong>' . esc_html__('Fade, slide, zoom, rotate', 'magical-addons-for-elementor') . '</strong>'
-					);
-					?>
-				</span>
-				<span class="mg-gsap-feature">
-					<?php 
-					printf(
-						/* translators: %s: No coding in strong tag */
-						esc_html__('🎯 %s required', 'magical-addons-for-elementor'),
-						'<strong>' . esc_html__('No coding', 'magical-addons-for-elementor') . '</strong>'
-					);
-					?>
-				</span>
-				<span class="mg-gsap-feature">
-					<?php 
-					printf(
-						/* translators: %s: 60fps in strong tag */
-						esc_html__('⚡ %s smooth animations', 'magical-addons-for-elementor'),
-						'<strong>' . esc_html__('60fps', 'magical-addons-for-elementor') . '</strong>'
-					);
-					?>
-				</span>
-			</div>
-			<p class="mg-gsap-howto">
-				<?php 
-				printf(
-					/* translators: 1: How to use label, 2: Advanced Tab, 3: Magical GSAP Animation section */
-					esc_html__('%1$s Edit any page in Elementor %2$s Select element %2$s %3$s %2$s %4$s section', 'magical-addons-for-elementor'),
-					'📍 <em>' . esc_html__('How to use:', 'magical-addons-for-elementor') . '</em>',
-					'<span class="mg-gsap-arrow">→</span>',
-					'<strong>' . esc_html__('Advanced Tab', 'magical-addons-for-elementor') . '</strong>',
-					'<strong>"' . esc_html__('Magical GSAP Animation', 'magical-addons-for-elementor') . '"</strong>'
-				);
-				?>
-			</p>
-		</div>
-		<?php
-	}
-
-	/**
-	 * AJAX handler for dismissing GSAP notice
-	 *
-	 * @since 1.3.15
-	 * @access public
-	 */
-	public function ajax_dismiss_gsap_notice()
-	{
-		// Verify nonce
-		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mg_gsap_notice_nonce')) {
-			wp_send_json_error(array('message' => esc_html__('Security check failed', 'magical-addons-for-elementor')));
-		}
-
-		// Check user capability
-		if (!current_user_can('manage_options')) {
-			wp_send_json_error(array('message' => esc_html__('Permission denied', 'magical-addons-for-elementor')));
-		}
-
-		// Update user meta
-		update_user_meta(get_current_user_id(), self::GSAP_NOTICE_META_KEY, true);
-
-		wp_send_json_success();
-	}
-
-
 }

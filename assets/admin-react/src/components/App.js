@@ -15,10 +15,10 @@ import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import WidgetManager from './WidgetManager';
 import ProWidgets from './ProWidgets';
-import HeaderFooter from './HeaderFooter';
 import ExtraSettings from './ExtraSettings';
 import RoleManager from './RoleManager';
 import RecommendedPlugins from './RecommendedPlugins';
+import ThemeBuilder from './ThemeBuilder';
 import SaveButton from './SaveButton';
 import Notices from './Notices';
 
@@ -32,13 +32,12 @@ const App = () => {
         error: select( STORE_NAME ).getError(),
     } ), [] );
 
-    const { fetchSettings, fetchTemplates, setError } = useDispatch( STORE_NAME );
+    const { fetchSettings, setError } = useDispatch( STORE_NAME );
 
     // Fetch settings on mount
     useEffect( () => {
         fetchSettings();
-        fetchTemplates();
-    }, [ fetchSettings, fetchTemplates ] );
+    }, [ fetchSettings ] );
 
     // Warn before leaving with unsaved changes
     useEffect( () => {
@@ -84,7 +83,7 @@ const App = () => {
                         <Route path="/" element={ <Dashboard /> } />
                         <Route path="/widgets" element={ <WidgetManager /> } />
                         <Route path="/pro-widgets" element={ <ProWidgets /> } />
-                        <Route path="/header-footer" element={ <HeaderFooter /> } />
+                        <Route path="/theme-builder" element={ <ThemeBuilder /> } />
                         <Route path="/extra" element={ <ExtraSettings /> } />
                         <Route path="/role-manager" element={ <RoleManager /> } />
                         <Route path="/recommended-plugins" element={ <RecommendedPlugins /> } />

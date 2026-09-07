@@ -9,13 +9,10 @@ export const ACTION_TYPES = {
     SET_SETTINGS: 'SET_SETTINGS',
     SET_WIDGETS: 'SET_WIDGETS',
     SET_PRO_WIDGETS: 'SET_PRO_WIDGETS',
-    SET_HEADER_FOOTER: 'SET_HEADER_FOOTER',
     SET_EXTRA: 'SET_EXTRA',
     SET_ROLE_MANAGER: 'SET_ROLE_MANAGER',
-    SET_TEMPLATES: 'SET_TEMPLATES',
     UPDATE_WIDGET: 'UPDATE_WIDGET',
     UPDATE_PRO_WIDGET: 'UPDATE_PRO_WIDGET',
-    UPDATE_HEADER_FOOTER: 'UPDATE_HEADER_FOOTER',
     UPDATE_EXTRA: 'UPDATE_EXTRA',
     UPDATE_ROLE_SETTING: 'UPDATE_ROLE_SETTING',
     SET_SAVING: 'SET_SAVING',
@@ -60,19 +57,8 @@ export function setProWidgets( proWidgets ) {
 }
 
 /**
- * Set header/footer settings
- * @param {Object} headerFooter 
- */
-export function setHeaderFooter( headerFooter ) {
-    return {
-        type: ACTION_TYPES.SET_HEADER_FOOTER,
-        headerFooter,
-    };
-}
-
-/**
  * Set extra settings
- * @param {Object} extra 
+ * @param {Object} extra
  */
 export function setExtra( extra ) {
     return {
@@ -89,17 +75,6 @@ export function setRoleManager( roleManager ) {
     return {
         type: ACTION_TYPES.SET_ROLE_MANAGER,
         roleManager,
-    };
-}
-
-/**
- * Set available templates
- * @param {Object} templates 
- */
-export function setTemplates( templates ) {
-    return {
-        type: ACTION_TYPES.SET_TEMPLATES,
-        templates,
     };
 }
 
@@ -130,22 +105,9 @@ export function updateProWidget( widgetKey, value ) {
 }
 
 /**
- * Update header/footer setting
- * @param {string} key 
- * @param {string} value 
- */
-export function updateHeaderFooter( key, value ) {
-    return {
-        type: ACTION_TYPES.UPDATE_HEADER_FOOTER,
-        key,
-        value,
-    };
-}
-
-/**
  * Update extra setting
- * @param {string} key 
- * @param {string} value 
+ * @param {string} key
+ * @param {string} value
  */
 export function updateExtra( key, value ) {
     return {
@@ -263,15 +225,13 @@ export function* saveSettings() {
         const { select } = yield { type: 'GET_REGISTRY' };
         const widgets = select.getWidgets();
         const proWidgets = select.getProWidgets();
-        const headerFooter = select.getHeaderFooter();
         const extra = select.getExtra();
-        
-        yield { 
+
+        yield {
             type: 'SAVE_SETTINGS',
             data: {
                 widgets,
                 proWidgets,
-                headerFooter,
                 extra,
             },
         };
@@ -280,18 +240,6 @@ export function* saveSettings() {
     } catch ( error ) {
         yield setError( error.message );
         yield setSaving( false );
-    }
-}
-
-/**
- * Fetch templates from REST API
- */
-export function* fetchTemplates() {
-    try {
-        const templates = yield { type: 'FETCH_TEMPLATES' };
-        yield setTemplates( templates );
-    } catch ( error ) {
-        yield setError( error.message );
     }
 }
 

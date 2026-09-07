@@ -1,0 +1,181 @@
+[
+  {
+    "id": "auto_009",
+    "settings": {
+      "content_width": "boxed",
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": false,
+        "unit": "px",
+        "size": 0
+      },
+      "padding": {
+        "unit": "px",
+        "top": "16",
+        "right": "32",
+        "bottom": "0",
+        "left": "32",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#ffffff"
+    },
+    "elements": [
+      {
+        "id": "auto_007",
+        "settings": {
+          "flex_direction": "row",
+          "flex_wrap": "nowrap",
+          "flex_wrap_mobile": "wrap",
+          "flex_gap": {
+            "column": "24",
+            "row": "24",
+            "isLinked": true,
+            "unit": "px",
+            "size": 24
+          },
+          "align_items": "center",
+          "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "16",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_002",
+            "settings": {
+              "flex_direction": "column",
+              "width": {
+                "unit": "%",
+                "size": 28,
+                "sizes": []
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 38,
+                "sizes": []
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              }
+            },
+            "elements": [
+              {
+                "id": "auto_001",
+                "settings": {},
+                "elements": [],
+                "isInner": false,
+                "widgetType": "mgsite_logo",
+                "elType": "widget"
+              }
+            ],
+            "isInner": true,
+            "elType": "container"
+          },
+          {
+            "id": "auto_004",
+            "settings": {
+              "flex_direction": "row",
+              "justify_content": "center",
+              "width": {
+                "unit": "%",
+                "size": 46,
+                "sizes": []
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 38,
+                "sizes": []
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              }
+            },
+            "elements": [
+              {
+                "id": "auto_003",
+                "settings": {},
+                "elements": [],
+                "isInner": false,
+                "widgetType": "mgnav_menu_widget",
+                "elType": "widget"
+              }
+            ],
+            "isInner": true,
+            "elType": "container"
+          },
+          {
+            "id": "auto_006",
+            "settings": {
+              "flex_direction": "row",
+              "justify_content": "flex-end",
+              "width": {
+                "unit": "%",
+                "size": 26,
+                "sizes": []
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 38,
+                "sizes": []
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              }
+            },
+            "elements": [
+              {
+                "id": "auto_005",
+                "settings": {},
+                "elements": [],
+                "isInner": false,
+                "widgetType": "mgsite_search",
+                "elType": "widget"
+              }
+            ],
+            "isInner": true,
+            "elType": "container"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      },
+      {
+        "id": "auto_008",
+        "settings": {
+          "color": "#e8ebf1",
+          "weight": {
+            "unit": "px",
+            "size": 1,
+            "sizes": []
+          },
+          "width": {
+            "unit": "%",
+            "size": 100,
+            "sizes": []
+          },
+          "style": "solid",
+          "gap": 18
+        },
+        "elements": [],
+        "isInner": false,
+        "widgetType": "divider",
+        "elType": "widget"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

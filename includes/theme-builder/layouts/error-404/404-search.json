@@ -1,0 +1,148 @@
+[
+  {
+    "id": "auto_192",
+    "settings": {
+      "content_width": "boxed",
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": false,
+        "unit": "px",
+        "size": 0
+      },
+      "padding": {
+        "unit": "px",
+        "top": "64",
+        "right": "24",
+        "bottom": "64",
+        "left": "24",
+        "isLinked": false
+      },
+      "min_height": {
+        "unit": "vh",
+        "size": 70,
+        "sizes": []
+      },
+      "justify_content": "center",
+      "align_items": "center"
+    },
+    "elements": [
+      {
+        "id": "auto_191",
+        "settings": {
+          "flex_direction": "column",
+          "align_items": "center",
+          "flex_gap": {
+            "column": "18",
+            "row": "18",
+            "isLinked": true,
+            "unit": "px",
+            "size": 18
+          },
+          "width": {
+            "unit": "%",
+            "size": 64,
+            "sizes": []
+          },
+          "width_tablet": {
+            "unit": "%",
+            "size": 62,
+            "sizes": []
+          },
+          "width_mobile": {
+            "unit": "%",
+            "size": 100,
+            "sizes": []
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_187",
+            "settings": {
+              "title": "Oops! That page can't be found.",
+              "size": "large",
+              "header_size": "h1",
+              "align": "center",
+              "title_color": "",
+              "typography_typography": "custom",
+              "typography_font_size": {
+                "unit": "px",
+                "size": 44,
+                "sizes": []
+              },
+              "typography_font_weight": "600",
+              "typography_line_height": {
+                "unit": "em",
+                "size": 1.3,
+                "sizes": []
+              }
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "heading",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_188",
+            "settings": {
+              "editor": "<p style=\"text-align: center;\">Try a search — maybe you'll find what you need.</p>",
+              "text_color": "",
+              "typography_typography": "custom",
+              "typography_font_size": {
+                "unit": "px",
+                "size": 16,
+                "sizes": []
+              },
+              "typography_line_height": {
+                "unit": "em",
+                "size": 1.7,
+                "sizes": []
+              }
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "text-editor",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_189",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "search",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_190",
+            "settings": {
+              "text": "Go to Homepage",
+              "size": "md",
+              "align": "",
+              "background_color": "#4c6ef5",
+              "button_text_color": "#ffffff",
+              "border_radius": {
+                "unit": "px",
+                "top": "8",
+                "right": "8",
+                "bottom": "8",
+                "left": "8",
+                "isLinked": true
+              },
+              "typography_typography": "custom",
+              "typography_font_weight": "600"
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "button",
+            "elType": "widget"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

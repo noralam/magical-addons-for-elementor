@@ -12,13 +12,8 @@ import { ACTION_TYPES } from './actions';
 const DEFAULT_STATE = {
     widgets: {},
     proWidgets: {},
-    headerFooter: {},
     extra: {},
     roleManager: {},
-    templates: {
-        headers: [],
-        footers: [],
-    },
     isLoading: true,
     isSaving: false,
     hasChanges: false,
@@ -39,7 +34,6 @@ export default function reducer( state = DEFAULT_STATE, action ) {
                 ...state,
                 widgets: action.settings.widgets || state.widgets,
                 proWidgets: action.settings.proWidgets || state.proWidgets,
-                headerFooter: action.settings.headerFooter || state.headerFooter,
                 extra: action.settings.extra || state.extra,
                 roleManager: action.settings.roleManager || state.roleManager,
             };
@@ -56,12 +50,6 @@ export default function reducer( state = DEFAULT_STATE, action ) {
                 proWidgets: action.proWidgets,
             };
 
-        case ACTION_TYPES.SET_HEADER_FOOTER:
-            return {
-                ...state,
-                headerFooter: action.headerFooter,
-            };
-
         case ACTION_TYPES.SET_EXTRA:
             return {
                 ...state,
@@ -72,12 +60,6 @@ export default function reducer( state = DEFAULT_STATE, action ) {
             return {
                 ...state,
                 roleManager: action.roleManager,
-            };
-
-        case ACTION_TYPES.SET_TEMPLATES:
-            return {
-                ...state,
-                templates: action.templates,
             };
 
         case ACTION_TYPES.UPDATE_WIDGET:
@@ -96,16 +78,6 @@ export default function reducer( state = DEFAULT_STATE, action ) {
                 proWidgets: {
                     ...state.proWidgets,
                     [ action.widgetKey ]: action.value,
-                },
-                hasChanges: true,
-            };
-
-        case ACTION_TYPES.UPDATE_HEADER_FOOTER:
-            return {
-                ...state,
-                headerFooter: {
-                    ...state.headerFooter,
-                    [ action.key ]: action.value,
                 },
                 hasChanges: true,
             };

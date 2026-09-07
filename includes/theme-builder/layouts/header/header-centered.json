@@ -1,0 +1,113 @@
+[
+  {
+    "id": "auto_016",
+    "settings": {
+      "content_width": "boxed",
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": false,
+        "unit": "px",
+        "size": 0
+      },
+      "padding": {
+        "unit": "px",
+        "top": "24",
+        "right": "24",
+        "bottom": "0",
+        "left": "24",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#ffffff"
+    },
+    "elements": [
+      {
+        "id": "auto_012",
+        "settings": {
+          "flex_direction": "column",
+          "align_items": "center",
+          "flex_gap": {
+            "column": "6",
+            "row": "6",
+            "isLinked": true,
+            "unit": "px",
+            "size": 6
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_010",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgsite_logo",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_011",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgtb-site-tagline",
+            "elType": "widget"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      },
+      {
+        "id": "auto_014",
+        "settings": {
+          "flex_direction": "row",
+          "justify_content": "center",
+          "margin": {
+            "unit": "px",
+            "top": "14",
+            "right": "0",
+            "bottom": "16",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_013",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgnav_menu_widget",
+            "elType": "widget"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      },
+      {
+        "id": "auto_015",
+        "settings": {
+          "color": "#e8ebf1",
+          "weight": {
+            "unit": "px",
+            "size": 1,
+            "sizes": []
+          },
+          "width": {
+            "unit": "%",
+            "size": 100,
+            "sizes": []
+          },
+          "style": "solid",
+          "gap": 18
+        },
+        "elements": [],
+        "isInner": false,
+        "widgetType": "divider",
+        "elType": "widget"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

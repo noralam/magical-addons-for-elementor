@@ -1,9 +1,10 @@
 <?php
 
+require_once __DIR__ . '/trait-mg-posts-query-controls.php';
 
 class mgPostGridWidget extends \Elementor\Widget_Base
 {
-    use mgProHelpLink;
+    use mgProHelpLink, Mg_Posts_Query_Controls_Trait;
     /**
      * Get widget name.
      *
@@ -97,6 +98,8 @@ class mgPostGridWidget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->register_query_source_controls('mgpg_query_source', 'mgpg_archive_notice', 'mgpg_archive_posts_per_page');
+
         $this->add_control(
             'mgpg_posts_filter',
             [
@@ -110,6 +113,9 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                     'show_byid' => esc_html__('Show By Id', 'magical-addons-for-elementor'),
                     'show_byid_manually' => esc_html__('Add ID Manually', 'magical-addons-for-elementor'),
                 ],
+                'condition' => [
+                    'mgpg_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -122,6 +128,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'multiple' => true,
                 'options' => mgaddons_post_name(),
                 'condition' => [
+                    'mgpg_query_source' => 'custom',
                     'mgpg_posts_filter' => 'show_byid',
                 ]
             ]
@@ -135,6 +142,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'label_block' => true,
                 'condition' => [
+                    'mgpg_query_source' => 'custom',
                     'mgpg_posts_filter' => 'show_byid_manually',
                 ]
             ]
@@ -147,6 +155,9 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3,
                 'step'    => 1,
+                'condition' => [
+                    'mgpg_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -159,6 +170,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'multiple' => true,
                 'options' => mgaddons_taxonomy_list(),
                 'condition' => [
+                    'mgpg_query_source' => 'custom',
                     'mgpg_posts_filter!' => 'show_byid',
                 ]
             ]
@@ -171,6 +183,9 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => '',
+                'condition' => [
+                    'mgpg_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -190,6 +205,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                     'rand'          => esc_html__('Random', 'magical-addons-for-elementor'),
                 ],
                 'condition' => [
+                    'mgpg_query_source' => 'custom',
                     'mgpg_custom_order' => 'yes',
                 ]
             ]
@@ -206,6 +222,7 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                     'ASC'   => esc_html__('Ascending', 'magical-addons-for-elementor'),
                 ],
                 'condition' => [
+                    'mgpg_query_source' => 'custom',
                     'mgpg_custom_order' => 'yes',
                 ]
             ]
@@ -562,6 +579,9 @@ class mgPostGridWidget extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+
+        $this->register_pagination_section_controls('mgpg_query_source', 'mgpg_');
+
         $this->link_pro_added();
     }
 
@@ -1519,6 +1539,8 @@ class mgPostGridWidget extends \Elementor\Widget_Base
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        $this->register_pagination_style_controls('mgpg_');
     }
 
     /**
@@ -1532,7 +1554,23 @@ class mgPostGridWidget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $args = $this->build_query_args($settings);
+        $paged = max(1, absint(get_query_var('paged')), absint(get_query_var('page')));
+
+        if ($this->should_use_archive_query($settings, 'mgpg_query_source')) {
+            $posts_per_page = !empty($settings['mgpg_archive_posts_per_page']) ? absint($settings['mgpg_archive_posts_per_page']) : get_option('posts_per_page', 10);
+            $args = [
+                'post_status'         => 'publish',
+                'ignore_sticky_posts' => 1,
+                'posts_per_page'      => $posts_per_page,
+                'paged'               => $paged,
+            ];
+            $args = $this->apply_archive_query_args($args);
+        } else {
+            $args = $this->build_query_args($settings);
+            if ($this->should_show_pagination($settings, 'mgpg_query_source', 'mgpg_pagination_show')) {
+                $args['paged'] = $paged;
+            }
+        }
 
         // Define button class based on link type
         $button_class = 'mg-card-btn ' . ($settings['mgpg_link_type'] === 'btn' ? 'mg-btn' : ($settings['mgpg_link_type'] === 'link2' ? 'mg-link2' : 'mg-link'));
@@ -1571,6 +1609,11 @@ class mgPostGridWidget extends \Elementor\Widget_Base
                     wp_reset_postdata(); ?>
                 </div>
             </div>
+            <?php
+            if ($this->should_show_pagination($settings, 'mgpg_query_source', 'mgpg_pagination_show')) {
+                $this->render_pagination($paged, $mgpg_posts);
+            }
+            ?>
         <?php
         endif;
     }

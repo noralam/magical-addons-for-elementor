@@ -2,7 +2,7 @@
 
 **60+ Widgets, 100+ Sections, 1600+ Icons — Free Elementor Addons Plugin**
 
-Magical Addons for Elementor lets you build modern WordPress websites without coding. Includes GSAP scroll animations, custom CSS, conditional display, header/footer builder, and role manager — all free.
+Magical Addons for Elementor lets you build modern WordPress websites without coding. Includes GSAP scroll animations, custom CSS, conditional display, theme builder (header, footer, single, archive, 404), and role manager — all free.
 
 [Demo](https://magic.wpcolors.net/) | [WordPress.org](https://wordpress.org/plugins/magical-addons-for-elementor/)
 
@@ -12,13 +12,21 @@ Magical Addons for Elementor lets you build modern WordPress websites without co
 
 - **60+ Free Widgets** — Accordion, slider, tabs, pricing table, countdown, team members, timeline, image comparison, posts grid/list, and more
 - **GSAP Scroll Animations** — 30+ preset animations, text effects, image parallax, ScrollTrigger
-- **Header & Footer Builder** — Build custom headers/footers with Elementor
+- **Theme Builder & Header/Footer Builder (100% Free)** — Build custom headers, footers, single post/page layouts, archive/category templates, search results, and 404 pages with powerful display conditions (no Elementor Pro needed!)
 - **Conditional Display** — Show/hide elements by device, login status, and more (Pro: user role, date/time, browser)
 - **Custom CSS / Attributes / Code** — Per-widget custom CSS, custom attributes, and site-wide custom code with syntax highlighting
 - **Role Manager** — Control which user roles can access Elementor features
 - **Anything Carousel** — Nest any widget/content into a carousel with autoplay, loop, marquee
 - **Template Library** — 100+ premade sections and 20+ template kits
 - **1600+ Line Awesome Icons** — Premium icon set included free
+
+### 🎨 Free Theme Builder Capabilities
+- **Header Builder:** Responsive, sticky & transparent headers with custom menus and logos
+- **Footer Builder:** Multi-column footers with copyright, widgets, and social links
+- **Single Post & Page:** Custom designs for blog posts and custom post types
+- **Archive & Category:** Templates for categories, tags, author, and date archives
+- **Search & 404 Pages:** Custom search results layout and branded 404 error pages
+- **Display Conditions:** Assign templates by Entire Site, Singular, Archives, or specific IDs with include/exclude rules
 
 ---
 
@@ -55,6 +63,12 @@ Magical Addons for Elementor lets you build modern WordPress websites without co
 ---
 
 ## Changelog
+
+### 1.5.0
+- Added: Comprehensive Theme Builder (Header, Footer, Single, Archive, Search, 404 templates with display conditions)
+- Updated: Admin dashboard and settings interface
+- Fixed: Minor bug fixes and performance improvements
+- Updated: Full compatibility checks for PHP 8.x and latest Elementor
 
 ### 1.4.6
 - Fixed: Accordion widget toggle — removed Bootstrap collapse API, native vanilla JS rewrite

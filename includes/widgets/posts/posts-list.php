@@ -1,9 +1,10 @@
 <?php
 
+require_once __DIR__ . '/trait-mg-posts-query-controls.php';
 
 class mgPostListWidget extends \Elementor\Widget_Base
 {
-    use mgProHelpLink;
+    use mgProHelpLink, Mg_Posts_Query_Controls_Trait;
     /**
      * Get widget name.
      *
@@ -16,7 +17,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
      */
     public function get_name()
     {
-        return 'mgposts_list';
+        return 'mg_posts_list';
     }
 
     /**
@@ -97,6 +98,8 @@ class mgPostListWidget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->register_query_source_controls('mgpl_query_source', 'mgpl_archive_notice', 'mgpl_archive_posts_per_page');
+
         $this->add_control(
             'mgpl_posts_filter',
             [
@@ -110,6 +113,9 @@ class mgPostListWidget extends \Elementor\Widget_Base
                     'show_byid' => esc_html__('Show By Id', 'magical-addons-for-elementor'),
                     'show_byid_manually' => esc_html__('Add ID Manually', 'magical-addons-for-elementor'),
                 ],
+                'condition' => [
+                    'mgpl_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -122,6 +128,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'multiple' => true,
                 'options' => mgaddons_post_name(),
                 'condition' => [
+                    'mgpl_query_source' => 'custom',
                     'mgpl_posts_filter' => 'show_byid',
                 ]
             ]
@@ -135,6 +142,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'label_block' => true,
                 'condition' => [
+                    'mgpl_query_source' => 'custom',
                     'mgpl_posts_filter' => 'show_byid_manually',
                 ]
             ]
@@ -147,6 +155,9 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'type'    => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3,
                 'step'    => 1,
+                'condition' => [
+                    'mgpl_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -159,6 +170,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'multiple' => true,
                 'options' => mgaddons_taxonomy_list(),
                 'condition' => [
+                    'mgpl_query_source' => 'custom',
                     'mgpl_posts_filter!' => 'show_byid',
                 ]
             ]
@@ -171,6 +183,9 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => '',
+                'condition' => [
+                    'mgpl_query_source' => 'custom',
+                ],
             ]
         );
 
@@ -190,6 +205,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                     'rand'          => esc_html__('Random', 'magical-addons-for-elementor'),
                 ],
                 'condition' => [
+                    'mgpl_query_source' => 'custom',
                     'mgpl_custom_order' => 'yes',
                 ]
             ]
@@ -206,6 +222,7 @@ class mgPostListWidget extends \Elementor\Widget_Base
                     'ASC'   => esc_html__('Ascending', 'magical-addons-for-elementor'),
                 ],
                 'condition' => [
+                    'mgpl_query_source' => 'custom',
                     'mgpl_custom_order' => 'yes',
                 ]
             ]
@@ -578,6 +595,9 @@ class mgPostListWidget extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+
+        $this->register_pagination_section_controls('mgpl_query_source', 'mgpl_');
+
         $this->link_pro_added();
     }
 
@@ -1558,6 +1578,8 @@ class mgPostListWidget extends \Elementor\Widget_Base
         $this->end_controls_tabs();
 
         $this->end_controls_section();
+
+        $this->register_pagination_style_controls('mgpl_');
     }
 
     /**
@@ -1582,64 +1604,85 @@ class mgPostListWidget extends \Elementor\Widget_Base
         $order = $this->get_settings('order');
 
 
-        // Query Argument
-        $args = array(
-            'post_type'             => 'post',
-            'post_status'           => 'publish',
-            'ignore_sticky_posts'   => 1,
-            'posts_per_page'        => $mgpl_posts_count,
-        );
+        $paged = max(1, absint(get_query_var('paged')), absint(get_query_var('page')));
 
-        switch ($mgpl_filter) {
+        if ($this->should_use_archive_query($settings, 'mgpl_query_source')) {
+            $posts_per_page = !empty($settings['mgpl_archive_posts_per_page']) ? absint($settings['mgpl_archive_posts_per_page']) : get_option('posts_per_page', 10);
+            $args = array(
+                'post_status'         => 'publish',
+                'ignore_sticky_posts' => 1,
+                'posts_per_page'      => $posts_per_page,
+                'paged'               => $paged,
+            );
+            $args = $this->apply_archive_query_args($args);
+
+            if ($mgpl_custom_order == 'yes') {
+                $args['orderby'] = $orderby;
+                $args['order'] = $order;
+            }
+        } else {
+            // Query Argument
+            $args = array(
+                'post_type'             => 'post',
+                'post_status'           => 'publish',
+                'ignore_sticky_posts'   => 1,
+                'posts_per_page'        => $mgpl_posts_count,
+            );
+            if ($this->should_show_pagination($settings, 'mgpl_query_source', 'mgpl_pagination_show')) {
+                $args['paged'] = $paged;
+            }
+
+            switch ($mgpl_filter) {
 
 
-            case 'featured':
-                $args['tax_query'][] = array(
-                    'taxonomy' => 'product_visibility',
-                    'field'    => 'name',
-                    'terms'    => 'featured',
-                    'operator' => 'IN',
-                );
-                break;
-
-            case 'random_order':
-                $args['orderby']    = 'rand';
-                break;
-
-            case 'show_byid':
-                $args['post__in'] = $settings['mgpl_product_id'];
-                break;
-
-            case 'show_byid_manually':
-                $args['post__in'] = array_map('intval', array_filter(array_map('trim', explode(',', $settings['mgpl_product_ids_manually']))));
-                break;
-
-            default: /* Recent */
-                $args['orderby']    = 'date';
-                $args['order']      = 'desc';
-                break;
-        }
-
-        // Custom Order
-        if ($mgpl_custom_order == 'yes') {
-            $args['orderby'] = $orderby;
-            $args['order'] = $order;
-        }
-
-        if (!(($mgpl_filter == "show_byid") || ($mgpl_filter == "show_byid_manually"))) {
-
-            $post_cats = str_replace(' ', '', $mgpl_grid_categories);
-            if ("0" != $mgpl_grid_categories) {
-                if (is_array($post_cats) && count($post_cats) > 0) {
-                    $field_name = is_numeric($post_cats[0]) ? 'term_id' : 'slug';
+                case 'featured':
                     $args['tax_query'][] = array(
-                        array(
-                            'taxonomy' => 'category',
-                            'terms' => $post_cats,
-                            'field' => $field_name,
-                            'include_children' => false
-                        )
+                        'taxonomy' => 'product_visibility',
+                        'field'    => 'name',
+                        'terms'    => 'featured',
+                        'operator' => 'IN',
                     );
+                    break;
+
+                case 'random_order':
+                    $args['orderby']    = 'rand';
+                    break;
+
+                case 'show_byid':
+                    $args['post__in'] = $settings['mgpl_product_id'];
+                    break;
+
+                case 'show_byid_manually':
+                    $args['post__in'] = array_map('intval', array_filter(array_map('trim', explode(',', $settings['mgpl_product_ids_manually']))));
+                    break;
+
+                default: /* Recent */
+                    $args['orderby']    = 'date';
+                    $args['order']      = 'desc';
+                    break;
+            }
+
+            // Custom Order
+            if ($mgpl_custom_order == 'yes') {
+                $args['orderby'] = $orderby;
+                $args['order'] = $order;
+            }
+
+            if (!(($mgpl_filter == "show_byid") || ($mgpl_filter == "show_byid_manually"))) {
+
+                $post_cats = str_replace(' ', '', $mgpl_grid_categories);
+                if ("0" != $mgpl_grid_categories) {
+                    if (is_array($post_cats) && count($post_cats) > 0) {
+                        $field_name = is_numeric($post_cats[0]) ? 'term_id' : 'slug';
+                        $args['tax_query'][] = array(
+                            array(
+                                'taxonomy' => 'category',
+                                'terms' => $post_cats,
+                                'field' => $field_name,
+                                'include_children' => false
+                            )
+                        );
+                    }
                 }
             }
         }
@@ -1788,6 +1831,11 @@ class mgPostListWidget extends \Elementor\Widget_Base
                 wp_reset_postdata();
                 ?>
             </div>
+            <?php
+            if ($this->should_show_pagination($settings, 'mgpl_query_source', 'mgpl_pagination_show')) {
+                $this->render_pagination($paged, $mgpl_posts);
+            }
+            ?>
 
 
 

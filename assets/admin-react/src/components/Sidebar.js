@@ -46,13 +46,16 @@ const menuItems = [
         badge: 'PRO',
     },
     {
-        path: '/header-footer',
-        label: __( 'Header & Footer', 'magical-addons-for-elementor' ),
+        path: '/theme-builder',
+        label: __( 'Theme Builder', 'magical-addons-for-elementor' ),
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-                <line x1="3" y1="15" x2="21" y2="15" />
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+                <path d="M6 8h.01M10 8h.01" />
+                <line x1="14" y1="8" x2="18" y2="8" />
+                <line x1="6" y1="12" x2="18" y2="12" />
             </svg>
         ),
     },

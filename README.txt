@@ -1,6 +1,6 @@
-=== Magical Addons For Elementor ( Header Footer Builder, Free Elementor Widgets, Elementor Templates Library )===
+=== Magical Addons For Elementor ( Theme Builder, Header Footer Builder, Free Elementor Widgets, Elementor Templates Library )===
 Contributors: nalam
-Tags: elementor, page builder, Elementor addons, elementor widget, template library
+Tags: theme builder, elementor, header footer builder, elementor widget, template library
 Donate link: https://wpthemespace.com/donation/
 Requires at least: 6.6
 Tested up to: 7.0
@@ -10,13 +10,29 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-60+ widgets, 100+ sections, 1600+ icons, GSAP animations, custom CSS/code, conditional display, header/footer builder & role manager
+Free Elementor Theme Builder, Header Footer Builder, 60+ widgets, 100+ sections, GSAP animations, custom CSS, conditional display & role manager.
 
 == Description ==
-Magical Addons for Elementor is an ultimate addons for Elementor users. Magical Addons has all the essential addons you need so no coding required to build modern WordPress websites. Enjoy advanced widgets, templates, and Elementor pro features completely free.
+Magical Addons for Elementor is the ultimate WordPress toolkit featuring a **100% Free Theme Builder** and 60+ advanced Elementor widgets. Build custom headers, footers, single posts, archives, search results, and 404 templates completely free — no Elementor Pro needed!
+
+### 🎨 Complete Elementor Theme Builder (100% Free - No Pro Needed!)
+Take complete control of your website design with the built-in Magical Theme Builder. You no longer need Elementor Pro to customize your site's core structure. Design every part of your WordPress site using Elementor's visual drag-and-drop editor:
+
+* **Header Builder** — Design responsive, sticky, or transparent headers with custom navigation menus, logos, and action buttons.
+* **Footer Builder** — Create stylish multi-column footers with widgets, copyright text, newsletter forms, and social icons.
+* **Single Post & Page Templates** — Build custom layouts for single blog posts, pages, and custom post types.
+* **Archive & Category Templates** — Design modern blog archives, category pages, tag archives, author archives, and date archives.
+* **Search Results Template** — Create engaging custom layouts for website search result pages.
+* **404 Not Found Page** — Design branded, helpful custom 404 error pages with custom search and navigation links.
+
+**Smart Display Conditions:**
+* **Include & Exclude Rules** — Assign templates to Entire Site, Singular, Archives, or specific pages.
+* **Granular Targeting** — Target individual posts, pages, categories, tags, or custom post types.
+* **Multiple Conditions** — Combine multiple display rules per template to control precisely where your designs appear.
 
 ### New & Hot Features 
-- ** Anything Carousel - NEW! **
+- ** Complete Theme Builder (Header, Footer, Single, Archive, 404) - 100% FREE! **
+- ** Anything Carousel **
 - ** GSAP Scroll Animations **
 - ** Custom Css Free **
 - ** Custom Attributes Free **
@@ -276,6 +292,12 @@ e.g.
 
 
 == Changelog ==
+
+= 1.5.0 =
+	* Added: Comprehensive Theme Builder (Header, Footer, Single, Archive, Search, 404 templates with display conditions)
+	* Updated: Admin dashboard and settings interface
+	* Fixed: Minor bug fixes and performance improvements
+	* Updated: Full compatibility checks for PHP 8.x and latest Elementor
 
 = 1.4.6 =
 	* Fixed: Security issues 

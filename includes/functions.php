@@ -106,18 +106,6 @@ function mg_get_addons_option($option, $default = '')
  * Plugisn Options value
  * return on/off
  */
-function mg_get_header_footer_option($option, $default = '')
-{
-    $options = get_option('magical_headerfooter');
-    if (isset($options[$option])) {
-        return $options[$option];
-    }
-    return $default;
-}
-/*
- * Plugisn Options value
- * return on/off
- */
 function mg_get_extra_option($option, $default = '')
 {
     $options = get_option('magical_extra');
@@ -567,7 +555,7 @@ function magical_addons_all_widgets()
         'mgaccordion_widget'     => esc_html__('MG Accordion', 'magical-addons-for-elementor'),
         'mgnav_menu_widget'           => esc_html__('MG Nav Menu', 'magical-addons-for-elementor'),
         'mgposts_grid'                => esc_html__('MG Posts Grid', 'magical-addons-for-elementor'),
-        'mgposts_list'                => esc_html__('Mg Posts List', 'magical-addons-for-elementor'),
+        'mg_posts_list'               => esc_html__('Mg Posts List', 'magical-addons-for-elementor'),
         'mgslider_lite_widget'        => esc_html__('MG Slider', 'magical-addons-for-elementor'),
         'mgtimeline_widget'               => esc_html__('Magical Timeline', 'magical-addons-for-elementor'),
         'mgabout_widget'      => esc_html__('MG About Me', 'magical-addons-for-elementor'),
@@ -653,7 +641,7 @@ if (!function_exists('mg_elementor_template_list')) :
     function mg_elementor_template_list($text = '')
     {
         if (empty($text)) {
-            $text = __('Select Footer Template', 'magical-addons-for-elementor');
+            $text = __('Select Template', 'magical-addons-for-elementor');
         }
         $templates = get_posts(
             array(
@@ -672,54 +660,6 @@ if (!function_exists('mg_elementor_template_list')) :
         return $template_items;
     }
 endif;
-
-/**
- * Render Header
- *
- * @since   1.0.0
- */
-if (!function_exists('magical_header_output')) {
-
-    function magical_header_output()
-    {
-        $mg_header_template = mg_get_header_footer_option('mg_header_template', 'select');
-        if ($mg_header_template != 'select' || !empty($mg_header_template)) {
-
-        ?>
-            <header style="display:none" class="magical-header" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
-                <?php
-                echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($mg_header_template, true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
-
-            </header>
-        <?php
-        }
-    }
-}
-
-/**
- * Render Footer
- *
- * @since   1.0.0
- */
-if (!function_exists('magical_footer_output')) {
-
-    function magical_footer_output()
-    {
-        $mg_footer_template = mg_get_header_footer_option('mg_footer_template', 'select');
-        if ($mg_footer_template != 'select' || !empty($mg_footer_template)) {
-
-        ?>
-            <footer class="magical-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter" role="contentinfo">
-                <?php
-                echo \Elementor\Plugin::instance()->frontend->get_builder_content_for_display($mg_footer_template, true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
-            </footer>
-<?php
-        }
-    }
-}
-
 
 function magical_el_template_list_desc($section = ' ', $vid_link = '#')
 {

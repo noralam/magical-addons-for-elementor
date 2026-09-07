@@ -9,7 +9,7 @@
  * Plugin Name:       Magical Addons For Elementor
  * Plugin URI:        https://wpthemespace.com/product/magical-addons-pro/
  * Description:       Premium addons for Elementor page builder
- * Version:           1.4.6
+ * Version:           1.5.0
  * Author:            Noor alam
  * Author URI:        https://wpthemespace.com/
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ final class Magical_Addons_Elementor
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.4.6';
+	const VERSION = '1.5.0';
 
 	/**
 	 * Minimum Elementor Version
@@ -312,11 +312,15 @@ final class Magical_Addons_Elementor
 			'title' => esc_html__('Magical Pro Addons', 'magical-addons-for-elementor'),
 			'icon' => 'fa fa-magic',
 		]);
+		$elements_manager->add_category('mg-theme-elements', [
+			'title' => esc_html__('Theme Elements', 'magical-addons-for-elementor'),
+			'icon' => 'eicon-site-identity',
+		]);
 
 		$categories = $elements_manager->get_categories();
 
 		// Define the desired order of the first few categories
-		$first_categories = ['layout', 'basic', 'magical'];
+		$first_categories = ['layout', 'basic', 'magical', 'mg-theme-elements'];
 
 		// Reorder the categories
 		$ordered_keys = array_reduce(
@@ -409,8 +413,8 @@ final class Magical_Addons_Elementor
 		require_once(MAGICAL_ADDON_PATH . '/includes/btn-icons-class.php');
 		require_once(MAGICAL_ADDON_PATH . '/includes/lions-icons.php');
 
-		// Theme builder and header/footer
-		require_once(MAGICAL_ADDON_PATH . '/libs/tedit/header-footer/hf-main.php');
+		// Theme Builder module
+		require_once(MAGICAL_ADDON_PATH . '/includes/theme-builder/module.php');
 
 		// Extra features
 		require_once MAGICAL_ADDON_PATH . 'includes/extra/conditional-display/conditional-display.php';
@@ -422,9 +426,11 @@ final class Magical_Addons_Elementor
 		require_once MAGICAL_ADDON_PATH . 'includes/extra/gsap-animations/gsap-animations.php';
 		// Pro widgets (if not already loaded)
 		if (!class_exists('magicalAddonsProMain')) {
-			include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
 			require_once(MAGICAL_ADDON_PATH . '/includes/pro-widgets.php');
 		}
+
+		// Admin info and sales notice
+		include_once MAGICAL_ADDON_PATH . '/includes/admin/helper/admin-info.php';
 
 	
 

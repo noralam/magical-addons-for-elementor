@@ -108,18 +108,6 @@ class Magical_Addons_Settings_Defaults {
     }
 
     /**
-     * Get default values for header/footer settings
-     *
-     * @return array
-     */
-    public function get_header_footer_defaults() {
-        return array(
-            'mg_header_template' => '',
-            'mg_footer_template' => '',
-        );
-    }
-
-    /**
      * Get default values for extra settings
      *
      * @return array
@@ -139,7 +127,6 @@ class Magical_Addons_Settings_Defaults {
         return array(
             'widgets'      => $this->get_widget_defaults(),
             'proWidgets'   => $this->get_pro_widget_defaults(),
-            'headerFooter' => $this->get_header_footer_defaults(),
             'extra'        => $this->get_extra_defaults(),
         );
     }
@@ -160,7 +147,6 @@ class Magical_Addons_Settings_Defaults {
 
         $this->merge_widget_defaults();
         $this->merge_pro_widget_defaults();
-        $this->merge_header_footer_defaults();
         $this->merge_extra_defaults();
 
         // Update version
@@ -206,23 +192,6 @@ class Magical_Addons_Settings_Defaults {
         $merged = array_merge( $defaults, $existing );
 
         update_option( 'magical_addons_pro', $merged );
-    }
-
-    /**
-     * Merge header/footer defaults with existing settings
-     */
-    private function merge_header_footer_defaults() {
-        $defaults = $this->get_header_footer_defaults();
-        $existing = get_option( 'magical_headerfooter', array() );
-        
-        // Ensure $existing is an array
-        if ( ! is_array( $existing ) ) {
-            $existing = array();
-        }
-
-        $merged = wp_parse_args( $existing, $defaults );
-
-        update_option( 'magical_headerfooter', $merged );
     }
 
     /**

@@ -79,13 +79,6 @@ class Magical_Addons_REST_API {
             ),
         ) );
 
-        // Templates endpoint
-        register_rest_route( self::NAMESPACE, '/templates', array(
-            'methods'             => WP_REST_Server::READABLE,
-            'callback'            => array( $this, 'get_templates' ),
-            'permission_callback' => array( $this, 'permissions_check' ),
-        ) );
-
         // Role manager endpoints
         register_rest_route( self::NAMESPACE, '/role-manager', array(
             array(
@@ -120,6 +113,85 @@ class Magical_Addons_REST_API {
             'callback'            => array( $this, 'activate_plugin' ),
             'permission_callback' => array( $this, 'activate_plugins_check' ),
         ) );
+
+        // Theme Builder: templates list & create.
+        register_rest_route( self::NAMESPACE, '/theme-builder/templates', array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_tb_templates' ),
+                'permission_callback' => array( $this, 'permissions_check' ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => array( $this, 'create_tb_template' ),
+                'permission_callback' => array( $this, 'permissions_check' ),
+            ),
+        ) );
+
+        // Theme Builder: delete a template.
+        register_rest_route( self::NAMESPACE, '/theme-builder/templates/(?P<id>\d+)', array(
+            'methods'             => WP_REST_Server::DELETABLE,
+            'callback'            => array( $this, 'delete_tb_template' ),
+            'permission_callback' => array( $this, 'permissions_check' ),
+            'args'                => array(
+                'id' => array(
+                    'validate_callback' => function ( $param ) {
+                        return is_numeric( $param );
+                    },
+                    'sanitize_callback' => 'absint',
+                ),
+            ),
+        ) );
+
+        // Theme Builder: conditions config tree for the admin UI.
+        register_rest_route( self::NAMESPACE, '/theme-builder/conditions', array(
+            'methods'             => WP_REST_Server::READABLE,
+            'callback'            => array( $this, 'get_tb_conditions_config' ),
+            'permission_callback' => array( $this, 'permissions_check' ),
+        ) );
+
+        // Theme Builder: save a template's conditions.
+        register_rest_route( self::NAMESPACE, '/theme-builder/templates/(?P<id>\d+)/conditions', array(
+            'methods'             => WP_REST_Server::CREATABLE,
+            'callback'            => array( $this, 'save_tb_conditions' ),
+            'permission_callback' => array( $this, 'permissions_check' ),
+            'args'                => array(
+                'id' => array(
+                    'validate_callback' => function ( $param ) {
+                        return is_numeric( $param );
+                    },
+                    'sanitize_callback' => 'absint',
+                ),
+            ),
+        ) );
+
+        // Theme Builder: status (dependency banner data).
+        register_rest_route( self::NAMESPACE, '/theme-builder/status', array(
+            'methods'             => WP_REST_Server::READABLE,
+            'callback'            => array( $this, 'get_tb_status' ),
+            'permission_callback' => array( $this, 'permissions_check' ),
+        ) );
+
+        // Theme Builder: starter layouts for a template type.
+        register_rest_route( self::NAMESPACE, '/theme-builder/layouts/(?P<type>[a-z0-9\-]+)', array(
+            'methods'             => WP_REST_Server::READABLE,
+            'callback'            => array( $this, 'get_tb_layouts' ),
+            'permission_callback' => array( $this, 'permissions_check' ),
+        ) );
+
+        // Theme Builder: settings (per-type enable toggles).
+        register_rest_route( self::NAMESPACE, '/theme-builder/settings', array(
+            array(
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => array( $this, 'get_tb_settings' ),
+                'permission_callback' => array( $this, 'permissions_check' ),
+            ),
+            array(
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => array( $this, 'save_tb_settings' ),
+                'permission_callback' => array( $this, 'permissions_check' ),
+            ),
+        ) );
     }
 
     /**
@@ -153,9 +225,6 @@ class Magical_Addons_REST_API {
         $pro_widgets = get_option( 'magical_addons_pro', array() );
         $pro_widgets = wp_parse_args( $pro_widgets, $defaults->get_pro_widget_defaults() );
 
-        $header_footer = get_option( 'magical_headerfooter', array() );
-        $header_footer = wp_parse_args( $header_footer, $defaults->get_header_footer_defaults() );
-
         $extra = get_option( 'magical_extra', array() );
         $extra = wp_parse_args( $extra, $defaults->get_extra_defaults() );
 
@@ -164,7 +233,6 @@ class Magical_Addons_REST_API {
         return rest_ensure_response( array(
             'widgets'      => $widgets,
             'proWidgets'   => $pro_widgets,
-            'headerFooter' => $header_footer,
             'extra'        => $extra,
             'roleManager'  => $role_manager,
         ) );
@@ -191,12 +259,6 @@ class Magical_Addons_REST_API {
                 $pro_widgets = $this->sanitize_widget_settings( $params['proWidgets'] );
                 update_option( 'magical_addons_pro', $pro_widgets );
             }
-        }
-
-        // Save header/footer settings
-        if ( isset( $params['headerFooter'] ) && is_array( $params['headerFooter'] ) ) {
-            $header_footer = $this->sanitize_header_footer_settings( $params['headerFooter'] );
-            update_option( 'magical_headerfooter', $header_footer );
         }
 
         // Save extra settings
@@ -256,53 +318,6 @@ class Magical_Addons_REST_API {
         return rest_ensure_response( array(
             'success' => true,
             'message' => __( 'Widget settings saved.', 'magical-addons-for-elementor' ),
-        ) );
-    }
-
-    /**
-     * Get Elementor templates for header/footer
-     *
-     * @param WP_REST_Request $request
-     * @return WP_REST_Response
-     */
-    public function get_templates( $request ) {
-        $headers = array();
-        $footers = array();
-
-        // Check if Elementor is active
-        if ( did_action( 'elementor/loaded' ) ) {
-            $templates = get_posts( array(
-                'post_type'      => 'elementor_library',
-                'posts_per_page' => -1,
-                'post_status'    => 'publish',
-                'meta_query'     => array(
-                    array(
-                        'key'     => '_elementor_template_type',
-                        'value'   => array( 'header', 'footer', 'section' ),
-                        'compare' => 'IN',
-                    ),
-                ),
-            ) );
-
-            foreach ( $templates as $template ) {
-                $type = get_post_meta( $template->ID, '_elementor_template_type', true );
-                $item = array(
-                    'id'    => $template->ID,
-                    'title' => $template->post_title,
-                );
-
-                if ( $type === 'header' || $type === 'section' ) {
-                    $headers[] = $item;
-                }
-                if ( $type === 'footer' || $type === 'section' ) {
-                    $footers[] = $item;
-                }
-            }
-        }
-
-        return rest_ensure_response( array(
-            'headers' => $headers,
-            'footers' => $footers,
         ) );
     }
 
@@ -384,26 +399,6 @@ class Magical_Addons_REST_API {
             $key = sanitize_key( $key );
             $sanitized[ $key ] = in_array( $value, array( 'on', 'off' ), true ) ? $value : 'on';
         }
-        return $sanitized;
-    }
-
-    /**
-     * Sanitize header/footer settings
-     *
-     * @param array $settings
-     * @return array
-     */
-    private function sanitize_header_footer_settings( $settings ) {
-        $sanitized = array();
-        
-        if ( isset( $settings['mg_header_template'] ) ) {
-            $sanitized['mg_header_template'] = absint( $settings['mg_header_template'] );
-        }
-        
-        if ( isset( $settings['mg_footer_template'] ) ) {
-            $sanitized['mg_footer_template'] = absint( $settings['mg_footer_template'] );
-        }
-
         return $sanitized;
     }
 
@@ -718,5 +713,477 @@ class Magical_Addons_REST_API {
             }
         }
         return false;
+    }
+
+    /**
+     * Whether the Theme Builder module is loaded.
+     *
+     * @return bool
+     */
+    private function tb_ready() {
+        return function_exists( 'mg_tb' ) && class_exists( 'MgTB' );
+    }
+
+    /**
+     * Get all Theme Builder templates.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function get_tb_templates( $request ) {
+        $templates = array();
+
+        if ( ! did_action( 'elementor/loaded' ) || ! $this->tb_ready() ) {
+            return rest_ensure_response( $templates );
+        }
+
+        $types = MgTB::get_document_types();
+
+        $posts = get_posts( array(
+            'post_type'      => 'elementor_library',
+            'posts_per_page' => -1,
+            'post_status'    => array( 'publish', 'draft' ),
+            'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+                array(
+                    'key'     => '_elementor_template_type',
+                    'value'   => array_keys( $types ),
+                    'compare' => 'IN',
+                ),
+            ),
+        ) );
+
+        $config = MgTB::get_types_config();
+        $conditions_manager = mg_tb()->conditions;
+
+        foreach ( $posts as $post ) {
+            $type = get_post_meta( $post->ID, '_elementor_template_type', true );
+            if ( ! isset( $config[ $type ] ) ) {
+                continue;
+            }
+
+            $conditions = get_post_meta( $post->ID, '_elementor_conditions', true );
+            $conditions = is_array( $conditions ) ? array_values( $conditions ) : array();
+
+            $instances = array();
+            foreach ( $conditions as $condition ) {
+                $instances[] = $conditions_manager->get_condition_label( $condition );
+            }
+
+            $document   = \Elementor\Plugin::instance()->documents->get( $post->ID );
+            $preview_url = home_url( '/' );
+
+            $templates[] = array(
+                'id'          => (int) $post->ID,
+                'title'       => $post->post_title,
+                'type'        => $type,
+                'typeLabel'   => $config[ $type ]['label'],
+                'status'      => $post->post_status,
+                'conditions'  => $conditions,
+                'instances'   => $instances,
+                'layout'      => get_post_meta( $post->ID, '_mgtb_layout', true ),
+                'pageTemplate' => get_post_meta( $post->ID, '_wp_page_template', true ),
+                'editUrl'     => admin_url( 'post.php?post=' . $post->ID . '&action=elementor' ),
+                'previewUrl'  => $document ? mg_tb()->preview->get_preview_url( $document ) : $preview_url,
+                'date'        => get_the_date( 'Y-m-d', $post ),
+            );
+        }
+
+        return rest_ensure_response( $templates );
+    }
+
+    /**
+     * Create a new Theme Builder template.
+     *
+     * Accepts title, type, an optional starter layout id and an optional
+     * Elementor page template (canvas / full width / theme default).
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response|WP_Error
+     */
+    public function create_tb_template( $request ) {
+        $params = $request->get_json_params();
+
+        $title = isset( $params['title'] ) ? sanitize_text_field( $params['title'] ) : '';
+        $type  = isset( $params['type'] ) ? sanitize_key( $params['type'] ) : '';
+        $layout = isset( $params['layout'] ) ? sanitize_text_field( $params['layout'] ) : 'custom';
+        $page_template = isset( $params['pageTemplate'] ) ? sanitize_text_field( $params['pageTemplate'] ) : '';
+
+        if ( empty( $title ) ) {
+            return new WP_Error(
+                'invalid_title',
+                __( 'Template title is required.', 'magical-addons-for-elementor' ),
+                array( 'status' => 400 )
+            );
+        }
+
+        $config = $this->tb_ready() ? MgTB::get_types_config() : array();
+        if ( ! isset( $config[ $type ] ) ) {
+            return new WP_Error(
+                'invalid_type',
+                __( 'Invalid template type.', 'magical-addons-for-elementor' ),
+                array( 'status' => 400 )
+            );
+        }
+
+        if ( ! did_action( 'elementor/loaded' ) ) {
+            return new WP_Error(
+                'elementor_not_loaded',
+                __( 'Elementor is not active.', 'magical-addons-for-elementor' ),
+                array( 'status' => 500 )
+            );
+        }
+
+        // Free version limit: only 1 template allowed per template type.
+        if ( ! MgTB::is_pro() ) {
+            $existing_templates = get_posts( array(
+                'post_type'      => 'elementor_library',
+                'posts_per_page' => 1,
+                'post_status'    => array( 'publish', 'draft' ),
+                'fields'         => 'ids',
+                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+                    array(
+                        'key'     => '_elementor_template_type',
+                        'value'   => $type,
+                        'compare' => '=',
+                    ),
+                ),
+            ) );
+
+            if ( ! empty( $existing_templates ) ) {
+                return new WP_Error(
+                    'pro_required',
+                    sprintf(
+                        /* translators: %s: template type label */
+                        __( 'You can only create 1 %s template in the free version. Upgrade to Pro for unlimited templates.', 'magical-addons-for-elementor' ),
+                        $config[ $type ]['label']
+                    ),
+                    array( 'status' => 403 )
+                );
+            }
+        }
+
+        // Page template: canvas / full width / theme default.
+        $valid_templates = array( 'elementor_canvas', 'elementor_header_footer', 'elementor_theme' );
+        if ( '' === $page_template || 'default' === $page_template ) {
+            $page_template = 'elementor_theme';
+        }
+        if ( ! in_array( $page_template, $valid_templates, true ) ) {
+            $page_template = MgTB::get_default_page_template( $type );
+        }
+
+        // Layout must belong to the requested type.
+        if ( 'custom' !== $layout ) {
+            $layout_def = MgTB_Layouts::get_layout( $layout );
+            if ( ! $layout_def || $layout_def['type'] !== $type ) {
+                $layout = 'custom';
+            }
+        }
+
+        $post_id = wp_insert_post( array(
+            'post_title'  => $title,
+            'post_type'   => 'elementor_library',
+            'post_status' => 'publish',
+        ) );
+
+        if ( is_wp_error( $post_id ) ) {
+            return $post_id;
+        }
+
+        update_post_meta( $post_id, '_elementor_template_type', $type );
+        update_post_meta( $post_id, '_elementor_conditions', array( $config[ $type ]['condition'] ) );
+        update_post_meta( $post_id, '_wp_page_template', $page_template );
+        update_post_meta( $post_id, '_elementor_edit_mode', 'builder' );
+
+        if ( 'custom' !== $layout ) {
+            MgTB_Layouts::import( $post_id, $layout );
+        }
+
+        if ( $this->tb_ready() ) {
+            mg_tb()->cache->purge();
+        }
+
+        return rest_ensure_response( array(
+            'id'        => (int) $post_id,
+            'title'     => $title,
+            'type'      => $type,
+            'typeLabel' => $config[ $type ]['label'],
+            'layout'    => $layout,
+            'status'    => 'publish',
+            'editUrl'   => admin_url( 'post.php?post=' . $post_id . '&action=elementor' ),
+        ) );
+    }
+
+    /**
+     * Starter layouts for a template type ("Custom Layout" first).
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function get_tb_layouts( $request ) {
+        if ( ! $this->tb_ready() ) {
+            return rest_ensure_response( array() );
+        }
+
+        $type = sanitize_key( $request->get_param( 'type' ) );
+        $config = MgTB::get_types_config();
+
+        if ( ! isset( $config[ $type ] ) ) {
+            return new WP_Error(
+                'invalid_type',
+                __( 'Invalid template type.', 'magical-addons-for-elementor' ),
+                array( 'status' => 400 )
+            );
+        }
+
+        return rest_ensure_response( MgTB_Layouts::get_by_type( $type ) );
+    }
+
+    /**
+     * Theme Builder settings (per-type enable toggles).
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function get_tb_settings( $request ) {
+        if ( ! $this->tb_ready() ) {
+            return rest_ensure_response( array( 'types' => array() ) );
+        }
+
+        return rest_ensure_response( MgTB::get_settings() );
+    }
+
+    /**
+     * Save Theme Builder settings.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function save_tb_settings( $request ) {
+        if ( ! $this->tb_ready() ) {
+            return new WP_Error(
+                'module_missing',
+                __( 'Theme Builder module is not loaded.', 'magical-addons-for-elementor' ),
+                array( 'status' => 500 )
+            );
+        }
+
+        $params = $request->get_json_params();
+        $settings = MgTB::save_settings( is_array( $params ) ? $params : array() );
+
+        return rest_ensure_response( array(
+            'success' => true,
+            'settings' => $settings,
+            'message' => __( 'Settings saved.', 'magical-addons-for-elementor' ),
+        ) );
+    }
+
+    /**
+     * Delete a Theme Builder template.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response|WP_Error
+     */
+    public function delete_tb_template( $request ) {
+        $id = $request->get_param( 'id' );
+
+        $post = get_post( $id );
+        if ( ! $post || 'elementor_library' !== $post->post_type ) {
+            return new WP_Error(
+                'not_found',
+                __( 'Template not found.', 'magical-addons-for-elementor' ),
+                array( 'status' => 404 )
+            );
+        }
+
+        $deleted = wp_delete_post( $id, true );
+        if ( ! $deleted ) {
+            return new WP_Error(
+                'delete_failed',
+                __( 'Failed to delete template.', 'magical-addons-for-elementor' ),
+                array( 'status' => 500 )
+            );
+        }
+
+        if ( $this->tb_ready() ) {
+            mg_tb()->cache->purge();
+        }
+
+        return rest_ensure_response( array(
+            'success' => true,
+            'message' => __( 'Template deleted.', 'magical-addons-for-elementor' ),
+        ) );
+    }
+
+    /**
+     * Conditions tree configuration for the admin UI.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function get_tb_conditions_config( $request ) {
+        if ( ! $this->tb_ready() ) {
+            return rest_ensure_response( array( 'groups' => array() ) );
+        }
+
+        $tree   = mg_tb()->conditions->get_tree();
+        $groups = array();
+
+        foreach ( $tree as $name => $node ) {
+            $subs = array();
+			foreach ( $node['subs'] as $sub_name => $sub ) {
+				$subs[] = array(
+					'name'       => $sub_name,
+					'label'      => $sub['label'],
+					'supportsId' => isset( $sub['supports_id'] ) ? $sub['supports_id'] : '',
+				);
+			}
+
+            $groups[] = array(
+                'name'  => $name,
+                'label' => $node['label'],
+                'subs'  => $subs,
+            );
+        }
+
+        return rest_ensure_response( array(
+            'groups'    => $groups,
+            'conflicts' => mg_tb()->conditions->get_conflicts(),
+        ) );
+    }
+
+    /**
+     * Save the display conditions of a template.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response|WP_Error
+     */
+    public function save_tb_conditions( $request ) {
+        if ( ! $this->tb_ready() ) {
+            return new WP_Error(
+                'module_missing',
+                __( 'Theme Builder module is not loaded.', 'magical-addons-for-elementor' ),
+                array( 'status' => 500 )
+            );
+        }
+
+        // Custom display conditions require Pro.
+        if ( ! MgTB::is_pro() ) {
+            return new WP_Error(
+                'pro_required',
+                __( 'Custom display conditions are available in Magical Addons Pro.', 'magical-addons-for-elementor' ),
+                array( 'status' => 403 )
+            );
+        }
+
+        $id = absint( $request->get_param( 'id' ) );
+        $post = get_post( $id );
+
+        if ( ! $post || 'elementor_library' !== $post->post_type ) {
+            return new WP_Error(
+                'not_found',
+                __( 'Template not found.', 'magical-addons-for-elementor' ),
+                array( 'status' => 404 )
+            );
+        }
+
+        $params     = $request->get_json_params();
+        $conditions = isset( $params['conditions'] ) && is_array( $params['conditions'] ) ? $params['conditions'] : array();
+
+        // Accept raw strings ("include/singular/post/12") or row objects from the UI.
+        $clean = array();
+        foreach ( $conditions as $condition ) {
+            if ( is_array( $condition ) ) {
+                $type     = ( isset( $condition['type'] ) && 'exclude' === $condition['type'] ) ? 'exclude' : 'include';
+                $name     = isset( $condition['name'] ) ? sanitize_key( $condition['name'] ) : '';
+                $sub_name = isset( $condition['subName'] ) ? sanitize_key( $condition['subName'] ) : '';
+                $sub_id   = isset( $condition['subId'] ) ? absint( $condition['subId'] ) : 0;
+
+                if ( '' === $name ) {
+                    continue;
+                }
+
+                $string = $type . '/' . $name;
+                if ( $sub_name ) {
+                    $string .= '/' . $sub_name;
+                    if ( $sub_id ) {
+                        $string .= '/' . $sub_id;
+                    }
+                }
+                $clean[] = $string;
+           	} elseif ( is_string( $condition ) ) {
+                $condition = sanitize_text_field( $condition );
+                if ( preg_match( '/^(include|exclude)\/[a-z0-9_\-]+(\/[a-z0-9_\-]+)?(\/\d+)?$/i', $condition ) ) {
+                    $clean[] = $condition;
+                }
+            }
+        }
+
+        if ( empty( $clean ) ) {
+            delete_post_meta( $id, '_elementor_conditions' );
+        } else {
+            update_post_meta( $id, '_elementor_conditions', array_values( array_unique( $clean ) ) );
+        }
+
+        mg_tb()->cache->purge();
+
+        $instances = array();
+        foreach ( $clean as $condition ) {
+            $instances[] = mg_tb()->conditions->get_condition_label( $condition );
+        }
+
+        return rest_ensure_response( array(
+            'success'    => true,
+            'conditions' => array_values( array_unique( $clean ) ),
+            'instances'  => $instances,
+            'conflicts'  => mg_tb()->conditions->get_conflicts(),
+            'message'    => __( 'Display conditions saved.', 'magical-addons-for-elementor' ),
+        ) );
+    }
+
+    /**
+     * Theme Builder status for the admin UI banner.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function get_tb_status( $request ) {
+        $status = array(
+            'elementorActive'  => did_action( 'elementor/loaded' ) > 0,
+            'elementorProTB'   => $this->tb_ready() && MgTB::is_elementor_pro_tb(),
+            'postsDisplay'     => $this->tb_ready() ? MgTB_Dependency::posts_display_status() : 'not-installed',
+            'types'            => $this->tb_ready() ? MgTB::get_types_config() : array(),
+            'counts'           => array(),
+            'settings'         => $this->tb_ready() ? MgTB::get_settings() : array( 'types' => array() ),
+            'isPro'            => $this->tb_ready() ? MgTB::is_pro() : false,
+            'proUrl'           => 'https://wpthemespace.com/product/magical-addons-pro/',
+        );
+
+        if ( $status['elementorActive'] && $this->tb_ready() ) {
+            $counts = array_fill_keys( array_keys( MgTB::get_document_types() ), 0 );
+            $posts  = get_posts( array(
+                'post_type'      => 'elementor_library',
+                'posts_per_page' => -1,
+                'post_status'    => array( 'publish', 'draft' ),
+                'fields'         => 'ids',
+                'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+                    array(
+                        'key'     => '_elementor_template_type',
+                        'value'   => array_keys( MgTB::get_document_types() ),
+                        'compare' => 'IN',
+                    ),
+                ),
+            ) );
+
+            foreach ( $posts as $post_id ) {
+                $type = get_post_meta( $post_id, '_elementor_template_type', true );
+                if ( isset( $counts[ $type ] ) ) {
+                    $counts[ $type ]++;
+                }
+            }
+
+            $status['counts'] = $counts;
+        }
+
+        return rest_ensure_response( $status );
     }
 }

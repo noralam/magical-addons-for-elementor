@@ -23,17 +23,8 @@ export function getProWidgets( state ) {
 }
 
 /**
- * Get header/footer settings
- * @param {Object} state 
- * @returns {Object}
- */
-export function getHeaderFooter( state ) {
-    return state.headerFooter;
-}
-
-/**
  * Get extra settings
- * @param {Object} state 
+ * @param {Object} state
  * @returns {Object}
  */
 export function getExtra( state ) {
@@ -42,20 +33,11 @@ export function getExtra( state ) {
 
 /**
  * Get role manager settings
- * @param {Object} state 
+ * @param {Object} state
  * @returns {Object}
  */
 export function getRoleManager( state ) {
     return state.roleManager;
-}
-
-/**
- * Get available templates
- * @param {Object} state 
- * @returns {Object}
- */
-export function getTemplates( state ) {
-    return state.templates;
 }
 
 /**

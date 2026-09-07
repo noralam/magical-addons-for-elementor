@@ -14,6 +14,13 @@ import apiFetch from '@wordpress/api-fetch';
  */
 const RECOMMENDED_PLUGINS = [
     {
+        slug: 'ai-marketing-expert',
+        name: __( 'AI Marketing Expert – AI Email Marketing, Content Generator & Automation', 'magical-addons-for-elementor' ),
+        description: __( 'All-in-one AI marketing: AI email campaigns, AI content generation, SEO analyzer, social media scheduling, AI chatbot, and workflow automation.', 'magical-addons-for-elementor' ),
+        wpUrl: 'https://wordpress.org/plugins/ai-marketing-expert/',
+        iconUrl: 'https://ps.w.org/ai-marketing-expert/assets/icon-128x128.gif?rev=3632685',
+    },
+    {
         slug: 'magical-products-display',
         name: __( 'Magical Products Display', 'magical-addons-for-elementor' ),
         description: __( 'Display WooCommerce products beautifully with multiple layouts and customization options.', 'magical-addons-for-elementor' ),

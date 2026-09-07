@@ -1907,3 +1907,1180 @@
         justify-content: center;
     }
 }
+
+/* ========================================
+   Theme Builder
+   ======================================== */
+
+.magical-admin__tb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 4px;
+}
+
+.magical-admin__tb-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--mg-border, #e2e8f0);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.magical-admin__tb-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--mg-primary, #6366f1);
+}
+
+.magical-admin__tb-card .components-card__body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.magical-admin__tb-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--mg-primary, #6366f1), #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.magical-admin__tb-card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.magical-admin__tb-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-text, #1e293b);
+    margin: 0;
+}
+
+.magical-admin__tb-card-desc {
+    font-size: 13px;
+    color: var(--mg-text-muted, #64748b);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.magical-admin__tb-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.magical-admin__tb-card-count {
+    font-size: 12px;
+    color: var(--mg-text-muted, #64748b);
+    background: var(--mg-bg-alt, #f1f5f9);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.magical-admin__tb-card-btn {
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Theme Builder Wizard Modal */
+.magical-admin__tb-wizard .components-modal__content {
+    padding: 0;
+}
+
+.magical-admin__tb-wizard-content {
+    padding: 24px 28px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.magical-admin__tb-wizard-type {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: var(--mg-bg-alt, #f1f5f9);
+    border-radius: 8px;
+}
+
+.magical-admin__tb-wizard-type-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--mg-primary, #6366f1), #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-wizard-type-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.magical-admin__tb-wizard-type h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.magical-admin__tb-wizard-type p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--mg-text-muted, #64748b);
+    line-height: 1.5;
+}
+
+.magical-admin__tb-wizard-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--mg-border, #e2e8f0);
+}
+
+@media (max-width: 768px) {
+    .magical-admin__tb-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Theme Builder: dependency banner
+   ========================================================================== */
+
+.magical-admin__tb-banner {
+    margin-bottom: 24px;
+}
+
+.magical-admin__tb-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.magical-admin__tb-banner-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.magical-admin__tb-banner-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.magical-admin__tb-banner-text strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.magical-admin__tb-banner-text p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--mg-gray-600, #475569);
+    line-height: 1.5;
+}
+
+.magical-admin__tb-banner-error {
+    color: var(--mg-error, #ef4444) !important;
+    margin-top: 4px !important;
+}
+
+/* ==========================================================================
+   Theme Builder: templates table
+   ========================================================================== */
+
+.magical-admin__tb-table-wrap {
+    margin-top: 32px;
+}
+
+.magical-admin__tb-table-title {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mg-gray-800, #1e293b);
+}
+
+.magical-admin__tb-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--mg-white, #fff);
+    border-radius: var(--mg-border-radius, 8px);
+    box-shadow: var(--mg-shadow, 0 1px 3px rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+}
+
+.magical-admin__tb-table th,
+.magical-admin__tb-table td {
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 13px;
+    border-bottom: 1px solid var(--mg-gray-200, #e2e8f0);
+    vertical-align: middle;
+}
+
+.magical-admin__tb-table th {
+    background: var(--mg-gray-50, #f8fafc);
+    font-weight: 600;
+    color: var(--mg-gray-700, #334155);
+}
+
+.magical-admin__tb-table tbody tr:hover {
+    background: var(--mg-gray-50, #f8fafc);
+}
+
+.magical-admin__tb-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.magical-admin__tb-table-title-cell a {
+    font-weight: 600;
+    color: var(--mg-gray-900, #0f172a);
+    text-decoration: none;
+}
+
+.magical-admin__tb-table-title-cell a:hover {
+    color: var(--mg-primary, #7c3aed);
+}
+
+.magical-admin__tb-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--mg-primary-light, #ede9fe);
+    color: var(--mg-primary-hover, #6d28d9);
+    white-space: nowrap;
+}
+
+.magical-admin__tb-badge.is-single-post,
+.magical-admin__tb-badge.is-single-page {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.magical-admin__tb-badge.is-archive,
+.magical-admin__tb-badge.is-search-results {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.magical-admin__tb-badge.is-error-404 {
+    background: var(--mg-error-light, #fee2e2);
+    color: #b91c1c;
+}
+
+.magical-admin__tb-status {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.magical-admin__tb-status.is-publish {
+    color: var(--mg-success, #10b981);
+}
+
+.magical-admin__tb-status.is-draft {
+    color: var(--mg-gray-400, #94a3b8);
+}
+
+.magical-admin__tb-conditions-cell {
+    max-width: 340px;
+}
+
+.magical-admin__tb-chip {
+    display: inline-block;
+    margin: 2px 4px 2px 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    background: var(--mg-gray-100, #f1f5f9);
+    color: var(--mg-gray-600, #475569);
+    border: 1px solid var(--mg-gray-200, #e2e8f0);
+}
+
+.magical-admin__tb-actions {
+    white-space: nowrap;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.magical-admin__tb-actions .components-external-link {
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   Theme Builder: conditions modal
+   ========================================================================== */
+
+.magical-admin__tb-conditions-modal {
+    width: 640px;
+    max-width: 96vw;
+}
+
+.magical-admin__tb-conditions-help {
+    margin: 0 0 16px;
+    color: var(--mg-gray-600, #475569);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.magical-admin__tb-cond-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 220px 36px;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid var(--mg-gray-200, #e2e8f0);
+    border-radius: var(--mg-border-radius, 8px);
+    margin-bottom: 8px;
+    background: var(--mg-gray-50, #f8fafc);
+}
+
+.magical-admin__tb-cond-row:not(:has(.magical-admin__tb-cond-combo)):not(:has(.magical-admin__tb-cond-id)) {
+    grid-template-columns: 120px 1fr 36px;
+}
+
+.magical-admin__tb-cond-combo .components-combobox-control__control {
+    width: 100%;
+}
+
+.magical-admin__tb-cond-remove {
+    justify-self: end;
+}
+
+.magical-admin__tb-conflict-list {
+    margin: 8px 0 0;
+    padding-left: 16px;
+}
+
+.magical-admin__tb-conditions-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--mg-gray-200, #e2e8f0);
+}
+
+.magical-admin__tb-notice {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 782px) {
+    .magical-admin__tb-cond-row,
+    .magical-admin__tb-cond-row:not(:has(.magical-admin__tb-cond-combo)):not(:has(.magical-admin__tb-cond-id)) {
+        grid-template-columns: 1fr;
+    }
+
+    .magical-admin__tb-cond-remove {
+        justify-self: start;
+    }
+
+    .magical-admin__tb-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* ===== Theme Builder: per-type sections & creation wizard ===== */
+
+.magical-admin__tb-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.magical-admin__tb-section .components-card__body {
+    padding: 16px;
+}
+
+.magical-admin__tb-section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.magical-admin__tb-section-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: var(--mg-primary-light, #eef1fd);
+    color: var(--mg-primary, #4c6ef5);
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-section-title {
+    flex: 1;
+    min-width: 0;
+}
+
+.magical-admin__tb-section-title h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.magical-admin__tb-section-count {
+    font-size: 12px;
+    color: var(--mg-text-muted, #646970);
+}
+
+.magical-admin__tb-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.magical-admin__tb-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--mg-border, #dcdcde);
+    border-radius: 8px;
+    background: #fff;
+    text-align: left;
+}
+
+.magical-admin__tb-tile.is-add {
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    border-style: dashed;
+    color: var(--mg-primary, #4c6ef5);
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+}
+
+.magical-admin__tb-tile.is-add:hover {
+    border-color: var(--mg-primary, #4c6ef5);
+    background: var(--mg-primary-light, #eef1fd);
+}
+
+.magical-admin__tb-tile-add-icon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.magical-admin__tb-tile-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.magical-admin__tb-tile-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.magical-admin__tb-tile-menu {
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-tile-conditions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 24px;
+}
+
+.magical-admin__tb-tile-warning {
+    border: 0;
+    background: none;
+    padding: 0;
+    color: #b32d2e;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.magical-admin__tb-tile-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+/* ===== Wizard ===== */
+
+/*
+ * Responsive layout-picker frame. Self-contained sizing: the scroll area
+ * carries its own max-height, so scrolling works no matter how the host
+ * WP version builds the modal's flex chain.
+ */
+.magical-admin__tb-wizard.is-layout {
+    width: min(1180px, calc(100vw - 64px));
+    max-height: min(780px, calc(100vh - 96px));
+    display: flex;
+    flex-direction: column;
+}
+
+.magical-admin__tb-wizard.is-layout .components-modal__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.magical-admin__tb-wizard.is-layout .components-modal__header-heading {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Short viewports: give up the minimum height before the frame clips */
+@media (max-height: 620px) {
+    .magical-admin__tb-wizard.is-layout {
+        height: calc(100vh - 48px);
+        min-height: 0;
+    }
+
+    .magical-admin__tb-layout-scroll {
+        max-height: 40vh;
+    }
+}
+
+.magical-admin__tb-wizard.is-step-1 {
+    width: min(860px, calc(100vw - 48px));
+    max-width: 100%;
+}
+
+.magical-admin__tb-wizard.is-step-3 {
+    width: min(600px, calc(100vw - 48px));
+    max-width: 100%;
+}
+
+.magical-admin__tb-wizard-help {
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-size: 14px;
+    color: var(--mg-text-muted, #646970);
+}
+
+.magical-admin__tb-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 4px 0 10px;
+}
+
+.magical-admin__tb-type-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    border: 1px solid var(--mg-border, #dcdcde);
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.magical-admin__tb-type-card:hover {
+    border-color: var(--mg-primary, #4c6ef5);
+    background: var(--mg-primary-light, #eef1fd);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 110, 245, 0.08);
+}
+
+.magical-admin__tb-type-card-icon {
+    color: var(--mg-primary, #4c6ef5);
+}
+
+.magical-admin__tb-type-card-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.magical-admin__tb-type-card-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--mg-text-muted, #646970);
+}
+
+/* ===== Layout picker (step 2): toolbar / scrollable grid / footer ===== */
+
+.magical-admin__tb-layout-picker {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.magical-admin__tb-layout-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 12px;
+    align-items: center;
+    padding: 4px 8px 16px;
+    border-bottom: 1px solid var(--mg-border, #dcdcde);
+    margin: 0 12px 18px;
+}
+
+.magical-admin__tb-layout-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.magical-admin__tb-layout-search svg {
+    position: absolute;
+    left: 10px;
+    color: var(--mg-text-muted, #646970);
+    pointer-events: none;
+}
+
+.magical-admin__tb-layout-search .components-text-control__input-wrap,
+.magical-admin__tb-layout-search .components-text-control__input {
+    width: 100%;
+}
+
+.magical-admin__tb-layout-search .components-text-control__input {
+    padding-left: 34px;
+}
+
+.magical-admin__tb-layout-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    /*
+     * The guaranteed scroll bound: works even when the host modal does not
+     * stretch this element, and keeps the footer visible beside the grid.
+     */
+    max-height: min(56vh, 520px);
+    overflow-y: auto;
+    padding: 2px 14px 8px 12px;
+    scrollbar-gutter: stable;
+}
+
+.magical-admin__tb-layout-grid {
+    display: grid;
+    /*
+     * Bounded tracks keep every card close to the thumbnail's aspect ratio:
+     * a leftover card on the last row stays card-sized and centered instead
+     * of stretching across the whole modal.
+     */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 330px));
+    justify-content: center;
+    gap: 18px;
+    align-content: start;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.magical-admin__tb-layout-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 10px;
+    border: 1.5px solid var(--mg-border, #dcdcde);
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 160ms ease-out, box-shadow 160ms ease-out, transform 160ms ease-out;
+}
+
+.magical-admin__tb-layout-card:hover {
+    border-color: var(--mg-primary, #4c6ef5);
+    box-shadow: 0 4px 14px rgba(24, 34, 62, 0.1);
+    transform: translateY(-2px);
+}
+
+.magical-admin__tb-layout-card:focus-visible,
+.magical-admin__tb-layout-card.is-selected:focus-visible {
+    outline: 2px solid var(--mg-primary, #4c6ef5);
+    outline-offset: 2px;
+}
+
+.magical-admin__tb-layout-card.is-selected {
+    border-color: var(--mg-primary, #4c6ef5);
+    box-shadow: 0 4px 16px rgba(76, 110, 245, 0.18);
+}
+
+.magical-admin__tb-layout-card.is-custom .magical-admin__tb-layout-thumb-svg {
+    background: #f6f7f9;
+}
+
+.magical-admin__tb-layout-thumb {
+    position: relative;
+    display: block;
+    border: 1px solid #eceef1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fbfcfd;
+}
+
+.magical-admin__tb-layout-thumb.is-small {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-layout-thumb-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fbfcfd;
+}
+
+.magical-admin__tb-layout-check {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--mg-primary, #4c6ef5);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(24, 34, 62, 0.28);
+}
+
+.magical-admin__tb-layout-name {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--mg-text, #1e1e1e);
+}
+
+.magical-admin__tb-layout-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--mg-text-muted, #646970);
+}
+
+.magical-admin__tb-layout-empty {
+    grid-column: 1 / -1;
+    max-width: 46ch;
+    margin: 0 auto;
+    text-align: center;
+    padding: 64px 24px;
+    color: var(--mg-text-muted, #646970);
+}
+
+.magical-admin__tb-layout-empty strong {
+    display: block;
+    font-size: 14px;
+    color: var(--mg-text, #1e1e1e);
+    margin-bottom: 6px;
+}
+
+/* Skeleton loading cards */
+.magical-admin__tb-layout-card.is-skeleton {
+    pointer-events: none;
+    gap: 10px;
+}
+
+.magical-admin__tb-skeleton-thumb,
+.magical-admin__tb-skeleton-line {
+    display: block;
+    background: #eceef1;
+    border-radius: 6px;
+    animation: mg-tb-skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.magical-admin__tb-skeleton-thumb {
+    height: 136px;
+    border-radius: 8px;
+}
+
+.magical-admin__tb-skeleton-line {
+    height: 12px;
+}
+
+.magical-admin__tb-skeleton-line.is-title {
+    width: 62%;
+}
+
+.magical-admin__tb-skeleton-line.is-short {
+    width: 84%;
+}
+
+.magical-admin__tb-layout-card.is-skeleton .magical-admin__tb-skeleton-thumb,
+.magical-admin__tb-layout-card.is-skeleton .magical-admin__tb-skeleton-line:nth-child(4) {
+    animation-delay: 0.18s;
+}
+
+.magical-admin__tb-layout-card.is-skeleton .magical-admin__tb-skeleton-line:nth-child(3) {
+    animation-delay: 0.32s;
+}
+
+@keyframes mg-tb-skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .magical-admin__tb-layout-card,
+    .magical-admin__tb-skeleton-thumb,
+    .magical-admin__tb-skeleton-line {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Footer: hint left, actions bottom-right */
+.magical-admin__tb-layout-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 8px 24px;
+    border-top: 1px solid var(--mg-border, #dcdcde);
+    margin: 4px 12px 0;
+}
+
+.magical-admin__tb-layout-footer-hint {
+    flex: 1;
+    min-width: 0;
+    font-size: 12.5px;
+    color: var(--mg-text-muted, #646970);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.magical-admin__tb-layout-footer-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-wizard-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--mg-border, #dcdcde);
+}
+
+.magical-admin__tb-wizard-actions > :last-child {
+    margin-left: auto;
+}
+
+.magical-admin__tb-wizard-actions .magical-admin__tb-wizard-actions-right {
+    display: flex;
+    gap: 8px;
+}
+
+/* ===== Step 3 ===== */
+
+.magical-admin__tb-wizard-selected {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--mg-border, #dcdcde);
+    border-radius: 8px;
+    background: #f9fafb;
+    margin-bottom: 16px;
+}
+
+.magical-admin__tb-wizard-selected p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--mg-text-muted, #646970);
+}
+
+.magical-admin__tb-wizard-content .components-select-control,
+.magical-admin__tb-wizard-content .components-text-control {
+    margin-bottom: 14px;
+}
+
+.magical-admin__tb-wizard-notice {
+    margin: 4px 0 0;
+}
+
+@media (max-width: 900px) {
+    .magical-admin__tb-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .magical-admin__tb-layout-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .magical-admin__tb-layout-footer {
+        flex-wrap: wrap;
+    }
+
+    .magical-admin__tb-layout-footer-hint {
+        flex-basis: 100%;
+        white-space: normal;
+    }
+}
+
+/* WP admin mobile breakpoint */
+@media (max-width: 782px) {
+    .magical-admin__tb-wizard.is-layout {
+        width: calc(100vw - 24px);
+        height: calc(100dvh - 64px);
+        min-height: 420px;
+    }
+
+    .magical-admin__tb-layout-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
+        gap: 14px;
+    }
+
+    .magical-admin__tb-layout-scroll {
+        /* stacked toolbar + wrapped footer eat more chrome on phones */
+        max-height: calc(100dvh - 380px);
+    }
+}
+
+@media (max-width: 480px) {
+    .magical-admin__tb-layout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .magical-admin__tb-layout-footer-hint {
+        display: none;
+    }
+
+    .magical-admin__tb-layout-footer-actions {
+        flex: 1;
+        justify-content: stretch;
+    }
+
+    .magical-admin__tb-layout-footer-actions .components-button {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   Theme Builder: Pro Upgrade & MPD Modal Styles
+   ========================================================================== */
+
+.magical-admin__tb-tile.is-add.is-pro-locked {
+    border-color: #f59e0b;
+    color: #d97706;
+    background: #fffbeb;
+}
+
+.magical-admin__tb-tile.is-add.is-pro-locked:hover {
+    border-color: #d97706;
+    background: #fef3c7;
+}
+
+.magical-admin__tb-pro-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.magical-admin__tb-type-card.is-locked {
+    border-color: #fcd34d;
+    background: #fffdf5;
+}
+
+.magical-admin__tb-type-card.is-locked:hover {
+    border-color: #f59e0b;
+    background: #fef3c7;
+}
+
+.magical-admin__tb-pro-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.magical-admin__tb-upgrade-modal {
+    width: 520px;
+    max-width: 95vw;
+}
+
+.magical-admin__tb-upgrade-content {
+    text-align: center;
+    padding: 8px 4px 16px;
+}
+
+.magical-admin__tb-upgrade-icon {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.magical-admin__tb-upgrade-body {
+    text-align: left;
+    margin: 16px 0 24px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.magical-admin__tb-upgrade-body p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.magical-admin__tb-upgrade-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.magical-admin__tb-upgrade-features li {
+    font-size: 13px;
+    color: #1e293b;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.magical-admin__tb-upgrade-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.magical-admin__tb-upgrade-btn.components-button {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    height: auto;
+    text-decoration: none;
+}
+
+.magical-admin__tb-upgrade-btn.components-button:hover {
+    background: linear-gradient(135deg, #4338ca, #6d28d9);
+    color: #fff;
+}
+
+/* MPD Modal */
+.magical-admin__tb-mpd-modal {
+    width: 540px;
+    max-width: 95vw;
+}
+
+.magical-admin__tb-mpd-modal-content {
+    text-align: center;
+    padding: 4px;
+}
+
+.magical-admin__tb-mpd-modal-icon {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.magical-admin__tb-mpd-modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #1e293b;
+}
+
+.magical-admin__tb-mpd-modal-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 16px;
+    text-align: left;
+}
+
+.magical-admin__tb-mpd-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 0 0 20px;
+    text-align: left;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.magical-admin__tb-mpd-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #334155;
+}
+
+.magical-admin__tb-mpd-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #10b981;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.magical-admin__tb-mpd-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+

@@ -1,0 +1,80 @@
+/**
+ * Magical Theme Builder shared styles (admin notices + Elementor editor bar).
+ *
+ * @package MagicalAddons
+ */
+
+/* Admin dependency notice */
+.mgtb-notice .button {
+	margin-top: 4px;
+}
+
+/* Frontend location wrappers */
+.mgtb-site-main {
+	width: 100%;
+}
+
+/* Elementor editor integration bar */
+.mgtb-editor-bar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 99999;
+	margin-top: 4px;
+	padding: 6px 14px;
+	border-radius: 6px;
+	background: #4f1fa9;
+	color: #fff;
+	font-size: 12px;
+	line-height: 1.4;
+	box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+	white-space: nowrap;
+}
+
+.mgtb-editor-bar-icon {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	line-height: 1;
+}
+
+.mgtb-editor-bar-text {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.mgtb-editor-bar-link,
+.mgtb-editor-bar-link:visited {
+	color: #c4b5fd;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.mgtb-editor-bar-link:hover {
+	color: #fff;
+}
+
+.mgtb-editor-bar-cta.components-button,
+.mgtb-editor-bar .components-button.is-primary {
+	background: #fff;
+	color: #4f1fa9;
+	border: none;
+	border-radius: 4px;
+	padding: 3px 10px;
+	font-size: 11px;
+	line-height: 1.6;
+	cursor: pointer;
+	height: auto;
+}
+
+.mgtb-editor-bar-cta.components-button:hover {
+	background: #ede9fe;
+}
+
+.mgtb-editor-bar-cta.components-button:disabled {
+	opacity: 0.7;
+	cursor: default;
+}

@@ -53,16 +53,6 @@ const controls = {
     },
 
     /**
-     * Fetch templates from REST API
-     */
-    FETCH_TEMPLATES() {
-        return apiFetch( {
-            path: `/${ API_NAMESPACE }/templates`,
-            method: 'GET',
-        } );
-    },
-
-    /**
      * Save role manager settings
      * @param {Object} action - Action object containing roleManager data
      */

@@ -1,0 +1,105 @@
+[
+  {
+    "id": "auto_034",
+    "settings": {
+      "content_width": "boxed",
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": false,
+        "unit": "px",
+        "size": 0
+      },
+      "padding": {
+        "unit": "px",
+        "top": "48",
+        "right": "24",
+        "bottom": "48",
+        "left": "24",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "#f6f7f9"
+    },
+    "elements": [
+      {
+        "id": "auto_033",
+        "settings": {
+          "flex_direction": "column",
+          "align_items": "center",
+          "flex_gap": {
+            "column": "14",
+            "row": "14",
+            "isLinked": true,
+            "unit": "px",
+            "size": 14
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_026",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgsite_logo",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_027",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgtb-site-tagline",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_032",
+            "settings": {
+              "social_icon_list": [
+                {
+                  "social_icon": {
+                    "value": "fab fa-facebook-f",
+                    "library": "fa-brands"
+                  },
+                  "_id": "auto_028"
+                },
+                {
+                  "social_icon": {
+                    "value": "fab fa-twitter",
+                    "library": "fa-brands"
+                  },
+                  "_id": "auto_029"
+                },
+                {
+                  "social_icon": {
+                    "value": "fab fa-instagram",
+                    "library": "fa-brands"
+                  },
+                  "_id": "auto_030"
+                },
+                {
+                  "social_icon": {
+                    "value": "fab fa-linkedin-in",
+                    "library": "fa-brands"
+                  },
+                  "_id": "auto_031"
+                }
+              ],
+              "shape": "rounded",
+              "align": "center"
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "social-icons",
+            "elType": "widget"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

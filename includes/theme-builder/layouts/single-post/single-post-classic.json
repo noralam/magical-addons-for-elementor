@@ -1,0 +1,170 @@
+[
+  {
+    "id": "auto_072",
+    "settings": {
+      "content_width": "boxed",
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": false,
+        "unit": "px",
+        "size": 0
+      },
+      "padding": {
+        "unit": "px",
+        "top": "56",
+        "right": "24",
+        "bottom": "56",
+        "left": "24",
+        "isLinked": false
+      }
+    },
+    "elements": [
+      {
+        "id": "auto_071",
+        "settings": {
+          "flex_direction": "column",
+          "flex_gap": {
+            "column": "24",
+            "row": "24",
+            "isLinked": true,
+            "unit": "px",
+            "size": 24
+          }
+        },
+        "elements": [
+          {
+            "id": "auto_064",
+            "settings": {
+              "html_tag": "h1",
+              "link_to_post": "no",
+              "title_typography_typography": "custom",
+              "title_typography_font_size": {
+                "unit": "px",
+                "size": 40,
+                "sizes": []
+              },
+              "title_typography_font_size_tablet": {
+                "unit": "px",
+                "size": 32,
+                "sizes": []
+              },
+              "title_typography_font_size_mobile": {
+                "unit": "px",
+                "size": 26,
+                "sizes": []
+              },
+              "title_typography_font_weight": "700",
+              "title_typography_line_height": {
+                "unit": "em",
+                "size": 1.2,
+                "sizes": []
+              }
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgpd-theme-post-title",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_065",
+            "settings": {
+              "separator": "·",
+              "meta_typography_typography": "custom",
+              "meta_typography_font_size": {
+                "unit": "px",
+                "size": 14,
+                "sizes": []
+              },
+              "meta_typography_line_height": {
+                "unit": "em",
+                "size": 1.6,
+                "sizes": []
+              }
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgpd-theme-post-meta",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_066",
+            "settings": {
+              "link_to_post": "no",
+              "image_size": "full"
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgpd-theme-featured-image",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_067",
+            "settings": {
+              "color": "#e8ebf1",
+              "weight": {
+                "unit": "px",
+                "size": 1,
+                "sizes": []
+              },
+              "width": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              },
+              "style": "solid",
+              "gap": 18
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "divider",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_068",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgpd-theme-post-content",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_069",
+            "settings": {
+              "color": "#e8ebf1",
+              "weight": {
+                "unit": "px",
+                "size": 1,
+                "sizes": []
+              },
+              "width": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              },
+              "style": "solid",
+              "gap": 18
+            },
+            "elements": [],
+            "isInner": false,
+            "widgetType": "divider",
+            "elType": "widget"
+          },
+          {
+            "id": "auto_070",
+            "settings": {},
+            "elements": [],
+            "isInner": false,
+            "widgetType": "mgpd-theme-post-navigation",
+            "elType": "widget"
+          }
+        ],
+        "isInner": true,
+        "elType": "container"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

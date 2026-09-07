@@ -1,0 +1,21 @@
+[
+  {
+    "id": "auto_129",
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column"
+    },
+    "elements": [
+      {
+        "id": "auto_128",
+        "settings": {},
+        "elements": [],
+        "isInner": false,
+        "widgetType": "mgpd-theme-post-content",
+        "elType": "widget"
+      }
+    ],
+    "isInner": false,
+    "elType": "container"
+  }
+]

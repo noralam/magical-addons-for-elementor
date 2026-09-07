@@ -53,10 +53,6 @@ if (!class_exists('mgAdmin_Info_Items')) :
                     'title' => __('Pro Widgets', 'magical-addons-for-elementor')
                 ),
                 array(
-                    'id'    => 'magical_headerfooter',
-                    'title' => __('Header & Footer', 'magical-addons-for-elementor')
-                ),
-                array(
                     'id'    => 'magical_extra',
                     'title' => __('Extra', 'magical-addons-for-elementor')
                 )
@@ -519,23 +515,6 @@ if (!class_exists('mgAdmin_Info_Items')) :
                         'class' => 'mgaddons_checkbox',
                     ),
 
-                ),
-                'magical_headerfooter' => array(
-
-                    array(
-                        'name'  => 'mg_header_template',
-                        'label'  => __('Select Header Template', 'magical-addons-for-elementor'),
-                        'desc'  => magical_el_template_list_desc('Header Template?', 'https://www.youtube.com/watch?v=qOCqMaPNads'),
-                        'type'       => 'select',
-                        'options'    => mg_elementor_template_list(__('Default Theme Header', 'magical-addons-for-elementor')),
-                    ),
-                    array(
-                        'name'  => 'mg_footer_template',
-                        'label'  => __('Select Footer Template', 'magical-addons-for-elementor'),
-                        'desc'  =>  magical_el_template_list_desc('Footer Template?', 'https://www.youtube.com/watch?v=qOCqMaPNads&t=153s'),
-                        'type'       => 'select',
-                        'options'    => mg_elementor_template_list(__('Default Theme Footer', 'magical-addons-for-elementor')),
-                    ),
                 ),
                 'magical_extra' => array(
                     array(
