@@ -64,6 +64,12 @@ Magical Addons for Elementor lets you build modern WordPress websites without co
 
 ## Changelog
 
+### 1.5.1
+- **Fixed:** Elementor editor loading hang caused by accordion hook initialization timing (TypeError: Cannot read properties of undefined reading 'addAction')
+- **Fixed:** Prevented blocking remote API timeout on init during local development
+- **Updated:** Added defensive safeguards for elementorFrontend.hooks across widget and conditional display scripts
+- **Performance:** Optimized cloud library activation and template loading
+
 ### 1.5.0
 - **Added:** 100% Free Complete Theme Builder — design headers, footers, single post/page, archive, search results, and 404 templates
 - **Added:** Smart Display Conditions engine with Include/Exclude rules (Entire Site, Singular, Archives, specific pages/posts)
