@@ -31,7 +31,7 @@
     
     // Also run when Elementor frontend is initialized (for editor preview)
     $(window).on('elementor/frontend/init', function() {
-        if (typeof elementorFrontend !== 'undefined') {
+        if (typeof elementorFrontend !== 'undefined' && elementorFrontend.hooks && typeof elementorFrontend.hooks.addAction === 'function') {
             elementorFrontend.hooks.addAction('frontend/element_ready/global', function() {
                 processConditionalNotices();
             });
