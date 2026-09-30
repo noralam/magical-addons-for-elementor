@@ -171,7 +171,7 @@ final class Magical_Addons_Elementor
 	public function define_main()
 	{
 		if (!defined('MAGICAL_ADDON_VERSION')) {
-			define('MAGICAL_ADDON_VERSION', (defined('WP_DEBUG') && WP_DEBUG) ? time() : self::VERSION);
+			define('MAGICAL_ADDON_VERSION', self::VERSION);
 		}
 
 		if (!defined('MAGICAL_ADDON_URL')) {
